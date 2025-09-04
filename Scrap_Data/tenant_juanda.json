@@ -1,29 +1,33 @@
 [
   {
+    "id": 1,
     "nama": "ROTI O & BEARD PAPA'S",
     "tipe": "Food & Beverage",
     "lokasi": "BOARDING LOUNGE LANTAI 2 ( GATE 8 ) T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_GEi91920230727163803.jpg",
     "rating": 3.9,
-    "total_reviews": 0
+    "total_reviews": 95
   },
   {
+    "id": 2,
     "nama": "LA CAFE",
     "tipe": "Food & Beverage",
     "lokasi": "BOARDING LOUNGE LANTAI 2 ( GATE 9 ) T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_H7yPcv20230727161649.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 3.7,
+    "total_reviews": 218
   },
   {
+    "id": 3,
     "nama": "BOGAJAYA",
     "tipe": "Retail",
     "lokasi": "BOARDING LOUNGE LANTAI 2 ( GATE 7 ) T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_p2k4PC20230727160624.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 3.8,
+    "total_reviews": 51
   },
   {
+    "id": 4,
     "nama": "A & W",
     "tipe": "Food & Beverage",
     "lokasi": "BOARDING LOUNGE LANTAI 2 ( GATE 11 ) T1",
@@ -32,6 +36,7 @@
     "total_reviews": 0
   },
   {
+    "id": 5,
     "nama": "MIXUE",
     "tipe": "Food & Beverage",
     "lokasi": "CENTRAL LOBBY T1",
@@ -40,62 +45,70 @@
     "total_reviews": 0
   },
   {
+    "id": 6,
     "nama": "ALFA EXPRESS",
     "tipe": "Retail",
     "lokasi": "LOBBY ARRIVAL T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_q0Sehb20230721111223.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 3.8,
+    "total_reviews": 40
   },
   {
+    "id": 7,
     "nama": "ALFA EXPRESS",
     "tipe": "Retail",
     "lokasi": "LOBBY DEPARTURE T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_g6ZGlZ20230721104811.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 4.5,
+    "total_reviews": 4
   },
   {
+    "id": 8,
     "nama": "BOGAJAYA",
     "tipe": "Retail",
     "lokasi": "LOBBY DEPARTURE T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_8FbJ4M20230721102309.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 3.8,
+    "total_reviews": 51
   },
   {
+    "id": 9,
     "nama": "JAVA CAFE",
     "tipe": "Food & Beverage",
     "lokasi": "CENTRAL LOBBY T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_wrCXXD20230721095559.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 4.1,
+    "total_reviews": 346
   },
   {
+    "id": 10,
     "nama": "A & W",
     "tipe": "Food & Beverage",
     "lokasi": "CENTRAL LOBBY T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_2qncni20230721094556.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 4.2,
+    "total_reviews": 2819
   },
   {
+    "id": 11,
     "nama": "ROTI O",
     "tipe": "Food & Beverage",
     "lokasi": "CENTRAL LOBBY T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_KKfr8Y20230721093109.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 4.1,
+    "total_reviews": 3
   },
   {
+    "id": 12,
     "nama": "PASTRY STATION",
     "tipe": "Food & Beverage",
     "lokasi": "LOBBY ARRIVAL T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_0ZEcT920230721090541.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 5,
+    "total_reviews": 1
   },
   {
+    "id": 13,
     "nama": "DANTE",
     "tipe": "Food & Beverage",
     "lokasi": "LOBBY DEPARTURE T1",
@@ -104,70 +117,79 @@
     "total_reviews": 0
   },
   {
+    "id": 14,
     "nama": "DUNKIN DONUT",
     "tipe": "Food & Beverage",
     "lokasi": "LOBBY DEPARTURE T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_4tJHHm20230718155138.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 4.1,
+    "total_reviews": 78
   },
   {
+    "id": 15,
     "nama": "SOERABAJA CAFE",
     "tipe": "Food & Beverage",
     "lokasi": "CENTRAL LOBBY T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_0Hcm4N20230718143209.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 3.7,
+    "total_reviews": 110
   },
   {
+    "id": 16,
     "nama": "ROTI BOY",
     "tipe": "Food & Beverage",
     "lokasi": "LOBBY ARRIVAL T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_lCMaGV20230718141350.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 4.3,
+    "total_reviews": 79
   },
   {
+    "id": 17,
     "nama": "DOUGH LAB",
     "tipe": "Food & Beverage",
     "lokasi": "BOARDING LOUNGE LANTAI 2 ( GATE 6 ) T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_xUonvx20230717163547.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 4.6,
+    "total_reviews": 222
   },
   {
+    "id": 18,
     "nama": "BAKSO AFUNG",
     "tipe": "Food & Beverage",
     "lokasi": "BOARDING LOUNGE LANTAI 2 ( GATE 8 ) T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_leIc2g20230717140341.jpg",
     "rating": 3.7,
-    "total_reviews": 0
+    "total_reviews": 17
   },
   {
+    "id": 19,
     "nama": "TROWULAN LOUNGE",
     "tipe": "Lounge",
     "lokasi": "BOARDING LOUNGE LANTAI 2 T2",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_HyTD2m20230714091836.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 3,
+    "total_reviews": 2
   },
   {
+    "id": 20,
     "nama": "BAKSO PAK DJO",
     "tipe": "Food & Beverage",
     "lokasi": "BOARDING LOUNGE LANTAI 2 ( GATE 11 ) T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_j3IBVV20230711123838.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 3.8,
+    "total_reviews": 31
   },
   {
+    "id": 21,
     "nama": "Sandang Pangan",
     "tipe": "Retail",
     "lokasi": "LOBBY DEPARTURE T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_uiiJCN20230711110137.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 5.0,
+    "total_reviews": 1
   },
   {
+    "id": 22,
     "nama": "THE FOOT",
     "tipe": "Services",
     "lokasi": "BOARDING LOUNGE LANTAI 2 ( GATE 7 ) T1",
@@ -176,46 +198,43 @@
     "total_reviews": 0
   },
   {
+    "id": 23,
     "nama": "BATIK KERIS",
     "tipe": "Retail",
     "lokasi": "BOARDING LOUNGE LANTAI 2 ( GATE 7 ) T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_zNLFOB20230706165925.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 4.8,
+    "total_reviews": 5
   },
   {
-    "nama": "KIMIA FARMA",
-    "tipe": "Retail",
-    "lokasi": "CENTRAL LOBBY T1",
-    "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_Tymr9U20230705165500.jpg",
-    "rating": null,
-    "total_reviews": 0
-  },
-  {
+    "id": 25,
     "nama": "Chez Choux",
     "tipe": "Food & Beverage",
     "lokasi": "LOBBY DEPARTURE T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_mCZJVl20230705160547.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 4.7,
+    "total_reviews": 3
   },
   {
+    "id": 26,
     "nama": "Majapahit Lounge",
     "tipe": "Lounge",
     "lokasi": "BOARDING LOUNGE LANTAI 2 ( GATE 13 ) T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_8TNF9Z20230526094051.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 4.8,
+    "total_reviews": 92
   },
   {
+    "id": 27,
     "nama": "Warkop Sedati",
     "tipe": "Food & Beverage",
-    "lokasi": "BOARDING LOUNGE LANTAI 2 ( GATE 15 ) T1",
+    "lokasi": "T2",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_xHyxJy20230526090150.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 3.6,
+    "total_reviews": 13
   },
   {
+    "id": 28,
     "nama": "PLANET GOODS",
     "tipe": "Retail",
     "lokasi": "BOARDING LOUNGE LANTAI 2 ( GATE 9 ) T1",
@@ -224,131 +243,165 @@
     "total_reviews": 0
   },
   {
+    "id": 29,
     "nama": "DONUT KING",
     "tipe": "Food & Beverage",
     "lokasi": "BOARDING LOUNGE LANTAI 2 ( GATE 11 ) T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_aQAKlC20230524133153.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 4.2,
+    "total_reviews": 10
   },
   {
+    "id": 30,
     "nama": "Concordia Blue Sky Internasional Lounge",
     "tipe": "Lounge",
     "lokasi": "DEPARTURE INTERNATIONAL T2",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_yBfO8F20170510153036.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 4.5,
+    "total_reviews": 173
   },
   {
+    "id": 31,
     "nama": "RESTAURANT BANGKALAN",
     "tipe": "Food & Beverage",
     "lokasi": "CENTRAL LOBBY T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_TEMWtb20230526091705.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 3.5,
+    "total_reviews": 210
   },
   {
+    "id": 32,
     "nama": "BON BON VOYAGE",
     "tipe": "Retail",
     "lokasi": "PUBLIC T2",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_uBWuNu20170323054505.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 4.8,
+    "total_reviews": 8
   },
   {
+    "id": 33,
     "nama": "SOTO BANGKALAN TOHIR",
     "tipe": "Food & Beverage",
     "lokasi": "CENTRAL LOBBY T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_vB3f6O20230526090823.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 4.0,
+    "total_reviews": 2
   },
   {
+    "id": 34,
     "nama": "Bangi Cafe",
     "tipe": "Food & Beverage",
     "lokasi": "BOARDING LOUNGE LANTAI 2 ( GATE 12-13 ) T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_D5bTT220230510124633.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 3.1,
+    "total_reviews": 91
   },
   {
+    "id": 35,
     "nama": "Bebek Goreng Harissa",
     "tipe": "Food & Beverage",
     "lokasi": "BOARDING LOUNGE LANTAI 2 ( GATE 8 ) T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_G4DaMB20230510124122.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 4.0,
+    "total_reviews": 85
   },
   {
+    "id": 36,
     "nama": "Gloria Jean's Coffees",
     "tipe": "Food & Beverage",
     "lokasi": "BOARDING LOUNGE LANTAI 2 ( GATE 8 ) T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_2H3oma20230510123610.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 4.0,
+    "total_reviews": 203
   },
   {
+    "id": 37,
     "nama": "Circle K",
     "tipe": "Retail",
     "lokasi": "BOARDING LOUNGE LANTAI 2 ( GATE 12-13 ) T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_2Urz1820230522120858.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 3.7,
+    "total_reviews": 14
   },
   {
+    "id": 38,
     "nama": "Total Baggage Solutions Angkasa Pura Logistic",
     "tipe": "Services",
     "lokasi": "DEPARTURE INTERNATIONAL T2",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_cucQw920170322165317.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 4.4,
+    "total_reviews": 124
   },
   {
-    "nama": "Ayu Indah - Taxi - Travel",
+    "id": 39,
+    "nama": "Ayu Indah",
     "tipe": "Services",
     "lokasi": "PUBLIC T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_8W34SR20170322171319.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 1.3,
+    "total_reviews": 24
   },
   {
+    "id": 40,
     "nama": "Prima Trans",
     "tipe": "Services",
     "lokasi": "PUBLIC T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_o2EoSW20170322171819.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 3.8,
+    "total_reviews": 32
   },
   {
+    "id": 41,
     "nama": "ROTI O",
     "tipe": "Food & Beverage",
     "lokasi": "BOARDING LOUNGE LANTAI 2 ( GATE 11 ) T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_CMMvYZ20230510125742.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 3.7,
+    "total_reviews": 163
   },
   {
+    "id": 42,
     "nama": "Money Changer",
     "tipe": "Services",
     "lokasi": "ARRIVAL DOMESTIK T2",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_SME4eq20170322084649.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 2.2,
+    "total_reviews": 10
   },
   {
+    "id": 43,
     "nama": "Periplus Bookindo",
     "tipe": "Retail",
     "lokasi": "BOARDING LOUNGE LANTAI 2 ( GATE 7 ) T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_Uhp20720230522121415.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 4.5,
+    "total_reviews": 53
   },
   {
+    "id": 44,
     "nama": "Starbucks",
     "tipe": "Food & Beverage",
     "lokasi": "BOARDING LOUNGE LANTAI 2 ( GATE 12 ) T1",
     "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_Lv1eVT20230510122854.jpg",
-    "rating": null,
-    "total_reviews": 0
+    "rating": 4.5,
+    "total_reviews": 178
+  },
+  {
+    "id": 39,
+    "nama": "Taxi",
+    "tipe": "Services",
+    "lokasi": "PUBLIC T1",
+    "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_8W34SR20170322171319.jpg",
+    "rating": 4.2,
+    "total_reviews": 28
+  },
+  {
+    "id": 39,
+    "nama": "Travel",
+    "tipe": "Services",
+    "lokasi": "PUBLIC T1",
+    "img": "https://juanda-airport.com/frontend/uploads/defaults/thumbnails/thumbnail_8W34SR20170322171319.jpg",
+    "rating": 4.5,
+    "total_reviews": 43
   }
 ]
