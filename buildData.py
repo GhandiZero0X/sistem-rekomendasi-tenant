@@ -41,6 +41,7 @@ print(f"\n✅ Data telah disimpan ke '{json_output_file}'")
 # menambahkan kolom untuk file json ini rating, total_review, penjualan dan masukkan ke dalam file json 'processed_tenant_data.json'
 data['rating'] = None
 data['total_review'] = None
+data['rentang_harga'] = None
 data['penjualan'] = None
 data.to_json(json_output_file, orient='records', force_ascii=False, indent=4)
 print(f"\n✅ Data telah disimpan ke '{json_output_file}' dengan kolom tambahan")
