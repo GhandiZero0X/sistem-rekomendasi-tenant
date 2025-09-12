@@ -311,12 +311,12 @@
     },
     {
         "id":32,
-        "nama_brand":"Kedai JM",
+        "nama_brand":"Kedai MJ",
         "jenis_usaha":"Food & Beverage",
         "lokasi":"Departure Lobby Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
+        "rating":2.8,
+        "total_review":12.0,
+        "rentang_harga":"sedang",
         "penjualan":null
     },
     {
@@ -946,7 +946,7 @@
         "lokasi":"Boarding Lounge Terminal 2",
         "rating":4.8,
         "total_review":8.0,
-        "rentang_harga":null,
+        "rentang_harga":"sedang",
         "penjualan":null
     },
     {
@@ -1006,7 +1006,7 @@
         "lokasi":"Boarding Lounge Terminal 2",
         "rating":3.7,
         "total_review":9.0,
-        "rentang_harga":null,
+        "rentang_harga":"sedang",
         "penjualan":null
     },
     {
@@ -1016,7 +1016,57 @@
         "lokasi":"Boarding Lounge Terminal 2",
         "rating":4.8,
         "total_review":157.0,
-        "rentang_harga":null,
+        "rentang_harga":"mahal",
+        "penjualan":null
+    },
+    {
+        "id":103,
+        "nama_brand":"Singosari Lounge",
+        "jenis_usaha":"Lounge",
+        "lokasi":"Boarding Lounge Terminal 1",
+        "rating":4.1,
+        "total_review":645,
+        "rentang_harga":"mahal",
+        "penjualan":null
+    },
+    {
+        "id":104,
+        "nama_brand":"Graha Amukti Praja Juanda",
+        "jenis_usaha":"Lounge",
+        "lokasi":"Departure Lobby Terminal 1",
+        "rating":4.8,
+        "total_review":157.0,
+        "rentang_harga":"mahal",
+        "penjualan":null
+    },
+    {
+        "id":105,
+        "nama_brand":"Kantin International Juanda",
+        "jenis_usaha":"Food & Beverage",
+        "lokasi":"Departure Lobby Terminal 1",
+        "rating":4.5,
+        "total_review":30,
+        "rentang_harga":"sedang",
+        "penjualan":null
+    },
+    {
+        "id":106,
+        "nama_brand":"Trowulan",
+        "jenis_usaha":"Lounge",
+        "lokasi":"Departure Lobby Terminal 1",
+        "rating":4.4,
+        "total_review":135,
+        "rentang_harga":"mahal",
+        "penjualan":null
+    },
+    {
+        "id":107,
+        "nama_brand":"Donut King Juanda",
+        "jenis_usaha":"Food & Beverage",
+        "lokasi":"Boarding Lounge Terminal 1",
+        "rating":4.2,
+        "total_review":10.0,
+        "rentang_harga":"sedang",
         "penjualan":null
     }
 ]
