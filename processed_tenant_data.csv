@@ -1,0 +1,164 @@
+id,nama_brand,jenis_usaha,lokasi
+1,Beard Papa's,Event & Promotion,Arrival Lobby Terminal 1
+2,Chez Choux,Event & Promotion,Arrival Lobby Terminal 1
+3,APL,Event & Promotion,Central Lobby Terminal 1
+4,SBA,Event & Promotion,Check In Terminal 1
+5,Periplus,Event & Promotion,Boarding Lounge Terminal 1
+6,Doughlab,Event & Promotion,Boarding Lounge Terminal 1
+7,Polo,Event & Promotion,Boarding Lounge Terminal 1
+8,Beard Papa's,Event & Promotion,Boarding Lounge Terminal 1
+9,Chez Choux,Event & Promotion,Boarding Lounge Terminal 1
+10,Polo Leather,Event & Promotion,Boarding Lounge Terminal 1
+11,Perfect Relax,Event & Promotion,Boarding Lounge Terminal 1
+12,Blue Sky Lounge,Event & Promotion,Boarding Lounge Terminal 1
+13,A&W,Food & Beverage,Arrival Lobby B Terminal 1
+14,Bakmi Gocit,Food & Beverage,Arrival Lobby B Terminal 1
+15,Pastry Station,Food & Beverage,Arrival Lobby B Terminal 1
+16,LA Café,Food & Beverage,Arrival Lobby B Terminal 1
+17,Roti O,Food & Beverage,Arrival Lobby B Terminal 1
+18,Roti Boy,Food & Beverage,Arrival Lobby B Terminal 1
+19,Beard Papa's,Food & Beverage,Arrival Lobby B Terminal 1
+20,Soto Bangkalan,Food & Beverage,Central Lobby Terminal 1
+21,Solaria,Food & Beverage,Central Lobby Terminal 1
+22,Roti O,Food & Beverage,Central Lobby Terminal 1
+23,Soerabaja Café,Food & Beverage,Central Lobby Terminal 1
+24,A&W,Food & Beverage,Central Lobby Terminal 1
+25,Java Café,Food & Beverage,Central Lobby Terminal 1
+26,Restaurant Bangkalan,Food & Beverage,Central Lobby Terminal 1
+27,Dunkin Donut,Food & Beverage,Departure Lobby Terminal 1
+28,Cerita Roti,Food & Beverage,Departure Lobby Terminal 1
+29,Chez Choux,Food & Beverage,Departure Lobby Terminal 1
+30,Dante,Food & Beverage,Departure Lobby Terminal 1
+31,Le Petit Jema,Food & Beverage,Departure Lobby Terminal 1
+32,Papan Dahar,Food & Beverage,Departure Lobby Terminal 1
+33,Coffee O,Food & Beverage,Departure Lobby Terminal 1
+34,Kedai MJ,Food & Beverage,Departure Lobby Terminal 1
+35,Roti O,Food & Beverage,Departure Lobby Terminal 1
+36,Expat,Food & Beverage,Departure Lobby Terminal 1
+37,UMKM,UMKM,Departure Lobby Terminal 1
+38,A&W,Food & Beverage,Arrival Lobby A Terminal 1
+39,Warkop Sedati,Food & Beverage,Boarding Lounge Terminal 1
+40,Bakso Pak Djo,Food & Beverage,Boarding Lounge Terminal 1
+41,Roti O,Food & Beverage,Boarding Lounge Terminal 1
+42,Bangi Café,Food & Beverage,Boarding Lounge Terminal 1
+43,Starbucks,Food & Beverage,Boarding Lounge Terminal 1
+44,Gocit,Food & Beverage,Boarding Lounge Terminal 1
+45,A&W,Food & Beverage,Boarding Lounge Terminal 1
+46,Subway,Food & Beverage,Boarding Lounge Terminal 1
+47,Donatking,Food & Beverage,Boarding Lounge Terminal 1
+48,Bakso Pak Djo,Food & Beverage,Boarding Lounge Terminal 1
+49,Roti O,Food & Beverage,Boarding Lounge Terminal 1
+50,Soerabaja Café,Food & Beverage,Boarding Lounge Terminal 1
+51,LA Café,Food & Beverage,Boarding Lounge Terminal 1
+52,Bebek Goreng Harissa,Food & Beverage,Boarding Lounge Terminal 1
+53,Roti O,Food & Beverage,Boarding Lounge Terminal 1
+54,A Fung,Food & Beverage,Boarding Lounge Terminal 1
+55,Gloria Jeans Coffee,Food & Beverage,Boarding Lounge Terminal 1
+56,Kulineri,Food & Beverage,Boarding Lounge Terminal 1
+57,Restaurant Bangkalan,Food & Beverage,Boarding Lounge Terminal 1
+58,Bakmi Gocit,Food & Beverage,Boarding Lounge Terminal 1
+59,Bangi Café,Food & Beverage,Boarding Lounge Terminal 1
+60,Dunkin Coffee,Food & Beverage,Boarding Lounge Terminal 1
+61,Killiney,Food & Beverage,Boarding Lounge Terminal 1
+62,Majapahit Lounge,Lounge,Boarding Lounge Terminal 1
+63,Concordia Lounge,Lounge,Boarding Lounge Terminal 1
+64,Alfa Express,Retail,Central Lobby Terminal 1
+65,Circle-K,Retail,Lobby Arrival B Terminal 1
+66,Family Mart,Retail,Lobby Arrival B Terminal 1
+67,Merchandise,Retail,Departure Lobby Terminal 1
+68,Bogajaya,Retail,Departure Lobby Terminal 1
+69,Bogajaya,Retail,Departure Lobby Terminal 1
+70,Alfa Express,Retail,Departure Lobby Terminal 1
+71,Sandang Pangan,Retail,Departure Lobby Terminal 1
+72,Alfa Express,Retail,Lobby Arrival A Terminal 1
+73,Circle-K,Retail,Boarding Lounge Terminal 1
+74,Bogajaya,Retail,Boarding Lounge Terminal 1
+75,Polo,Retail,Boarding Lounge Terminal 1
+76,Time To Go,Retail,Boarding Lounge Terminal 1
+77,Beauty Center,Retail,Boarding Lounge Terminal 1
+78,Polo,Retail,Boarding Lounge Terminal 1
+79,Bogajaya,Retail,Boarding Lounge Terminal 1
+80,Periplus,Retail,Boarding Lounge Terminal 1
+81,Batik Keris,Retail,Boarding Lounge Terminal 1
+82,DFS,Retail,Boarding Lounge Terminal 1
+83,Bogajaya,Retail,Boarding Lounge Terminal 1
+84,circle K,Retail,Boarding Lounge Terminal 1
+85,Alfa Express,Retail,Boarding Lounge Terminal 1
+86,PT Juanda Mitra Sejahtera,Services,Baggage Claim B Terminal 1
+87,Blue Bird,Services,Baggage Claim B Terminal 1
+88,Golden Bird,Services,Baggage Claim B Terminal 1
+89,Aigo,Services,Baggage Claim B Terminal 1
+90,Primkopal,Services,Baggage Claim B Terminal 1
+91,Damri,Services,Baggage Claim B Terminal 1
+92,Ayu Indah,Services,Baggage Claim B Terminal 1
+93,Pusaka Prima,Services,Baggage Claim B Terminal 1
+94,Bank Jatim,Services,Baggage Claim B Terminal 1
+95,Bank Mandiri,Services,Baggage Claim B Terminal 1
+96,PT Bank Jawa Timur,Services,Central Lobby Terminal 1
+97,PT Bank Rakyat indonesia,Services,Central Lobby Terminal 1
+98,PT Bank Mandiri,Services,Central Lobby Terminal 1
+99,PT Bank Negara Indonesia,Services,Central Lobby Terminal 1
+100,PT Bank Central Asia,Services,Central Lobby Terminal 1
+101,PT Bank Central Asia,Services,Central Lobby Terminal 1
+102,PT syariah Indonesia,Services,Central Lobby Terminal 1
+103,PT Bank CIMB Niaga,Services,Central Lobby Terminal 1
+104,APL,Services,Check In Terminal 1
+105,APL,Services,Check In Terminal 1
+106,APL,Services,Check In Terminal 1
+107,APL,Services,Check In Terminal 1
+108,BRI,Services,Departure Lobby Terminal 1
+109,BNI,Services,Departure Lobby Terminal 1
+110,APL,Services,Check In Terminal 1
+111,PT Juanda Mitra Sejahtera,Services,Arrival Lobby A Terminal 1
+112,Blue Bird,Services,Arrival Lobby A Terminal 1
+113,Golden Bird,Services,Arrival Lobby A Terminal 1
+114,Aigo,Services,Arrival Lobby A Terminal 1
+115,Primkopal,Services,Arrival Lobby A Terminal 1
+116,Damri,Services,Arrival Lobby A Terminal 1
+117,Ayu Indah,Services,Arrival Lobby A Terminal 1
+118,Pusaka Prima,Services,Arrival Lobby A Terminal 1
+119,The Foot,Services,Boarding Lounge Terminal 1
+120,The Foot,Services,Boarding Lounge Terminal 1
+121,Circle K,Retail,Non Terminal Terminal 1
+122,,Services,
+123,,Services,
+124,Circle K,Retail,Departure Lobby Terminal 2
+125,Indomaret,Retail,Central Lobby Terminal 2
+126,Bonbon Voyage,Retail,Central Lobby Terminal 2
+127,Oldtown White Coffee,Food & Beverage,Central Lobby Terminal 2
+128,Bakmi Gocit,Food & Beverage,Central Lobby Terminal 2
+129,Bebek Pak Qomar & Rawon,Food & Beverage,Central Lobby Terminal 2
+130,No Brand,Duty Free,Baggage Handling Terminal 2
+131,BCA,Services,Departure Lobby Terminal 2
+132,BRI,Services,Departure Lobby Terminal 2
+133,Mandiri,Services,Departure Lobby Terminal 2
+134,BCA,Services,Arrival Lobby Terminal 2
+135,Blue Bird,Services,Arrival Lobby Terminal 2
+136,Golden Bird,Services,Arrival Lobby Terminal 2
+137,Citytrans,Services,Arrival Lobby Terminal 2
+138,Damri,Services,Arrival Lobby Terminal 2
+139,Primkopal,Services,Arrival Lobby Terminal 2
+140,Telkomsel,Services,Arrival Lobby Terminal 2
+141,Indocev,Services,Arrival Lobby Terminal 2
+142,Tiketku Jaya,Services,Arrival Lobby Terminal 2
+143,Ayu Indah,Services,Arrival Lobby Terminal 2
+144,APL,Services,Check In Area Terminal 2
+145,Plaza Bali Duty Free,Duty Free,Boarding Lounge Terminal 2
+146,Plaza Bali Duty Free,Duty Free,Boarding Lounge Terminal 2
+147,Plaza Bali Duty Free,Duty Free,Boarding Lounge Terminal 2
+148,Lacoste,Retail,Boarding Lounge Terminal 2
+149,Calvin Klein,Retail,Boarding Lounge Terminal 2
+150,Luxotica Eyewear,Retail,Boarding Lounge Terminal 2
+151,Parang Kencana,Retail,Boarding Lounge Terminal 2
+152,Bonbon Voyage,Retail,Boarding Lounge Terminal 2
+153,The Foot,Retail,Boarding Lounge Terminal 2
+154,Polo,Retail,Boarding Lounge Terminal 2
+155,Indomaret,Retail,Boarding Lounge Terminal 2
+156,Indomaret,Retail,Boarding Lounge Terminal 2
+157,Killiney,Food & Beverage,Boarding Lounge Terminal 2
+158,Lepetit Jema,Food & Beverage,Boarding Lounge Terminal 2
+159,Marugame Udon,Food & Beverage,Boarding Lounge Terminal 2
+160,Oldtown White Coffee,Food & Beverage,Boarding Lounge Terminal 2
+161,IASH Lounge,Lounge,Boarding Lounge Terminal 2
+162,No Brand,Lounge,Boarding Lounge Terminal 2
+163,Indocev,Services,Korridor Keberangkatan Terminal 2
