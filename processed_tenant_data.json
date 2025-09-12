@@ -20,26 +20,6 @@
         "penjualan":null
     },
     {
-        "id":3,
-        "nama_brand":"APL",
-        "jenis_usaha":"Event & Promotion",
-        "lokasi":"Central Lobby Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":4,
-        "nama_brand":"SBA",
-        "jenis_usaha":"Event & Promotion",
-        "lokasi":"Check In Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
         "id":5,
         "nama_brand":"Periplus",
         "jenis_usaha":"Event & Promotion",
@@ -164,9 +144,9 @@
         "nama_brand":"Roti O",
         "jenis_usaha":"Food & Beverage",
         "lokasi":"Arrival Lobby B Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
+        "rating":3.7,
+        "total_review":164,
+        "rentang_harga":"murah",
         "penjualan":null
     },
     {
@@ -357,16 +337,6 @@
         "rating":4.7,
         "total_review":65,
         "rentang_harga":"sedang",
-        "penjualan":null
-    },
-    {
-        "id":37,
-        "nama_brand":"UMKM",
-        "jenis_usaha":"UMKM",
-        "lokasi":"Departure Lobby Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
         "penjualan":null
     },
     {
@@ -634,9 +604,9 @@
         "nama_brand":"Alfa Express",
         "jenis_usaha":"Retail",
         "lokasi":"Central Lobby Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
+        "rating":3.8,
+        "total_review":40,
+        "rentang_harga":"murah",
         "penjualan":null
     },
     {
@@ -714,8 +684,8 @@
         "nama_brand":"Alfa Express",
         "jenis_usaha":"Retail",
         "lokasi":"Lobby Arrival A Terminal 1",
-        "rating":null,
-        "total_review":null,
+        "rating":4.5,
+        "total_review":4,
         "rentang_harga":null,
         "penjualan":null
     },
@@ -850,386 +820,6 @@
         "penjualan":null
     },
     {
-        "id":86,
-        "nama_brand":"PT Juanda Mitra Sejahtera",
-        "jenis_usaha":"Services",
-        "lokasi":"Baggage Claim B Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":87,
-        "nama_brand":"Blue Bird",
-        "jenis_usaha":"Services",
-        "lokasi":"Baggage Claim B Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":88,
-        "nama_brand":"Golden Bird",
-        "jenis_usaha":"Services",
-        "lokasi":"Baggage Claim B Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":89,
-        "nama_brand":"Aigo",
-        "jenis_usaha":"Services",
-        "lokasi":"Baggage Claim B Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":90,
-        "nama_brand":"Primkopal",
-        "jenis_usaha":"Services",
-        "lokasi":"Baggage Claim B Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":91,
-        "nama_brand":"Damri",
-        "jenis_usaha":"Services",
-        "lokasi":"Baggage Claim B Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":92,
-        "nama_brand":"Ayu Indah",
-        "jenis_usaha":"Services",
-        "lokasi":"Baggage Claim B Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":93,
-        "nama_brand":"Pusaka Prima",
-        "jenis_usaha":"Services",
-        "lokasi":"Baggage Claim B Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":94,
-        "nama_brand":"Bank Jatim",
-        "jenis_usaha":"Services",
-        "lokasi":"Baggage Claim B Terminal 1",
-        "rating":4.7,
-        "total_review":21,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":95,
-        "nama_brand":"Bank Mandiri",
-        "jenis_usaha":"Services",
-        "lokasi":"Baggage Claim B Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":96,
-        "nama_brand":"PT Bank Jawa Timur",
-        "jenis_usaha":"Services",
-        "lokasi":"Central Lobby Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":97,
-        "nama_brand":"PT Bank Rakyat indonesia",
-        "jenis_usaha":"Services",
-        "lokasi":"Central Lobby Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":98,
-        "nama_brand":"PT Bank Mandiri",
-        "jenis_usaha":"Services",
-        "lokasi":"Central Lobby Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":99,
-        "nama_brand":"PT Bank Negara Indonesia",
-        "jenis_usaha":"Services",
-        "lokasi":"Central Lobby Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":100,
-        "nama_brand":"PT Bank Central Asia",
-        "jenis_usaha":"Services",
-        "lokasi":"Central Lobby Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":101,
-        "nama_brand":"PT Bank Central Asia",
-        "jenis_usaha":"Services",
-        "lokasi":"Central Lobby Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":102,
-        "nama_brand":"PT syariah Indonesia",
-        "jenis_usaha":"Services",
-        "lokasi":"Central Lobby Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":103,
-        "nama_brand":"PT Bank CIMB Niaga",
-        "jenis_usaha":"Services",
-        "lokasi":"Central Lobby Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":104,
-        "nama_brand":"APL",
-        "jenis_usaha":"Services",
-        "lokasi":"Check In Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":105,
-        "nama_brand":"APL",
-        "jenis_usaha":"Services",
-        "lokasi":"Check In Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":106,
-        "nama_brand":"APL",
-        "jenis_usaha":"Services",
-        "lokasi":"Check In Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":107,
-        "nama_brand":"APL",
-        "jenis_usaha":"Services",
-        "lokasi":"Check In Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":108,
-        "nama_brand":"BRI",
-        "jenis_usaha":"Services",
-        "lokasi":"Departure Lobby Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":109,
-        "nama_brand":"BNI",
-        "jenis_usaha":"Services",
-        "lokasi":"Departure Lobby Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":110,
-        "nama_brand":"APL",
-        "jenis_usaha":"Services",
-        "lokasi":"Check In Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":111,
-        "nama_brand":"PT Juanda Mitra Sejahtera",
-        "jenis_usaha":"Services",
-        "lokasi":"Arrival Lobby A Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":112,
-        "nama_brand":"Blue Bird",
-        "jenis_usaha":"Services",
-        "lokasi":"Arrival Lobby A Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":113,
-        "nama_brand":"Golden Bird",
-        "jenis_usaha":"Services",
-        "lokasi":"Arrival Lobby A Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":114,
-        "nama_brand":"Aigo",
-        "jenis_usaha":"Services",
-        "lokasi":"Arrival Lobby A Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":115,
-        "nama_brand":"Primkopal",
-        "jenis_usaha":"Services",
-        "lokasi":"Arrival Lobby A Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":116,
-        "nama_brand":"Damri",
-        "jenis_usaha":"Services",
-        "lokasi":"Arrival Lobby A Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":117,
-        "nama_brand":"Ayu Indah",
-        "jenis_usaha":"Services",
-        "lokasi":"Arrival Lobby A Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":118,
-        "nama_brand":"Pusaka Prima",
-        "jenis_usaha":"Services",
-        "lokasi":"Arrival Lobby A Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":119,
-        "nama_brand":"The Foot",
-        "jenis_usaha":"Services",
-        "lokasi":"Boarding Lounge Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":120,
-        "nama_brand":"The Foot",
-        "jenis_usaha":"Services",
-        "lokasi":"Boarding Lounge Terminal 1",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":121,
-        "nama_brand":"Circle K",
-        "jenis_usaha":"Retail",
-        "lokasi":"Non Terminal Terminal 1",
-        "rating":3.7,
-        "total_review":14,
-        "rentang_harga":"murah",
-        "penjualan":null
-    },
-    {
-        "id":122,
-        "nama_brand":null,
-        "jenis_usaha":"Services",
-        "lokasi":null,
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":123,
-        "nama_brand":null,
-        "jenis_usaha":"Services",
-        "lokasi":null,
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
         "id":124,
         "nama_brand":"Circle K",
         "jenis_usaha":"Retail",
@@ -1254,8 +844,8 @@
         "nama_brand":"Bonbon Voyage",
         "jenis_usaha":"Retail",
         "lokasi":"Central Lobby Terminal 2",
-        "rating":null,
-        "total_review":null,
+        "rating":4.8,
+        "total_review":8,
         "rentang_harga":null,
         "penjualan":null
     },
@@ -1264,9 +854,9 @@
         "nama_brand":"Oldtown White Coffee",
         "jenis_usaha":"Food & Beverage",
         "lokasi":"Central Lobby Terminal 2",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
+        "rating":3.7,
+        "total_review":9,
+        "rentang_harga":"sedang",
         "penjualan":null
     },
     {
@@ -1284,158 +874,8 @@
         "nama_brand":"Bebek Pak Qomar & Rawon",
         "jenis_usaha":"Food & Beverage",
         "lokasi":"Central Lobby Terminal 2",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":130,
-        "nama_brand":"No Brand",
-        "jenis_usaha":"Duty Free",
-        "lokasi":"Baggage Handling Terminal 2",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":131,
-        "nama_brand":"BCA",
-        "jenis_usaha":"Services",
-        "lokasi":"Departure Lobby Terminal 2",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":132,
-        "nama_brand":"BRI",
-        "jenis_usaha":"Services",
-        "lokasi":"Departure Lobby Terminal 2",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":133,
-        "nama_brand":"Mandiri",
-        "jenis_usaha":"Services",
-        "lokasi":"Departure Lobby Terminal 2",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":134,
-        "nama_brand":"BCA",
-        "jenis_usaha":"Services",
-        "lokasi":"Arrival Lobby Terminal 2",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":135,
-        "nama_brand":"Blue Bird",
-        "jenis_usaha":"Services",
-        "lokasi":"Arrival Lobby Terminal 2",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":136,
-        "nama_brand":"Golden Bird",
-        "jenis_usaha":"Services",
-        "lokasi":"Arrival Lobby Terminal 2",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":137,
-        "nama_brand":"Citytrans",
-        "jenis_usaha":"Services",
-        "lokasi":"Arrival Lobby Terminal 2",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":138,
-        "nama_brand":"Damri",
-        "jenis_usaha":"Services",
-        "lokasi":"Arrival Lobby Terminal 2",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":139,
-        "nama_brand":"Primkopal",
-        "jenis_usaha":"Services",
-        "lokasi":"Arrival Lobby Terminal 2",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":140,
-        "nama_brand":"Telkomsel",
-        "jenis_usaha":"Services",
-        "lokasi":"Arrival Lobby Terminal 2",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":141,
-        "nama_brand":"Indocev",
-        "jenis_usaha":"Services",
-        "lokasi":"Arrival Lobby Terminal 2",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":142,
-        "nama_brand":"Tiketku Jaya",
-        "jenis_usaha":"Services",
-        "lokasi":"Arrival Lobby Terminal 2",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":143,
-        "nama_brand":"Ayu Indah",
-        "jenis_usaha":"Services",
-        "lokasi":"Arrival Lobby Terminal 2",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":144,
-        "nama_brand":"APL",
-        "jenis_usaha":"Services",
-        "lokasi":"Check In Area Terminal 2",
-        "rating":null,
-        "total_review":null,
+        "rating":4.2,
+        "total_review":10,
         "rentang_harga":null,
         "penjualan":null
     },
@@ -1444,8 +884,8 @@
         "nama_brand":"Plaza Bali Duty Free",
         "jenis_usaha":"Duty Free",
         "lokasi":"Boarding Lounge Terminal 2",
-        "rating":null,
-        "total_review":null,
+        "rating":3.5,
+        "total_review":6,
         "rentang_harga":null,
         "penjualan":null
     },
@@ -1454,8 +894,8 @@
         "nama_brand":"Plaza Bali Duty Free",
         "jenis_usaha":"Duty Free",
         "lokasi":"Boarding Lounge Terminal 2",
-        "rating":null,
-        "total_review":null,
+        "rating":3.5,
+        "total_review":6,
         "rentang_harga":null,
         "penjualan":null
     },
@@ -1464,8 +904,8 @@
         "nama_brand":"Plaza Bali Duty Free",
         "jenis_usaha":"Duty Free",
         "lokasi":"Boarding Lounge Terminal 2",
-        "rating":null,
-        "total_review":null,
+        "rating":3.5,
+        "total_review":6,
         "rentang_harga":null,
         "penjualan":null
     },
@@ -1514,8 +954,8 @@
         "nama_brand":"Bonbon Voyage",
         "jenis_usaha":"Retail",
         "lokasi":"Boarding Lounge Terminal 2",
-        "rating":null,
-        "total_review":null,
+        "rating":4.8,
+        "total_review":8,
         "rentang_harga":null,
         "penjualan":null
     },
@@ -1594,8 +1034,8 @@
         "nama_brand":"Oldtown White Coffee",
         "jenis_usaha":"Food & Beverage",
         "lokasi":"Boarding Lounge Terminal 2",
-        "rating":null,
-        "total_review":null,
+        "rating":3.7,
+        "total_review":9,
         "rentang_harga":null,
         "penjualan":null
     },
@@ -1604,28 +1044,8 @@
         "nama_brand":"IASH Lounge",
         "jenis_usaha":"Lounge",
         "lokasi":"Boarding Lounge Terminal 2",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":162,
-        "nama_brand":"No Brand",
-        "jenis_usaha":"Lounge",
-        "lokasi":"Boarding Lounge Terminal 2",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":163,
-        "nama_brand":"Indocev",
-        "jenis_usaha":"Services",
-        "lokasi":"Korridor Keberangkatan Terminal 2",
-        "rating":null,
-        "total_review":null,
+        "rating":4.8,
+        "total_review":157,
         "rentang_harga":null,
         "penjualan":null
     }
