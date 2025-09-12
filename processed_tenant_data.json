@@ -980,26 +980,6 @@
         "penjualan":null
     },
     {
-        "id":155,
-        "nama_brand":"Indomaret",
-        "jenis_usaha":"Retail",
-        "lokasi":"Boarding Lounge Terminal 2",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
-        "id":156,
-        "nama_brand":"Indomaret",
-        "jenis_usaha":"Retail",
-        "lokasi":"Boarding Lounge Terminal 2",
-        "rating":null,
-        "total_review":null,
-        "rentang_harga":null,
-        "penjualan":null
-    },
-    {
         "id":157,
         "nama_brand":"Killiney",
         "jenis_usaha":"Food & Beverage",
