@@ -1,62 +1,35 @@
 import pandas as pd
 
+# 1. Load dataset dari file xlsx
+data = pd.read_excel('dataset_tenant.xlsx')
 
-def load_dataset(filepath: str) -> pd.DataFrame:
-    """Load dataset tenant dari file Excel."""
-    return pd.read_excel(filepath)
+# 2. Tampilkan 5 baris pertama sebelum diproses
+print("=== Data asli (5 baris pertama) ===")
+print(data.head())
 
+# 3. Ambil hanya kolom yang diperlukan
+# Kolom: NO, BRAND, JENIS USAHA, LOKASI (gabungan LOKASI + TERMINAL)
+data = data[['NO', 'BRAND', 'JENIS USAHA', 'LOKASI', 'TERMINAL']].copy()
 
-def preprocess_dataset(df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Preprocess dataset:
-    - Ambil kolom yang relevan
-    - Gabungkan lokasi dengan terminal
-    - Rename kolom sesuai kebutuhan
-    """
-    # Pilih kolom yang diperlukan
-    df = df[['NO', 'BRAND', 'JENIS USAHA', 'LOKASI', 'TERMINAL']].copy()
+# 4. Gabungkan kolom LOKASI + TERMINAL (konversi TERMINAL ke string dulu)
+data['LOKASI'] = data['LOKASI'] + ' Terminal ' + data['TERMINAL'].astype(str)
 
-    # Gabungkan lokasi + terminal
-    df['LOKASI'] = df['LOKASI'] + ' Terminal ' + df['TERMINAL'].astype(str)
+# 5. Pilih hanya kolom final
+data = data[['NO', 'BRAND', 'JENIS USAHA', 'LOKASI']]
 
-    # Pilih hanya kolom final
-    df = df[['NO', 'BRAND', 'JENIS USAHA', 'LOKASI']]
+# 6. Ubah nama kolom agar lebih konsisten
+data.columns = ['id', 'nama_brand', 'jenis_usaha', 'lokasi']
 
-    # Rename kolom agar lebih konsisten
-    df.columns = ['id', 'nama_brand', 'jenis_usaha', 'lokasi']
+# 7. Tampilkan hasil olahan
+print("\n=== Data setelah diproses (5 baris pertama) ===")
+print(data.head())
 
-    return df
+# 8. Simpan hasil ke file CSV baru
+output_file = 'processed_tenant_data.csv'
+data.to_csv(output_file, index=False, encoding="utf-8-sig")
+print(f"\n✅ Data telah disimpan ke '{output_file}'")
 
-
-def save_dataset(df: pd.DataFrame, output_path: str) -> None:
-    """Simpan dataset ke file CSV."""
-    df.to_csv(output_path, index=False, encoding="utf-8-sig")
-    print(f"✅ Data berhasil disimpan ke: {output_path}")
-
-
-def main():
-    # Path file input & output
-    input_file = "dataset_tenant.xlsx"
-    output_file = "processed_tenant_data.csv"
-
-    # 1. Load dataset
-    raw_data = load_dataset(input_file)
-    print("=== Data asli (5 baris pertama) ===")
-    print(raw_data.head())
-
-    # 2. Preprocess dataset
-    processed_data = preprocess_dataset(raw_data)
-    print("\n=== Data setelah diproses (5 baris pertama) ===")
-    print(processed_data.head())
-
-    # 3. Save dataset hasil olahan
-    save_dataset(processed_data, output_file)
-
-    # 4. Load ulang untuk verifikasi
-    verify_data = pd.read_csv(output_file)
-    print("\n=== Data dari file CSV (5 baris pertama) ===")
-    print(verify_data.head())
-
-
-if __name__ == "__main__":
-    main()
+# 9. Load ulang file CSV untuk verifikasi
+verify_data = pd.read_csv(output_file)
+print("\n=== Data dari file CSV (5 baris pertama) ===")
+print(verify_data.head())
