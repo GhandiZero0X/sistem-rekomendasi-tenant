@@ -185,7 +185,7 @@
         "jenis_usaha":"Food & Beverage",
         "lokasi":"Central Lobby Terminal 1",
         "rating":4.3,
-        "total_review":24,
+        "total_review":25,
         "rentang_harga":"sedang",
         "penjualan":null
     },
@@ -1041,6 +1041,16 @@
     },
     {
         "id":105,
+        "nama_brand":"Transportasi Travel",
+        "jenis_usaha":"Services",
+        "lokasi":"Arrival Lobby Terminal 1",
+        "rating":4.1,
+        "total_review":14,
+        "rentang_harga":null,
+        "penjualan":null
+    },
+    {
+        "id":106,
         "nama_brand":"Kantin Juanda t1",
         "jenis_usaha":"Food & Beverage",
         "lokasi":"Non Terminal 1",
@@ -1050,12 +1060,102 @@
         "penjualan":null
     },
     {
-        "id":106,
+        "id":107,
         "nama_brand":"Kantin Juanda T2",
         "jenis_usaha":"Food & Beverage",
         "lokasi":"Non Terminal 2",
         "rating":3.9,
         "total_review":15,
+        "rentang_harga":"sedang",
+        "penjualan":null
+    },
+    {
+        "id":108,
+        "nama_brand":"Baso A Fung Juanda T1",
+        "jenis_usaha":"Food & Beverage",
+        "lokasi":"Boarding Lounge Terminal 1",
+        "rating":3.8,
+        "total_review":18,
+        "rentang_harga":"mahal",
+        "penjualan":null
+    },
+    {
+        "id":109,
+        "nama_brand":"KCP Bank Mandiri",
+        "jenis_usaha":"Services",
+        "lokasi":"Arrival Lobby Terminal 1",
+        "rating":4.8,
+        "total_review":120,
+        "rentang_harga":null,
+        "penjualan":null
+    },
+    {
+        "id":110,
+        "nama_brand":"Bank BCA",
+        "jenis_usaha":"Services",
+        "lokasi":"Boarding Lounge Terminal 1",
+        "rating":4.7,
+        "total_review":10,
+        "rentang_harga":null,
+        "penjualan":null
+    },
+    {
+        "id":111,
+        "nama_brand":"KCP Bank Mandiri",
+        "jenis_usaha":"Services",
+        "lokasi":"Central Lobby Terminal 1",
+        "rating":4.7,
+        "total_review":12,
+        "rentang_harga":null,
+        "penjualan":null
+    },
+    {
+        "id":112,
+        "nama_brand":"Bank CIMB Niaga",
+        "jenis_usaha":"Services",
+        "lokasi":"Central Lobby Terminal 1",
+        "rating":4.3,
+        "total_review":3,
+        "rentang_harga":null,
+        "penjualan":null
+    },
+    {
+        "id":113,
+        "nama_brand":"Bank BSI",
+        "jenis_usaha":"Services",
+        "lokasi":"Boarding Lounge Terminal 1",
+        "rating":5.0,
+        "total_review":4,
+        "rentang_harga":null,
+        "penjualan":null
+    },
+    {
+        "id":114,
+        "nama_brand":"INDOCEV",
+        "jenis_usaha":"Services",
+        "lokasi":"Central Lobby Terminal 2",
+        "rating":2.2,
+        "total_review":10,
+        "rentang_harga":null,
+        "penjualan":null
+    },
+    {
+        "id":115,
+        "nama_brand":"Aroma Padang Juanda",
+        "jenis_usaha":"Food & Beverage",
+        "lokasi":"Boarding Lounge Terminal 1",
+        "rating":4.7,
+        "total_review":19,
+        "rentang_harga":"sedang",
+        "penjualan":null
+    },
+    {
+        "id":116,
+        "nama_brand":"Gift Shop",
+        "jenis_usaha":"Retail",
+        "lokasi":"Boarding Lounge Terminal 1",
+        "rating":4.5,
+        "total_review":4,
         "rentang_harga":"sedang",
         "penjualan":null
     }
