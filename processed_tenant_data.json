@@ -966,7 +966,7 @@
         "lokasi":"Baggage Claim B Terminal 1",
         "rating":4.2,
         "total_review":53,
-        "rentang_harga":null,
+        "rentang_harga":"non_applicable",
         "penjualan":null
     },
     {
@@ -976,7 +976,7 @@
         "lokasi":"Baggage Claim B Terminal 1",
         "rating":4.7,
         "total_review":21,
-        "rentang_harga":null,
+        "rentang_harga":"non_applicable",
         "penjualan":null
     },
     {
@@ -986,7 +986,7 @@
         "lokasi":"Baggage Claim B Terminal 1",
         "rating":4.1,
         "total_review":17,
-        "rentang_harga":null,
+        "rentang_harga":"non_applicable",
         "penjualan":null
     },
     {
@@ -996,7 +996,7 @@
         "lokasi":"Baggage Claim A Terminal 1",
         "rating":4.8,
         "total_review":120,
-        "rentang_harga":null,
+        "rentang_harga":"non_applicable",
         "penjualan":null
     },
     {
@@ -1006,7 +1006,7 @@
         "lokasi":"Non Terminal 2",
         "rating":4.0,
         "total_review":1,
-        "rentang_harga":null,
+        "rentang_harga":"non_applicable",
         "penjualan":null
     },
     {
@@ -1016,7 +1016,7 @@
         "lokasi":"Arrival Lobby Terminal 1",
         "rating":2.7,
         "total_review":79,
-        "rentang_harga":null,
+        "rentang_harga":"non_applicable",
         "penjualan":null
     },
     {
@@ -1026,7 +1026,7 @@
         "lokasi":"Arrival Lobby Terminal 1",
         "rating":3.6,
         "total_review":133,
-        "rentang_harga":null,
+        "rentang_harga":"non_applicable",
         "penjualan":null
     },
     {
@@ -1036,7 +1036,7 @@
         "lokasi":"Arrival Lobby Terminal 2",
         "rating":4.6,
         "total_review":225,
-        "rentang_harga":null,
+        "rentang_harga":"non_applicable",
         "penjualan":null
     },
     {
@@ -1046,7 +1046,7 @@
         "lokasi":"Arrival Lobby Terminal 1",
         "rating":4.1,
         "total_review":14,
-        "rentang_harga":null,
+        "rentang_harga":"non_applicable",
         "penjualan":null
     },
     {
@@ -1086,7 +1086,7 @@
         "lokasi":"Arrival Lobby Terminal 1",
         "rating":4.8,
         "total_review":120,
-        "rentang_harga":null,
+        "rentang_harga":"non_applicable",
         "penjualan":null
     },
     {
@@ -1096,7 +1096,7 @@
         "lokasi":"Boarding Lounge Terminal 1",
         "rating":4.7,
         "total_review":10,
-        "rentang_harga":null,
+        "rentang_harga":"non_applicable",
         "penjualan":null
     },
     {
@@ -1106,7 +1106,7 @@
         "lokasi":"Central Lobby Terminal 1",
         "rating":4.7,
         "total_review":12,
-        "rentang_harga":null,
+        "rentang_harga":"non_applicable",
         "penjualan":null
     },
     {
@@ -1116,7 +1116,7 @@
         "lokasi":"Central Lobby Terminal 1",
         "rating":4.3,
         "total_review":3,
-        "rentang_harga":null,
+        "rentang_harga":"non_applicable",
         "penjualan":null
     },
     {
@@ -1126,7 +1126,7 @@
         "lokasi":"Boarding Lounge Terminal 1",
         "rating":5.0,
         "total_review":4,
-        "rentang_harga":null,
+        "rentang_harga":"non_applicable",
         "penjualan":null
     },
     {
@@ -1136,7 +1136,7 @@
         "lokasi":"Central Lobby Terminal 2",
         "rating":2.2,
         "total_review":10,
-        "rentang_harga":null,
+        "rentang_harga":"non_applicable",
         "penjualan":null
     },
     {
