@@ -1,0 +1,117 @@
+rating_std,log_total_review,jenis_usaha,lokasi,rentang_harga
+-0.4264882067517727,4.59511985013459,Event & Promotion,Arrival Lobby Terminal 1,murah
+1.210473880927826,2.0794415416798357,Event & Promotion,Arrival Lobby Terminal 1,sedang
+0.8467045281101371,3.9889840465642745,Event & Promotion,Boarding Lounge Terminal 1,sedang
+0.8467045281101371,5.568344503761097,Event & Promotion,Boarding Lounge Terminal 1,mahal
+-1.6996809416136816,2.302585092994046,Event & Promotion,Boarding Lounge Terminal 1,sedang
+-0.4264882067517727,4.59511985013459,Event & Promotion,Boarding Lounge Terminal 1,murah
+1.210473880927826,2.0794415416798357,Event & Promotion,Boarding Lounge Terminal 1,sedang
+-1.6996809416136816,2.302585092994046,Event & Promotion,Boarding Lounge Terminal 1,sedang
+0.6648198517012935,5.480638923341991,Event & Promotion,Boarding Lounge Terminal 1,sangat mahal
+0.3010504988836048,7.944846711001996,Food & Beverage,Arrival Lobby B Terminal 1,sedang
+-0.972142235978305,2.833213344056216,Food & Beverage,Arrival Lobby B Terminal 1,sedang
+1.756127910154358,0.6931471805599453,Food & Beverage,Arrival Lobby B Terminal 1,sedang
+-0.6083728831606162,5.393627546352362,Food & Beverage,Arrival Lobby B Terminal 1,sedang
+-0.6083728831606162,5.10594547390058,Food & Beverage,Arrival Lobby B Terminal 1,murah
+0.48293517529244834,4.382026634673881,Food & Beverage,Arrival Lobby B Terminal 1,murah
+-0.4264882067517727,4.59511985013459,Food & Beverage,Arrival Lobby B Terminal 1,murah
+-0.06271885393408393,1.0986122886681098,Food & Beverage,Central Lobby Terminal 1,sedang
+-0.06271885393408393,1.0986122886681098,Food & Beverage,Non Terminal 2,sedang
+0.48293517529244834,3.258096538021482,Food & Beverage,Central Lobby Terminal 1,sedang
+-0.6083728831606162,5.10594547390058,Food & Beverage,Central Lobby Terminal 1,murah
+-0.6083728831606162,4.709530201312334,Food & Beverage,Central Lobby Terminal 1,sedang
+0.3010504988836048,7.944846711001996,Food & Beverage,Central Lobby Terminal 1,sedang
+0.11916582247475963,5.849324779946859,Food & Beverage,Central Lobby Terminal 1,sedang
+-0.972142235978305,5.351858133476067,Food & Beverage,Central Lobby Terminal 1,sedang
+0.11916582247475963,4.3694478524670215,Food & Beverage,Departure Lobby Terminal 1,sedang
+1.210473880927826,2.0794415416798357,Food & Beverage,Departure Lobby Terminal 1,sedang
+-2.2453349708402146,2.5649493574615367,Food & Beverage,Departure Lobby Terminal 1,sedang
+-0.6083728831606162,5.10594547390058,Food & Beverage,Departure Lobby Terminal 1,murah
+1.210473880927826,4.189654742026425,Food & Beverage,Departure Lobby Terminal 1,sedang
+1.756127910154358,0.6931471805599453,Food & Beverage,Arrival Lobby A Terminal 1,sedang
+-0.06271885393408393,5.3612921657094255,Food & Beverage,Boarding Lounge Terminal 2,sedang
+-0.4264882067517727,3.4657359027997265,Food & Beverage,Boarding Lounge Terminal 1,murah
+-0.6083728831606162,5.10594547390058,Food & Beverage,Boarding Lounge Terminal 1,murah
+-1.6996809416136816,4.5217885770490405,Food & Beverage,Boarding Lounge Terminal 1,sedang
+0.8467045281101371,5.19295685089021,Food & Beverage,Boarding Lounge Terminal 1,sedang
+-0.2446035303429283,5.0106352940962555,Food & Beverage,Boarding Lounge Terminal 2,sedang
+0.3010504988836048,7.944846711001996,Food & Beverage,Boarding Lounge Terminal 1,sedang
+0.6648198517012935,4.23410650459726,Food & Beverage,Boarding Lounge Terminal 1,sedang
+0.3010504988836048,2.3978952727983707,Food & Beverage,Boarding Lounge Terminal 1,murah
+-0.4264882067517727,3.4657359027997265,Food & Beverage,Boarding Lounge Terminal 1,murah
+-0.6083728831606162,5.10594547390058,Food & Beverage,Boarding Lounge Terminal 1,murah
+-0.6083728831606162,4.709530201312334,Food & Beverage,Boarding Lounge Terminal 1,sedang
+-0.6083728831606162,5.393627546352362,Food & Beverage,Boarding Lounge Terminal 1,sedang
+-0.06271885393408393,4.454347296253507,Food & Beverage,Boarding Lounge Terminal 1,sedang
+-0.6083728831606162,5.10594547390058,Food & Beverage,Boarding Lounge Terminal 1,murah
+-0.4264882067517727,2.9444389791664403,Food & Beverage,Boarding Lounge Terminal 1,sedang
+-0.06271885393408393,5.318119993844216,Food & Beverage,Boarding Lounge Terminal 1,sedang
+0.3010504988836048,2.4849066497880004,Food & Beverage,Boarding Lounge Terminal 1,sedang
+-0.972142235978305,5.351858133476067,Food & Beverage,Boarding Lounge Terminal 1,mahal
+-0.2446035303429283,5.0106352940962555,Food & Beverage,Boarding Lounge Terminal 2,sedang
+-1.6996809416136816,4.5217885770490405,Food & Beverage,Boarding Lounge Terminal 1,sedang
+1.3923585573366695,4.543294782270004,Lounge,Boarding Lounge Terminal 1,mahal
+-0.6083728831606162,5.4510384535657,Lounge,Boarding Lounge Terminal 1,mahal
+-0.4264882067517727,3.713572066704308,Retail,Central Lobby Terminal 1,murah
+-0.6083728831606162,2.70805020110221,Retail,Lobby Arrival B Terminal 1,murah
+0.6648198517012935,2.8903717578961645,Retail,Lobby Arrival B Terminal 1,murah
+-0.6083728831606162,4.23410650459726,Retail,Departure Lobby Terminal 1,murah
+-0.6083728831606162,4.23410650459726,Retail,Departure Lobby Terminal 1,murah
+0.8467045281101371,1.6094379124341003,Retail,Departure Lobby Terminal 1,murah
+1.756127910154358,0.6931471805599453,Retail,Departure Lobby Terminal 1,sedang
+0.8467045281101371,1.6094379124341003,Retail,Lobby Arrival A Terminal 1,murah
+-0.6083728831606162,2.70805020110221,Retail,Boarding Lounge Terminal 1,murah
+-0.6083728831606162,4.23410650459726,Retail,Boarding Lounge Terminal 1,murah
+-1.6996809416136816,2.302585092994046,Retail,Boarding Lounge Terminal 1,sedang
+1.756127910154358,0.6931471805599453,Retail,Boarding Lounge Terminal 1,sedang
+-1.6996809416136816,2.302585092994046,Retail,Boarding Lounge Terminal 1,sedang
+-0.6083728831606162,4.23410650459726,Retail,Boarding Lounge Terminal 1,murah
+0.48293517529244834,2.70805020110221,Retail,Boarding Lounge Terminal 2,sedang
+1.3923585573366695,1.791759469228055,Retail,Boarding Lounge Terminal 1,mahal
+-0.6083728831606162,4.23410650459726,Retail,Boarding Lounge Terminal 1,murah
+-0.6083728831606162,2.70805020110221,Retail,Boarding Lounge Terminal 1,murah
+-0.4264882067517727,3.713572066704308,Retail,Boarding Lounge Terminal 1,murah
+-0.6083728831606162,2.70805020110221,Retail,Non Terminal Terminal 1,murah
+1.3923585573366695,2.1972245773362196,Retail,Central Lobby Terminal 2,sedang
+-0.6083728831606162,2.302585092994046,Food & Beverage,Central Lobby Terminal 2,sedang
+-0.2446035303429283,5.0106352940962555,Food & Beverage,Central Lobby Terminal 2,sedang
+0.3010504988836048,2.3978952727983707,Food & Beverage,Central Lobby Terminal 2,sedang
+-0.972142235978305,1.9459101490553132,Retail,Boarding Lounge Terminal 2,sedang
+1.3923585573366695,2.1972245773362196,Retail,Boarding Lounge Terminal 2,sedang
+-1.6996809416136816,2.302585092994046,Retail,Boarding Lounge Terminal 2,sedang
+-0.6083728831606162,2.302585092994046,Food & Beverage,Boarding Lounge Terminal 2,sedang
+1.3923585573366695,5.062595033026967,Lounge,Boarding Lounge Terminal 2,mahal
+0.11916582247475963,6.470799503782602,Lounge,Boarding Lounge Terminal 1,mahal
+1.3923585573366695,5.062595033026967,Lounge,Departure Lobby Terminal 1,mahal
+0.8467045281101371,3.4339872044851463,Food & Beverage,Departure Lobby Terminal 1,sedang
+0.6648198517012935,4.912654885736052,Lounge,Departure Lobby Terminal 1,mahal
+0.3010504988836048,2.3978952727983707,Food & Beverage,Boarding Lounge Terminal 1,sedang
+0.48293517529244834,1.3862943611198906,Food & Beverage,Central Lobby Terminal 2,sedang
+-2.0634502944313704,3.784189633918261,Food & Beverage,Boarding Lounge Terminal 2,murah
+-0.7902575595694606,2.8903717578961645,Food & Beverage,Boarding Lounge Terminal 2,sedang
+0.11916582247475963,5.351858133476067,Food & Beverage,Non Terminal 2,sedang
+-0.4264882067517727,1.6094379124341003,Food & Beverage,Non Terminal 2,sedang
+0.11916582247475963,5.2832037287379885,Food & Beverage,Non Terminal 2,sedang
+0.6648198517012935,2.302585092994046,Food & Beverage,Boarding Lounge Terminal 1,sedang
+0.3010504988836048,1.791759469228055,Food & Beverage,Arrival Lobby Terminal 1,mahal
+0.3010504988836048,1.9459101490553132,Food & Beverage,Boarding Lounge Terminal 1,sedang
+0.3010504988836048,3.9889840465642745,Services,Baggage Claim B Terminal 1,non_applicable
+1.210473880927826,3.091042453358316,Services,Baggage Claim B Terminal 1,non_applicable
+0.11916582247475963,2.8903717578961645,Services,Baggage Claim B Terminal 1,non_applicable
+1.3923585573366695,4.795790545596741,Services,Baggage Claim A Terminal 1,non_applicable
+-0.06271885393408393,0.6931471805599453,Services,Non Terminal 2,non_applicable
+-2.4272196472490584,4.382026634673881,Services,Arrival Lobby Terminal 1,non_applicable
+-0.7902575595694606,4.897839799950911,Services,Arrival Lobby Terminal 1,non_applicable
+1.0285892045189806,5.420534999272286,Services,Arrival Lobby Terminal 2,non_applicable
+0.11916582247475963,2.70805020110221,Services,Arrival Lobby Terminal 1,non_applicable
+0.3010504988836048,6.84587987526405,Food & Beverage,Non Terminal 1,sedang
+-0.2446035303429283,2.772588722239781,Food & Beverage,Non Terminal 2,sedang
+-0.4264882067517727,2.9444389791664403,Food & Beverage,Boarding Lounge Terminal 1,mahal
+1.3923585573366695,4.795790545596741,Services,Arrival Lobby Terminal 1,non_applicable
+1.210473880927826,2.3978952727983707,Services,Boarding Lounge Terminal 1,non_applicable
+1.210473880927826,2.5649493574615367,Services,Central Lobby Terminal 1,non_applicable
+0.48293517529244834,1.3862943611198906,Services,Central Lobby Terminal 1,non_applicable
+1.756127910154358,1.6094379124341003,Services,Boarding Lounge Terminal 1,non_applicable
+-3.3366430292932794,2.3978952727983707,Services,Central Lobby Terminal 2,non_applicable
+1.210473880927826,2.995732273553991,Food & Beverage,Boarding Lounge Terminal 1,sedang
+0.8467045281101371,1.6094379124341003,Retail,Boarding Lounge Terminal 1,sedang

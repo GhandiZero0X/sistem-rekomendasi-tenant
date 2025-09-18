@@ -1,0 +1,117 @@
+id,nama_brand,jenis_usaha,lokasi,rating,total_review,rentang_harga,penjualan,rating_std,log_total_review,weighted_rating
+1,Beard Papa's,Event & Promotion,Arrival Lobby Terminal 1,3.8,98,murah,,-0.4264882067517727,4.59511985013459,3.8217113665389526
+2,Chez Choux,Event & Promotion,Arrival Lobby Terminal 1,4.7,7,sedang,,1.210473880927826,2.0794415416798357,4.308519269776876
+3,Periplus,Event & Promotion,Boarding Lounge Terminal 1,4.5,53,sedang,,0.8467045281101371,3.9889840465642745,4.426108374384237
+4,Doughlab,Event & Promotion,Boarding Lounge Terminal 1,4.5,261,mahal,,0.8467045281101371,5.568344503761097,4.482822242015524
+5,Polo,Event & Promotion,Boarding Lounge Terminal 1,3.1,9,sedang,,-1.6996809416136816,2.302585092994046,3.591833030852994
+6,Beard Papa's,Event & Promotion,Boarding Lounge Terminal 1,3.8,98,murah,,-0.4264882067517727,4.59511985013459,3.8217113665389526
+7,Chez Choux,Event & Promotion,Boarding Lounge Terminal 1,4.7,7,sedang,,1.210473880927826,2.0794415416798357,4.308519269776876
+8,Polo Leather,Event & Promotion,Boarding Lounge Terminal 1,3.1,9,sedang,,-1.6996809416136816,2.302585092994046,3.591833030852994
+9,Blue Sky Lounge,Event & Promotion,Boarding Lounge Terminal 1,4.4,239,sangat mahal,,0.6648198517012935,5.480638923341991,4.38532059271569
+10,A&W,Food & Beverage,Arrival Lobby B Terminal 1,4.2,2820,sedang,,0.3010504988836048,7.944846711001996,4.199415133422688
+11,Bakmi Gocit,Food & Beverage,Arrival Lobby B Terminal 1,3.5,16,sedang,,-0.972142235978305,2.833213344056216,3.705570291777189
+12,Pastry Station,Food & Beverage,Arrival Lobby B Terminal 1,5.0,1,sedang,,1.756127910154358,0.6931471805599453,4.122257053291536
+13,LA Café,Food & Beverage,Arrival Lobby B Terminal 1,3.7,219,sedang,,-0.6083728831606162,5.393627546352362,3.714606234000904
+14,Roti O,Food & Beverage,Arrival Lobby B Terminal 1,3.7,164,murah,,-0.6083728831606162,5.10594547390058,3.719223147047166
+15,Roti Boy,Food & Beverage,Arrival Lobby B Terminal 1,4.3,79,murah,,0.48293517529244834,4.382026634673881,4.270166602092212
+16,Beard Papa's,Food & Beverage,Arrival Lobby B Terminal 1,3.8,98,murah,,-0.4264882067517727,4.59511985013459,3.8217113665389526
+17,Soto Bangkalan,Food & Beverage,Central Lobby Terminal 1,4.0,2,sedang,,-0.06271885393408393,1.0986122886681098,4.028735632183908
+18,Soto Bangkalan,Food & Beverage,Non Terminal 2,4.0,2,sedang,,-0.06271885393408393,1.0986122886681098,4.028735632183908
+19,Solaria,Food & Beverage,Central Lobby Terminal 1,4.3,25,sedang,,0.48293517529244834,3.258096538021482,4.224137931034482
+20,Roti O,Food & Beverage,Central Lobby Terminal 1,3.7,164,murah,,-0.6083728831606162,5.10594547390058,3.719223147047166
+21,Soerabaja Café,Food & Beverage,Central Lobby Terminal 1,3.7,110,sedang,,-0.6083728831606162,4.709530201312334,3.727873563218391
+22,A&W,Food & Beverage,Central Lobby Terminal 1,4.2,2820,sedang,,0.3010504988836048,7.944846711001996,4.199415133422688
+23,Java Café,Food & Beverage,Central Lobby Terminal 1,4.1,346,sedang,,0.11916582247475963,5.849324779946859,4.0981596280511425
+24,Restaurant Bangkalan,Food & Beverage,Central Lobby Terminal 1,3.5,210,sedang,,-0.972142235978305,5.351858133476067,3.5242946708463947
+25,Dunkin Donut,Food & Beverage,Departure Lobby Terminal 1,4.1,78,sedang,,0.11916582247475963,4.3694478524670215,4.092554858934169
+26,Chez Choux,Food & Beverage,Departure Lobby Terminal 1,4.7,7,sedang,,1.210473880927826,2.0794415416798357,4.308519269776876
+27,Kedai MJ,Food & Beverage,Departure Lobby Terminal 1,2.8,12,sedang,,-2.2453349708402146,2.5649493574615367,3.3611285266457678
+28,Roti O,Food & Beverage,Departure Lobby Terminal 1,3.7,164,murah,,-0.6083728831606162,5.10594547390058,3.719223147047166
+29,Expat,Food & Beverage,Departure Lobby Terminal 1,4.7,65,sedang,,1.210473880927826,4.189654742026425,4.611264367816092
+30,A&W,Food & Beverage,Arrival Lobby A Terminal 1,5.0,1,sedang,,1.756127910154358,0.6931471805599453,4.122257053291536
+31,Warkop Sedati,Food & Beverage,Boarding Lounge Terminal 2,4.0,212,sedang,,-0.06271885393408393,5.3612921657094255,4.001553277415346
+32,Bakso Pak Djo,Food & Beverage,Boarding Lounge Terminal 1,3.8,31,murah,,-0.4264882067517727,3.4657359027997265,3.8571909167367533
+33,Roti O,Food & Beverage,Boarding Lounge Terminal 1,3.7,164,murah,,-0.6083728831606162,5.10594547390058,3.719223147047166
+34,Bangi Café,Food & Beverage,Boarding Lounge Terminal 1,3.1,91,sedang,,-1.6996809416136816,4.5217885770490405,3.1925230454079894
+35,Starbucks,Food & Beverage,Boarding Lounge Terminal 1,4.5,179,sedang,,0.8467045281101371,5.19295685089021,4.475369458128079
+36,Bakmi Gocit,Food & Beverage,Boarding Lounge Terminal 2,3.9,149,sedang,,-0.2446035303429283,5.0106352940962555,3.9084580351333766
+37,A&W,Food & Beverage,Boarding Lounge Terminal 1,4.2,2820,sedang,,0.3010504988836048,7.944846711001996,4.199415133422688
+38,Subway,Food & Beverage,Boarding Lounge Terminal 1,4.4,68,sedang,,0.6648198517012935,4.23410650459726,4.353138815207781
+39,Donatking,Food & Beverage,Boarding Lounge Terminal 1,4.2,10,murah,,0.3010504988836048,2.3978952727983707,4.117241379310345
+40,Bakso Pak Djo,Food & Beverage,Boarding Lounge Terminal 1,3.8,31,murah,,-0.4264882067517727,3.4657359027997265,3.8571909167367533
+41,Roti O,Food & Beverage,Boarding Lounge Terminal 1,3.7,164,murah,,-0.6083728831606162,5.10594547390058,3.719223147047166
+42,Soerabaja Café,Food & Beverage,Boarding Lounge Terminal 1,3.7,110,sedang,,-0.6083728831606162,4.709530201312334,3.727873563218391
+43,LA Café,Food & Beverage,Boarding Lounge Terminal 1,3.7,219,sedang,,-0.6083728831606162,5.393627546352362,3.714606234000904
+44,Bebek Goreng Harissa,Food & Beverage,Boarding Lounge Terminal 1,4.0,85,sedang,,-0.06271885393408393,4.454347296253507,4.0036297640653356
+45,Roti O,Food & Beverage,Boarding Lounge Terminal 1,3.7,164,murah,,-0.6083728831606162,5.10594547390058,3.719223147047166
+46,A Fung,Food & Beverage,Boarding Lounge Terminal 1,3.8,18,sedang,,-0.4264882067517727,2.9444389791664403,3.8837438423645323
+47,Gloria Jeans Coffee,Food & Beverage,Boarding Lounge Terminal 1,4.0,203,sedang,,-0.06271885393408393,5.318119993844216,4.0016189088554315
+48,Kulineri,Food & Beverage,Boarding Lounge Terminal 1,4.2,11,sedang,,0.3010504988836048,2.4849066497880004,4.1211822660098525
+49,Restaurant Bangkalan,Food & Beverage,Boarding Lounge Terminal 1,3.5,210,mahal,,-0.972142235978305,5.351858133476067,3.5242946708463947
+50,Bakmi Gocit,Food & Beverage,Boarding Lounge Terminal 2,3.9,149,sedang,,-0.2446035303429283,5.0106352940962555,3.9084580351333766
+51,Bangi Café,Food & Beverage,Boarding Lounge Terminal 1,3.1,91,sedang,,-1.6996809416136816,4.5217885770490405,3.1925230454079894
+52,Majapahit Lounge,Lounge,Boarding Lounge Terminal 1,4.8,93,mahal,,1.3923585573366695,4.543294782270004,4.725677937730164
+53,Concordia Lounge,Lounge,Boarding Lounge Terminal 1,3.7,232,mahal,,-0.6083728831606162,5.4510384535657,3.7138216015958965
+54,Alfa Express,Retail,Central Lobby Terminal 1,3.8,40,murah,,-0.4264882067517727,3.713572066704308,3.846896551724138
+55,Circle-K,Retail,Lobby Arrival B Terminal 1,3.7,14,murah,,-0.6083728831606162,2.70805020110221,3.839367816091954
+56,Family Mart,Retail,Lobby Arrival B Terminal 1,4.4,17,murah,,0.6648198517012935,2.8903717578961645,4.264623243933589
+57,Bogajaya,Retail,Departure Lobby Terminal 1,3.7,68,murah,,-0.6083728831606162,4.23410650459726,3.7428824049513705
+58,Bogajaya,Retail,Departure Lobby Terminal 1,3.7,68,murah,,-0.6083728831606162,4.23410650459726,3.7428824049513705
+59,Alfa Express,Retail,Departure Lobby Terminal 1,4.5,4,murah,,0.8467045281101371,1.6094379124341003,4.167487684729064
+60,Sandang Pangan,Retail,Departure Lobby Terminal 1,5.0,1,sedang,,1.756127910154358,0.6931471805599453,4.122257053291536
+61,Alfa Express,Retail,Lobby Arrival A Terminal 1,4.5,4,murah,,0.8467045281101371,1.6094379124341003,4.167487684729064
+62,Circle-K,Retail,Boarding Lounge Terminal 1,3.7,14,murah,,-0.6083728831606162,2.70805020110221,3.839367816091954
+63,Bogajaya,Retail,Boarding Lounge Terminal 1,3.7,68,murah,,-0.6083728831606162,4.23410650459726,3.7428824049513705
+64,Polo,Retail,Boarding Lounge Terminal 1,3.1,9,sedang,,-1.6996809416136816,2.302585092994046,3.591833030852994
+65,Beauty Center,Retail,Boarding Lounge Terminal 1,5.0,1,sedang,,1.756127910154358,0.6931471805599453,4.122257053291536
+66,Polo,Retail,Boarding Lounge Terminal 1,3.1,9,sedang,,-1.6996809416136816,2.302585092994046,3.591833030852994
+67,Bogajaya,Retail,Boarding Lounge Terminal 1,3.7,68,murah,,-0.6083728831606162,4.23410650459726,3.7428824049513705
+68,Periplus,Retail,Boarding Lounge Terminal 2,4.3,14,sedang,,0.48293517529244834,2.70805020110221,4.189367816091954
+69,Batik Keris,Retail,Boarding Lounge Terminal 1,4.8,5,mahal,,1.3923585573366695,1.791759469228055,4.289655172413792
+70,Bogajaya,Retail,Boarding Lounge Terminal 1,3.7,68,murah,,-0.6083728831606162,4.23410650459726,3.7428824049513705
+71,circle K,Retail,Boarding Lounge Terminal 1,3.7,14,murah,,-0.6083728831606162,2.70805020110221,3.839367816091954
+72,Alfa Express,Retail,Boarding Lounge Terminal 1,3.8,40,murah,,-0.4264882067517727,3.713572066704308,3.846896551724138
+73,Circle K,Retail,Non Terminal Terminal 1,3.7,14,murah,,-0.6083728831606162,2.70805020110221,3.839367816091954
+74,Bonbon Voyage,Retail,Central Lobby Terminal 2,4.8,8,sedang,,1.3923585573366695,2.1972245773362196,4.37471264367816
+75,Oldtown White Coffee,Food & Beverage,Central Lobby Terminal 2,3.7,9,sedang,,-0.6083728831606162,2.302585092994046,3.8760435571687837
+76,Bakmi Gocit,Food & Beverage,Central Lobby Terminal 2,3.9,149,sedang,,-0.2446035303429283,5.0106352940962555,3.9084580351333766
+77,Bebek Pak Qomar & Rawon,Food & Beverage,Central Lobby Terminal 2,4.2,10,sedang,,0.3010504988836048,2.3978952727983707,4.117241379310345
+78,Duty Free,Retail,Boarding Lounge Terminal 2,3.5,6,sedang,,-0.972142235978305,1.9459101490553132,3.834051724137931
+79,Bonbon Voyage,Retail,Boarding Lounge Terminal 2,4.8,8,sedang,,1.3923585573366695,2.1972245773362196,4.37471264367816
+80,Polo,Retail,Boarding Lounge Terminal 2,3.1,9,sedang,,-1.6996809416136816,2.302585092994046,3.591833030852994
+81,Oldtown White Coffee,Food & Beverage,Boarding Lounge Terminal 2,3.7,9,sedang,,-0.6083728831606162,2.302585092994046,3.8760435571687837
+82,IASH Lounge,Lounge,Boarding Lounge Terminal 2,4.8,157,mahal,,1.3923585573366695,5.062595033026967,4.754160644228783
+83,Singosari Lounge,Lounge,Boarding Lounge Terminal 1,4.1,645,mahal,,0.11916582247475963,6.470799503782602,4.098999736772835
+84,Graha Amukti Praja Juanda,Lounge,Departure Lobby Terminal 1,4.8,157,mahal,,1.3923585573366695,5.062595033026967,4.754160644228783
+85,Kantin International Juanda,Food & Beverage,Departure Lobby Terminal 1,4.5,30,sedang,,0.8467045281101371,3.4339872044851463,4.383620689655173
+86,Trowulan,Lounge,Departure Lobby Terminal 1,4.4,135,mahal,,0.6648198517012935,4.912654885736052,4.374791914387634
+87,Donut King Juanda,Food & Beverage,Boarding Lounge Terminal 1,4.2,10,sedang,,0.3010504988836048,2.3978952727983707,4.117241379310345
+88,Hisana Fried Chicken,Food & Beverage,Central Lobby Terminal 2,4.3,3,sedang,,0.48293517529244834,1.3862943611198906,4.095755968169762
+89,Roti O,Food & Beverage,Boarding Lounge Terminal 2,2.9,43,murah,,-2.0634502944313704,3.784189633918261,3.1140533506831494
+90,Soerabaja Café,Food & Beverage,Boarding Lounge Terminal 2,3.6,17,sedang,,-0.7902575595694606,2.8903717578961645,3.760919540229885
+91,Warung MJ,Food & Beverage,Non Terminal 2,4.1,210,sedang,,0.11916582247475963,5.351858133476067,4.097021943573668
+92,ANGKRINGAN T2 KOPIKU,Food & Beverage,Non Terminal 2,3.8,4,sedang,,-0.4264882067517727,1.6094379124341003,3.967487684729064
+93,Depot Cak Mat,Food & Beverage,Non Terminal 2,4.1,196,sedang,,0.11916582247475963,5.2832037287379885,4.096819551389354
+94,Singgalang,Food & Beverage,Boarding Lounge Terminal 1,4.4,9,sedang,,0.6648198517012935,2.302585092994046,4.2076225045372055
+95,Uncle Wang Singapore Chicken Rice,Food & Beverage,Arrival Lobby Terminal 1,4.2,5,mahal,,0.3010504988836048,1.791759469228055,4.089655172413792
+96,Ho Yoe,Food & Beverage,Boarding Lounge Terminal 1,4.2,6,sedang,,0.3010504988836048,1.9459101490553132,4.096551724137932
+97,Bank Mandiri,Services,Baggage Claim B Terminal 1,4.2,53,non_applicable,,0.3010504988836048,3.9889840465642745,4.173727422003284
+98,Bank Jatim,Services,Baggage Claim B Terminal 1,4.7,21,non_applicable,,1.210473880927826,3.091042453358316,4.4853170189099
+99,Bank BNI,Services,Baggage Claim B Terminal 1,4.1,17,non_applicable,,0.11916582247475963,2.8903717578961645,4.0757343550447
+100,Bank Mandiri,Services,Baggage Claim A Terminal 1,4.8,120,non_applicable,,1.3923585573366695,4.795790545596741,4.741114058355438
+101,Bank BRI,Services,Non Terminal 2,4.0,1,non_applicable,,-0.06271885393408393,0.6931471805599453,4.031347962382445
+102,Damri Bandara Juanda,Services,Arrival Lobby Terminal 1,2.7,79,non_applicable,,-2.4272196472490584,4.382026634673881,2.849941882991089
+103,Lion Air Flops,Services,Arrival Lobby Terminal 1,3.6,133,non_applicable,,-0.7902575595694606,4.897839799950911,3.6303834096937546
+104,Surabaya Patata Bandara Juanda,Services,Arrival Lobby Terminal 2,4.6,225,non_applicable,,1.0285892045189806,5.420534999272286,4.57593543653705
+105,Transportasi Travel,Services,Arrival Lobby Terminal 1,4.1,14,non_applicable,,0.11916582247475963,2.70805020110221,4.072701149425288
+106,Kantin Juanda t1,Food & Beverage,Non Terminal 1,4.2,939,sedang,,0.3010504988836048,6.84587987526405,4.198255877330039
+107,Kantin Juanda T2,Food & Beverage,Non Terminal 2,3.9,15,sedang,,-0.2446035303429283,2.772588722239781,3.953793103448276
+108,Baso A Fung Juanda T1,Food & Beverage,Boarding Lounge Terminal 1,3.8,18,mahal,,-0.4264882067517727,2.9444389791664403,3.8837438423645323
+109,KCP Bank Mandiri,Services,Arrival Lobby Terminal 1,4.8,120,non_applicable,,1.3923585573366695,4.795790545596741,4.741114058355438
+110,Bank BCA,Services,Boarding Lounge Terminal 1,4.7,10,non_applicable,,1.210473880927826,2.3978952727983707,4.367241379310345
+111,KCP Bank Mandiri,Services,Central Lobby Terminal 1,4.7,12,non_applicable,,1.210473880927826,2.5649493574615367,4.397492163009404
+112,Bank CIMB Niaga,Services,Central Lobby Terminal 1,4.3,3,non_applicable,,0.48293517529244834,1.3862943611198906,4.095755968169762
+113,Bank BSI,Services,Boarding Lounge Terminal 1,5.0,4,non_applicable,,1.756127910154358,1.6094379124341003,4.310344827586206
+114,INDOCEV,Services,Central Lobby Terminal 2,2.2,10,non_applicable,,-3.3366430292932794,2.3978952727983707,3.117241379310345
+115,Aroma Padang Juanda,Food & Beverage,Boarding Lounge Terminal 1,4.7,19,sedang,,1.210473880927826,2.995732273553991,4.4705112960761
+116,Gift Shop,Retail,Boarding Lounge Terminal 1,4.5,4,sedang,,0.8467045281101371,1.6094379124341003,4.167487684729064
