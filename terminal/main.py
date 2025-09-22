@@ -22,7 +22,7 @@ cosine_sim = cosine_similarity(content_features)
 
 aktivitas_mapping = {
     "Belanja": ["Retail", "Event & Promotion", "Fashion", "Shop"],
-    "Makanan": ["Food & Beverage", "Restaurant", "Cafe", "Dining"],
+    "Makanan": ["Food & Beverage", "Event & Promotion","Restaurant", "Cafe", "Dining"],
     "Service": ["Services", "Bank", "ATM", "Financial"]
 }
 
@@ -44,7 +44,7 @@ def get_recommendations_by_filters(lokasi, aktivitas, top_n=5):
 
     # Cari tenant mirip (CBF)
     similar_indices = cosine_sim[idx].argsort()[::-1][1:top_n+1]
-    return df.loc[similar_indices, ["nama_brand", "jenis_usaha", "lokasi", "rating", "total_review"]]
+    return df.loc[similar_indices, ["nama_brand", "jenis_usaha", "lokasi", "rating", "total_review", "rentang_harga"]]
 
 # Clustering (KMeans & Spectral)
 X = df[["rating", "total_review"]].copy()
@@ -100,7 +100,7 @@ lokasi_input = input("\nMasukkan Lokasi (T1/T2): ")
 aktivitas_input = input("Mau ngapain? (Belanja/Makanan/Service): ")
 
 print("\n=== Rekomendasi Tenant (CBF) ===")
-print(get_recommendations_by_filters(lokasi_input, aktivitas_input, top_n=10))
+print(get_recommendations_by_filters(lokasi_input, aktivitas_input, top_n=15))
 
 # Save hasil akhir
 df.to_csv("tenant_recommendation_with_clusters.csv", index=False)
