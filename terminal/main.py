@@ -29,7 +29,7 @@ aktivitas_mapping = {
 def get_recommendations_by_filters(lokasi=None, aktivitas=None, rentang_harga=None, top_n=10):
     # Minimal 1 input harus ada
     if not lokasi and not aktivitas and not rentang_harga:
-        return "⚠️ Minimal 1 input (Terminal / Aktivitas / Rentang Harga) harus diisi!"
+        return None  # biar balik ke input ulang
 
     filtered_df = df.copy()
 
@@ -86,6 +86,12 @@ summary_kmeans = df.groupby("cluster_kmeans").agg({
 print("\n=== Ringkasan Cluster (KMeans) ===")
 print(summary_kmeans)
 
+# Tampilkan top 10 tiap cluster KMeans
+for cluster_id in sorted(df["cluster_kmeans"].unique()):
+    print(f"\n--- Top 10 Tenant Cluster {cluster_id} (KMeans) ---")
+    top_kmeans = df[df["cluster_kmeans"] == cluster_id].sort_values(by="total_review", ascending=False).head(10)
+    print(top_kmeans[["nama_brand", "jenis_usaha", "lokasi", "rating", "total_review", "rentang_harga"]])
+
 # --- Spectral Clustering ---
 knn_graph = kneighbors_graph(X, n_neighbors=10, include_self=False)
 adj_matrix = 0.5 * (knn_graph.toarray() + knn_graph.toarray().T)
@@ -110,17 +116,31 @@ summary_spectral = df.groupby("cluster_spectral").agg({
 print("\n=== Ringkasan Cluster (Spectral) ===")
 print(summary_spectral)
 
+# Tampilkan top 10 tiap cluster Spectral
+for cluster_id in sorted(df["cluster_spectral"].unique()):
+    print(f"\n--- Top 10 Tenant Cluster {cluster_id} (Spectral) ---")
+    top_spectral = df[df["cluster_spectral"] == cluster_id].sort_values(by="total_review", ascending=False).head(10)
+    print(top_spectral[["nama_brand", "jenis_usaha", "lokasi", "rating", "total_review", "rentang_harga"]])
+
 # ================= REKOMENDASI ==================
-lokasi_input = input("\nMasukkan Lokasi (T1/T2) [Opsional]: ").strip()
-aktivitas_input = input("Mau ngapain? (Belanja/Makanan/Service) [Opsional]: ").strip()
-harga_input = input("Rentang harga (murah/sedang/mahal) [Opsional]: ").strip()
+while True:
+    lokasi_input = input("\nMasukkan Lokasi (T1/T2) [Opsional]: ").strip()
+    aktivitas_input = input("Mau ngapain? (Belanja/Makanan/Service) [Opsional]: ").strip()
+    harga_input = input("Rentang harga (murah/sedang/mahal) [Opsional]: ").strip()
 
-lokasi_input = lokasi_input if lokasi_input else None
-aktivitas_input = aktivitas_input if aktivitas_input else None
-harga_input = harga_input if harga_input else None
+    lokasi_input = lokasi_input if lokasi_input else None
+    aktivitas_input = aktivitas_input if aktivitas_input else None
+    harga_input = harga_input if harga_input else None
 
-print("\n=== Rekomendasi Tenant (CBF) ===")
-print(get_recommendations_by_filters(lokasi_input, aktivitas_input, rentang_harga=harga_input, top_n=15))
+    hasil = get_recommendations_by_filters(lokasi_input, aktivitas_input, rentang_harga=harga_input, top_n=15)
+
+    if hasil is None:
+        print("\n⚠️ Minimal isi salah satu filter (Terminal / Aktivitas / Rentang Harga). Coba lagi!\n")
+        continue
+    else:
+        print("\n=== Rekomendasi Tenant (CBF) ===")
+        print(hasil)
+        break
 
 # Save hasil akhir
 df.to_csv("tenant_recommendation_with_clusters.csv", index=False)

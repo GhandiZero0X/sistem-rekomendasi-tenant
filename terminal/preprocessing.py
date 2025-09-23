@@ -1,7 +1,7 @@
 # preprocessing.py
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import OneHotEncoder, MinMaxScaler, StandardScaler, RobustScaler, PowerTransformer, QuantileTransformer
+from sklearn.preprocessing import OneHotEncoder,StandardScaler
 import joblib
 
 # Step 1: Load dataset
