@@ -1,7 +1,9 @@
-# preprocessing.py
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import OneHotEncoder, MinMaxScaler, StandardScaler, RobustScaler, PowerTransformer, QuantileTransformer
+from sklearn.preprocessing import (
+    OneHotEncoder, MinMaxScaler, StandardScaler,
+    RobustScaler, PowerTransformer, QuantileTransformer
+)
 import joblib
 
 # Step 1: Load dataset
@@ -20,11 +22,26 @@ numeric_cols = ["rating", "total_review"]
 encoder = OneHotEncoder(sparse_output=False, handle_unknown="ignore")
 cat_encoded = encoder.fit_transform(df[categorical_cols])
 
+# ==== Pilih scaler yang mau dipakai ====
+scaler_choice = "Standard"   # ganti ke: "MinMax", "Standard", "Robust", "Power", "Quantile"
+
+if scaler_choice == "MinMax":
+    scaler = MinMaxScaler()
+elif scaler_choice == "Standard":
+    scaler = StandardScaler()
+elif scaler_choice == "Robust":
+    scaler = RobustScaler()
+elif scaler_choice == "Power":
+    scaler = PowerTransformer(method="yeo-johnson")
+elif scaler_choice == "Quantile":
+    scaler = QuantileTransformer(output_distribution="normal", random_state=0)
+else:
+    raise ValueError("Scaler tidak dikenali!")
+
 # Scale numeric
-scaler = StandardScaler()
 num_scaled = scaler.fit_transform(df[numeric_cols])
 
-# Gabung fitur
+# Gabung fitur akhir
 content_features = np.hstack([cat_encoded, num_scaled])
 
 # Step 4: Save hasil preprocessing
@@ -33,7 +50,7 @@ np.save("content_features.npy", content_features)
 joblib.dump(encoder, "encoder.pkl")
 joblib.dump(scaler, "scaler.pkl")
 
-print("✅ Preprocessing selesai. File disimpan:")
+print(f"✅ Preprocessing selesai dengan {scaler_choice}Scaler.")
 print("- tenant_preprocessed.csv")
 print("- content_features.npy")
 print("- encoder.pkl, scaler.pkl")
