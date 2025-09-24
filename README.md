@@ -26,36 +26,29 @@ Dataset tenant digunakan sebagai pengganti database, dan sistem ini mampu member
 
 ## 📂 Struktur Direktori
 sistem-rekomendasi-tenant/
-│── controllers/
-│ └── algoritmaControllers.py
-│
-│── models/
-│ └── tenant.py
-│
-│── routes/
-│ └── routes.py
-│
-│── services/
-│ └── preprocessing.py
-│
-│── static/
-│ ├── css/
-│ ├── fonts/
-│ ├── images/
-│ └── js/
-│
-│── templates/
-│ └── index.html
-│
-│── data/
-│ ├── processed_tenant_data.csv
-│ ├── tenant_preprocessed.csv
-│ ├── content_features.npy
-│ ├── encoder.pkl
-│ └── scaler.pkl
-│
-│── app.py
-│── README.md
+sistem-rekomendasi-tenant/
+|-- controllers/
+|   └── algoritmaControllers.py
+|-- data/
+|   |-- processed_tenant_data.csv
+|   |-- tenant_preprocessed.csv
+|   |-- content_features.npy
+|   |-- encoder.pkl
+|   └── scaler.pkl
+|-- routes/
+|   └── routes.py
+|-- services/
+|   └── preprocessing.py
+|-- static/
+|   |-- css/
+|   |-- fonts/
+|   |-- images/
+|   └── js/
+|-- templates/
+|   └── index.html
+|-- __init__.py
+|-- app.py
+|-- README.md
 
 ---
 
@@ -63,10 +56,12 @@ sistem-rekomendasi-tenant/
 1. Clone repositori:
    ```bash
    git clone https://github.com/GhandiZero0X/sistem-rekomendasi-tenant.git
-   cd sistem-rekomendasi-tenant
-2. Jalanakan prepocessing data:
+2. Install dependencies
+   ```bash
+   pip install -r requirements.txt
+3. Jalanakan prepocessing data:
    ```bash
    python services/preprocessing.py
-3. Jalankan aplikasi Flask:
+4. Jalankan aplikasi Flask:
    ```bash
    Jalankan aplikasi Flask:
