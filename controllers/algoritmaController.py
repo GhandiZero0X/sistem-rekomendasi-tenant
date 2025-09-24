@@ -98,9 +98,9 @@ def run_clustering():
 
     return {
         "kmeans_eval": kmeans_eval,
-        "spectral_eval": spectral_eval,
+        # "spectral_eval": spectral_eval,
         "top_kmeans": top_kmeans,
-        "top_spectral": top_spectral
+        # "top_spectral": top_spectral
     }
 
 # if __name__ == "__main__":

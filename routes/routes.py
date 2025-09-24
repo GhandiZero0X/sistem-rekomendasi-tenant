@@ -25,6 +25,6 @@ def recommend():
 def clustering():
     hasil = run_clustering()
     hasil["top_kmeans"] = {str(k): v.to_dict(orient="records") for k, v in hasil["top_kmeans"].items()}
-    hasil["top_spectral"] = {str(k): v.to_dict(orient="records") for k, v in hasil["top_spectral"].items()}
+    # hasil["top_spectral"] = {str(k): v.to_dict(orient="records") for k, v in hasil["top_spectral"].items()}
     return jsonify(hasil)
 
