@@ -25,30 +25,31 @@ Dataset tenant digunakan sebagai pengganti database, dan sistem ini mampu member
 ---
 
 ## 📂 Struktur Direktori
+
+```bash
 sistem-rekomendasi-tenant/
-sistem-rekomendasi-tenant/
-|-- controllers/
-|   └── algoritmaControllers.py
-|-- data/
-|   |-- processed_tenant_data.csv
-|   |-- tenant_preprocessed.csv
-|   |-- content_features.npy
-|   |-- encoder.pkl
-|   └── scaler.pkl
-|-- routes/
-|   └── routes.py
-|-- services/
-|   └── preprocessing.py
-|-- static/
-|   |-- css/
-|   |-- fonts/
-|   |-- images/
-|   └── js/
-|-- templates/
-|   └── index.html
-|-- __init__.py
-|-- app.py
-|-- README.md
+│── controllers/
+│   └── algoritmaControllers.py
+│── data/
+│   ├── processed_tenant_data.csv
+│   ├── tenant_preprocessed.csv
+│   ├── content_features.npy
+│   ├── encoder.pkl
+│   └── scaler.pkl
+│── routes/
+│   └── routes.py
+│── services/
+│   └── preprocessing.py
+│── static/
+│   ├── css/
+│   ├── fonts/
+│   ├── images/
+│   └── js/
+│── templates/
+│   └── index.html
+│── __init__.py
+│── app.py
+└── README.md
 
 ---
 
