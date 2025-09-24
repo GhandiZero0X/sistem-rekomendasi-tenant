@@ -1,11 +1,14 @@
-# preprocessing.py
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import OneHotEncoder,StandardScaler
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 import joblib
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # naik 1 folder dari /services
+DATA_DIR = os.path.join(BASE_DIR, "data")
 
 # Step 1: Load dataset
-df = pd.read_csv("processed_tenant_data.csv")
+df = pd.read_csv(os.path.join(DATA_DIR, "processed_tenant_data.csv"))
 
 # Step 2: Handle Missing Values
 df["rating"] = df["rating"].fillna(df["rating"].mean())
@@ -28,12 +31,9 @@ num_scaled = scaler.fit_transform(df[numeric_cols])
 content_features = np.hstack([cat_encoded, num_scaled])
 
 # Step 4: Save hasil preprocessing
-df.to_csv("tenant_preprocessed.csv", index=False)
-np.save("content_features.npy", content_features)
-joblib.dump(encoder, "encoder.pkl")
-joblib.dump(scaler, "scaler.pkl")
+df.to_csv(os.path.join(DATA_DIR, "tenant_preprocessed.csv"), index=False)
+np.save(os.path.join(DATA_DIR, "content_features.npy"), content_features)
+joblib.dump(encoder, os.path.join(DATA_DIR, "encoder.pkl"))
+joblib.dump(scaler, os.path.join(DATA_DIR, "scaler.pkl"))
 
-print("✅ Preprocessing selesai. File disimpan:")
-print("- tenant_preprocessed.csv")
-print("- content_features.npy")
-print("- encoder.pkl, scaler.pkl")
+print("✅ Preprocessing selesai. File disimpan di folder data/")
