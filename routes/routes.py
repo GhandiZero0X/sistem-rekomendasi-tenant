@@ -5,7 +5,7 @@ routes = Blueprint("routes", __name__)
 
 @routes.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("test.html")
 
 @routes.route("/recommend", methods=["GET"])
 def recommend():
@@ -13,7 +13,7 @@ def recommend():
     aktivitas = request.args.get("aktivitas")
     harga = request.args.get("harga")
 
-    hasil = get_recommendations_by_filters(lokasi, aktivitas, harga, top_n=20)
+    hasil = get_recommendations_by_filters(lokasi, aktivitas, harga, top_n=50)
     if hasil is None:
         return jsonify({"error": "Minimal isi salah satu filter (lokasi / aktivitas / harga)."}), 400
     if isinstance(hasil, str):
