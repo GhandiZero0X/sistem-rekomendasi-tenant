@@ -51,6 +51,11 @@ body {
   font-family: var(--body-font-family); 
 }
 
+.navbar {
+  z-index: 1050;          /* pastikan navbar selalu di depan elemen lain */
+}
+
+
 
 /*---------------------------------------
   TYPOGRAPHY               
@@ -284,7 +289,7 @@ main {
 }
 
 .navbar .logo-image {
-  width: 100px;
+  width: 100%;
 }
 
 .logo-image {
@@ -292,7 +297,7 @@ main {
   height: auto;
 }
 
-.navbar-nav .nav-link {
+/* .navbar-nav .nav-link {
   display: inline-block;
   color: var(--section-bg-color);
   font-family: var(--title-font-family); 
@@ -313,9 +318,9 @@ main {
 .navbar-nav .nav-link.active, 
 .navbar-nav .nav-link:hover {
   color: var(--secondary-color);
-}
+} */
 
-.navbar .dropdown-menu {
+/* .navbar .dropdown-menu {
   background: var(--white-color);
   box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
   border: 0;
@@ -375,7 +380,7 @@ main {
   position: relative;
   left: 2px;
   border: 0;
-}
+} */
 
 @media screen and (min-width: 992px) {
   .navbar .dropdown:hover .dropdown-menu {
@@ -395,7 +400,7 @@ main {
   color: var(--secondary-color);
 }
 
-.navbar-toggler {
+/* .navbar-toggler {
   border: 0;
   padding: 0;
   cursor: pointer;
@@ -459,7 +464,7 @@ main {
 
 .navbar-toggler .navbar-toggler-icon::after {
   top: 8px;
-}
+} */
 
 
 /*---------------------------------------
