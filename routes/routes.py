@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, jsonify
 from controllers.algoritmaController import get_recommendations_by_filters, run_clustering
+from controllers.datasetController import delete_tenant
 
 routes = Blueprint("routes", __name__)
 
@@ -27,3 +28,10 @@ def clustering():
     hasil["all_kmeans"] = {str(k): v.to_dict(orient="records") for k, v in hasil["all_kmeans"].items()}
     hasil["all_spectral"] = {str(k): v.to_dict(orient="records") for k, v in hasil["all_spectral"].items()}
     return jsonify(hasil)
+
+@routes.route("/tenant/delete/<int:tenant_id>", methods=["DELETE"])
+def delete_tenant_route(tenant_id):
+    result = delete_tenant(tenant_id)
+    if "error" in result:
+        return jsonify(result), 404
+    return jsonify(result), 200
