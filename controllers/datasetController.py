@@ -6,6 +6,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "../data")
 RAW_PATH = os.path.join(DATA_DIR, "processed_tenant_data.csv")
 
+# Hapus tenant berdasarkan ID
 def delete_tenant(tenant_id: int):
     """Hapus tenant berdasarkan ID"""
     if not os.path.exists(RAW_PATH):
@@ -33,3 +34,18 @@ def delete_tenant(tenant_id: int):
     df.to_csv(RAW_PATH, index=False)
 
     return {"success": f"Tenant dengan id {tenant_id} berhasil dihapus."}
+
+# hapus tenant berdasarkan list of ID
+# def delete_batch_tenants(tenant_ids: list):
+
+# menampilkan semua tenant
+# def get_all_tenants():
+
+# update tenant berdasarkan ID
+# def update_tenant(tenant_id: int, update_data: dict):
+
+# menambah tenant satu per satu
+# def add_tenant(tenant_data: dict):
+
+# menambah tenant berdasarkan list of data
+# def add_batch_tenants(tenants_data: list):
