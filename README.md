@@ -50,6 +50,7 @@ sistem-rekomendasi-tenant/
 │── __init__.py
 │── app.py
 └── README.md
+```
 
 ---
 
@@ -65,4 +66,4 @@ sistem-rekomendasi-tenant/
    python services/preprocessing.py
 4. Jalankan aplikasi Flask:
    ```bash
-   Jalankan aplikasi Flask:
+   python app.py

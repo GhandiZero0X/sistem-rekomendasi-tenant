@@ -65,17 +65,17 @@ def run_clustering():
     kmeans = KMeans(n_clusters=2, random_state=0, n_init=10)
     df["cluster_kmeans"] = kmeans.fit_predict(X)
 
-    kmeans_eval = {
-        "Silhouette": silhouette_score(X, df["cluster_kmeans"]),
-        "Calinski-Harabasz": calinski_harabasz_score(X, df["cluster_kmeans"]),
-        "Davies-Bouldin": davies_bouldin_score(X, df["cluster_kmeans"]),
-    }
+    # kmeans_eval = {
+    #     "Silhouette": silhouette_score(X, df["cluster_kmeans"]),
+    #     "Calinski-Harabasz": calinski_harabasz_score(X, df["cluster_kmeans"]),
+    #     "Davies-Bouldin": davies_bouldin_score(X, df["cluster_kmeans"]),
+    # }
 
-    top_kmeans = {}
+    all_kmeans = {}
     for cluster_id in sorted(df["cluster_kmeans"].unique()):
-        top_kmeans[cluster_id] = df[df["cluster_kmeans"] == cluster_id] \
-            .sort_values(by="total_review", ascending=False) \
-            .head(10)[["nama_brand", "jenis_usaha", "lokasi", "rating", "total_review", "rentang_harga"]]
+        all_kmeans[cluster_id] = df[df["cluster_kmeans"] == cluster_id][
+            ["nama_brand", "jenis_usaha", "lokasi", "rating", "total_review", "rentang_harga", "gambar"]
+        ].sort_values(by="total_review", ascending=False)
 
     # --- Spectral ---
     knn_graph = kneighbors_graph(X, n_neighbors=10, include_self=False)
@@ -84,23 +84,23 @@ def run_clustering():
     spectral = SpectralClustering(n_clusters=2, affinity="precomputed", random_state=0, assign_labels="kmeans")
     df["cluster_spectral"] = spectral.fit_predict(adj_matrix)
 
-    spectral_eval = {
-        "Silhouette": silhouette_score(X, df["cluster_spectral"]),
-        "Calinski-Harabasz": calinski_harabasz_score(X, df["cluster_spectral"]),
-        "Davies-Bouldin": davies_bouldin_score(X, df["cluster_spectral"]),
-    }
+    # spectral_eval = {
+    #     "Silhouette": silhouette_score(X, df["cluster_spectral"]),
+    #     "Calinski-Harabasz": calinski_harabasz_score(X, df["cluster_spectral"]),
+    #     "Davies-Bouldin": davies_bouldin_score(X, df["cluster_spectral"]),
+    # }
 
-    top_spectral = {}
+    all_spectral = {}
     for cluster_id in sorted(df["cluster_spectral"].unique()):
-        top_spectral[cluster_id] = df[df["cluster_spectral"] == cluster_id] \
-            .sort_values(by="total_review", ascending=False) \
-            .head(10)[["nama_brand", "jenis_usaha", "lokasi", "rating", "total_review", "rentang_harga"]]
+        all_spectral[cluster_id] = df[df["cluster_spectral"] == cluster_id][
+            ["nama_brand", "jenis_usaha", "lokasi", "rating", "total_review", "rentang_harga", "gambar"]
+        ].sort_values(by="total_review", ascending=False)
 
     return {
-        "kmeans_eval": kmeans_eval,
-        "spectral_eval": spectral_eval,
-        "top_kmeans": top_kmeans,
-        "top_spectral": top_spectral
+        # "kmeans_eval": kmeans_eval,
+        # "spectral_eval": spectral_eval,
+        "all_kmeans": all_kmeans,
+        "all_spectral": all_spectral
     }
 
 # if __name__ == "__main__":
