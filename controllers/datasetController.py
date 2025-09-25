@@ -41,6 +41,9 @@ def delete_tenant(tenant_id: int):
 # menampilkan semua tenant
 # def get_all_tenants():
 
+# menampilkan tenant berdasarkan ID
+# def get_tenant_by_id(tenant_id: int):
+
 # update tenant berdasarkan ID
 # def update_tenant(tenant_id: int, update_data: dict):
 
