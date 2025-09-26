@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, jsonify
 from controllers.algoritmaController import get_recommendations_by_filters, run_clustering
-from controllers.datasetController import delete_tenant
+from controllers.datasetController import delete_tenant, get_all_tenants, get_tenant_by_id, update_tenant, add_tenant
 
 routes = Blueprint("routes", __name__)
 
@@ -35,3 +35,33 @@ def delete_tenant_route(tenant_id):
     if "error" in result:
         return jsonify(result), 404
     return jsonify(result), 200
+
+@routes.route("/tenants", methods=["GET"])
+def get_all_tenants_route():
+    result = get_all_tenants()
+    if "error" in result:
+        return jsonify(result), 404
+    return jsonify(result), 200
+
+@routes.route("/tenant/<int:tenant_id>", methods=["GET"])
+def get_tenant_by_id_route(tenant_id):
+    result = get_tenant_by_id(tenant_id)
+    if "error" in result:
+        return jsonify(result), 404
+    return jsonify(result), 200
+
+@routes.route("/tenant/update/<int:tenant_id>", methods=["PUT"])
+def update_tenant_route(tenant_id):
+    update_data = request.json
+    result = update_tenant(tenant_id, update_data)
+    if "error" in result:
+        return jsonify(result), 404
+    return jsonify(result), 200
+
+@routes.route("/tenant/add", methods=["POST"])
+def add_tenant_route():
+    tenant_data = request.json
+    result = add_tenant(tenant_data)
+    if "error" in result:
+        return jsonify(result), 400
+    return jsonify(result), 201
