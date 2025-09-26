@@ -272,29 +272,44 @@ main {
 -----------------------------------------*/
 /* Navbar selalu terlihat */
 
-.navbar {
-  background-color: transparent;
-  position: absolute;
+/* Navbar default (desktop) */
+.custom-navbar {
+  position: fixed;
   top: 0;
-  right: 0;
   left: 0;
-  z-index: 9;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-.navbar .navbar-brand,
-.navbar .navbar-brand:hover {
-  color: var(--white-color);
-}
-
-.navbar .logo-image {
   width: 100%;
+  height: 100px; /* tinggi besar untuk desktop */
+  background: linear-gradient(to right, #0d47a1, #42a5f5);
+  z-index: 9999;
+  padding: 0;
+  margin: 0;
 }
 
-.logo-image {
-  width: 200px;
-  height: auto;
+.custom-navbar .container {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.custom-navbar .navbar-brand {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.custom-navbar .logo-image {
+  height: 100%;
+  width: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsif (mobile) */
+@media (max-width: 768px) {
+  .custom-navbar {
+    height: 60px; /* lebih kecil di HP */
+  }
 }
 
 /* .navbar-nav .nav-link {

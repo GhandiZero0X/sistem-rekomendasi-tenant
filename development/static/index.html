@@ -25,20 +25,13 @@
 </head>
 <body>
     <main>
-<nav class="navbar navbar-expand-lg shadow-sm" 
-     style="position: fixed; top: 0; left: 0; width: 100%; 
-            height: 100px; 
-            background: linear-gradient(to right, #0d47a1, #42a5f5); 
-            z-index: 9999; padding: 0; margin: 0;">
-    <div class="container d-flex justify-content-between align-items-center" style="height: 100%; padding:0; margin:0;  top: 0; bottom: 0;">
-        <a class="navbar-brand me-2 d-flex align-items-center" href="index.html" style="height: 100%; padding:0; margin:0;  top: 0; bottom: 0;">
-            <img src="images/logo_footer.png" 
-                 alt="injouney logo" 
-                 style="height: 100%; width: auto; display: block; margin:0; padding:0; top: 0; bottom: 0;">
-        </a>
-    </div>
-</nav>
-
+        <nav class="navbar navbar-expand-lg shadow-sm custom-navbar">
+            <div class="container d-flex justify-content-between align-items-center">
+                <a class="navbar-brand me-2 d-flex align-items-center" href="index.html">
+                    <img src="images/logo-navbar.png" class="logo-image" alt="injouney logo">
+                </a>
+            </div>
+        </nav>
 
         <section class="hero-section mt-20">
             <div class="container">
@@ -259,21 +252,25 @@
                     <div class="col-lg-3 col-12 mb-3 mb-lg-0">
                         <div class="custom-block custom-block-full">
                             <div class="custom-block-image-wrap">
-                                <a href="detail-page.html">
-                                    <img src="images/p6.png" class="custom-block-image img-fluid"
-                                        alt="">
+                                <a href="#">
+                                    <img src="images/p6.png" class="custom-block-image img-fluid" alt="">
                                 </a>
                             </div>
                             <div class="custom-block-info">
                                 <h5 class="mb-2">
-                                    <a href="detail-page.html">
+                                    <a href="#">
                                         PLANET GOODS
                                     </a>
                                 </h5>
                                 <div class="profile-block d-flex">
                                     <p><strong>BOARDING LOUNGE LANTAI 2 (GATE 9) T1</strong></p>
                                 </div>
-                                <a class="mb-0">Lihat Detail</a>
+
+                                <!-- Tombol buka modal -->
+                                <a href="#" class="mb-0" data-bs-toggle="modal" data-bs-target="#detailModal">
+                                    Lihat Detail
+                                </a>
+
                                 <div class="custom-block-bottom d-flex justify-content-between mt-3">
                                     <a href="#" class="me-1">
                                         <i class="bi bi-star-fill"></i>
@@ -308,7 +305,9 @@
                                 <div class="profile-block d-flex">
                                     <p><strong>BOARDING LOUNGE LANTAI 2 (GATE 7) T1</strong></p>
                                 </div>
-                                <a class="mb-0">Lihat Detail</a>
+                                <a href="#" class="mb-0" data-bs-toggle="modal" data-bs-target="#detailModal">
+                                    Lihat Detail
+                                </a>
                                 <div class="custom-block-bottom d-flex justify-content-between mt-3">
                                     <a href="#" class="me-1">
                                         <i class="bi bi-star-fill"></i>
@@ -326,7 +325,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-12 mb-lg-0">
+                    <div class="col-lg-3 col-12 mb-3 mb-lg-0">
                         <div class="custom-block custom-block-full">
                             <div class="custom-block-image-wrap">
                                 <a href="detail-page.html">
@@ -343,7 +342,9 @@
                                 <div class="profile-block d-flex">
                                     <p><strong>LOBBY DEPARTURE T1</strong></p>
                                 </div>
-                                <a class="mb-0">Lihat Detail</a>
+                                <a href="#" class="mb-0" data-bs-toggle="modal" data-bs-target="#detailModal">
+                                    Lihat Detail
+                                </a>
                                 <div class="custom-block-bottom d-flex justify-content-between mt-3">
                                     <a href="#" class="me-1">
                                         <i class="bi bi-star-fill"></i>
@@ -360,7 +361,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-3 col-12 mb-3 mb-lg-0">
                         <div class="custom-block custom-block-full">
                             <div class="custom-block-image-wrap">
@@ -378,8 +379,10 @@
                                 <div class="profile-block d-flex">
                                     <p><strong>BOARDING LOUNGE LANTAI 2 (GATE 7) T1</strong></p>
                                 </div>
-                                <a class="mb-0">Lihat Detail</a>
-                                <div class="custom-block-bottom d-flex justify-content-between mt-">
+                                <a href="#" class="mb-0" data-bs-toggle="modal" data-bs-target="#detailModal">
+                                    Lihat Detail
+                                </a>
+                                <div class="custom-block-bottom d-flex justify-content-between mt-3">
                                     <a href="#" class="me-1">
                                         <i class="bi bi-star-fill"></i>
                                         <span>4.5</span>
@@ -399,6 +402,66 @@
             </div>
         </section>
     </main>
+
+    <!-- Modal -->
+<div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg"> <!-- Lebar diperbesar -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="detailModalLabel">Detail Planet Goods</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="row g-3 align-items-center">
+          <!-- Bagian Kiri (Gambar) -->
+          <div class="col-md-5 text-center">
+            <img src="images/p6.png" alt="Planet Goods" class="img-fluid rounded" style="max-height: 350px; object-fit: cover;">
+          </div>
+
+          <!-- Bagian Kanan (Tabel Detail) -->
+          <div class="col-md-7">
+            <table class="table table-borderless">
+              <tr>
+                <th style="width: 40%;">Nama</th>
+                <td>Planet Goods</td>
+              </tr>
+              <tr>
+                <th>Jenis Usaha</th>
+                <td>Retail</td>
+              </tr>
+              <tr>
+                <th>Lokasi</th>
+                <td>Boarding Lounge Lantai 2 (Gate 9) T1</td>
+              </tr>
+              <tr>
+                <th>Rating</th>
+                <td>⭐ 4.5</td>
+              </tr>
+              <tr>
+                <th>Total Review</th>
+                <td>2000</td>
+              </tr>
+              <tr>
+                <th>Harga</th>
+                <td>Murah</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <!-- Tutup tanpa redirect langsung -->
+        <button type="button" class="btn btn-secondary" id="closeAndRedirect" data-bs-dismiss="modal">
+          Oke
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
             <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
                 data-bs-target="#navbarNav" aria-controls="navbarNav" 
@@ -606,6 +669,13 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/custom.js"></script>
+
+    <!-- Script redirect -->
+    <script>
+    document.getElementById("closeAndRedirect").addEventListener("click", function() {
+        window.location.href = "index.html";
+    });
+    </script>
 
 </body>
 </html>
