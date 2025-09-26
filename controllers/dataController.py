@@ -10,7 +10,6 @@ RAW_PATH = os.path.join(DATA_DIR, "processed_tenant_data.csv")
 PREPROCESSED_PATH = os.path.join(DATA_DIR, "tenant_preprocessed.csv")
 LAST_SNAPSHOT_PATH = os.path.join(DATA_DIR, "processed_tenant_last.csv")
 
-
 def dataset_changed(df_raw, df_last):
     """Bandingkan apakah ada perubahan data"""
     # 1. Cek jumlah baris
@@ -26,7 +25,6 @@ def dataset_changed(df_raw, df_last):
         return True
 
     return False
-
 
 def load_dataset():
     """Load dataset terbaru + auto jalankan preprocessing kalau ada perubahan"""
