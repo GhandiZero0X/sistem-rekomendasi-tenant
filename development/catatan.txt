@@ -1,6 +1,5 @@
 Task Selanjutnya :
 
-Ghandi : 
 1. Melakukan perbaikan program agar dapat menampilkan seluruh isi hasil clustering 
 yang dihasilkan oleh algoritma KNN yaitu cluster 0 dan cluster 1. (perlu peninjauan ulang untuk code yang sudah 
 di tulis pada file algoritmaController) SELASAI
@@ -13,10 +12,17 @@ SELESAI
 3. Mempersiapkan routes untuk penggunaan metode POST dan GET dalam melakukan request rekomendasi, 
 menampilkan hasil rekomendasi, serta menampilkan hasil cluster yang telah dihasilkan oleh fungsi 
 clustering pada algoritmaController. (siapkan mulai dari post rekomendasi dan get rekomendasi serta get clustering)
+SELESAI 
 
 4. Mempersiapkan fungsi CRUD untuk memperbarui file dataset CSV, yang hanya dapat dilakukan oleh admin.
 (baru yang delete selesai di kerjakan kurang update, add, read)
+SELESAI
 
 5. mempersiapkan js agar tampilan dapat menyajika data tidak membutuhkan halaman tambahan untuk hasil rekomendasi
+(kasih ke frontend untuk dapat membuat code untuk js kalau bisa menggunakan jquery agar lebih cepat)
 
-6. 
+6. mempersiapkan kebutuhan login untuk mendaftar akun admin harus mendapat approval terlebiih dahulu untuk mendapatkan 
+akunnya untuk admin untuk dapat melakukan akses crud tenant
+
+7. mempersiapkan fungsi untuk menampilkan dashboard pemantau untuk admin agar dapat 
+memantau tenant yang ada

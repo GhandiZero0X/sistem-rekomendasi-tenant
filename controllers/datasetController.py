@@ -109,4 +109,35 @@ def delete_tenant(tenant_id: int):
     return {"success": f"Tenant dengan id {tenant_id} berhasil dihapus."}
 
 # hapus tenant berdasarkan list of ID
-# def delete_batch_tenants(tenant_ids: list):
+def delete_batch_tenants(tenant_ids: list):
+    """Hapus banyak tenant berdasarkan list of ID"""
+    if not os.path.exists(RAW_PATH):
+        return {"error": "Dataset tidak ditemukan."}
+
+    if not tenant_ids or not isinstance(tenant_ids, list):
+        return {"error": "Input harus berupa list of tenant IDs."}
+
+    df = pd.read_csv(RAW_PATH)
+
+    if "id" not in df.columns:
+        return {"error": "Kolom 'id' tidak ada di dataset."}
+
+    existing_ids = df["id"].astype(int).values
+    invalid_ids = [tid for tid in tenant_ids if tid not in existing_ids]
+    if invalid_ids:
+        return {"error": f"Tenant dengan id {invalid_ids} tidak ditemukan."}
+
+    # Hapus rows
+    df = df[~df["id"].astype(int).isin(tenant_ids)]
+
+    # Re-assign ID biar urut lagi
+    if "id" in df.columns:  
+        df = df.drop(columns=["id"])  # drop dulu kalau ada
+    df = df.reset_index(drop=True)
+    df.insert(0, "id", range(1, len(df) + 1))
+    df["id"] = df["id"].astype(int)  # pastikan int
+
+    # Simpan ulang
+    df.to_csv(RAW_PATH, index=False)
+
+    return {"success": f"{len(tenant_ids)} tenant berhasil dihapus."}

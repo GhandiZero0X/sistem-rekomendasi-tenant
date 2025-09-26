@@ -1,7 +1,8 @@
 from flask import Blueprint, request, jsonify, render_template
 from controllers.datasetController import (
     get_all_tenants, get_tenant_by_id,
-    add_tenant, add_batch_tenants, update_tenant, delete_tenant
+    add_tenant, add_batch_tenants, update_tenant, 
+    delete_tenant, delete_batch_tenants
 )
 from controllers.algoritmaController import get_recommendations_by_filters, run_clustering
 
@@ -44,6 +45,12 @@ def tenant_update(tenant_id):
 @routes.route("/tenant/<int:tenant_id>", methods=["DELETE"])
 def tenant_delete(tenant_id):
     return jsonify(delete_tenant(tenant_id))
+
+# Hapus banyak tenant sekaligus
+@routes.route("/tenants/batch", methods=["DELETE"])
+def tenant_delete_batch():
+    data = request.get_json()
+    return jsonify(delete_batch_tenants(data))
 
 # rekomendasi
 @routes.route("/recommend", methods=["GET"])
