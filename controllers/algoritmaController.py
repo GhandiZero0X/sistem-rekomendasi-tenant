@@ -1,3 +1,4 @@
+# controllers/algoritmaController.py
 import pandas as pd
 import numpy as np
 from sklearn.cluster import KMeans, SpectralClustering
@@ -5,14 +6,15 @@ from sklearn.neighbors import kneighbors_graph
 from sklearn.metrics import silhouette_score, calinski_harabasz_score, davies_bouldin_score
 from sklearn.metrics.pairwise import cosine_similarity
 import joblib
-import random
 import os
+import random
+from controllers.dataController import load_dataset
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "../data")
 
-# Load hasil preprocessing
-df = pd.read_csv(os.path.join(DATA_DIR, "tenant_preprocessed.csv"))
+# Load dataset (auto cek + update kalau ada perubahan)
+df = load_dataset()
 content_features = np.load(os.path.join(DATA_DIR, "content_features.npy"))
 encoder = joblib.load(os.path.join(DATA_DIR, "encoder.pkl"))
 scaler = joblib.load(os.path.join(DATA_DIR, "scaler.pkl"))
@@ -53,11 +55,11 @@ def get_recommendations_by_filters(lokasi=None, aktivitas=None, rentang_harga=No
     idx = random.choices(filtered_df.index.tolist(), weights=weights, k=1)[0]
 
     similar_indices = cosine_sim[idx].argsort()[::-1][1:top_n+1]
-    return df.loc[similar_indices, ["nama_brand", "jenis_usaha", "lokasi",
+    return df.loc[similar_indices, ["id", "nama_brand", "jenis_usaha", "lokasi",
                                     "rating", "total_review", "rentang_harga"]]
 
 def run_clustering():
-    """Jalankan clustering KMeans & Spectral + evaluasi"""
+    """Jalankan clustering KMeans & Spectral"""
     X = df[["rating", "total_review"]].copy()
     X["total_review"] = np.log1p(X["total_review"])  # stabilisasi distribusi
 
@@ -65,16 +67,16 @@ def run_clustering():
     kmeans = KMeans(n_clusters=2, random_state=0, n_init=10)
     df["cluster_kmeans"] = kmeans.fit_predict(X)
 
-    # kmeans_eval = {
+    all_kmeans = {}
+    # kmeans_eval = { 
     #     "Silhouette": silhouette_score(X, df["cluster_kmeans"]),
     #     "Calinski-Harabasz": calinski_harabasz_score(X, df["cluster_kmeans"]),
     #     "Davies-Bouldin": davies_bouldin_score(X, df["cluster_kmeans"]),
-    # }
-
-    all_kmeans = {}
+    # }  
+    
     for cluster_id in sorted(df["cluster_kmeans"].unique()):
         all_kmeans[cluster_id] = df[df["cluster_kmeans"] == cluster_id][
-            ["nama_brand", "jenis_usaha", "lokasi", "rating", "total_review", "rentang_harga", "gambar"]
+            ["id", "nama_brand", "jenis_usaha", "lokasi", "rating", "total_review", "rentang_harga", "gambar"]
         ].sort_values(by="total_review", ascending=False)
 
     # --- Spectral ---
@@ -84,16 +86,16 @@ def run_clustering():
     spectral = SpectralClustering(n_clusters=2, affinity="precomputed", random_state=0, assign_labels="kmeans")
     df["cluster_spectral"] = spectral.fit_predict(adj_matrix)
 
-    # spectral_eval = {
+    all_spectral = {}
+    # spectral_eval = { 
     #     "Silhouette": silhouette_score(X, df["cluster_spectral"]),
     #     "Calinski-Harabasz": calinski_harabasz_score(X, df["cluster_spectral"]),
     #     "Davies-Bouldin": davies_bouldin_score(X, df["cluster_spectral"]),
     # }
 
-    all_spectral = {}
     for cluster_id in sorted(df["cluster_spectral"].unique()):
         all_spectral[cluster_id] = df[df["cluster_spectral"] == cluster_id][
-            ["nama_brand", "jenis_usaha", "lokasi", "rating", "total_review", "rentang_harga", "gambar"]
+            ["id", "nama_brand", "jenis_usaha", "lokasi", "rating", "total_review", "rentang_harga", "gambar"]
         ].sort_values(by="total_review", ascending=False)
 
     return {
@@ -102,6 +104,7 @@ def run_clustering():
         "all_kmeans": all_kmeans,
         "all_spectral": all_spectral
     }
+
 
 # if __name__ == "__main__":
 #     print("=== Testing algoritmaController.py ===\n")
