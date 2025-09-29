@@ -1,10 +1,11 @@
 # controllers/algoritmaController.py
-import sys, os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# cek jika menggunakan terminal langsung
+# import sys, os
+# sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import pandas as pd
 import numpy as np
-from sklearn.cluster import KMeans, SpectralClustering
+from sklearn.cluster import KMeans
 from sklearn.neighbors import kneighbors_graph
 from sklearn.metrics import silhouette_score, calinski_harabasz_score, davies_bouldin_score
 from sklearn.metrics.pairwise import cosine_similarity
@@ -120,30 +121,9 @@ def run_clustering():
             ["id", "nama_brand", "jenis_usaha", "lokasi", "rating", "total_review", "rentang_harga", "gambar"]
         ].sort_values(by="total_review", ascending=False)
 
-    # --- Spectral ---
-    knn_graph = kneighbors_graph(X, n_neighbors=10, include_self=False)
-    adj_matrix = 0.5 * (knn_graph.toarray() + knn_graph.toarray().T)
-
-    spectral = SpectralClustering(n_clusters=2, affinity="precomputed", random_state=0, assign_labels="kmeans")
-    df["cluster_spectral"] = spectral.fit_predict(adj_matrix)
-
-    all_spectral = {}
-    # spectral_eval = { 
-    #     "Silhouette": silhouette_score(X, df["cluster_spectral"]),
-    #     "Calinski-Harabasz": calinski_harabasz_score(X, df["cluster_spectral"]),
-    #     "Davies-Bouldin": davies_bouldin_score(X, df["cluster_spectral"]),
-    # }
-
-    for cluster_id in sorted(df["cluster_spectral"].unique()):
-        all_spectral[cluster_id] = df[df["cluster_spectral"] == cluster_id][
-            ["id", "nama_brand", "jenis_usaha", "lokasi", "rating", "total_review", "rentang_harga", "gambar"]
-        ].sort_values(by="total_review", ascending=False)
-
     return {
         # "kmeans_eval": kmeans_eval,
-        # "spectral_eval": spectral_eval,
         "all_kmeans": all_kmeans,
-        "all_spectral": all_spectral
     }
 
 # def evaluate_recommendation(lokasi="T1", aktivitas="Makanan", rentang_harga="murah", top_n=10):
