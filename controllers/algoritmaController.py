@@ -1,7 +1,11 @@
 # controllers/algoritmaController.py
+# cek jika menggunakan terminal langsung
+# import sys, os
+# sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import pandas as pd
 import numpy as np
-from sklearn.cluster import KMeans, SpectralClustering
+from sklearn.cluster import KMeans
 from sklearn.neighbors import kneighbors_graph
 from sklearn.metrics import silhouette_score, calinski_harabasz_score, davies_bouldin_score
 from sklearn.metrics.pairwise import cosine_similarity
@@ -24,7 +28,38 @@ df["terminal"] = df["lokasi"].str.extract(r"(Terminal\s*\d)", expand=False).fill
 df["terminal"] = df["terminal"].str.replace("Terminal ", "T")
 
 # Content-Based Filtering
-cosine_sim = cosine_similarity(content_features)
+# Mapping bobot per fitur
+weight_mapping = {
+    "jenis_usaha": 2.0,
+    "lokasi": 1.5,
+    "rentang_harga": 1.0,
+    "rating": 2.0,
+    "total_review": 1.5,
+}
+
+# Ambil jumlah kolom hasil encoding
+feature_weights = []
+for i, cats in enumerate(encoder.categories_):
+    if i == 0:  # jenis_usaha
+        feature_weights.extend([weight_mapping["jenis_usaha"]] * len(cats))
+    elif i == 1:  # lokasi
+        feature_weights.extend([weight_mapping["lokasi"]] * len(cats))
+    elif i == 2:  # rentang_harga
+        feature_weights.extend([weight_mapping["rentang_harga"]] * len(cats))
+
+# Tambahkan bobot untuk fitur numerik
+feature_weights.extend([weight_mapping["rating"]])       # rating
+feature_weights.extend([weight_mapping["total_review"]]) # total_review
+feature_weights = np.array(feature_weights)
+
+# Safety check
+assert feature_weights.shape[0] == content_features.shape[1], \
+    f"Mismatch: weights {feature_weights.shape[0]} vs features {content_features.shape[1]}"
+
+# Terapkan bobot ke content features
+weighted_features = content_features * feature_weights
+cosine_sim = cosine_similarity(weighted_features)
+# cosine_sim = cosine_similarity(content_features)
 
 aktivitas_mapping = {
     "Belanja": ["Retail", "Event & Promotion", "Fashion", "Shop"],
@@ -51,10 +86,17 @@ def get_recommendations_by_filters(lokasi=None, aktivitas=None, rentang_harga=No
     if filtered_df.empty:
         return "⚠️ Tidak ada tenant sesuai filter yang diberikan."
 
+    # Sampling tenant awal berdasarkan popularitas
     weights = filtered_df["total_review"] + 1
     idx = random.choices(filtered_df.index.tolist(), weights=weights, k=1)[0]
+    # idx = filtered_df.sort_values(by="total_review", ascending=False).index[0]
 
-    similar_indices = cosine_sim[idx].argsort()[::-1][1:top_n+1]
+    # Hitung similarity berdasarkan weighted cosine
+    sim_scores = cosine_sim[idx]
+
+    # Urutkan tenant berdasarkan skor similarity
+    similar_indices = sim_scores.argsort()[::-1][1:top_n+1]
+
     return df.loc[similar_indices, ["id", "nama_brand", "jenis_usaha", "lokasi",
                                     "rating", "total_review", "rentang_harga"]]
 
@@ -79,34 +121,46 @@ def run_clustering():
             ["id", "nama_brand", "jenis_usaha", "lokasi", "rating", "total_review", "rentang_harga", "gambar"]
         ].sort_values(by="total_review", ascending=False)
 
-    # --- Spectral ---
-    knn_graph = kneighbors_graph(X, n_neighbors=10, include_self=False)
-    adj_matrix = 0.5 * (knn_graph.toarray() + knn_graph.toarray().T)
-
-    spectral = SpectralClustering(n_clusters=2, affinity="precomputed", random_state=0, assign_labels="kmeans")
-    df["cluster_spectral"] = spectral.fit_predict(adj_matrix)
-
-    all_spectral = {}
-    # spectral_eval = { 
-    #     "Silhouette": silhouette_score(X, df["cluster_spectral"]),
-    #     "Calinski-Harabasz": calinski_harabasz_score(X, df["cluster_spectral"]),
-    #     "Davies-Bouldin": davies_bouldin_score(X, df["cluster_spectral"]),
-    # }
-
-    for cluster_id in sorted(df["cluster_spectral"].unique()):
-        all_spectral[cluster_id] = df[df["cluster_spectral"] == cluster_id][
-            ["id", "nama_brand", "jenis_usaha", "lokasi", "rating", "total_review", "rentang_harga", "gambar"]
-        ].sort_values(by="total_review", ascending=False)
-
     return {
         # "kmeans_eval": kmeans_eval,
-        # "spectral_eval": spectral_eval,
         "all_kmeans": all_kmeans,
-        "all_spectral": all_spectral
     }
 
+# def evaluate_recommendation(lokasi="T1", aktivitas="Makanan", rentang_harga="murah", top_n=10):
+#     """Evaluasi rekomendasi sederhana pakai Precision@K & Recall@K"""
+#     hasil = get_recommendations_by_filters(lokasi, aktivitas, rentang_harga, top_n=top_n)
+    
+#     if isinstance(hasil, str) or hasil is None:
+#         print("⚠️", hasil)
+#         return
+
+#     # Anggap relevan kalau rating >= 4.0
+#     relevan = hasil[hasil["rating"] >= 3.7]
+
+#     precision = len(relevan) / top_n
+#     total_relevan = df[(df["rating"] >= 3.7)].shape[0]
+#     recall = len(relevan) / total_relevan if total_relevan > 0 else 0
+
+#     print("=== Evaluasi Rekomendasi ===")
+#     print(f"Precision@{top_n}: {precision:.2f}")
+#     print(f"Recall@{top_n}: {recall:.2f}")
+#     print("\nTop-N Rekomendasi:")
+#     print(hasil)
 
 # if __name__ == "__main__":
+    # print("=== Testing Terminal algoritmaController.py ===\n")
+    # print("=== Testing Evaluasi Rekomendasi ===\n")
+
+    # # Coba evaluasi dengan filter tertentu
+    # evaluate_recommendation(lokasi="T1", aktivitas="Makanan", rentang_harga="murah", top_n=10)
+
+    # # Coba clustering
+    # print("\n=== Testing Clustering ===")
+    # clusters = run_clustering()
+    # for cluster_id, tenants in clusters["all_kmeans"].items():
+    #     print(f"\nCluster KMeans {cluster_id} (Top 3):")
+    #     print(tenants.head(3)[["nama_brand", "rating", "total_review"]])
+
 #     print("=== Testing algoritmaController.py ===\n")
 
 #     print("\n=== Cek Rekomendasi Manual ===")
