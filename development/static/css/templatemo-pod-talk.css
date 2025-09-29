@@ -497,27 +497,6 @@ main {
   text-align: center;
 }
 
-.owl-carousel-image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* gambar memenuhi div tanpa distorsi */
-}
-
-.owl-carousel .owl-item .owl-carousel-verified-image {
-  display: inline-block;
-  width: 30px;
-  height: auto;
-  position: relative;
-  right: 5px;
-}
-
-.verified-image {
-  display: inline-block;
-  width: 20px;
-  height: auto;
-}
-
 .owl-carousel .owl-item {
   opacity: 0.35;
 }
@@ -531,18 +510,17 @@ main {
   position: relative;
   overflow: hidden;
   text-align: left;
-  height: 400px; /* atur sesuai kebutuhan */
+  height: 380px; /* default untuk desktop */
 }
 
-.owl-carousel-info {
-  background-color: var(--section-bg-color);
-  box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  padding: 10px;
+/* === Responsive untuk mobile === */
+@media (max-width: 768px) {
+  .owl-carousel-info-wrap {
+    height: auto;        /* biar ngikutin isi */
+    min-height: 240px;   /* opsional, batas minimal */
+  }
 }
+
 
 .badge {
   background-color: var(--custom-btn-bg-color);
@@ -583,42 +561,79 @@ main {
   margin-left: auto;
 }
 
-.owl-carousel-info-wrap .social-icon-link {
-  margin-top: 5px;
-  margin-bottom: 5px;
+/* --- Container teks judul & badge --- */
+.owl-carousel-info {
+  background-color: var(--section-bg-color);
+  position: relative;       /* jangan absolute */
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 10px;
+  margin-top: -5px;         /* opsional, rapatkan lebih dekat dengan gambar */
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
-/* Efek animasi sama seperti social-icon untuk carousel & team */
+/* Judul lebih rapat */
 .owl-carousel-info h4 {
-  margin-bottom: 5px; /* rapatkan judul */
-}
-.owl-carousel-info-wrap .icon-header,
-.team-thumb .icon-header {
-  opacity: 0;
-  transition: all 0.5s ease;
-  transform: translateX(0);
-  padding-right: 10px;
-  padding-left: 10px;
+  margin: 0 0 5px 0; /* hilangkan jarak atas, sisakan bawah */
 }
 
-.owl-carousel .owl-item.active.center .owl-carousel-info-wrap:hover .icon-header,
-.team-thumb:hover .icon-header {
-  transform: translateY(-100%);
-  opacity: 1;
-}
-
-.owl-carousel-info-wrap .icon-header-item,
-.owl-carousel-info-wrap .icon-header-link,
-.team-thumb .icon-header-item,
-.team-thumb .icon-header-link {
+/* --- Gambar fix persegi --- */
+.owl-carousel-info img,
+.owl-carousel-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;   /* bikin persegi */
+  object-fit: cover;     /* biar crop rapi */
+  border-radius: 12px 12px 0 0;  /* sudut atas aja yang bulet */
   display: block;
-  margin-bottom: 10px;
-  margin-left: auto;
+}
+
+.owl-carousel-info {
+  background-color: var(--section-bg-color);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 10px;
+}
+
+.owl-carousel-info-wrap {
+  position: relative; /* supaya child absolute bisa nempel */
+  overflow: hidden;
+}
+
+/* --- Default (desktop/tablet) --- */
+.owl-carousel-info-wrap .icon-header {
+  position: absolute;
+  top: 65%;
+  right: 15px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column; /* vertikal */
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  z-index: 2;
 }
 
 .owl-carousel-info-wrap .icon-header-link {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  background: var(--secondary-color);
+  border-radius: 50%;
+  color: var(--white-color);
+  font-size: 18px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.owl-carousel-info-wrap .icon-header-link:hover {
+  background: var(--primary-color);
+  color: var(--white-color);
 }
 
 .owl-carousel .owl-dots {
@@ -1240,28 +1255,28 @@ main {
   SOCIAL ICON               
 -----------------------------------------*/
 .icon-header {
+  position: absolute;
+  right: 10px;
   margin: 0;
   padding: 0;
-}
-
-.icon-header-item {
+  display: flex;
+  gap: 10px;      /* jarak antar icon */
   list-style: none;
-  display: inline-block;
-  vertical-align: top;
-  position: relative;
+  z-index: 2;     /* pastikan icon di atas gambar */
 }
 
 .icon-header-link {
   background: var(--secondary-color);
   border-radius: var(--border-radius-large);
   color: var(--white-color);
-  font-size: var(--p-font-size);
-  display: block;
-  margin-right: 10px;
-  text-align: center;
+  font-size: 18px;         /* lebih pas untuk icon bootstrap */
   width: 40px;
   height: 40px;
-  line-height: 40px;
+  line-height: 40px;       /* biar icon pas vertikal */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: background 0.2s, color 0.2s;
 }
 
@@ -1270,33 +1285,82 @@ main {
   color: var(--white-color);
 }
 
-/* Tooltip text muncul */
+/* pastikan tiap li jadi reference untuk posisi tooltip */
+.icon-header-item {
+  position: relative;
+  display: inline-block;
+}
+
+/* default tooltip: muncul di kanan icon */
 .icon-header-item::after {
   content: attr(data-label);
   position: absolute;
   top: 50%;
-  left: 50px; /* posisinya di kanan icon */
-  transform: translateY(-20%);
-  background:#046cd3;
+  left: calc(100% + 8px);
+  transform: translateY(-50%);
+  background: #0067cf;
   color: #fff;
-  padding: 4px 8px;
+  padding: 6px 10px;
   border-radius: 6px;
   font-size: 0.75rem;
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s, left 0.2s;
+  transition: opacity .18s ease, left .18s ease, right .18s ease;
+  z-index: 10;
 }
 
 .icon-header-item:hover::after {
   opacity: 1;
-  left: 10px; /* sedikit geser animasi */
+  left: calc(100% + 2px);
+}
+
+.icon-header-item.tooltip-left::after {
+  left: auto;
+  right: calc(100% + 2px);
+  transform: translateY(-50%);
+}
+
+.icon-header-item.tooltip-left:hover::after {
+  right: calc(100% + 3px);
+}
+
+/* wrapper gambar persegi */
+.square-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;   /* bikin kotak persegi */
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;   /* sudut atas aja yang bulet */
+}
+
+.square-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* biar gambar tidak gepeng */
+}
+@media (max-width: 500px) {
+  .square-wrapper {
+    padding-bottom: 100%; /* tetap kotak di mobile */
+  }
+  .owl-carousel-info h4 {
+    font-size: 16px;   /* perkecil teks */
+  }
+  .owl-carousel-info .badge {
+    font-size: 12px;
+    padding: 2px 6px;
+  }
 }
 
 /* Khusus mobile (hide tooltip text) */
+/* --- Mobile Responsive --- */
+/* --- Mobile Responsive --- */
 @media (max-width: 768px) {
-  .icon-header-item::after {
-    content: none !important;
+  .icon-header {
+    display: none !important;
   }
 }
 
@@ -1377,7 +1441,7 @@ main {
   }
 
   h6 {
-    font-size: 18px;
+    font-size: 17px;
   }
   
   .hero-section {
