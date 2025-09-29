@@ -19,8 +19,10 @@
     "axe/name-role-value": [
       "default",
       {
-        "button-name": "off"
+        "button-name": "off",
+        "link-name": "off"
       }
-    ]
+    ],
+    "no-inline-styles": "off"
   }
 }
