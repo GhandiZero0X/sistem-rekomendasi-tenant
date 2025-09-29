@@ -5,12 +5,21 @@ from controllers.datasetController import (
     delete_tenant, delete_batch_tenants
 )
 from controllers.algoritmaController import get_recommendations_by_filters, run_clustering
+from controllers.authController import register, login, approve_user
 
 routes = Blueprint("routes", __name__)
 
 @routes.route("/") 
 def home(): 
     return render_template("test.html")
+
+@routes.route("/register", methods=["POST"])
+def register_route():
+    return register()
+
+@routes.route("/login", methods=["POST"])
+def login_route():
+    return login()
 
 # dataset tenant
 # Menampilkan semua tenant
