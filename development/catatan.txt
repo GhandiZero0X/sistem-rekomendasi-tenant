@@ -18,16 +18,17 @@ SELESAI
 (baru yang delete selesai di kerjakan kurang update, add, read)
 SELESAI
 
-5. mempersiapkan js agar tampilan dapat menyajika data tidak membutuhkan halaman tambahan untuk hasil rekomendasi
-(kasih ke frontend untuk dapat membuat code untuk js kalau bisa menggunakan jquery agar lebih cepat)
+5.Melakukan Pengecekan untuk api yang sudah di buat untuk crud dari datasetController yang akan di gunakan admin
 
-6. Melakukan Pengecekan untuk api yang sudah di buat untuk crud dari datasetController yang akan di gunakan admin
-
-7. Melakukan pengecekan untuk algoritma dari rekomendasi cbf dan clustering knn untuk melihat apakah ada kesalahan atau 
-tidak dalam algoritma yang sudah di buat
+6. Melakukan pengecekan untuk algoritma dari rekomendasi cbf dan clustering knn untuk melihat apakah ada kesalahan atau 
+tidak dalam algoritma yang sudah di buat 
+SELESAI
 
 7. mempersiapkan kebutuhan login untuk mendaftar akun admin harus mendapat approval terlebiih dahulu untuk mendapatkan 
 akunnya untuk admin untuk dapat melakukan akses crud tenant
 
 8. mempersiapkan fungsi untuk menampilkan dashboard pemantau untuk admin agar dapat 
 memantau tenant yang ada
+
+mempersiapkan js agar tampilan dapat menyajika data tidak membutuhkan halaman tambahan untuk hasil rekomendasi
+(kasih ke frontend untuk dapat membuat code untuk js kalau bisa menggunakan jquery agar lebih cepat)
