@@ -110,11 +110,11 @@ def run_clustering():
     df["cluster_kmeans"] = kmeans.fit_predict(X)
 
     all_kmeans = {}
-    # kmeans_eval = { 
-    #     "Silhouette": silhouette_score(X, df["cluster_kmeans"]),
-    #     "Calinski-Harabasz": calinski_harabasz_score(X, df["cluster_kmeans"]),
-    #     "Davies-Bouldin": davies_bouldin_score(X, df["cluster_kmeans"]),
-    # }  
+    kmeans_eval = { 
+        "Silhouette": silhouette_score(X, df["cluster_kmeans"]),
+        "Calinski-Harabasz": calinski_harabasz_score(X, df["cluster_kmeans"]),
+        "Davies-Bouldin": davies_bouldin_score(X, df["cluster_kmeans"]),
+    }  
     
     for cluster_id in sorted(df["cluster_kmeans"].unique()):
         all_kmeans[cluster_id] = df[df["cluster_kmeans"] == cluster_id][
