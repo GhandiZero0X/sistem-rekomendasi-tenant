@@ -1,7 +1,7 @@
 # controllers/algoritmaController.py
 # cek jika menggunakan terminal langsung
-# import sys, os
-# sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import sys, os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import pandas as pd
 import numpy as np
@@ -106,7 +106,7 @@ def run_clustering():
     X["total_review"] = np.log1p(X["total_review"])  # stabilisasi distribusi
 
     # --- KMeans ---
-    kmeans = KMeans(n_clusters=2, random_state=0, n_init=10)
+    kmeans = KMeans(n_clusters=2, random_state=0, n_init=50)
     df["cluster_kmeans"] = kmeans.fit_predict(X)
 
     all_kmeans = {}
@@ -122,7 +122,7 @@ def run_clustering():
         ].sort_values(by="total_review", ascending=False)
 
     return {
-        # "kmeans_eval": kmeans_eval,
+        "kmeans_eval": kmeans_eval,
         "all_kmeans": all_kmeans,
     }
 
@@ -147,7 +147,7 @@ def run_clustering():
 #     print("\nTop-N Rekomendasi:")
 #     print(hasil)
 
-# if __name__ == "__main__":
+if __name__ == "__main__":
     # print("=== Testing Terminal algoritmaController.py ===\n")
     # print("=== Testing Evaluasi Rekomendasi ===\n")
 
@@ -161,7 +161,7 @@ def run_clustering():
     #     print(f"\nCluster KMeans {cluster_id} (Top 3):")
     #     print(tenants.head(3)[["nama_brand", "rating", "total_review"]])
 
-#     print("=== Testing algoritmaController.py ===\n")
+    # print("=== Testing algoritmaController.py ===\n")
 
 #     print("\n=== Cek Rekomendasi Manual ===")
 #     lokasi_input = input("Masukkan Lokasi (T1/T2) [Opsional]: ").strip() or None
@@ -173,19 +173,14 @@ def run_clustering():
 #     print("\n=== Hasil Rekomendasi ===")
 #     print(hasil if isinstance(hasil, str) else hasil.head(10))
 
-#     # Test clustering
-#     print("--- Hasil Evaluasi Clustering ---")
-#     hasil_cluster = run_clustering()
-#     print("KMeans Eval:", hasil_cluster["kmeans_eval"])
-#     print("Spectral Eval:", hasil_cluster["spectral_eval"])
+    # Test clustering
+    print("--- Hasil Evaluasi Clustering ---")
+    hasil_cluster = run_clustering()
+    print("KMeans Eval:", hasil_cluster["kmeans_eval"])
 
-#     for cluster_id, tenants in hasil_cluster["top_kmeans"].items():
-#         print(f"\nTop 5 KMeans Cluster {cluster_id}:")
-#         print(tenants.head(5))
-
-#     for cluster_id, tenants in hasil_cluster["top_spectral"].items():
-#         print(f"\nTop 5 Spectral Cluster {cluster_id}:")
-#         print(tenants.head(5))
+    for cluster_id, tenants in hasil_cluster["all_kmeans"].items():
+        print(f"\nTop 5 KMeans Cluster {cluster_id}:")
+        print(tenants.head(5))
 
 #     # Test rekomendasi sederhana
 #     print("\n--- Hasil Rekomendasi ---")
