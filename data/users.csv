@@ -1,2 +1,2 @@
-id,username,password,status_approval
-1,superadmin@injourney,$2b$12$P0wYA8ykvU6jESSOWDi//.5AsSUfRiYnOOSWL5psmXI9iCJ.Dp.4m,1
+id,username,password,status_approval,role
+1,superadmin@injourney,$2b$12$IX/YIiy1SIgoNqIbJsd/S.v5jgz6plrLTqy9kAD7JxIjJPLFPrZKK,1,superadmin

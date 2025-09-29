@@ -20,7 +20,8 @@ def create_admin_csv():
             "id": 1,
             "username": "superadmin@injourney",
             "password": "super@juandaInjourney123",
-            "status_approval": 1
+            "status_approval": 1,
+            "role": "superadmin"
         }
     ]
 
@@ -31,7 +32,7 @@ def create_admin_csv():
 
     # tulis ke CSV
     with open(ADMIN_PATH, mode="w", newline="", encoding="utf-8") as file:
-        writer = csv.DictWriter(file, fieldnames=["id", "username", "password", "status_approval"])
+        writer = csv.DictWriter(file, fieldnames=["id", "username", "password", "status_approval", "role"])
         writer.writeheader()
         writer.writerows(admin_users)
 
