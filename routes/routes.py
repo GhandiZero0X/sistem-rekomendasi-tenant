@@ -24,7 +24,7 @@ def tenant_by_id(tenant_id):
     return jsonify(get_tenant_by_id(tenant_id))
 
 # Menambah satu tenant
-@routes.route("/tenant", methods=["POST"])
+@routes.route("/tenantAdd", methods=["POST"])
 def tenant_add():
     data = request.get_json()
     return jsonify(add_tenant(data))
@@ -36,13 +36,13 @@ def tenant_add_batch():
     return jsonify(add_batch_tenants(data))
 
 # Merubah data tenant berdasarkan ID
-@routes.route("/tenant/<int:tenant_id>", methods=["PUT"])
+@routes.route("/tenantPut/<int:tenant_id>", methods=["PUT"])
 def tenant_update(tenant_id):
     data = request.get_json()
     return jsonify(update_tenant(tenant_id, data))
 
 # Hapus tenant berdasarkan ID
-@routes.route("/tenant/<int:tenant_id>", methods=["DELETE"])
+@routes.route("/tenantDelete/<int:tenant_id>", methods=["DELETE"])
 def tenant_delete(tenant_id):
     return jsonify(delete_tenant(tenant_id))
 

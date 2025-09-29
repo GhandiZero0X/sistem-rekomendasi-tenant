@@ -8,6 +8,7 @@ import pandas as pd
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data")
 RAW_PATH = os.path.join(DATA_DIR, "processed_tenant_data.csv")
+LAST_SNAPSHOT_PATH = os.path.join(DATA_DIR, "processed_tenant_last.csv")
 
 
 class TenantFileHandler(FileSystemEventHandler):
@@ -21,11 +22,15 @@ class TenantFileHandler(FileSystemEventHandler):
             for attempt in range(max_retries):
                 try:
                     # Test dulu file bisa dibaca
-                    pd.read_csv(RAW_PATH)
+                    df_raw = pd.read_csv(RAW_PATH)
 
                     # Kalau sukses → langsung preprocessing
                     run_preprocessing()
-                    print(f"✅ Preprocessing selesai (via watcher) setelah percobaan ke-{attempt+1}")
+
+                    # Update snapshot juga biar sinkron
+                    df_raw.to_csv(LAST_SNAPSHOT_PATH, index=False)
+
+                    print(f"✅ Preprocessing & snapshot update selesai (via watcher) setelah percobaan ke-{attempt+1}")
                     break
                 except Exception as e:
                     print(f"⚠️ Gagal baca/preprocessing (percobaan {attempt+1}): {e}")
