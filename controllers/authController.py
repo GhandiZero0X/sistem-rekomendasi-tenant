@@ -9,37 +9,28 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "../data")
 USERPATH = os.path.join(DATA_DIR, "users.csv")
 
+def _read_users_df():
+    if not os.path.exists(USERPATH):
+        return pd.DataFrame(columns=["id","username","password","status_approval","role"])
+    return pd.read_csv(USERPATH)
+
 # register akun admin
 def register():
-    data = request.get_json()
+    data = request.get_json() or {}
     username = data.get("username")
     password = data.get("password")
-
     if not username or not password:
         return jsonify({"error": "Username & password wajib diisi"}), 400
 
-    if os.path.exists(USERPATH):
-        df = pd.read_csv(USERPATH)
-        if username in df["username"].astype(str).values:
-            return jsonify({"error": "Username sudah terdaftar"}), 400
-    else:
-        df = pd.DataFrame(columns=["id", "username", "password", "status_approval", "role"])
+    df = _read_users_df()
+    if username in df.get("username", []).values:
+        return jsonify({"error": "Username sudah terdaftar"}), 400
 
-    # hash password
     hashed_pw = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
-
-    next_id = 1 if df.empty else int(df["id"].max()) + 1
-    new_user = {
-        "id": next_id,
-        "username": username,
-        "password": hashed_pw,
-        "status_approval": 0,   # default belum di-approve
-        "role": "admin"         # default role = admin
-    }
-
+    next_id = int(df["id"].max()) + 1 if not df.empty else 1
+    new_user = {"id": next_id, "username": username, "password": hashed_pw, "status_approval": 0, "role": "admin"}
     df = pd.concat([df, pd.DataFrame([new_user])], ignore_index=True)
     df.to_csv(USERPATH, index=False)
-
     return jsonify({"success": f"User {username} berhasil registrasi, menunggu approval superadmin."}), 201
 
 # login akun admin/superadmin
@@ -73,14 +64,10 @@ def login():
 
 # Approval akun admin oleh superadmin
 def approve_user(user_id):
-    if not os.path.exists(USERPATH):
-        return jsonify({"error": "User database tidak ditemukan"}), 400
-
-    df = pd.read_csv(USERPATH)
+    df = _read_users_df()
     if int(user_id) not in df["id"].astype(int).values:
         return jsonify({"error": "User tidak ditemukan"}), 404
 
     df.loc[df["id"].astype(int) == int(user_id), "status_approval"] = 1
     df.to_csv(USERPATH, index=False)
-
     return jsonify({"success": f"User dengan id {int(user_id)} berhasil di-approve."}), 200

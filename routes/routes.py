@@ -50,7 +50,7 @@ def login_route():
     return login()
 
 # Approve akun admin oleh superadmin
-@routes.route("/approve/<user_id>", methods=["PUT"])
+@routes.route("/approve/<int:user_id>", methods=["PUT"])
 @token_required
 @role_required("superadmin")
 def approve_route(user_id):
