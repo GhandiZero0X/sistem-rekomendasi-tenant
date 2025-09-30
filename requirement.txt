@@ -2,7 +2,7 @@
 flask==3.0.3
 gunicorn==23.0.0
 
-# Data processing
+# Data processing & ML
 pandas==2.2.2
 numpy==1.26.4
 scikit-learn==1.5.2
@@ -11,6 +11,7 @@ joblib==1.4.2
 # Auth & Security
 bcrypt==4.2.0
 PyJWT==2.9.0
+python-dotenv==1.0.1   # untuk load SECRET_KEY dari .env
 
 # File & Monitoring
 watchdog==4.0.1
