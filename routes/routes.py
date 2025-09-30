@@ -38,13 +38,23 @@ def clustering():
     return jsonify(hasil)
 
 # ===== API ADMIN =====
+# Auth admin dan superadmin
+# Register admin baru
 @routes.route("/register", methods=["POST"])
 def register_route():
     return register()
 
+# Login admin dan superadmin
 @routes.route("/login", methods=["POST"])
 def login_route():
     return login()
+
+# Approve akun admin oleh superadmin
+@routes.route("/approve/<user_id>", methods=["PUT"])
+@token_required
+@role_required("superadmin")
+def approve_route(user_id):
+    return approve_user(user_id)
 
 # dataset tenant
 # Menampilkan semua tenant

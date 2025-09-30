@@ -1,2 +1,3 @@
 id,username,password,status_approval,role
 1,superadmin@injourney,$2b$12$IX/YIiy1SIgoNqIbJsd/S.v5jgz6plrLTqy9kAD7JxIjJPLFPrZKK,1,superadmin
+2,admin0210@injourney,$2b$12$2CVANZZdfHwnprqChURekefjDtPD80fJNfBzg6YOzOCOAIJtdE17i,0,admin

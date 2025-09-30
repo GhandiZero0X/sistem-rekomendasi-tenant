@@ -20,7 +20,7 @@ def register():
 
     if os.path.exists(USERPATH):
         df = pd.read_csv(USERPATH)
-        if username in df["username"].values:
+        if username in df["username"].astype(str).values:
             return jsonify({"error": "Username sudah terdaftar"}), 400
     else:
         df = pd.DataFrame(columns=["id", "username", "password", "status_approval", "role"])
@@ -28,7 +28,7 @@ def register():
     # hash password
     hashed_pw = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
 
-    next_id = 1 if df.empty else df["id"].max() + 1
+    next_id = 1 if df.empty else int(df["id"].max()) + 1
     new_user = {
         "id": next_id,
         "username": username,
@@ -40,7 +40,7 @@ def register():
     df = pd.concat([df, pd.DataFrame([new_user])], ignore_index=True)
     df.to_csv(USERPATH, index=False)
 
-    return jsonify({"success": f"User {username} berhasil registrasi, menunggu approval superadmin."})
+    return jsonify({"success": f"User {username} berhasil registrasi, menunggu approval superadmin."}), 201
 
 # login akun admin/superadmin
 def login():
@@ -59,14 +59,17 @@ def login():
 
     user = user.iloc[0]
 
-    if not bcrypt.checkpw(password.encode("utf-8"), user["password"].encode("utf-8")):
+    if not bcrypt.checkpw(password.encode("utf-8"), str(user["password"]).encode("utf-8")):
         return jsonify({"error": "Password salah"}), 400
 
     if int(user["status_approval"]) == 0:
         return jsonify({"error": "Akun belum di-approve superadmin"}), 403
 
-    token = generate_token(user["id"], user["role"])
-    return jsonify({"token": token, "role": user["role"]})
+    # 🚀 convert id ke int python biasa
+    user_id = int(user["id"])  
+    token = generate_token(user_id, user["role"])
+
+    return jsonify({"token": token, "role": user["role"]}), 200
 
 # Approval akun admin oleh superadmin
 def approve_user(user_id):
@@ -74,10 +77,10 @@ def approve_user(user_id):
         return jsonify({"error": "User database tidak ditemukan"}), 400
 
     df = pd.read_csv(USERPATH)
-    if user_id not in df["id"].values:
+    if int(user_id) not in df["id"].astype(int).values:
         return jsonify({"error": "User tidak ditemukan"}), 404
 
-    df.loc[df["id"] == user_id, "status_approval"] = 1
+    df.loc[df["id"].astype(int) == int(user_id), "status_approval"] = 1
     df.to_csv(USERPATH, index=False)
 
-    return jsonify({"success": f"User dengan id {user_id} berhasil di-approve."})
+    return jsonify({"success": f"User dengan id {int(user_id)} berhasil di-approve."}), 200
