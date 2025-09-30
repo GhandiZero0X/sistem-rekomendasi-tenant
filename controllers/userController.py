@@ -76,15 +76,15 @@ def update_user(user_id: int, user_data: dict):
     df.to_csv(USERPATH, index=False)
     return {"success": f"Data user dengan id {user_id} berhasil diperbarui."}
 
-# delete user dengan menonaktifkan akun pada status
+# delete user dengan menonaktifkan akun pada status_approval menjadi 0
 def delete_user(user_id: int):
-    """Hapus user berdasarkan ID dengan menonaktifkan akun"""
+    """Menghapus user berdasarkan ID (menonaktifkan akun)"""
     if not os.path.exists(USERPATH):
         return {"error": "Dataset tidak ditemukan."}
     df = pd.read_csv(USERPATH)
     if user_id not in df["id"].astype(int).values:
         return {"error": f"User dengan id {user_id} tidak ditemukan."}
     
-    df.loc[df["id"].astype(int) == user_id, "status"] = "inactive"
+    df.loc[df["id"].astype(int) == user_id, "status_approval"] = 0
     df.to_csv(USERPATH, index=False)
     return {"success": f"User dengan id {user_id} telah dinonaktifkan."}

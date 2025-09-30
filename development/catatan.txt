@@ -27,8 +27,10 @@ SELESAI
 
 7. Mulai mempersiapakan fungsi register dan login untuk admin serta membuat fungsion approval untuk superadmin untuk melakukan approval register admin
 dan membuat fungsion untuk superadmin untuk mmebuatkan akun untuk admin lain serta membuat middleware untuk memisahkan hak akses yang ada
+SELESAI
 
-8. mempersiapkan api untuk fungsi yang baru di buat untuk admin dan melakukan pemeriksaan pada hak akses yang sudah si bagi antara superadmin dengan admin
+8. mempersiapkan api dan crud untuk users untuk fungsi yang baru di buat untuk superadmin dan melakukan pemeriksaan pada hak akses yang sudah si bagi antara superadmin dengan admin
+SELESAI
 
 8. mempersiapkan fungsi untuk menampilkan dashboard pemantau untuk admin agar dapat 
 memantau tenant yang ada
