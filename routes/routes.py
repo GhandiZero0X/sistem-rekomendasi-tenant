@@ -6,6 +6,9 @@ from controllers.datasetController import (
 )
 from controllers.algoritmaController import get_recommendations_by_filters, run_clustering
 from controllers.authController import register, login, approve_user
+from controllers.userController import (
+    get_all_users, get_user_by_id, add_user, add_batch_users
+)
 from middlewares.auth_middleware import token_required, role_required
 
 routes = Blueprint("routes", __name__)
@@ -55,6 +58,29 @@ def login_route():
 @role_required("superadmin")
 def approve_route(user_id):
     return approve_user(user_id)
+
+#dataset user
+# Menampilkan semua user
+@routes.route("/users", methods=["GET"])
+def users():
+    return jsonify(get_all_users())
+
+# Menampilkan satuan user by id
+@routes.route("/user/<int:user_id>", methods=["GET"])
+def user_by_id(user_id):
+    return jsonify(get_user_by_id(user_id))
+
+# menambahkan satu user
+@routes.route("/user", methods=["POST"])
+def user_add():
+    data = request.get_json()
+    return jsonify(add_user(data))
+
+# menambahkan batch user
+@routes.route("/users/batch", methods=["POST"])
+def user_add_batch():
+    data = request.get_json()
+    return jsonify(add_batch_users(data))
 
 # dataset tenant
 # Menampilkan semua tenant
