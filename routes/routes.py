@@ -6,6 +6,7 @@ from controllers.datasetController import (
 )
 from controllers.algoritmaController import get_recommendations_by_filters, run_clustering
 from controllers.authController import register, login, approve_user
+from middlewares.auth_middleware import token_required, role_required
 
 routes = Blueprint("routes", __name__)
 
@@ -13,6 +14,30 @@ routes = Blueprint("routes", __name__)
 def home(): 
     return render_template("test.html")
 
+# ===== API ENDUSER =====
+# rekomendasi
+@routes.route("/recommend", methods=["GET"])
+def recommend():
+    lokasi = request.args.get("lokasi")
+    aktivitas = request.args.get("aktivitas")
+    harga = request.args.get("harga")
+    hasil = get_recommendations_by_filters(lokasi, aktivitas, harga, top_n=50)
+
+    if hasil is None:
+        return jsonify({"error": "Minimal isi salah satu filter (lokasi / aktivitas / harga)."}), 400
+    if isinstance(hasil, str):
+        return jsonify({"error": hasil}), 400
+    return jsonify(hasil.to_dict(orient="records"))
+
+# clustering
+@routes.route("/clustering", methods=["GET"])
+def clustering():
+    hasil = run_clustering()
+    hasil["all_kmeans"] = {str(k): v.to_dict(orient="records") for k, v in hasil["all_kmeans"].items()}
+    # hasil["all_spectral"] = {str(k): v.to_dict(orient="records") for k, v in hasil["all_spectral"].items()}
+    return jsonify(hasil)
+
+# ===== API ADMIN =====
 @routes.route("/register", methods=["POST"])
 def register_route():
     return register()
@@ -60,26 +85,3 @@ def tenant_delete(tenant_id):
 def tenant_delete_batch():
     data = request.get_json()
     return jsonify(delete_batch_tenants(data))
-
-# rekomendasi
-@routes.route("/recommend", methods=["GET"])
-def recommend():
-    lokasi = request.args.get("lokasi")
-    aktivitas = request.args.get("aktivitas")
-    harga = request.args.get("harga")
-    hasil = get_recommendations_by_filters(lokasi, aktivitas, harga, top_n=50)
-
-    if hasil is None:
-        return jsonify({"error": "Minimal isi salah satu filter (lokasi / aktivitas / harga)."}), 400
-    if isinstance(hasil, str):
-        return jsonify({"error": hasil}), 400
-    return jsonify(hasil.to_dict(orient="records"))
-
-
-# clustering
-@routes.route("/clustering", methods=["GET"])
-def clustering():
-    hasil = run_clustering()
-    hasil["all_kmeans"] = {str(k): v.to_dict(orient="records") for k, v in hasil["all_kmeans"].items()}
-    # hasil["all_spectral"] = {str(k): v.to_dict(orient="records") for k, v in hasil["all_spectral"].items()}
-    return jsonify(hasil)
