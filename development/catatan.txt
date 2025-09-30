@@ -25,8 +25,10 @@ SELESAI
 tidak dalam algoritma yang sudah di buat 
 SELESAI
 
-7. mempersiapkan kebutuhan login untuk mendaftar akun admin harus mendapat approval terlebiih dahulu untuk mendapatkan 
-akunnya untuk admin untuk dapat melakukan akses crud tenant
+7. Mulai mempersiapakan fungsi register dan login untuk admin serta membuat fungsion approval untuk superadmin untuk melakukan approval register admin
+dan membuat fungsion untuk superadmin untuk mmebuatkan akun untuk admin lain serta membuat middleware untuk memisahkan hak akses yang ada
+
+8. mempersiapkan api untuk fungsi yang baru di buat untuk admin dan melakukan pemeriksaan pada hak akses yang sudah si bagi antara superadmin dengan admin
 
 8. mempersiapkan fungsi untuk menampilkan dashboard pemantau untuk admin agar dapat 
 memantau tenant yang ada
