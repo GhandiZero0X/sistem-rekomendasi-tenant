@@ -19,6 +19,7 @@ SELESAI
 SELESAI
 
 5.Melakukan Pengecekan untuk api yang sudah di buat untuk crud dari datasetController yang akan di gunakan admin
+SELESAI
 
 6. Melakukan pengecekan untuk algoritma dari rekomendasi cbf dan clustering knn untuk melihat apakah ada kesalahan atau 
 tidak dalam algoritma yang sudah di buat 
