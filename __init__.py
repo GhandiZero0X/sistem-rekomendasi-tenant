@@ -5,6 +5,7 @@ from controllers import algoritmaController
 from controllers import dataController
 from controllers import datasetController
 from controllers import authController
+from controllers import userController
 from middlewares import auth_middleware
 from routes import routes
 from services import preprocessing
