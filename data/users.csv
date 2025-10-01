@@ -2,3 +2,6 @@ id,username,password,status_approval,role
 1,superadmin@injourney,$2b$12$IX/YIiy1SIgoNqIbJsd/S.v5jgz6plrLTqy9kAD7JxIjJPLFPrZKK,1,superadmin
 2,admin0210@injourney,$2b$12$2CVANZZdfHwnprqChURekefjDtPD80fJNfBzg6YOzOCOAIJtdE17i,1,admin
 3,admin20050@injourney,$2b$12$PRCmHxorkvso3iS6YnlwsOC6J408Pg5utS6FLuipjMt2jOgh/C.wK,1,admin
+4,admin2000@injourney,$2b$12$EYEoyuMWybzyM42SyoSogeHdUt1HSPrb6SV/EzxlhxzPUPSoufOkK,0,admin
+5,admin1020@injourney,$2b$12$UW07XYKp1ZczgFislQJ1we7Vo//Zhs/fiDCItrgDRJYeX9Fm7WlbS,1,admin
+6,admin2020@injourney,$2b$12$4ORyKItJwc5AkCP.Wg0ioujVlzjg4Qv9/F2B/wEnP6eeH.pFFjV3u,1,admin
