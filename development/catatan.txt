@@ -25,12 +25,20 @@ SELESAI
 tidak dalam algoritma yang sudah di buat 
 SELESAI
 
-7. Mulai mempersiapakan fungsi register dan login untuk admin serta membuat fungsion approval untuk superadmin untuk melakukan approval register admin
-dan membuat fungsion untuk superadmin untuk mmebuatkan akun untuk admin lain serta membuat middleware untuk memisahkan hak akses yang ada
+7. Mulai mempersiapakan fungsi register dan login untuk admin serta membuat fungsion approval untuk superadmin untuk melakukan 
+approval register admin dan membuat fungsion untuk superadmin untuk mmebuatkan akun untuk admin lain serta membuat middleware 
+untuk memisahkan hak akses yang ada
 SELESAI
 
-8. mempersiapkan api dan crud untuk users untuk fungsi yang baru di buat untuk superadmin dan melakukan pemeriksaan pada hak akses yang sudah si bagi antara superadmin dengan admin
+8. mempersiapkan api dan crud untuk users untuk fungsi yang baru di buat untuk superadmin dan melakukan pemeriksaan pada hak akses 
+yang sudah si bagi antara superadmin dengan admin
 SELESAI
+
+9. Melakukan pengecekan terhadap fungsi register dan login untuk admin, fungsi approval oleh superadmin, serta middleware pemisahan 
+hak akses yang telah dibuat.
+
+10. Melakukan pengecekan terhadap API dan CRUD users untuk superadmin, termasuk verifikasi pembagian hak akses antara superadmin 
+dan admin.
 
 8. mempersiapkan fungsi untuk menampilkan dashboard pemantau untuk admin agar dapat 
 memantau tenant yang ada
