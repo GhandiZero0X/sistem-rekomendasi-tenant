@@ -36,12 +36,14 @@ SELESAI
 
 9. Melakukan pengecekan terhadap fungsi register dan login untuk admin, fungsi approval oleh superadmin, serta middleware pemisahan 
 hak akses yang telah dibuat.
+SELESAI
 
 10. Melakukan pengecekan terhadap API dan CRUD users untuk superadmin, termasuk verifikasi pembagian hak akses antara superadmin 
 dan admin.
+SELESAI
 
-8. mempersiapkan fungsi untuk menampilkan dashboard pemantau untuk admin agar dapat 
-memantau tenant yang ada
+8. mempersiapkan dan membuat fungsi untuk menampilkan dashboard pemantau untuk admin agar dapat 
+memantau tenant dan user yang ada
 
 mempersiapkan js agar tampilan dapat menyajika data tidak membutuhkan halaman tambahan untuk hasil rekomendasi
 (kasih ke frontend untuk dapat membuat code untuk js kalau bisa menggunakan jquery agar lebih cepat)
