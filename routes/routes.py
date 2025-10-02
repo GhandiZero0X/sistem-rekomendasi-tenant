@@ -26,18 +26,40 @@ def test():
     return render_template("test.html")
 
 # login page route
+@routes.route("/loginPage")
+def login_page():
+    return render_template("login.html")
 
 # register page route
+@routes.route("/registerPage")
+def register_page():
+    return render_template("register.html")
 
 # dashboard page route
+@routes.route("/dashboardPage")
+@token_required
+def dashboard_page():
+    return render_template("dashboard.html")
 
 # tenant page route
+@routes.route("/tenant")
+def tenant():
+    return render_template("tenant.html")
 
 # edit tenant page route
+@routes.route("/editTenant")
+def editTenant():
+    return render_template("editTenant.html")
 
 # user page route
+@routes.route("/user")
+def user():
+    return render_template("user.html")
 
 # edit user page route
+@routes.route("/editUser")
+def editUser():
+    return render_template("editUser.html")
 
 # ===== API ADMIN =====
 # ===== Page Auth : admin dan superadmin =====
