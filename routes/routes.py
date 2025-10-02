@@ -18,7 +18,11 @@ routes = Blueprint("routes", __name__)
 # ===== Page Frontend =====
 # Home page route
 @routes.route("/") 
-def home(): 
+def home():
+    return render_template("index.html")
+
+@routes.route("/test")
+def test(): 
     return render_template("test.html")
 
 # login page route
