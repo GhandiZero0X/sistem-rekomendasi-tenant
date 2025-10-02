@@ -15,9 +15,25 @@ from middlewares.auth_middleware import token_required, role_required
 
 routes = Blueprint("routes", __name__)
 
+# ===== Page Frontend =====
+# Home page route
 @routes.route("/") 
 def home(): 
     return render_template("test.html")
+
+# login page route
+
+# register page route
+
+# dashboard page route
+
+# tenant page route
+
+# edit tenant page route
+
+# user page route
+
+# edit user page route
 
 # ===== API ADMIN =====
 # ===== Page Auth : admin dan superadmin =====
