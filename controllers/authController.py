@@ -3,7 +3,7 @@ import os
 import pandas as pd
 import bcrypt
 from flask import request, jsonify
-from utils.jwt_utils import generate_token
+from utils.jwt_utils import generate_token, decode_token
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "../data")
@@ -13,6 +13,20 @@ def _read_users_df():
     if not os.path.exists(USERPATH):
         return pd.DataFrame(columns=["id","username","password","status_approval","role"])
     return pd.read_csv(USERPATH)
+
+def get_user_role():
+    """Ambil role user dari JWT token"""
+    auth_header = request.headers.get("Authorization")
+    if not auth_header:
+        return None
+
+    token = auth_header.replace("Bearer ", "")
+    decoded = decode_token(token)
+
+    if isinstance(decoded, dict) and "role" in decoded:
+        return decoded["role"]
+
+    return None
 
 # register akun admin
 def register():
