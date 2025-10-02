@@ -42,8 +42,11 @@ SELESAI
 dan admin.
 SELESAI
 
-8. mempersiapkan dan membuat fungsi untuk menampilkan dashboard pemantau untuk admin agar dapat 
-memantau tenant dan user yang ada
+11. Mempersiapkan serta membuat fungsi untuk menampilkan dashboard monitoring bagi admin, sehingga dapat memantau data tenant dan 
+user yang ada.
 
-mempersiapkan js agar tampilan dapat menyajika data tidak membutuhkan halaman tambahan untuk hasil rekomendasi
-(kasih ke frontend untuk dapat membuat code untuk js kalau bisa menggunakan jquery agar lebih cepat)
+12. Memulai proses konfigurasi antara backend dan frontend melalui integrasi API backend yang telah dibuat untuk fitur rekomendasi 
+dengan halaman yang sudah disiapkan oleh frontend.
+
+mempersiapkan js agar tampilan dapat menyajika data tidak membutuhkan halaman tambahan atau refrash halaman untuk menampilkan 
+hasil rekomendasi (kasih ke frontend untuk dapat membuat code untuk js kalau bisa menggunakan jquery agar lebih cepat)
