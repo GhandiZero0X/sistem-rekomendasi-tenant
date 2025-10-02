@@ -44,6 +44,7 @@ SELESAI
 
 11. Mempersiapkan serta membuat fungsi untuk menampilkan dashboard monitoring bagi admin, sehingga dapat memantau data tenant dan 
 user yang ada.
+SELESAI
 
 12. Memulai proses konfigurasi antara backend dan frontend melalui integrasi API backend yang telah dibuat untuk fitur rekomendasi 
 dengan halaman yang sudah disiapkan oleh frontend.
