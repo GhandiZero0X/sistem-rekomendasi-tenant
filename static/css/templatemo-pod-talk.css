@@ -658,6 +658,10 @@ main {
 .custom-block-full {
   background-color: var(--section-bg-color);
   border-color: transparent;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
 }
 
 .custom-block-full:hover {
