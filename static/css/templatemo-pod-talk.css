@@ -1362,5 +1362,34 @@ main {
   .search-form {
     max-width: 200px;
   }
+}
 
+/*---------------------------------------
+  SECTION SUBTITLE ACCENT
+-----------------------------------------*/
+
+.section-subtitle-accent {
+  position: relative;
+  display: inline-block;
+  color: #1b3a57;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-left: 25px;
+  padding-bottom: 8px;
+  background: linear-gradient(90deg, #007bff, #00c4ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-subtitle-accent::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+  width: 140px;
+  height: 4px;
+  background: linear-gradient(90deg, #007bff, #00c4ff);
+  border-radius: 3px;
 }
