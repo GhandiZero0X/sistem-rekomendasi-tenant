@@ -128,10 +128,47 @@
                         </div>
                     </div>
                     <!-- Tenant Rekomendasi -->
+                    <div class="col-lg-3 col-12 mb-3 mb-lg-0">
+                        <div class="custom-block custom-block-full">
+                            <div class="custom-block-image-wrap">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal">
+                                    <img src="{{ url_for('static', filename='images/p6.png') }}" class="custom-block-image img-fluid" alt="">
+                                </a>
+                            </div>
+                            <div class="custom-block-info">
+                                <h5 class="mb-2">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal">
+                                        PLANET GOODS
+                                    </a>
+                                </h5>
+                                <div class="profile-block d-flex">
+                                    <p><strong>BOARDING LOUNGE LANTAI 2 (GATE 9) T1</strong></p>
+                                </div>
 
-                    
+                                <!-- Tombol buka modal -->
+                                <a href="#" class="mb-0" data-bs-toggle="modal" data-bs-target="#detailModal">
+                                    Lihat Detail
+                                </a>
+
+                                <div class="custom-block-bottom d-flex justify-content-between mt-3">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal" class="me-1">
+                                        <i class="bi bi-star-fill"></i>
+                                        <span>4.5</span>
+                                    </a>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal" class="bi-heart me-1">
+                                        <span>2000</span>
+                                    </a>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal" class="me-1">
+                                        <i class="bi bi-coin"></i>
+                                        <span>Murah</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Tenant Populer -->
-                    <h5 class="section-subtitle-accent">Tenant Populer</h5>
+                    <h5 class="section-subtitle-accent mt-5">Tenant Populer</h5>
                     {% for tenant in cluster_popular %}
                     <div class="col-lg-3 col-12 mb-3 mb-lg-0 mt-2">
                         <div class="custom-block custom-block-full h-100" data-bs-toggle="modal"
@@ -142,7 +179,7 @@
                             data-rating="{{ tenant.rating }}"
                             data-review="{{ tenant.total_review }}"
                             data-harga="{{ tenant.rentang_harga }}"
-                            data-gambar="{{ url_for('static', filename='images/p7.png') }}"">
+                            data-gambar="{{ url_for('static', filename='images/p7.png') }}">
                             <div class="custom-block-image-wrap">
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal">
                                     <img src="{{ url_for('static', filename='images/p6.png') }}"
@@ -191,7 +228,15 @@
                     {% for tenant in cluster_new %}
                     <div class="col-lg-3 col-12 mb-3 mb-lg-0 mt-2">
                         <div class="custom-block custom-block-full h-100" data-bs-toggle="modal"
-                            data-bs-target="#detailModal" style="cursor: pointer;">
+                            data-bs-target="#detailModal" style="cursor: pointer;"
+                            data-bs-target="#detailModal" style="cursor: pointer;"
+                            data-nama="{{ tenant.nama_brand }}"
+                            data-jenis="{{ tenant.jenis_usaha }}"
+                            data-lokasi="{{ tenant.lokasi }}"
+                            data-rating="{{ tenant.rating }}"
+                            data-review="{{ tenant.total_review }}"
+                            data-harga="{{ tenant.rentang_harga }}"
+                            data-gambar="{{ url_for('static', filename='images/p7.png') }}">
                             <div class="custom-block-image-wrap">
                                 <ahref="#" data-bs-toggle="modal" data-bs-target="#detailModal">
                                     <img src="{{ url_for('static', filename='images/p6.png') }}"
