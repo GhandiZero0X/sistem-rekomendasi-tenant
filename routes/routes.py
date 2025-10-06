@@ -19,7 +19,9 @@ routes = Blueprint("routes", __name__)
 # Home page route
 @routes.route("/") 
 def home():
-    return render_template("index.html")
+    from controllers.algoritmaController import get_top_recommendation
+    top_tenant = get_top_recommendation(top_n=10)
+    return render_template("index.html", top_tenant=top_tenant.to_dict(orient="records"))
 
 @routes.route("/test")
 def test(): 
@@ -197,7 +199,13 @@ def tenant_delete_batch():
     return jsonify(delete_batch_tenants(data))
 
 # ===== Page HOME REKOMENDASI : API ENDUSER =====
-# rekomendasi
+# rekomendasi top 10 tenant berdasarkan rating dan jumlah rating tenant
+@routes.route("/toptenants", methods=["GET"])
+def top_tenants():
+    from controllers.algoritmaController import get_top_recommendation
+    hasil = get_top_recommendation(top_n=10)
+    return jsonify(hasil.to_dict(orient="records"))
+
 @routes.route("/recommend", methods=["GET"])
 def recommend():
     lokasi = request.args.get("lokasi")

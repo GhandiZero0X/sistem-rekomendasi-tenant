@@ -67,6 +67,33 @@ aktivitas_mapping = {
     "Service": ["Services", "Bank", "ATM", "Financial"]
 }
 
+# rekomendasi top 10 tenant berdasarkan rating dan jumlah rating tenant
+def get_top_recommendation(top_n=10):
+    """Ambil top tenant dinamis berdasarkan kombinasi rating & jumlah review,
+    tanpa menyertakan tenant jenis 'Service'."""
+    df_copy = df.copy()
+
+    # Filter: buang tenant kategori service-related
+    df_copy = df_copy[~df_copy["jenis_usaha"].str.contains("Service", case=False, na=False)]
+
+    # Hitung skor gabungan (kombinasi rating & review)
+    df_copy["score"] = df_copy["rating"] * np.log1p(df_copy["total_review"])
+
+    # Ambil kandidat top (30 besar)
+    top_candidates = (
+        df_copy.sort_values(by="score", ascending=False)
+        .head(max(top_n * 3, 30))
+        [["id", "nama_brand", "jenis_usaha", "lokasi", "rating", "total_review", "rentang_harga", "gambar"]]
+    )
+
+    # Pilih acak dari kandidat
+    sampled = top_candidates.sample(n=min(top_n, len(top_candidates)), random_state=None)
+
+    # Urutkan ulang biar tampilannya rapi (berdasarkan rating & review)
+    sampled = sampled.sort_values(by=["rating", "total_review"], ascending=False)
+
+    return sampled.reset_index(drop=True)
+
 def get_recommendations_by_filters(lokasi=None, aktivitas=None, rentang_harga=None, top_n=10):
     if not lokasi and not aktivitas and not rentang_harga:
         return None
