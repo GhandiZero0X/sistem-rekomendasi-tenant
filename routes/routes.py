@@ -1,10 +1,11 @@
+import pandas as pd
 from flask import Blueprint, request, jsonify, render_template
 from controllers.datasetController import (
     get_all_tenants, get_tenant_by_id,
     add_tenant, add_batch_tenants, update_tenant, 
     delete_tenant, delete_batch_tenants
 )
-from controllers.algoritmaController import get_recommendations_by_filters, run_clustering
+from controllers.algoritmaController import get_recommendations_by_filters, run_clustering, get_top_recommendation
 from controllers.authController import register, login, approve_user
 from controllers.userController import (
     get_all_users, get_user_by_id, add_user, add_batch_users, update_user, delete_user
@@ -17,11 +18,25 @@ routes = Blueprint("routes", __name__)
 
 # ===== Page Frontend =====
 # Home page route
-@routes.route("/") 
+@routes.route("/")
 def home():
-    from controllers.algoritmaController import get_top_recommendation
+    # Jalankan clustering
+    hasil_cluster = run_clustering()
+
+    # Ambil cluster 1 (populer) dan cluster 0 (baru)
+    cluster_popular = hasil_cluster["all_kmeans"].get(1, pd.DataFrame())
+    cluster_new = hasil_cluster["all_kmeans"].get(0, pd.DataFrame())
+
+    # Ambil rekomendasi top tenant (yang sudah difilter Service & Mahal)
     top_tenant = get_top_recommendation(top_n=10)
-    return render_template("index.html", top_tenant=top_tenant.to_dict(orient="records"))
+
+    # Kirim semua ke template
+    return render_template(
+        "index.html",
+        top_tenant=top_tenant.to_dict(orient="records"),
+        cluster_popular=cluster_popular.to_dict(orient="records"),
+        cluster_new=cluster_new.to_dict(orient="records"),
+    )
 
 @routes.route("/test")
 def test(): 

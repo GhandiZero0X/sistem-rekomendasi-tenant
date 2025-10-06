@@ -135,8 +135,19 @@ def get_top_recommendation(top_n=10):
     """
     global cluster_cache
 
-    # Ambil tenant dari cluster populer
-    df_popular = cluster_cache["all_kmeans"][1]
+    # Pastikan cache sudah ada atau regenerate kalau belum
+    if "all_kmeans" not in cluster_cache:
+        cluster_cache = run_clustering()
+
+    # Ambil tenant dari cluster populer (cluster 1)
+    df_popular = cluster_cache["all_kmeans"].get(1, pd.DataFrame())
+
+    # Kalau cluster kosong, return kosong
+    if df_popular.empty:
+        return pd.DataFrame(columns=[
+            "id", "nama_brand", "jenis_usaha", "lokasi",
+            "rating", "total_review", "rentang_harga", "gambar"
+        ])
 
     # Filter agar tidak termasuk kategori Service dan memiliki rentang harga mahal
     df_filtered = df_popular[
@@ -144,11 +155,15 @@ def get_top_recommendation(top_n=10):
         (~df_popular["rentang_harga"].str.lower().eq("mahal"))
     ].copy()
 
+    # Kalau setelah filter kosong, fallback pakai df_popular lagi
+    if df_filtered.empty:
+        df_filtered = df_popular.copy()
+
     # Hitung skor gabungan
     df_filtered["score"] = df_filtered["rating"] * np.log1p(df_filtered["total_review"])
 
     # Tambahkan noise acak kecil agar hasilnya dinamis
-    np.random.seed()  # biar selalu random setiap kali fungsi dipanggil
+    np.random.seed(None)  # biar benar-benar random tiap panggilan
     random_noise = np.random.uniform(0.9, 1.1, size=len(df_filtered))
     df_filtered["score_randomized"] = df_filtered["score"] * random_noise
 
@@ -161,7 +176,7 @@ def get_top_recommendation(top_n=10):
     # Pilih acak sebagian dari kandidat
     sampled = top_candidates.sample(n=min(top_n, len(top_candidates)), random_state=None)
 
-    # Urutkan ulang biar tampilannya rapi
+    # Urutkan ulang biar tampilannya rapi (berdasarkan rating dan review)
     sampled = sampled.sort_values(by=["rating", "total_review"], ascending=False)
 
     return sampled.reset_index(drop=True)
