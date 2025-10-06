@@ -126,6 +126,46 @@ def run_clustering():
         "all_kmeans": all_kmeans,
     }
 
+cluster_cache = run_clustering()
+# rekomendasi top 10 tenant berdasarkan rating dan jumlah rating tenant
+def get_top_recommendation(top_n=10):
+    """
+    Ambil top tenant dinamis dari cluster populer (cluster 1),
+    dengan variasi acak pada skor agar hasil berganti-ganti tiap kali dipanggil.
+    """
+    global cluster_cache
+
+    # Ambil tenant dari cluster populer
+    df_popular = cluster_cache["all_kmeans"][1]
+
+    # Filter agar tidak termasuk kategori Service dan memiliki rentang harga mahal
+    df_filtered = df_popular[
+        (~df_popular["jenis_usaha"].str.contains("Service", case=False, na=False)) &
+        (~df_popular["rentang_harga"].str.lower().eq("mahal"))
+    ].copy()
+
+    # Hitung skor gabungan
+    df_filtered["score"] = df_filtered["rating"] * np.log1p(df_filtered["total_review"])
+
+    # Tambahkan noise acak kecil agar hasilnya dinamis
+    np.random.seed()  # biar selalu random setiap kali fungsi dipanggil
+    random_noise = np.random.uniform(0.9, 1.1, size=len(df_filtered))
+    df_filtered["score_randomized"] = df_filtered["score"] * random_noise
+
+    # Ambil kandidat top (lebih banyak biar variasinya luas)
+    top_candidates = (
+        df_filtered.sort_values(by="score_randomized", ascending=False)
+        .head(max(top_n * 3, 30))
+    )
+
+    # Pilih acak sebagian dari kandidat
+    sampled = top_candidates.sample(n=min(top_n, len(top_candidates)), random_state=None)
+
+    # Urutkan ulang biar tampilannya rapi
+    sampled = sampled.sort_values(by=["rating", "total_review"], ascending=False)
+
+    return sampled.reset_index(drop=True)
+
 # def evaluate_recommendation(lokasi="T1", aktivitas="Makanan", rentang_harga="murah", top_n=10):
 #     """Evaluasi rekomendasi sederhana pakai Precision@K & Recall@K"""
 #     hasil = get_recommendations_by_filters(lokasi, aktivitas, rentang_harga, top_n=top_n)
@@ -147,7 +187,7 @@ def run_clustering():
 #     print("\nTop-N Rekomendasi:")
 #     print(hasil)
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
     # print("=== Testing Terminal algoritmaController.py ===\n")
     # print("=== Testing Evaluasi Rekomendasi ===\n")
 
@@ -174,13 +214,13 @@ if __name__ == "__main__":
 #     print(hasil if isinstance(hasil, str) else hasil.head(10))
 
     # Test clustering
-    print("--- Hasil Evaluasi Clustering ---")
-    hasil_cluster = run_clustering()
-    print("KMeans Eval:", hasil_cluster["kmeans_eval"])
+    # print("--- Hasil Evaluasi Clustering ---")
+    # hasil_cluster = run_clustering()
+    # print("KMeans Eval:", hasil_cluster["kmeans_eval"])
 
-    for cluster_id, tenants in hasil_cluster["all_kmeans"].items():
-        print(f"\nTop 5 KMeans Cluster {cluster_id}:")
-        print(tenants.head(5))
+    # for cluster_id, tenants in hasil_cluster["all_kmeans"].items():
+    #     print(f"\nTop 5 KMeans Cluster {cluster_id}:")
+    #     print(tenants.head(5))
 
 #     # Test rekomendasi sederhana
 #     print("\n--- Hasil Rekomendasi ---")

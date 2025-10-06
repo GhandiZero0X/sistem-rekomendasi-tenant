@@ -42,99 +42,30 @@
                             <h1 class="text-white">Juanda International Airport</h1>
                         </div>
                         <div class="owl-carousel owl-theme">
+                            <!-- top 10 Rekomendasi berdasarkan rating dan jumlah rating -->
+                            {% for tenant in top_tenant %}
                             <div class="owl-carousel-info-wrap item">
-                                <img src="{{ url_for('static', filename='images/p6.png') }}" class="owl-carousel-image" alt="">
+                                <img src="{{ url_for('static', filename='images/p9.png') }}"  
+                                class="owl-carousel-image" alt="">
                                 <div class="owl-carousel-info">
-                                    <h6 class="mb-2">PLANET GOODS</h6>
-                                    <span class="badge">Retail</span>
-                                    <span class="badge">T1</span>
+                                    <h6 class="mb-2">{{ tenant.nama_brand }}</h6>
+                                    <span class="badge">{{ tenant.jenis_usaha }}</span>
+                                    <span class="badge">
+                                        {{ 'T' + tenant.lokasi.split()[-1] if 'Terminal' in tenant.lokasi else 'Unknown' }}
+                                    </span>
+                                    <span class="badge">{{ tenant.rating }}</span>
                                 </div>
                                 <div class="">
                                     <ul class="icon-header">
-                                        <li class="icon-header-item tooltip-left" data-label="BOARDING LOUNGE LANTAI 2">
+                                        <li class="icon-header-item tooltip-left" data-label="{{ tenant.lokasi }}">
                                             <a href="#" class="icon-header-link">
-                                            <i class="bi bi-geo-alt-fill"></i>
+                                                <i class="bi bi-geo-alt-fill"></i>
                                             </a>
                                         </li>
                                     </ul>
-                                    </ul>
                                 </div>
                             </div>
-
-                            <div class="owl-carousel-info-wrap item">
-                                <img src="{{ url_for('static', filename='images/p7.png') }}" class="owl-carousel-image" alt="">
-                                <div class="owl-carousel-info">
-                                    <h6 class="mb-2">BOGAJAYA</h6>
-                                    <span class="badge">Retail</span>
-                                    <span class="badge">T1</span>
-                                </div>
-                                <div class="">
-                                    <ul class="icon-header">
-                                        <li class="icon-header-item tooltip-left" data-label="LOBBY DEPARTURE T1">
-                                            <a href="#" class="icon-header-link">
-                                            <i class="bi bi-geo-alt-fill"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="owl-carousel-info-wrap item">
-                                <img src="{{ url_for('static', filename='images/p8.png') }}" class="owl-carousel-image" alt="">
-                                <div class="owl-carousel-info">
-                                    <h6 class="mb-2">SANDANG PANGAN</h6>
-                                    <span class="badge">Retail</span>
-                                    <span class="badge">T1</span>
-                                </div>
-                                <div class="">
-                                    <ul class="icon-header">
-                                        <li class="icon-header-item tooltip-left" data-label="LOBBY DEPARTURE T1">
-                                            <a href="#" class="icon-header-link">
-                                            <i class="bi bi-geo-alt-fill"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="owl-carousel-info-wrap item">
-                                <img src="{{ url_for('static', filename='images/p9.png') }}" class="owl-carousel-image" alt="">
-                                <div class="owl-carousel-info">
-                                    <h6 class="mb-2">BATIK KERIS</h6>
-                                    <span class="badge">Retail</span>
-                                    <span class="badge">T1</span>
-                                </div>
-                                <div class="">
-                                    <ul class="icon-header">
-                                        <li class="icon-header-item tooltip-left" data-label="BOARDING LOUNGE LANTAI 2">
-                                            <a href="#" class="icon-header-link">
-                                            <i class="bi bi-geo-alt-fill"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="owl-carousel-info-wrap item">
-                                <img src="{{ url_for('static', filename='images/p10.png') }}" class="owl-carousel-image" alt="">
-                                <div class="owl-carousel-info">
-                                    <h4 class="mb-2">KF EXPRESS</h4>
-                                    <span class="badge">Retail</span>
-                                    <span class="badge">T1</span>
-                                </div>
-                                <div class="">
-                                    <ul class="icon-header">
-                                        <li class="icon-header-item tooltip-left" data-label="BOARDING LOUNGE LANTAI 2">
-                                            <a href="#" class="icon-header-link">
-                                            <i class="bi bi-geo-alt-fill"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    </ul>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -149,7 +80,7 @@
                             <h4 class="section-title">Recommendation</h4>
                         </div>
                     </div>
-                    
+
                     <!-- Dropdown 1 -->
                     <div class="col-lg-4 col-12 mb-2 mb-lg-0">
                         <select class="form-select w-100 custom-select-shadow" 
