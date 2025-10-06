@@ -44,7 +44,12 @@ def add_user(user_data: dict):
     if "status_approval" in user_data:
         user_data["status_approval"] = int(user_data["status_approval"])
     else:
-        user_data["status_approval"] = 0  # default
+        user_data["status_approval"] = 1  # default
+
+    if "role" in user_data:
+        user_data["role"] = user_data["role"]
+    else:
+        user_data["role"] = "admin"  # default
 
     df = pd.concat([df, pd.DataFrame([user_data])], ignore_index=True)
     df.to_csv(USERPATH, index=False)
