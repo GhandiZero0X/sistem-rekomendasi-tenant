@@ -17,9 +17,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Sono:wght@200;300;400;500;700&display=swap"
         rel="stylesheet">
-    <link 
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
-        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
@@ -32,7 +30,8 @@
         <nav class="navbar navbar-expand-lg shadow-sm custom-navbar">
             <div class="container d-flex justify-content-between align-items-center">
                 <a class="navbar-brand me-2 d-flex align-items-center" href="{{ url_for('routes.home') }}">
-                    <img src="{{ url_for('static', filename='images/logo-navbar.png') }}" class="logo-image" alt="injouney logo">
+                    <img src="{{ url_for('static', filename='images/logo-navbar.png') }}" class="logo-image"
+                        alt="injouney logo">
                 </a>
             </div>
         </nav>
@@ -48,13 +47,14 @@
                             <!-- top 10 Rekomendasi berdasarkan rating dan jumlah rating -->
                             {% for tenant in top_tenant %}
                             <div class="owl-carousel-info-wrap item">
-                                <img src="{{ url_for('static', filename='images/p9.png') }}"  
-                                class="owl-carousel-image" alt="">
+                                <img src="{{ url_for('static', filename='images/p9.png') }}" class="owl-carousel-image"
+                                    alt="">
                                 <div class="owl-carousel-info">
                                     <h6 class="mb-2">{{ tenant.nama_brand }}</h6>
                                     <span class="badge">{{ tenant.jenis_usaha }}</span>
                                     <span class="badge">
-                                        {{ 'T' + tenant.lokasi.split()[-1] if 'Terminal' in tenant.lokasi else 'Unknown' }}
+                                        {{ 'T' + tenant.lokasi.split()[-1] if 'Terminal' in tenant.lokasi else 'Unknown'
+                                        }}
                                     </span>
                                     <span class="badge">{{ tenant.rating }}</span>
                                 </div>
@@ -80,14 +80,13 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-12 col-12">
                         <div class="section-title-wrap mb-5">
-                            <h4 class="section-title">Recommendation</h4>
+                            <h4 class="section-title">Recomendation</h4>
                         </div>
                     </div>
 
                     <!-- Dropdown 1 -->
                     <div class="col-lg-4 col-12 mb-2 mb-lg-0">
-                        <select class="form-select w-100 custom-select-shadow" 
-                                id="kategoriSelect1" name="kategori">
+                        <select class="form-select w-100 custom-select-shadow" id="kategoriSelect1" name="kategori">
                             <option value="" disabled selected>Pilih Kategori</option>
                             <option value="murah">Murah</option>
                             <option value="sedang">Sedang</option>
@@ -97,19 +96,17 @@
 
                     <!-- Dropdown 2 -->
                     <div class="col-lg-4 col-12 mb-2 mb-lg-0">
-                        <select class="form-select w-100 custom-select-shadow" 
-                                id="kategoriSelect2" name="kategori">
+                        <select class="form-select w-100 custom-select-shadow" id="kategoriSelect2" name="kategori">
                             <option value="" disabled selected>Pilih Kategori</option>
                             <option value="murah">Murah</option>
                             <option value="sedang">Sedang</option>
                             <option value="mahal">Mahal</option>
                         </select>
                     </div>
-                    
+
                     <!-- Dropdown 3 -->
                     <div class="col-lg-4 col-12 mb-2 mb-lg-0">
-                        <select class="form-select w-100 custom-select-shadow" 
-                                id="kategoriSelect3" name="kategori">
+                        <select class="form-select w-100 custom-select-shadow" id="kategoriSelect3" name="kategori">
                             <option value="" disabled selected>Pilih Kategori</option>
                             <option value="murah">Murah</option>
                             <option value="sedang">Sedang</option>
@@ -128,102 +125,113 @@
                 <div class="row mt-5">
                     <div class="col-lg-12 col-12">
                         <div class="section-title-wrap mb-4">
-                            <h4 class="section-title">Top Recommendation</h4>
+                            <h4 class="section-title">Top Recomendation</h4>
                         </div>
                     </div>
                     <!-- Tenant Populer -->
-                    <div class="row align-items-stretch">
-                        <h5 class="mb-3 text-primary fw-bold">Tenant Populer</h5>
-                        {% for tenant in cluster_popular %}
-                        <div class="col-lg-3 col-12 mb-3 mb-lg-0 mt-2">
-                            <div class="custom-block custom-block-full h-100" data-bs-toggle="modal" data-bs-target="#detailModal" style="cursor: pointer;">
-                                <div class="custom-block-image-wrap">
+                    <h5 class="section-subtitle-accent">Tenant Populer</h5>
+                    {% for tenant in cluster_popular %}
+                    <div class="col-lg-3 col-12 mb-3 mb-lg-0 mt-2">
+                        <div class="custom-block custom-block-full h-100" data-bs-toggle="modal"
+                            data-bs-target="#detailModal" style="cursor: pointer;"
+                            data-nama="{{ tenant.nama_brand }}"
+                            data-jenis="{{ tenant.jenis_usaha }}"
+                            data-lokasi="{{ tenant.lokasi }}"
+                            data-rating="{{ tenant.rating }}"
+                            data-review="{{ tenant.total_review }}"
+                            data-harga="{{ tenant.rentang_harga }}"
+                            data-gambar="{{ url_for('static', filename='images/p7.png') }}"">
+                            <div class="custom-block-image-wrap">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal">
+                                    <img src="{{ url_for('static', filename='images/p6.png') }}"
+                                        class="custom-block-image img-fluid" alt="">
+                                </a>
+                            </div>
+                            <div class="custom-block-info">
+                                <h6 class="mb-2">
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal">
-                                        <img src="{{ url_for('static', filename='images/p6.png') }}" class="custom-block-image img-fluid" alt="">
+                                        {{ tenant.nama_brand }}
                                     </a>
+                                </h6>
+                                <div class="profile-block d-flex">
+                                    <p><strong>{{ tenant.lokasi }}</strong></p>
                                 </div>
-                                <div class="custom-block-info">
-                                    <h6 class="mb-2">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal">
-                                            {{ tenant.nama_brand }}
-                                        </a>
-                                    </h6>
-                                    <div class="profile-block d-flex">
-                                        <p><strong>{{ tenant.lokasi }}</strong></p>
-                                    </div>
 
-                                    <!-- Tombol buka modal -->
-                                    <a href="#" class="mb-0" data-bs-toggle="modal" data-bs-target="#detailModal">
-                                        Lihat Detail
+                                <!-- Tombol buka modal -->
+                                <a href="#" class="mb-0" data-bs-toggle="modal" data-bs-target="#detailModal">
+                                    Lihat Detail
+                                </a>
+
+                                <div class="custom-block-bottom d-flex justify-content-between mt-3">
+                                    <a href="#" class="mb-0 me-1" data-bs-toggle="modal" data-bs-target="#detailModal">
+                                        <i class="bi bi-star-fill"></i>
+                                        <span>{{ tenant.rating }}</span>
                                     </a>
-
-                                    <div class="custom-block-bottom d-flex justify-content-between mt-3">
-                                        <a href="#" class="mb-0 me-1" data-bs-toggle="modal" data-bs-target="#detailModal">
-                                            <i class="bi bi-star-fill"></i>
-                                            <span>{{ tenant.rating }}</span>
-                                        </a>
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal" class="bi-heart me-1">
-                                            <span>{{ tenant.total_review }}</span>
-                                        </a>
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal" class="me-1">
-                                            <i class="bi bi-coin"></i>
-                                            <span>
-                                                {{ '-' if tenant.rentang_harga|lower == 'non_applicable' or not tenant.rentang_harga else tenant.rentang_harga|capitalize }}
-                                            </span>
-                                        </a>
-                                    </div>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal"
+                                        class="bi-heart me-1">
+                                        <span>{{ tenant.total_review }}</span>
+                                    </a>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal" class="me-1">
+                                        <i class="bi bi-coin"></i>
+                                        <span>
+                                            {{ '-' if tenant.rentang_harga|lower == 'non_applicable' or not
+                                            tenant.rentang_harga else tenant.rentang_harga|capitalize }}
+                                        </span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                        {% endfor %}
                     </div>
-                    
+                    {% endfor %}
+
                     <!-- Tenant Baru -->
-                    <div class="row align-items-stretch">
-                        <h5 class="mb-3 text-primary fw-bold mt-2">Tenant Baru</h5>
-                        {% for tenant in cluster_new %}
-                        <div class="col-lg-3 col-12 mb-3 mb-lg-0 mt-2">
-                            <div class="custom-block custom-block-full h-100" data-bs-toggle="modal" data-bs-target="#detailModal" style="cursor: pointer;">
-                                <div class="custom-block-image-wrap">
-                                    <ahref="#" data-bs-toggle="modal" data-bs-target="#detailModal">
-                                        <img src="{{ url_for('static', filename='images/p6.png') }}" class="custom-block-image img-fluid" alt="">
+                    <h5 class="section-subtitle-accent mt-5">Tenant Baru</h5>
+                    {% for tenant in cluster_new %}
+                    <div class="col-lg-3 col-12 mb-3 mb-lg-0 mt-2">
+                        <div class="custom-block custom-block-full h-100" data-bs-toggle="modal"
+                            data-bs-target="#detailModal" style="cursor: pointer;">
+                            <div class="custom-block-image-wrap">
+                                <ahref="#" data-bs-toggle="modal" data-bs-target="#detailModal">
+                                    <img src="{{ url_for('static', filename='images/p6.png') }}"
+                                        class="custom-block-image img-fluid" alt="">
                                     </ahref=>
-                                </div>
-                                <div class="custom-block-info">
-                                    <h6 class="mb-2">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal">
-                                            {{ tenant.nama_brand }}
-                                        </a>
-                                    </h6>
-                                    <div class="profile-block d-flex">
-                                        <p><strong>{{ tenant.lokasi }}</strong></p>
-                                    </div>
-
-                                    <!-- Tombol buka modal -->
-                                    <a href="#" class="mb-0" data-bs-toggle="modal" data-bs-target="#detailModal">
-                                        Lihat Detail
+                            </div>
+                            <div class="custom-block-info">
+                                <h6 class="mb-2">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal">
+                                        {{ tenant.nama_brand }}
                                     </a>
+                                </h6>
+                                <div class="profile-block d-flex">
+                                    <p><strong>{{ tenant.lokasi }}</strong></p>
+                                </div>
 
-                                    <div class="custom-block-bottom d-flex justify-content-between mt-3">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal" class="me-1">
-                                            <i class="bi bi-star-fill"></i>
-                                            <span>{{ tenant.rating }}</span>
-                                        </a>
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal" class="bi-heart me-1">
-                                            <span>{{ tenant.total_review }}</span>
-                                        </a>
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal" class="me-1">
-                                            <i class="bi bi-coin"></i>
-                                            <span>
-                                                {{ '-' if tenant.rentang_harga|lower == 'non_applicable' or not tenant.rentang_harga else tenant.rentang_harga|capitalize }}
-                                            </span>
-                                        </a>
-                                    </div>
+                                <!-- Tombol buka modal -->
+                                <a href="#" class="mb-0" data-bs-toggle="modal" data-bs-target="#detailModal">
+                                    Lihat Detail
+                                </a>
+
+                                <div class="custom-block-bottom d-flex justify-content-between mt-3">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal" class="me-1">
+                                        <i class="bi bi-star-fill"></i>
+                                        <span>{{ tenant.rating }}</span>
+                                    </a>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal"
+                                        class="bi-heart me-1">
+                                        <span>{{ tenant.total_review }}</span>
+                                    </a>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal" class="me-1">
+                                        <i class="bi bi-coin"></i>
+                                        <span>
+                                            {{ '-' if tenant.rentang_harga|lower == 'non_applicable' or not
+                                            tenant.rentang_harga else tenant.rentang_harga|capitalize }}
+                                        </span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                        {% endfor %}
                     </div>
+                    {% endfor %}
                 </div>
             </div>
         </section>
@@ -238,48 +246,49 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-            <div class="modal-body">
-                <div class="row g-3 align-items-center">
-                    <div class="col-md-5 text-center">
-                        <img src="{{ url_for('static', filename='images/p6.png') }}" alt="Planet Goods" class="img-fluid rounded" style="max-height: 350px; object-fit: cover;">
-                    </div>
+                <div class="modal-body">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-md-5 text-center">
+                            <img src="{{ url_for('static', filename='images/p6.png') }}" alt="Planet Goods"
+                                class="img-fluid rounded" style="max-height: 350px; object-fit: cover;">
+                        </div>
 
-                    <div class="col-md-7">
-                        <table class="table table-borderless">
-                            <tr>
-                                <th style="width: 40%;">Nama</th>
-                                <td>Planet Goods</td>
-                            </tr>
-                            <tr>
-                                <th>Jenis Usaha</th>
-                                <td>Retail</td>
-                            </tr>
-                            <tr>
-                                <th>Lokasi</th>
-                                <td>Boarding Lounge Lantai 2 (Gate 9) T1</td>
-                            </tr>
-                            <tr>
-                                <th>Rating</th>
-                                <td>⭐ 4.5</td>
-                            </tr>
-                            <tr>
-                                <th>Total Review</th>
-                                <td>2000</td>
-                            </tr>
-                            <tr>
-                                <th>Harga</th>
-                                <td>Murah</td>
-                            </tr>
-                        </table>
+                        <div class="col-md-7">
+                            <table class="table table-borderless">
+                                <tr>
+                                    <th style="width: 40%;">Nama</th>
+                                    <td>Planet Goods</td>
+                                </tr>
+                                <tr>
+                                    <th>Jenis Usaha</th>
+                                    <td>Retail</td>
+                                </tr>
+                                <tr>
+                                    <th>Lokasi</th>
+                                    <td>Boarding Lounge Lantai 2 (Gate 9) T1</td>
+                                </tr>
+                                <tr>
+                                    <th>Rating</th>
+                                    <td>⭐ 4.5</td>
+                                </tr>
+                                <tr>
+                                    <th>Total Review</th>
+                                    <td>2000</td>
+                                </tr>
+                                <tr>
+                                    <th>Harga</th>
+                                    <td>Murah</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="closeAndRedirect" data-bs-dismiss="modal">
-                Oke
-                </button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="closeAndRedirect" data-bs-dismiss="modal">
+                        Oke
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -306,7 +315,7 @@
                     <p class="no-gap">Direktori Belanja & Makanan</p>
                     <p class="no-gap">Promo & Rekomendasi</p>
                 </div>
-                
+
                 <div class="col-lg col-md-6 col-12 mb-4 mb-md-0">
                     <h6 class="site-footer-title mb-3">Lainnya</h6>
                     <p class="no-gap">Parkir & transport</p>
@@ -316,33 +325,34 @@
 
                 <div class="col-lg col-md-6 col-12">
                     <h6 class="site-footer-title mb-3">Hubungi Kami</h6>
-                        <div class="site-footer-thumb mb-4 pb-2">
-                            <div class="d-flex flex-wrap">
-                                <form action="#" method="post" class="custom-form-email">
-                                    <div class="input-group email-input">
-                                        <input type="email" class="form-control" placeholder="Alamat Email" aria-label="Email" required>
-                                        <button type="submit" class="btn-email">
+                    <div class="site-footer-thumb mb-4 pb-2">
+                        <div class="d-flex flex-wrap">
+                            <form action="#" method="post" class="custom-form-email">
+                                <div class="input-group email-input">
+                                    <input type="email" class="form-control" placeholder="Alamat Email"
+                                        aria-label="Email" required>
+                                    <button type="submit" class="btn-email">
                                         <i class="bi-envelope"></i>
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
+                                    </button>
+                                </div>
+                            </form>
                         </div>
+                    </div>
                     <h6 class="site-footer-title mb-3">Social</h6>
-                        <ul class="social-icon">
-                            <li class="social-icon-item">
-                                <a href="#" class="social-icon-link bi-facebook"></a>
-                            </li>
-                            <li class="social-icon-item">
-                                <a href="#" class="social-icon-link bi-instagram"></a>
-                            </li>
-                            <li class="social-icon-item">
-                                <a href="#" class="social-icon-link bi-twitter"></a>
-                            </li>
-                            <li class="social-icon-item">
-                                <a href="#" class="social-icon-link bi-youtube"></a>
-                            </li>
-                        </ul>
+                    <ul class="social-icon">
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-facebook"></a>
+                        </li>
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-instagram"></a>
+                        </li>
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-twitter"></a>
+                        </li>
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-youtube"></a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -352,7 +362,8 @@
                 <!-- Logo -->
                 <div class="col-lg-3 col-md-3 col-12 mb-3">
                     <a class="navbar-brand" href="index.html">
-                        <img src="{{ url_for('static', filename='images/logo_footer.png') }}" class="logo-image img-fluid" alt="templatemo pod talk">
+                        <img src="{{ url_for('static', filename='images/logo_footer.png') }}"
+                            class="logo-image img-fluid" alt="templatemo pod talk">
                     </a>
                 </div>
 
@@ -407,15 +418,8 @@
     <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Script redirect -->
-    <!--  <script>
-    document.getElementById("closeAndRedirect").addEventListener("click", function() {
-        window.location.href = "index.html";
-    });
-    </script>
-    -->
-
 </body>
+
 </html>
