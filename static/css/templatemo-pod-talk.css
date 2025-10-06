@@ -1393,3 +1393,7 @@ main {
   background: linear-gradient(90deg, #007bff, #00c4ff);
   border-radius: 3px;
 }
+
+.text-primary {
+  color: var(--custom-btn-bg-color) !important;
+}

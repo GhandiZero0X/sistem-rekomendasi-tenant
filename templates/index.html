@@ -50,7 +50,7 @@
                                 <img src="{{ url_for('static', filename='images/p9.png') }}" class="owl-carousel-image"
                                     alt="">
                                 <div class="owl-carousel-info">
-                                    <h6 class="mb-2">{{ tenant.nama_brand }}</h6>
+                                    <h6 class="mb-2 text-primary">{{ tenant.nama_brand }}</h6>
                                     <span class="badge">{{ tenant.jenis_usaha }}</span>
                                     <span class="badge">
                                         {{ 'T' + tenant.lokasi.split()[-1] if 'Terminal' in tenant.lokasi else 'Unknown'
@@ -87,27 +87,26 @@
                     <!-- Dropdown 1 -->
                     <div class="col-lg-4 col-12 mb-2 mb-lg-0">
                         <select class="form-select w-100 custom-select-shadow" id="kategoriSelect1" name="kategori">
-                            <option value="" disabled selected>Pilih Kategori</option>
-                            <option value="murah">Murah</option>
-                            <option value="sedang">Sedang</option>
-                            <option value="mahal">Mahal</option>
+                            <option value="" disabled selected>Pilih Lokasi</option>
+                            <option value="T1">Terminal 1</option>
+                            <option value="T2">Terminal 2</option>
                         </select>
                     </div>
 
                     <!-- Dropdown 2 -->
                     <div class="col-lg-4 col-12 mb-2 mb-lg-0">
                         <select class="form-select w-100 custom-select-shadow" id="kategoriSelect2" name="kategori">
-                            <option value="" disabled selected>Pilih Kategori</option>
-                            <option value="murah">Murah</option>
-                            <option value="sedang">Sedang</option>
-                            <option value="mahal">Mahal</option>
+                            <option value="" disabled selected>Pilih Aktivitas</option>
+                            <option value="Belanja">Belanja</option>
+                            <option value="Makanan">Makanan</option>
+                            <option value="Service">Service</option>
                         </select>
                     </div>
 
                     <!-- Dropdown 3 -->
                     <div class="col-lg-4 col-12 mb-2 mb-lg-0">
                         <select class="form-select w-100 custom-select-shadow" id="kategoriSelect3" name="kategori">
-                            <option value="" disabled selected>Pilih Kategori</option>
+                            <option value="" disabled selected>Pilih Harga</option>
                             <option value="murah">Murah</option>
                             <option value="sedang">Sedang</option>
                             <option value="mahal">Mahal</option>
