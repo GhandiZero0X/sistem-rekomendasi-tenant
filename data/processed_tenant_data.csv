@@ -1,4 +1,5 @@
 id,nama_brand,jenis_usaha,lokasi,rating,total_review,rentang_harga,gambar
+<<<<<<< HEAD
 1,Beard Papa's,Event & Promotion,Arrival Lobby Terminal 1,3.8,98,murah,
 2,Chez Choux,Event & Promotion,Arrival Lobby Terminal 1,4.7,7,sedang,
 3,Periplus,Event & Promotion,Boarding Lounge Terminal 1,4.5,53,sedang,
@@ -115,3 +116,4 @@ id,nama_brand,jenis_usaha,lokasi,rating,total_review,rentang_harga,gambar
 114,INDOCEV,Services,Central Lobby Terminal 2,2.2,10,non_applicable,
 115,Aroma Padang Juanda,Food & Beverage,Boarding Lounge Terminal 1,4.7,19,sedang,
 116,Gift Shop,Retail,Boarding Lounge Terminal 1,4.5,4,sedang,
+>>>>>>> adddeda43f3702aab338433c0a8ee9d79baeb276
