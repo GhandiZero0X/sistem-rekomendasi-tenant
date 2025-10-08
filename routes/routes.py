@@ -227,7 +227,7 @@ def recommend():
     lokasi = request.args.get("lokasi")
     aktivitas = request.args.get("aktivitas")
     harga = request.args.get("harga")
-    hasil = get_recommendations_by_filters(lokasi, aktivitas, harga, top_n=20)
+    hasil = get_recommendations_by_filters(lokasi, aktivitas, harga, top_n=30)
 
     if hasil is None:
         return jsonify({"error": "Minimal isi salah satu filter (lokasi / aktivitas / harga)."}), 400

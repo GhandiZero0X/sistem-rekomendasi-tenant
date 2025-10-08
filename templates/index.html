@@ -76,124 +76,106 @@
         </section>
 
         <section class="trending-podcast-section section-padding">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-12 col-12">
-                        <div class="section-title-wrap mb-5">
-                            <h4 class="section-title">Recomendation</h4>
-                        </div>
-                    </div>
-
-                    <!-- Dropdown 1 Lokasi -->
-                    <div class="col-lg-4 col-12 mb-2 mb-lg-0">
-                        <select class="form-select w-100 custom-select-shadow" id="kategoriSelect1">
-                            <option value="">Pilih Lokasi</option>
-                            <option value="T1">Terminal 1</option>
-                            <option value="T2">Terminal 2</option>
-                        </select>
-                    </div>
-
-                    <!-- Dropdown 2 Aktifitas-->
-                    <div class="col-lg-4 col-12 mb-2 mb-lg-0">
-                        <select class="form-select w-100 custom-select-shadow" id="kategoriSelect2">
-                            <option value="">Pilih Aktivitas</option>
-                            <option value="Belanja">Belanja</option>
-                            <option value="Makanan">Makanan</option>
-                            <option value="Service">Service</option>
-                        </select>
-                    </div>
-
-                    <!-- Dropdown 3 Harga-->
-                    <div class="col-lg-4 col-12 mb-2 mb-lg-0">
-                        <select class="form-select w-100 custom-select-shadow" id="kategoriSelect3">
-                            <option value="">Pilih Harga</option>
-                            <option value="murah">Murah</option>
-                            <option value="sedang">Sedang</option>
-                            <option value="mahal">Mahal</option>
-                        </select>
-                    </div>
-
-                    <!-- Tombol -->
-                    <div class="col-lg-12 col-12 mt-4 text-center">
-                        <button id="lihatRekomendasiBtn" class="btn btn-primary px-5 py-2 custom-btn-shadow">
-                            <i class="bi bi-search"></i> Lihat Rekomendasi
-                        </button>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 col-12">
+                    <div class="section-title-wrap mb-5">
+                    <h4 class="section-title">Recomendation</h4>
                     </div>
                 </div>
 
+                <!-- Dropdown Filter -->
+                <div class="col-lg-4 col-12 mb-2">
+                    <select class="form-select w-100 custom-select-shadow" id="kategoriSelect1">
+                    <option value="">Pilih Lokasi</option>
+                    <option value="T1">Terminal 1</option>
+                    <option value="T2">Terminal 2</option>
+                    </select>
+                </div>
+
+                <div class="col-lg-4 col-12 mb-2">
+                    <select class="form-select w-100 custom-select-shadow" id="kategoriSelect2">
+                    <option value="">Pilih Aktivitas</option>
+                    <option value="Belanja">Belanja</option>
+                    <option value="Makanan">Makanan</option>
+                    <option value="Service">Service</option>
+                    </select>
+                </div>
+
+                <div class="col-lg-4 col-12 mb-2">
+                    <select class="form-select w-100 custom-select-shadow" id="kategoriSelect3">
+                    <option value="">Pilih Harga</option>
+                    <option value="murah">Murah</option>
+                    <option value="sedang">Sedang</option>
+                    <option value="mahal">Mahal</option>
+                    </select>
+                </div>
+
+                <div class="col-lg-12 col-12 mt-4 text-center">
+                    <button id="lihatRekomendasiBtn" class="btn btn-primary px-5 py-2 custom-btn-shadow">
+                    <i class="bi bi-search"></i> Lihat Rekomendasi
+                    </button>
+                </div>
+                </div>
+
+                <!-- Hasil Rekomendasi -->
                 <div id="hasilRekomendasi" class="row mb-3 mt-4" style="display:none;">
-                    <h5 class="section-subtitle-accent">Hasil Recomendation</h5>
+                <h5 class="section-subtitle-accent">Hasil Rekomendasi</h5>
                 </div>
 
-                <!-- Tenant Rekomendasi -->
-                <div id="rekomendasiContainer" class="row g-3">
-                    <!-- menampilakn secara dinamis -->
+                <div id="rekomendasiContainer" class="row g-3"></div>
+
+                <div class="text-center mt-3" id="loadMoreRekomendasi" style="display:none;">
+                <button class="btn btn-outline-primary px-4">Muat Lebih Banyak</button>
                 </div>
 
-                <div id="tenantDefault" class="row mt-5">
-                    <!-- Tenant Populer -->
-                    <h5 class="section-subtitle-accent">Tenant Populer</h5>
+                <!-- Tenant Default -->
+                <div id="tenantDefault" class="mt-5">
+                <!-- Tenant Populer -->
+                <h5 class="section-subtitle-accent">Tenant Populer</h5>
+                <div id="tenantPopularContainer" class="row g-3 mt-2">
                     {% for tenant in cluster_popular %}
-                    <div class="col-lg-3 col-12 mb-3 mb-lg-0 mt-2">
-                        <div class="custom-block custom-block-full h-100" data-bs-toggle="modal"
-                            data-bs-target="#detailModal" style="cursor: pointer;"
-                            data-nama="{{ tenant.nama_brand }}"
-                            data-jenis="{{ tenant.jenis_usaha }}"
-                            data-lokasi="{{ tenant.lokasi }}"
-                            data-rating="{{ tenant.rating }}"
-                            data-review="{{ tenant.total_review }}"
-                            data-harga="{{ tenant.rentang_harga }}"
-                            data-gambar="{{ url_for('static', filename='images/tenant/' + tenant.gambar) }}">
-                            <div class="custom-block-image-wrap">
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal">
-                                    <img src="{{ url_for('static', filename='images/tenant/' + tenant.gambar) }}"
-                                        class="custom-block-image img-fluid" alt="">
-                                </a>
-                            </div>
-                            <div class="custom-block-info">
-                                <h6 class="mb-2">
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal">
-                                        {{ tenant.nama_brand }}
-                                    </a>
-                                </h6>
-                                <div class="profile-block d-flex">
-                                    <p><strong>{{ tenant.lokasi }}</strong></p>
-                                </div>
-
-                                <!-- Tombol buka modal -->
-                                <a href="#" class="mb-0" data-bs-toggle="modal" data-bs-target="#detailModal">
-                                    Lihat Detail
-                                </a>
-
-                                <div class="custom-block-bottom d-flex justify-content-between mt-3">
-                                    <a href="#" class="mb-0 me-1" data-bs-toggle="modal" data-bs-target="#detailModal">
-                                        <i class="bi bi-star-fill"></i>
-                                        <span>{{ tenant.rating }}</span>
-                                    </a>
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal"
-                                        class="bi-heart me-1">
-                                        <span>{{ tenant.total_review }}</span>
-                                    </a>
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal" class="me-1">
-                                        <i class="bi bi-coin"></i>
-                                        <span>
-                                            {{ '-' if tenant.rentang_harga|lower == 'non_applicable' or not
-                                            tenant.rentang_harga else tenant.rentang_harga|capitalize }}
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
+                    <div class="tenant-card col-lg-3 col-12 mb-3 mb-lg-0 mt-2" style="display:none;">
+                    <div class="custom-block custom-block-full h-100" style="cursor:pointer;" data-bs-toggle="modal"
+                        data-bs-target="#detailModal"
+                        data-nama="{{ tenant.nama_brand }}"
+                        data-jenis="{{ tenant.jenis_usaha }}"
+                        data-lokasi="{{ tenant.lokasi }}"
+                        data-rating="{{ tenant.rating }}"
+                        data-review="{{ tenant.total_review }}"
+                        data-harga="{{ tenant.rentang_harga }}"
+                        data-gambar="{{ url_for('static', filename='images/tenant/' + tenant.gambar) }}">
+                        <div class="custom-block-image-wrap">
+                        <img src="{{ url_for('static', filename='images/tenant/' + tenant.gambar) }}"
+                            class="custom-block-image img-fluid" alt="">
+                        </div>
+                        <div class="custom-block-info">
+                        <h6 class="mb-2"><a href="#" data-bs-toggle="modal" data-bs-target="#detailModal">{{ tenant.nama_brand }}</a></h6>
+                        <div class="profile-block d-flex"><p><strong>{{ tenant.lokasi }}</strong></p></div>
+                        <a href="#" class="mb-0" data-bs-toggle="modal" data-bs-target="#detailModal">Lihat Detail</a>
+                        <div class="custom-block-bottom d-flex justify-content-between mt-3">
+                            <a href="#" class="me-1"><i class="bi bi-star-fill"></i> <span>{{ tenant.rating }}</span></a>
+                            <a href="#" class="bi-heart me-1"><span>{{ tenant.total_review }}</span></a>
+                            <a href="#" class="me-1"><i class="bi bi-coin"></i>
+                            <span>{{ '-' if tenant.rentang_harga|lower == 'non_applicable' or not tenant.rentang_harga else tenant.rentang_harga|capitalize }}</span>
+                            </a>
+                        </div>
                         </div>
                     </div>
+                    </div>
                     {% endfor %}
+                </div>
+                <div class="text-center mt-3" id="loadMorePopular">
+                    <button class="btn btn-outline-primary px-4">Muat Lebih Banyak</button>
+                </div>
 
-                    <!-- Tenant Baru -->
-                    <h5 class="section-subtitle-accent mt-5">Tenant Baru</h5>
+                <!-- Tenant Baru -->
+                <h5 class="section-subtitle-accent mt-5">Tenant Baru</h5>
+                <div id="tenantNewContainer" class="row g-3 mt-2">
                     {% for tenant in cluster_new %}
-                    <div class="col-lg-3 col-12 mb-3 mb-lg-0 mt-2">
-                        <div class="custom-block custom-block-full h-100" data-bs-toggle="modal"
-                            data-bs-target="#detailModal" style="cursor: pointer;"
-                            data-bs-target="#detailModal" style="cursor: pointer;"
+                    <div class="tenant-card col-lg-3 col-12 mb-3 mb-lg-0 mt-2" style="display:none;">
+                        <div class="custom-block custom-block-full h-100" style="cursor:pointer;" data-bs-toggle="modal"
+                            data-bs-target="#detailModal"
                             data-nama="{{ tenant.nama_brand }}"
                             data-jenis="{{ tenant.jenis_usaha }}"
                             data-lokasi="{{ tenant.lokasi }}"
@@ -202,49 +184,34 @@
                             data-harga="{{ tenant.rentang_harga }}"
                             data-gambar="{{ url_for('static', filename='images/tenant/' + tenant.gambar) }}">
                             <div class="custom-block-image-wrap">
-                                <ahref="#" data-bs-toggle="modal" data-bs-target="#detailModal">
-                                    <img src="{{ url_for('static', filename='images/tenant/' + tenant.gambar) }}"
-                                        class="custom-block-image img-fluid" alt="">
-                                    </ahref=>
+                                <img src="{{ url_for('static', filename='images/tenant/' + tenant.gambar) }}"
+                                    class="custom-block-image img-fluid" alt="">
                             </div>
                             <div class="custom-block-info">
                                 <h6 class="mb-2">
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal">
-                                        {{ tenant.nama_brand }}
-                                    </a>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal">{{ tenant.nama_brand }}</a>
                                 </h6>
                                 <div class="profile-block d-flex">
                                     <p><strong>{{ tenant.lokasi }}</strong></p>
                                 </div>
-
-                                <!-- Tombol buka modal -->
-                                <a href="#" class="mb-0" data-bs-toggle="modal" data-bs-target="#detailModal">
-                                    Lihat Detail
-                                </a>
-
+                                <a href="#" class="mb-0" data-bs-toggle="modal" data-bs-target="#detailModal">Lihat Detail</a>
                                 <div class="custom-block-bottom d-flex justify-content-between mt-3">
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal" class="me-1">
-                                        <i class="bi bi-star-fill"></i>
-                                        <span>{{ tenant.rating }}</span>
-                                    </a>
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal"
-                                        class="bi-heart me-1">
-                                        <span>{{ tenant.total_review }}</span>
-                                    </a>
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal" class="me-1">
-                                        <i class="bi bi-coin"></i>
-                                        <span>
-                                            {{ '-' if tenant.rentang_harga|lower == 'non_applicable' or not
-                                            tenant.rentang_harga else tenant.rentang_harga|capitalize }}
-                                        </span>
+                                    <a href="#" class="me-1"><i class="bi bi-star-fill"></i> <span>{{ tenant.rating }}</span></a>
+                                    <a href="#" class="bi-heart me-1"><span>{{ tenant.total_review }}</span></a>
+                                    <a href="#" class="me-1"><i class="bi bi-coin"></i>
+                                    <span>{{ '-' if tenant.rentang_harga|lower == 'non_applicable' or not tenant.rentang_harga else tenant.rentang_harga|capitalize }}</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     {% endfor %}
+                </div>
+                <div class="text-center mt-3" id="loadMoreNew">
+                    <button class="btn btn-outline-primary px-4">Muat Lebih Banyak</button>
                 </div>
             </div>
+        </div>
         </section>
     </main>
 
