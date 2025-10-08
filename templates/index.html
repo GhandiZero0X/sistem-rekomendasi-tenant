@@ -123,7 +123,9 @@
                 <h5 class="section-subtitle-accent">Hasil Rekomendasi</h5>
                 </div>
 
-                <div id="rekomendasiContainer" class="row g-3"></div>
+                <div id="rekomendasiContainer" class="row g-3">
+
+                </div>
 
                 <div class="text-center mt-3" id="loadMoreRekomendasi" style="display:none;">
                 <button class="btn btn-outline-primary px-4">Muat Lebih Banyak</button>
@@ -132,8 +134,10 @@
                 <!-- Tenant Default -->
                 <div id="tenantDefault" class="mt-5">
                 <!-- Tenant Populer -->
-                <h5 class="section-subtitle-accent">Tenant Populer</h5>
-                <div id="tenantPopularContainer" class="row g-3 mt-2">
+                <div class="row mt-5">
+                    <h5 class="section-subtitle-accent">Tenant Populer</h5>
+                </div>
+                <div id="tenantPopularContainer" class="row g-3 mt-1">
                     {% for tenant in cluster_popular %}
                     <div class="tenant-card col-lg-3 col-12 mb-3 mb-lg-0 mt-2" style="display:none;">
                     <div class="custom-block custom-block-full h-100" style="cursor:pointer;" data-bs-toggle="modal"
@@ -170,7 +174,9 @@
                 </div>
 
                 <!-- Tenant Baru -->
-                <h5 class="section-subtitle-accent mt-5">Tenant Baru</h5>
+                <div class="row mt-5">
+                    <h5 class="section-subtitle-accent mt-3">Tenant Baru</h5>
+                </div>
                 <div id="tenantNewContainer" class="row g-3 mt-2">
                     {% for tenant in cluster_new %}
                     <div class="tenant-card col-lg-3 col-12 mb-3 mb-lg-0 mt-2" style="display:none;">
