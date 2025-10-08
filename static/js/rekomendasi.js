@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
       // Render hasil rekomendasi
         container.innerHTML = data.map(
             (tenant) => `
-                
                 <div class="col-lg-3 col-12 mb-3 mb-lg-0 mt-2">
                     <div class="custom-block custom-block-full h-100" data-bs-toggle="modal" data-bs-target="#detailModal"
                         style="cursor:pointer;"
@@ -49,11 +48,12 @@ document.addEventListener("DOMContentLoaded", function () {
                         data-rating="${tenant.rating}"
                         data-review="${tenant.total_review}"
                         data-harga="${tenant.rentang_harga}"
-                        data-gambar="/static/images/p6.png">
+                        data-gambar="/static/images/tenant/${tenant.gambar}">
 
                         <div class="custom-block-image-wrap">
                             <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal">
-                                <img src="/static/images/p6.png" class="custom-block-image img-fluid" alt="${tenant.nama_brand}">
+                                <img src="/static/images/tenant/${tenant.gambar}" 
+                                class="custom-block-image img-fluid" alt="${tenant.nama_brand}">
                             </a>
                         </div>
                         <div class="custom-block-info">

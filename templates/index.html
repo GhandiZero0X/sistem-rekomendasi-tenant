@@ -47,7 +47,7 @@
                             <!-- top 10 Rekomendasi berdasarkan rating dan jumlah rating -->
                             {% for tenant in top_tenant %}
                             <div class="owl-carousel-info-wrap item">
-                                <img src="{{ url_for('static', filename='images/p9.png') }}" class="owl-carousel-image"
+                                <img src="{{ url_for('static', filename='images/tenant/' + tenant.gambar) }}" class="owl-carousel-image"
                                     alt="">
                                 <div class="owl-carousel-info">
                                     <h6 class="mb-2 text-primary">{{ tenant.nama_brand }}</h6>
@@ -143,10 +143,10 @@
                             data-rating="{{ tenant.rating }}"
                             data-review="{{ tenant.total_review }}"
                             data-harga="{{ tenant.rentang_harga }}"
-                            data-gambar="{{ url_for('static', filename='images/p7.png') }}">
+                            data-gambar="{{ url_for('static', filename='images/tenant/' + tenant.gambar) }}">
                             <div class="custom-block-image-wrap">
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#detailModal">
-                                    <img src="{{ url_for('static', filename='images/p6.png') }}"
+                                    <img src="{{ url_for('static', filename='images/tenant/' + tenant.gambar) }}"
                                         class="custom-block-image img-fluid" alt="">
                                 </a>
                             </div>
@@ -200,10 +200,10 @@
                             data-rating="{{ tenant.rating }}"
                             data-review="{{ tenant.total_review }}"
                             data-harga="{{ tenant.rentang_harga }}"
-                            data-gambar="{{ url_for('static', filename='images/p7.png') }}">
+                            data-gambar="{{ url_for('static', filename='images/tenant/' + tenant.gambar) }}">
                             <div class="custom-block-image-wrap">
                                 <ahref="#" data-bs-toggle="modal" data-bs-target="#detailModal">
-                                    <img src="{{ url_for('static', filename='images/p6.png') }}"
+                                    <img src="{{ url_for('static', filename='images/tenant/' + tenant.gambar) }}"
                                         class="custom-block-image img-fluid" alt="">
                                     </ahref=>
                             </div>

@@ -98,7 +98,7 @@ def get_recommendations_by_filters(lokasi=None, aktivitas=None, rentang_harga=No
     similar_indices = sim_scores.argsort()[::-1][1:top_n+1]
 
     return df.loc[similar_indices, ["id", "nama_brand", "jenis_usaha", "lokasi",
-                                    "rating", "total_review", "rentang_harga"]]
+                                    "rating", "total_review", "rentang_harga", "gambar"]]
 
 def run_clustering():
     """Jalankan clustering KMeans & Spectral"""
