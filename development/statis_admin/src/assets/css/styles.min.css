@@ -5174,6 +5174,240 @@ textarea.form-control-lg {
   --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23dbe1e6' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
+/* Kartu utama */
+.tenant-status-card {
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Container diagram lingkaran */
+.chart-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+}
+
+/* Label di tengah donut */
+.chart-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #0d6efd;
+}
+
+/* Info bawah chart */
+.tenant-status-info {
+  margin-top: 1rem;
+}
+
+.status-label {
+  font-size: 0.85rem;
+  color: #6c757d;
+  display: block;
+}
+
+.status-value {
+  margin-top: 0.25rem;
+  font-weight: 600;
+  color: #212529;
+}
+
+/* Responsif untuk mobile */
+@media (max-width: 768px) {
+  .chart-container {
+    width: 120px;
+    height: 120px;
+  }
+
+  .chart-label {
+    font-size: 1rem;
+  }
+
+  .status-value {
+    font-size: 1rem;
+  }
+}
+
+/* Gaya titik hijau di sebelah teks Aktif */
+.badge-status {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* jarak antara titik dan teks */
+}
+
+/* Titik hijau status */
+.status-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #28a745; /* hijau Bootstrap */
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Sedikit responsif untuk tampilan kecil */
+@media (max-width: 576px) {
+  .status-dot {
+    width: 8px;
+    height: 8px;
+  }
+  .badge-status {
+    font-size: 0.7rem;
+    padding: 3px 6px;
+  }
+}
+
+/* 🔹 Dropdown Logout — versi ramping dan nempel kanan */
+.dropdown-menu.dropdown-menu-end {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  transform: translateY(5px);
+  width: auto;                  /* auto menyesuaikan isi */
+  min-width: 140px;             /* minimal agar muat tombol */
+  padding: 8px 10px;
+  border-radius: 14px;
+  background-color: #fff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  border: none;
+  text-align: center;
+}
+
+/* 🔹 Tombol logout tampil modern */
+.btn-logout {
+  background-color: #2f50f4;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  padding: 8px 22px;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(47, 80, 244, 0.4);
+}
+
+.btn-logout:hover {
+  background-color: #1f3fe0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(47, 80, 244, 0.5);
+}
+
+.btn-logout iconify-icon {
+  font-size: 16px;
+}
+
+/* 🔹 Responsif untuk layar kecil */
+@media (max-width: 576px) {
+  .dropdown-menu.dropdown-menu-end {
+    min-width: 120px;
+    padding: 6px 8px;
+    right: 4px;       /* sedikit bergeser dari tepi layar */
+    transform: translateY(4px);
+  }
+
+  .btn-logout {
+    padding: 6px 16px;
+    font-size: 13px;
+    gap: 5px;
+  }
+
+  .btn-logout iconify-icon {
+    font-size: 15px;
+  }
+}
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+}
+
+.pagination {
+  border: 1px solid #007bff; /* border luar biru tipis */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.page-item .page-link {
+  color: #007bff;
+  border: none;
+  background-color: transparent;
+  padding: 8px 16px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.page-item .page-link:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.page-item.active .page-link {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: 600;
+}
+
+.page-item:first-child .page-link {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.page-item:last-child .page-link {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* 🔹 Logo area */
+.brand-logo {
+  border-bottom: 1px solid #e9ecef;
+  background-color: #fff;
+}
+
+/* 🔹 Logo image */
+.logo-icon {
+  height: 38px;
+  width: auto;
+  transition: all 0.3s ease;
+}
+
+/* 🔹 Teks di samping logo */
+.brand-text {
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+
+/* 🔹 Hover effect */
+.logo-img:hover .brand-text {
+  color: #2f50f4;
+}
+
+/* 🔹 Responsif di mobile */
+@media (max-width: 576px) {
+  .logo-icon {
+    height: 30px;
+  }
+
+  .brand-text {
+    font-size: 16px;
+  }
+
+  .brand-logo {
+    padding: 8px 14px;
+  }
+
+  .close-btn i {
+    font-size: 1.2rem;
+  }
+}
+
+
 .card {
   --bs-card-spacer-y: 30px;
   --bs-card-spacer-x: 30px;
