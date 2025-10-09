@@ -191,7 +191,7 @@
                             data-gambar="{{ url_for('static', filename='images/tenant/' + tenant.gambar) }}">
                             <div class="custom-block-image-wrap">
                                 <img src="{{ url_for('static', filename='images/tenant/' + tenant.gambar) }}"
-                                    class="custom-block-image img-fluid" alt="">
+                                    class="custom-block-image img-fluid" alt="{{ tenant.nama_brand }}" loading="lazy">
                             </div>
                             <div class="custom-block-info">
                                 <h6 class="mb-2">

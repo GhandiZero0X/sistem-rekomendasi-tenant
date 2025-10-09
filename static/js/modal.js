@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="row g-3 align-items-center">
           <div class="col-md-5 text-center">
             <img src="${data.gambar}" alt="${data.nama}"
-                 class="img-fluid rounded" style="max-height: 350px; object-fit: cover;">
+                 class="img-fluid rounded" style="max-height: 350px; object-fit: cover;" alt="${ tenant.nama_brand }" loading="lazy">
           </div>
 
           <div class="col-md-7">

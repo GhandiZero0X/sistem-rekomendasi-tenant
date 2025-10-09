@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 data-harga="${tenant.rentang_harga}"
                 data-gambar="/static/images/tenant/${tenant.gambar}">
                 <div class="custom-block-image-wrap">
-                    <img src="/static/images/tenant/${tenant.gambar}" class="custom-block-image img-fluid" alt="${tenant.nama_brand}">
+                    <img src="/static/images/tenant/${tenant.gambar}" class="custom-block-image img-fluid" alt="${tenant.nama_brand}" loading="lazy">
                 </div>
                 <div class="custom-block-info">
                     <h6 class="mb-2"><a href="#" data-bs-toggle="modal" data-bs-target="#detailModal">${tenant.nama_brand}</a></h6>
