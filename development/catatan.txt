@@ -48,8 +48,13 @@ SELESAI
 
 12. Memulai proses konfigurasi antara backend dan frontend melalui integrasi API backend yang telah dibuat untuk fitur rekomendasi 
 dengan halaman yang sudah disiapkan oleh frontend.
+SELESAI
 
 13. Melakukan penyesuaian serta penambahan API yang masih belum lengkap untuk mendukung fitur rekomendasi tenant.
+SELESAI
 
-mempersiapkan js agar tampilan dapat menyajika data tidak membutuhkan halaman tambahan atau refrash halaman untuk menampilkan 
-hasil rekomendasi (kasih ke frontend untuk dapat membuat code untuk js kalau bisa menggunakan jquery agar lebih cepat)
+14. mempersiapkan js agar tampilan dapat menyajika data tidak membutuhkan halaman tambahan atau refrash halaman untuk menampilkan 
+hasil rekomendasi 
+SELESAI
+
+15. 
