@@ -5174,13 +5174,11 @@ textarea.form-control-lg {
   --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23dbe1e6' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-/* Kartu utama */
 .tenant-status-card {
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Container diagram lingkaran */
 .chart-container {
   position: relative;
   width: 150px;
@@ -5188,7 +5186,6 @@ textarea.form-control-lg {
   margin: 0 auto;
 }
 
-/* Label di tengah donut */
 .chart-label {
   position: absolute;
   top: 50%;
@@ -5199,7 +5196,6 @@ textarea.form-control-lg {
   color: #0d6efd;
 }
 
-/* Info bawah chart */
 .tenant-status-info {
   margin-top: 1rem;
 }
@@ -5216,7 +5212,6 @@ textarea.form-control-lg {
   color: #212529;
 }
 
-/* Responsif untuk mobile */
 @media (max-width: 768px) {
   .chart-container {
     width: 120px;
@@ -5232,23 +5227,20 @@ textarea.form-control-lg {
   }
 }
 
-/* Gaya titik hijau di sebelah teks Aktif */
 .badge-status {
   display: flex;
   align-items: center;
-  gap: 6px; /* jarak antara titik dan teks */
+  gap: 6px;
 }
 
-/* Titik hijau status */
 .status-dot {
   width: 10px;
   height: 10px;
-  background-color: #28a745; /* hijau Bootstrap */
+  background-color: #28a745; 
   border-radius: 50%;
   display: inline-block;
 }
 
-/* Sedikit responsif untuk tampilan kecil */
 @media (max-width: 576px) {
   .status-dot {
     width: 8px;
@@ -5260,14 +5252,13 @@ textarea.form-control-lg {
   }
 }
 
-/* 🔹 Dropdown Logout — versi ramping dan nempel kanan */
 .dropdown-menu.dropdown-menu-end {
   position: absolute;
   right: 0;
   top: 100%;
   transform: translateY(5px);
-  width: auto;                  /* auto menyesuaikan isi */
-  min-width: 140px;             /* minimal agar muat tombol */
+  width: auto;             
+  min-width: 140px;  
   padding: 8px 10px;
   border-radius: 14px;
   background-color: #fff;
@@ -5276,7 +5267,6 @@ textarea.form-control-lg {
   text-align: center;
 }
 
-/* 🔹 Tombol logout tampil modern */
 .btn-logout {
   background-color: #2f50f4;
   color: #fff;
@@ -5303,12 +5293,11 @@ textarea.form-control-lg {
   font-size: 16px;
 }
 
-/* 🔹 Responsif untuk layar kecil */
 @media (max-width: 576px) {
   .dropdown-menu.dropdown-menu-end {
     min-width: 120px;
     padding: 6px 8px;
-    right: 4px;       /* sedikit bergeser dari tepi layar */
+    right: 4px;     
     transform: translateY(4px);
   }
 
@@ -5330,7 +5319,7 @@ textarea.form-control-lg {
 }
 
 .pagination {
-  border: 1px solid #007bff; /* border luar biru tipis */
+  border: 1px solid #007bff;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -5364,31 +5353,26 @@ textarea.form-control-lg {
   border-bottom-right-radius: 8px;
 }
 
-/* 🔹 Logo area */
 .brand-logo {
   border-bottom: 1px solid #e9ecef;
   background-color: #fff;
 }
 
-/* 🔹 Logo image */
 .logo-icon {
   height: 38px;
   width: auto;
   transition: all 0.3s ease;
 }
 
-/* 🔹 Teks di samping logo */
 .brand-text {
   font-size: 18px;
   letter-spacing: 0.5px;
 }
 
-/* 🔹 Hover effect */
 .logo-img:hover .brand-text {
   color: #2f50f4;
 }
 
-/* 🔹 Responsif di mobile */
 @media (max-width: 576px) {
   .logo-icon {
     height: 30px;
