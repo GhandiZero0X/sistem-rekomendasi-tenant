@@ -14,7 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
     let visibleCount = 0;
 
     const showNextBatch = () => {
-      for (let i = visibleCount; i < visibleCount + batchSize && i < items.length; i++) {
+      for (
+        let i = visibleCount;
+        i < visibleCount + batchSize && i < items.length;
+        i++
+      ) {
         items[i].style.display = "block";
       }
       visibleCount += batchSize;
@@ -44,7 +48,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     tenantDefault.style.display = "none";
     hasilSection.style.display = "block";
-    container.innerHTML = `<p class="text-center text-muted">🔍 Sedang mencari rekomendasi...</p>`;
+    container.innerHTML = `
+      <div class="loading-wrapper">
+        <div class="loader mt-5">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+          <div class="bar4"></div>
+          <div class="bar5"></div>
+          <div class="bar6"></div>
+        </div>
+        <p class="text-center text-muted mt-3">Sedang mencari rekomendasi...</p>
+      </div>
+    `;
 
     try {
       const params = new URLSearchParams({
@@ -62,7 +78,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       // Render hasil rekomendasi ke container
-      container.innerHTML = data.map((tenant) => `
+      container.innerHTML = data
+        .map(
+          (tenant) => `
         <div class="tenant-card col-lg-3 col-12 mb-3 mb-lg-0 mt-2" style="display:none;">
             <div class="custom-block custom-block-full h-100" style="cursor:pointer;" data-bs-toggle="modal"
                 data-bs-target="#detailModal"
@@ -74,30 +92,38 @@ document.addEventListener("DOMContentLoaded", function () {
                 data-harga="${tenant.rentang_harga}"
                 data-gambar="/static/images/tenant/${tenant.gambar}">
                 <div class="custom-block-image-wrap">
-                    <img src="/static/images/tenant/${tenant.gambar}" class="custom-block-image img-fluid" alt="${tenant.nama_brand}" loading="lazy">
+                    <img src="/static/images/tenant/${tenant.gambar
+            }" class="custom-block-image img-fluid" alt="${tenant.nama_brand
+            }" loading="lazy">
                 </div>
                 <div class="custom-block-info">
-                    <h6 class="mb-2"><a href="#" data-bs-toggle="modal" data-bs-target="#detailModal">${tenant.nama_brand}</a></h6>
-                    <div class="profile-block d-flex"><p><strong>${tenant.lokasi}</strong></p></div>
+                    <h6 class="mb-2"><a href="#" data-bs-toggle="modal" data-bs-target="#detailModal">${tenant.nama_brand
+            }</a></h6>
+                    <div class="profile-block d-flex"><p><strong>${tenant.lokasi
+            }</strong></p></div>
                     <a href="#" class="mb-0" data-bs-toggle="modal" data-bs-target="#detailModal">Lihat Detail</a>
                     <div class="custom-block-bottom d-flex justify-content-between mt-3">
-                        <a href="#" class="me-1"><i class="bi bi-star-fill"></i> <span>${tenant.rating}</span></a>
-                        <a href="#" class="bi-heart me-1"><span>${tenant.total_review}</span></a>
-                        <a href="#" class="me-1"><i class="bi bi-coin"></i> <span>${
-                        !tenant.rentang_harga ||
-                        (tenant.rentang_harga.toLowerCase() === "non_applicable")
-                            ? "-"
-                            : tenant.rentang_harga.charAt(0).toUpperCase() + tenant.rentang_harga.slice(1)
-                        }</span></a>
+                        <a href="#" class="me-1"><i class="bi bi-star-fill"></i> <span>${tenant.rating
+            }</span></a>
+                        <a href="#" class="bi-heart me-1"><span>${tenant.total_review
+            }</span></a>
+                        <a href="#" class="me-1"><i class="bi bi-coin"></i> <span>${!tenant.rentang_harga ||
+              tenant.rentang_harga.toLowerCase() ===
+              "non_applicable"
+              ? "-"
+              : tenant.rentang_harga.charAt(0).toUpperCase() +
+              tenant.rentang_harga.slice(1)
+            }</span></a>
                     </div>
                 </div>
             </div>
-        </div>`).join("");
+        </div>`
+        )
+        .join("");
 
       // tampilkan batch pertama rekomendasi
       document.getElementById("loadMoreRekomendasi").style.display = "block";
       showBatchedItems("#rekomendasiContainer", 10, "#loadMoreRekomendasi");
-
     } catch (err) {
       console.error(err);
       container.innerHTML = `<p class="text-danger text-center">❌ Gagal mengambil data rekomendasi.</p>`;

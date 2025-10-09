@@ -1,0 +1,158 @@
+/* static/css/loading.css */
+
+.loading-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    /* Bisa disesuaikan */
+}
+
+/* .loader {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    width: 90px;
+    height: 50px;
+    text-align: center;
+    font-size: 10px;
+    z-index: 9999;
+} */
+
+.loader {
+    margin: 0 auto;
+    width: 90px;
+    height: 50px;
+    text-align: center;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.loader div {
+    height: 100%;
+    width: 8px;
+    display: inline-block;
+    margin-left: 2px;
+    animation: delay 0.8s infinite ease-in-out;
+}
+
+.loader .bar1 {
+    background-color: #0d6efd;
+}
+
+.loader .bar2 {
+    background-color: #09b7bf;
+    animation-delay: -0.7s;
+}
+
+.loader .bar3 {
+    background-color: #bfddf8;
+    animation-delay: -0.6s;
+}
+
+.loader .bar4 {
+    background-color: #0d6efd;
+    animation-delay: -0.5s;
+}
+
+.loader .bar5 {
+    background-color: #09b7bf;
+    animation-delay: -0.4s;
+}
+
+.loader .bar6 {
+    background-color: #bfddf8;
+    animation-delay: -0.3s;
+}
+
+@keyframes delay {
+
+    0%,
+    40%,
+    100% {
+        transform: scaleY(0.05);
+    }
+
+    20% {
+        transform: scaleY(1.0);
+    }
+}
+
+/* loading page */
+/* Fullscreen loading overlay */
+#loading-page {
+    position: fixed;
+    inset: 0;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeOut 1s ease forwards;
+    animation-delay: 2s;
+    /* waktu sebelum menghilang */
+}
+
+.logo-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.logo-part {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: combine 2s ease-in-out forwards;
+    opacity: 0;
+}
+
+/* Empat bagian “pecah” dan menyatu */
+.logo-part:nth-child(1) {
+    animation-delay: 0s;
+    transform: translate(-60px, -60px) scale(0.5);
+}
+
+.logo-part:nth-child(2) {
+    animation-delay: 0.15s;
+    transform: translate(60px, -60px) scale(0.5);
+}
+
+.logo-part:nth-child(3) {
+    animation-delay: 0.3s;
+    transform: translate(60px, 60px) scale(0.5);
+}
+
+.logo-part:nth-child(4) {
+    animation-delay: 0.45s;
+    transform: translate(-60px, 60px) scale(0.5);
+}
+
+/* Animasi penyatuan */
+@keyframes combine {
+    0% {
+        opacity: 0;
+        transform: translate(var(--tx, 0), var(--ty, 0)) scale(0.5);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+/* Animasi hilang */
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
