@@ -55,7 +55,7 @@ def register_page():
 
 # dashboard page route
 @routes.route("/dashboardPage")
-@token_required
+# @token_required
 def dashboard_page():
     return render_template("dashboard.html")
 
@@ -67,7 +67,12 @@ def tenant():
 # edit tenant page route
 @routes.route("/editTenant")
 def editTenant():
-    return render_template("editTenant.html")
+    return render_template("edit-tenant.html")
+
+# add tenant page route
+@routes.route("/addTenant")
+def addTenant():
+    return render_template("add-tenant.html")
 
 # user page route
 @routes.route("/user")
@@ -77,7 +82,12 @@ def user():
 # edit user page route
 @routes.route("/editUser")
 def editUser():
-    return render_template("editUser.html")
+    return render_template("edit-user.html")
+
+# add user page route
+@routes.route("/addUser")
+def addUser():
+    return render_template("add-user.html")
 
 # ===== API ADMIN =====
 # ===== Page Auth : admin dan superadmin =====
