@@ -62,3 +62,6 @@ hasil rekomendasi ditampilkan.
 
 16. Mempersiapkan API yang akan dikonfigurasi dalam proses integrasi antara backend dan frontend untuk fitur admin, dengan menyesuaikan 
 API backend yang telah dibuat dengan halaman yang telah disiapkan oleh tim frontend.
+
+17 Memulai proses konfigurasi dalam proses integrasi antara backend dan frontend untuk fitur admin, dengan menyesuaikan 
+API backend yang telah dibuat dengan halaman yang telah disiapkan.
