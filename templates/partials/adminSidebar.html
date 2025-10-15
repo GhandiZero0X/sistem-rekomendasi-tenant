@@ -1,0 +1,75 @@
+<!-- partials/adminSidebar.html -->
+
+<aside class="left-sidebar">
+  <div>
+    <div
+      class="brand-logo d-flex align-items-center justify-content-between px-3 py-2"
+    >
+      <a
+        href="{{ url_for('routes.admin_dashboard') }}"
+        class="text-nowrap logo-img d-flex align-items-center text-decoration-none"
+      >
+        <img
+          src="{{ url_for('static', filename='static_admin/images/logos/logo.png') }}"
+          alt="Logo"
+          class="img-fluid logo-icon me-2"
+        />
+        <span class="brand-text fw-semibold text-dark">Admin Injourney</span>
+      </a>
+      <div
+        class="close-btn d-xl-none d-block sidebartoggler cursor-pointer"
+        id="sidebarCollapse"
+      >
+        <i class="ti ti-x fs-5"></i>
+      </div>
+    </div>
+    <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+      <ul id="sidebarnav">
+        <li class="nav-small-cap">
+          <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
+          <span class="hide-menu">Home</span>
+        </li>
+        <li class="sidebar-item">
+          <a
+            class="sidebar-link d-flex align-items-center"
+            href="{{ url_for('routes.admin_dashboard') }}"
+            aria-expanded="false"
+          >
+            <span class="me-2 ms-2">
+              <i class="bi bi-clipboard-data"></i>
+            </span>
+            <span class="hide-menu">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-small-cap">
+          <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
+          <span class="hide-menu">Database</span>
+        </li>
+        <li class="sidebar-item">
+          <a
+            class="sidebar-link d-flex align-items-center"
+            href="{{ url_for('routes.user_dashboard') }}"
+            aria-expanded="false"
+          >
+            <span class="me-2 ms-2">
+              <i class="bi bi-person-bounding-box"></i>
+            </span>
+            <span class="hide-menu">User</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a
+            class="sidebar-link d-flex align-items-center"
+            href="{{ url_for('routes.tenant_dashboard') }}"
+            aria-expanded="false"
+          >
+            <span class="me-2 ms-2">
+              <i class="bi bi-file-earmark-person-fill"></i>
+            </span>
+            <span class="hide-menu">Tenant</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</aside>
