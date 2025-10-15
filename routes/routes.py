@@ -44,17 +44,29 @@ def test():
     return render_template("test.html")
 
 # login page route
-@routes.route("/loginPage")
+@routes.route("/login")
 def login_page():
-    return render_template("login.html")
+    return render_template("pages/login.html")
 
 # register page route
-@routes.route("/registerPage")
+@routes.route("/register")
 def register_page():
-    return render_template("register.html")
+    return render_template("pages/register.html")
+
+@routes.route("/dashboardAdmin")
+def admin_dashboard():
+    return render_template("pages/dashboard.html")
+
+@routes.route("/dashboardUser")
+def user_dashboard():
+    return render_template("pages/dashboardUser.html")
+
+@routes.route("/dashboardTenant")
+def tenant_dashboard():
+    return render_template("pages/dashboardTenant.html")
 
 # dashboard page route
-@routes.route("/dashboardPage")
+@routes.route("/dashboard")
 # @token_required
 def dashboard_page():
     return render_template("dashboard.html")
@@ -67,12 +79,12 @@ def tenant():
 # edit tenant page route
 @routes.route("/editTenant")
 def editTenant():
-    return render_template("edit-tenant.html")
+    return render_template("pages/edit-tenant.html")
 
 # add tenant page route
 @routes.route("/addTenant")
 def addTenant():
-    return render_template("add-tenant.html")
+    return render_template("pages/add-tenant.html")
 
 # user page route
 @routes.route("/user")
@@ -82,12 +94,12 @@ def user():
 # edit user page route
 @routes.route("/editUser")
 def editUser():
-    return render_template("edit-user.html")
+    return render_template("pages/edit-user.html")
 
 # add user page route
 @routes.route("/addUser")
 def addUser():
-    return render_template("add-user.html")
+    return render_template("pages/add-user.html")
 
 # ===== API ADMIN =====
 # ===== Page Auth : admin dan superadmin =====
