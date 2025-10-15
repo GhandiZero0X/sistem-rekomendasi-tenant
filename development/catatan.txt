@@ -65,6 +65,10 @@ SELESAI
 API backend yang telah dibuat dengan halaman yang telah disiapkan oleh tim frontend.
 SELESAI
 
-17 Memulai proses konfigurasi dalam proses integrasi antara backend dan frontend untuk fitur admin, dengan menyesuaikan 
+17. Melakukan perombakan struktur tampilan frontend agar lebih dinamis dengan menerapkan arsitektur template Jinja2 pada framework 
+Flask. 
+SELESAI
+
+18. Memulai proses konfigurasi dalam proses integrasi antara backend dan frontend untuk fitur admin, dengan menyesuaikan 
 API backend yang telah dibuat dengan halaman yang telah disiapkan.
 ONPROGRES
