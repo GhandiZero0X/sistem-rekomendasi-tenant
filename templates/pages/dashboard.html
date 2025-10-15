@@ -1,6 +1,48 @@
 {% extends 'layout/baseAdmin.html' %} 
 
 {% block content %}
+<div class="row g-1">
+  <!-- Card 1 -->
+  <div class="col-lg-4 col-md-6">
+    <div class="card text-center text-white border-0 shadow-sm" style="background-color: #3351f5;">
+      <div class="card-body py-4">
+        <div class="mb-2">
+          <i class="bi bi-building fs-2 opacity-75"></i>
+        </div>
+        <h4 class="fw-bold mb-0 text-white">169</h4>
+        <small>Tenant Aktif</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+<div class="col-lg-4 col-md-6">
+  <div class="card text-center fw-bold border-0 shadow-sm" style="background-color: #87CEEB;">
+    <div class="card-body py-4 text-dark">
+      <div class="mb-2">
+        <i class="bi bi-person-fill fs-2 opacity-75 text-dark"></i>
+      </div>
+      <h4 class="fw-bold mb-0 text-dark">50</h4>
+      <small class="text-dark">Admin Aktif</small>
+    </div>
+  </div>
+</div>
+
+  <!-- Card 3 -->
+  <div class="col-lg-4 col-md-6">
+    <div class="card text-center text-white border-0 shadow-sm" style="background-color: #3351f5;">
+      <div class="card-body py-4">
+        <div class="mb-2">
+          <i class="bi bi-graph-up-arrow fs-2 opacity-75"></i>
+        </div>
+          <h4 class="fw-bold mb-0 text-white">6</h4>
+        <small>Total Superadmin</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="col-lg-12">
   <div class="card">
     <div class="card-body">
@@ -151,167 +193,89 @@
 </div>
 
 <div class="col-lg-12">
-  <div class="card tenant-status-card">
-    <div class="card-body text-center">
-      <h5 class="card-title d-flex gap-2 mb-4">
-        Jumlah Tenant
-        <span>
-          <iconify-icon
-            icon="solar:question-circle-bold"
-            class="fs-7 text-muted"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            data-bs-custom-class="tooltip-success"
-            data-bs-title="Persentase status tenant aktif"
-          ></iconify-icon>
-        </span>
-      </h5>
-
-      <div class="chart-container">
-        <canvas id="tenantStatusChart"></canvas>
-        <div class="chart-label">87%</div>
+  <div class="card">
+    <div class="card-body">
+      <div
+        class="d-flex flex-wrap justify-content-between align-items-center mb-3"
+      >
+        <h5 class="card-title mb-2 mb-sm-0">Data Admin</h5>
       </div>
 
-      <div class="tenant-status-info">
-        <span class="status-label">Jumlah Seluruh Tenant</span>
-        <h4 class="status-value">87%</h4>
+      <div class="table-responsive">
+        <table class="table text-nowrap align-middle mb-0">
+          <thead>
+            <tr class="border-2 border-bottom border-primary border-0">
+              <th scope="col">ID</th>
+              <th scope="col">Username</th>
+              <th scope="col">Role</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <tr>
+              <td class="ps-0 fw-medium">1</td>
+              <td class="fw-medium">user001</td>
+              <td>superadmin</td>
+            </tr>
+            <tr>
+              <td class="ps-0 fw-medium">2</td>
+              <td class="fw-medium">user002</td>
+              <td>admin</td>
+            </tr>
+            <tr>
+              <td class="ps-0 fw-medium">3</td>
+              <td class="fw-medium">user001</td>
+              <td>superadmin</td>
+            </tr>
+            <tr>
+              <td class="ps-0 fw-medium">4</td>
+              <td class="fw-medium">user002</td>
+              <td>admin</td>
+            </tr>
+            <tr>
+              <td class="ps-0 fw-medium">5</td>
+              <td class="fw-medium">user001</td>
+              <td>superadmin</td>
+            </tr>
+            <tr>
+              <td class="ps-0 fw-medium">6</td>
+              <td class="fw-medium">user002</td>
+              <td>admin</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </div>
-  </div>
-</div>
 
-<div class="col-lg-3">
-  <div class="card overflow-hidden hover-img">
-    <div class="position-relative">
-      <a href="javascript:void(0)">
-        <img
-          src="{{ url_for('static', filename='static_admin/images/blog/blog-img3.jpg') }}"
-          class="card-img-top"
-          alt="matdash-img"
-        />
-      </a>
-      <span
-        class="badge badge-status text-bg-light text-dark fs-2 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"
-      >
-        <span class="status-dot"></span> Aktif
-      </span>
-      <img
-        src="{{ url_for('static', filename='static_admin/images/profile/user-3.jpg') }}"
-        alt="matdash-img"
-        class="img-fluid rounded-circle position-absolute bottom-0 start-0 mb-n9 ms-9"
-        width="40"
-        height="40"
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        data-bs-title="Georgeanna Ramero"
-      />
-    </div>
-    <div class="card-body p-4">
-      <span class="badge text-bg-light fs-2 py-1 px-2 lh-sm mt-3"
-        >@username</span
-      >
-    </div>
-  </div>
-</div>
-
-<div class="col-lg-3">
-  <div class="card overflow-hidden hover-img">
-    <div class="position-relative">
-      <a href="javascript:void(0)">
-        <img
-          src="{{ url_for('static', filename='static_admin/images/blog/blog-img3.jpg') }}"
-          class="card-img-top"
-          alt="matdash-img"
-        />
-      </a>
-      <span
-        class="badge badge-status text-bg-light text-dark fs-2 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"
-      >
-        <span class="status-dot"></span> Aktif
-      </span>
-      <img
-        src="{{ url_for('static', filename='static_admin/images/profile/user-3.jpg') }}"
-        alt="matdash-img"
-        class="img-fluid rounded-circle position-absolute bottom-0 start-0 mb-n9 ms-9"
-        width="40"
-        height="40"
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        data-bs-title="Georgeanna Ramero"
-      />
-    </div>
-    <div class="card-body p-4">
-      <span class="badge text-bg-light fs-2 py-1 px-2 lh-sm mt-3"
-        >@username</span
-      >
-    </div>
-  </div>
-</div>
-
-<div class="col-lg-3">
-  <div class="card overflow-hidden hover-img">
-    <div class="position-relative">
-      <a href="javascript:void(0)">
-        <img
-          src="{{ url_for('static', filename='static_admin/images/blog/blog-img3.jpg') }}"
-          class="card-img-top"
-          alt="matdash-img"
-        />
-      </a>
-      <span
-        class="badge badge-status text-bg-light text-dark fs-2 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"
-      >
-        <span class="status-dot"></span> Aktif
-      </span>
-      <img
-        src="{{ url_for('static', filename='static_admin/images/profile/user-3.jpg') }}"
-        alt="matdash-img"
-        class="img-fluid rounded-circle position-absolute bottom-0 start-0 mb-n9 ms-9"
-        width="40"
-        height="40"
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        data-bs-title="Georgeanna Ramero"
-      />
-    </div>
-    <div class="card-body p-4">
-      <span class="badge text-bg-light fs-2 py-1 px-2 lh-sm mt-3"
-        >@username</span
-      >
-    </div>
-  </div>
-</div>
-
-<div class="col-lg-3">
-  <div class="card overflow-hidden hover-img">
-    <div class="position-relative">
-      <a href="javascript:void(0)">
-        <img
-          src="{{ url_for('static', filename='static_admin/images/blog/blog-img3.jpg') }}"
-          class="card-img-top"
-          alt="matdash-img"
-        />
-      </a>
-      <span
-        class="badge badge-status text-bg-light text-dark fs-2 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0"
-      >
-        <span class="status-dot"></span> Aktif
-      </span>
-      <img
-        src="{{ url_for('static', filename='static_admin/images/profile/user-3.jpg') }}"
-        alt="matdash-img"
-        class="img-fluid rounded-circle position-absolute bottom-0 start-0 mb-n9 ms-9"
-        width="40"
-        height="40"
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        data-bs-title="Georgeanna Ramero"
-      />
-    </div>
-    <div class="card-body p-4">
-      <span class="badge text-bg-light fs-2 py-1 px-2 lh-sm mt-3"
-        >@username</span
-      >
+      <div class="pagination-wrapper mt-4 d-flex justify-content-end">
+        <nav aria-label="Page navigation">
+          <ul class="pagination mb-0 border border-primary rounded-pill px-2">
+            <li class="page-item">
+              <a
+                class="page-link text-primary border-0"
+                href="#"
+                aria-label="Previous"
+                >Prev</a
+              >
+            </li>
+            <li class="page-item active">
+              <a class="page-link bg-primary text-white border-0" href="#">1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link text-primary border-0" href="#">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link text-primary border-0" href="#">3</a>
+            </li>
+            <li class="page-item">
+              <a
+                class="page-link text-primary border-0"
+                href="#"
+                aria-label="Next"
+                >Next</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </div>
 </div>
