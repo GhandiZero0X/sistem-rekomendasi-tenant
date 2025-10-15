@@ -1,0 +1,221 @@
+{% extends "layout/baseAdmin.html" %} {% block content %}
+<div class="col-lg-12">
+  <div class="card">
+    <div class="card-body">
+      <div
+        class="d-flex flex-wrap justify-content-between align-items-center mb-3"
+      >
+        <h5 class="card-title mb-2 mb-sm-0">Data User</h5>
+        <div class="d-flex align-items-center gap-2">
+          <a
+            href="{{ url_for('routes.addUser') }}"
+            class="btn btn-primary btn-sm fw-semibold d-flex align-items-center"
+          >
+            <i class="bi bi-person-plus me-1"></i> Tambah User
+          </a>
+          <a
+            href="#"
+            class="btn btn-danger btn-sm fw-semibold d-flex align-items-center"
+          >
+            <i class="bi bi-trash3 me-1"></i> Hapus User
+          </a>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table text-nowrap align-middle mb-0">
+          <thead>
+            <tr class="border-2 border-bottom border-primary border-0">
+              <th scope="col" class="ps-2"></th>
+              <th scope="col">ID</th>
+              <th scope="col">Username</th>
+              <th scope="col">Password</th>
+              <th scope="col">Status Approval</th>
+              <th scope="col">Role</th>
+              <th scope="col" class="text-center">Aksi</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <tr>
+              <td class="ps-0 text-center">
+                <input type="checkbox" class="select-user" />
+              </td>
+              <td class="ps-0 fw-medium">1</td>
+              <td class="fw-medium">user001</td>
+              <td>•••••••</td>
+              <td>
+                <span class="badge bg-success-subtle text-success fw-semibold"
+                  >Disetujui</span
+                >
+              </td>
+              <td>superadmin</td>
+              <td class="text-center">
+                <a href="{{ url_for('routes.editUser') }}">
+                  <button class="btn btn-sm btn-primary me-2">
+                    <i class="bi bi-pencil-square text-white"></i>
+                  </button>
+                </a>
+                <button class="btn btn-sm btn-danger">
+                  <i class="bi bi-trash3 text-white"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td class="ps-0 text-center">
+                <input type="checkbox" class="select-user" />
+              </td>
+              <td class="ps-0 fw-medium">2</td>
+              <td class="fw-medium">user002</td>
+              <td>•••••••</td>
+              <td>
+                <span class="badge bg-warning-subtle text-warning fw-semibold"
+                  >Menunggu</span
+                >
+              </td>
+              <td>admin</td>
+              <td class="text-center">
+                <a href="{{ url_for('routes.editUser') }}">
+                  <button class="btn btn-sm btn-primary me-2">
+                    <i class="bi bi-pencil-square text-white"></i>
+                  </button>
+                </a>
+                <button class="btn btn-sm btn-danger">
+                  <i class="bi bi-trash3 text-white"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td class="ps-0 text-center">
+                <input type="checkbox" class="select-user" />
+              </td>
+              <td class="ps-0 fw-medium">3</td>
+              <td class="fw-medium">user001</td>
+              <td>•••••••</td>
+              <td>
+                <span class="badge bg-success-subtle text-success fw-semibold"
+                  >Disetujui</span
+                >
+              </td>
+              <td>superadmin</td>
+              <td class="text-center">
+                <a href="{{ url_for('routes.editUser') }}">
+                  <button class="btn btn-sm btn-primary me-2">
+                    <i class="bi bi-pencil-square text-white"></i>
+                  </button>
+                </a>
+                <button class="btn btn-sm btn-danger">
+                  <i class="bi bi-trash3 text-white"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td class="ps-0 text-center">
+                <input type="checkbox" class="select-user" />
+              </td>
+              <td class="ps-0 fw-medium">4</td>
+              <td class="fw-medium">user002</td>
+              <td>•••••••</td>
+              <td>
+                <span class="badge bg-warning-subtle text-warning fw-semibold"
+                  >Menunggu</span
+                >
+              </td>
+              <td>admin</td>
+              <td class="text-center">
+                <a href="{{ url_for('routes.editUser') }}">
+                  <button class="btn btn-sm btn-primary me-2">
+                    <i class="bi bi-pencil-square text-white"></i>
+                  </button>
+                </a>
+                <button class="btn btn-sm btn-danger">
+                  <i class="bi bi-trash3 text-white"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td class="ps-0 text-center">
+                <input type="checkbox" class="select-user" />
+              </td>
+              <td class="ps-0 fw-medium">5</td>
+              <td class="fw-medium">user001</td>
+              <td>•••••••</td>
+              <td>
+                <span class="badge bg-success-subtle text-success fw-semibold"
+                  >Disetujui</span
+                >
+              </td>
+              <td>superadmin</td>
+              <td class="text-center">
+                <a href="{{ url_for('routes.editUser') }}">
+                  <button class="btn btn-sm btn-primary me-2">
+                    <i class="bi bi-pencil-square text-white"></i>
+                  </button>
+                </a>
+                <button class="btn btn-sm btn-danger">
+                  <i class="bi bi-trash3 text-white"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td class="ps-0 text-center">
+                <input type="checkbox" class="select-user" />
+              </td>
+              <td class="ps-0 fw-medium">6</td>
+              <td class="fw-medium">user002</td>
+              <td>•••••••</td>
+              <td>
+                <span class="badge bg-warning-subtle text-warning fw-semibold"
+                  >Menunggu</span
+                >
+              </td>
+              <td>admin</td>
+              <td class="text-center">
+                <a href="{{ url_for('routes.editUser') }}">
+                  <button class="btn btn-sm btn-primary me-2">
+                    <i class="bi bi-pencil-square text-white"></i>
+                  </button>
+                </a>
+                <button class="btn btn-sm btn-danger">
+                  <i class="bi bi-trash3 text-white"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pagination-wrapper mt-4 d-flex justify-content-end">
+        <nav aria-label="Page navigation">
+          <ul class="pagination mb-0 border border-primary rounded-pill px-2">
+            <li class="page-item">
+              <a
+                class="page-link text-primary border-0"
+                href="#"
+                aria-label="Previous"
+                >Prev</a
+              >
+            </li>
+            <li class="page-item active">
+              <a class="page-link bg-primary text-white border-0" href="#">1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link text-primary border-0" href="#">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link text-primary border-0" href="#">3</a>
+            </li>
+            <li class="page-item">
+              <a
+                class="page-link text-primary border-0"
+                href="#"
+                aria-label="Next"
+                >Next</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
