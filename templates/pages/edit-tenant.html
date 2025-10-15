@@ -1,0 +1,65 @@
+{% extends "layout/baseEditAddAdmin.html" %} {% block content %}
+<div class="card-body">
+  <div class="d-flex align-items-center justify-content-between mb-5">
+    <h5 class="card-title fw-semibold mb-0 d-flex align-items-center">
+      <a href="{{ url_for('routes.tenant_dashboard') }}" class="me-4">
+        <i class="bi bi-arrow-left-circle fs-5"></i>
+      </a>
+      Form Edit Tenant
+    </h5>
+  </div>
+
+  <div class="card-body pt-0">
+    <form>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Nama Brand</label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"
+          >Jenis Usaha</label
+        >
+        <input type="text" class="form-control" id="exampleInputPassword1" />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Lokasi</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Rating</label>
+        <input type="number" class="form-control" id="exampleInputPassword1" />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"
+          >Total Review</label
+        >
+        <input type="number" class="form-control" id="exampleInputPassword1" />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"
+          >Rentang Harga</label
+        >
+        <input type="number" class="form-control" id="exampleInputPassword1" />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Gambar</label>
+        <input type="file" class="form-control" id="exampleInputPassword1" />
+      </div>
+      <a href="{{ url_for('routes.tenant_dashboard') }}" class="btn btn-primary"
+        >Submit</a
+      >
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "layout/baseEditAddAdmin.html" %} 
+
+{% block content %}
+<div class="card-body">
+  <div class="d-flex align-items-center justify-content-between mb-5">
+    <h5 class="card-title fw-semibold mb-0 d-flex align-items-center">
+      <a href="{{ url_for('routes.user_dashboard') }}" class="me-4">
+        <i class="bi bi-arrow-left-circle fs-5"></i>
+      </a>
+      Form Add User
+    </h5>
+  </div>
+
+  <div class="card-body pt-0">
+    <form>
+      <div class="mb-4">
+        <label for="exampleInputEmail1" class="form-label">Username</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputPassword1"
+        />
+      </div>
+
+      <div class="mb-5">
+        <label for="roleUser" class="form-label">Role</label>
+        <select class="form-select" id="roleUser" name="roleUser">
+          <option value="" selected disabled>Pilih Role</option>
+          <option value="superadmin">Superadmin</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+
+      <a href="{{ url_for('routes.user_dashboard') }}" class="btn btn-primary">Submit</a>
+    </form>
+  </div>
+</div>
+{% endblock %}
