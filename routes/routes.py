@@ -65,17 +65,6 @@ def user_dashboard():
 def tenant_dashboard():
     return render_template("pages/dashboardTenant.html")
 
-# dashboard page route
-@routes.route("/dashboard")
-# @token_required
-def dashboard_page():
-    return render_template("dashboard.html")
-
-# tenant page route
-@routes.route("/tenant")
-def tenant():
-    return render_template("tenant.html")
-
 # edit tenant page route
 @routes.route("/editTenant")
 def editTenant():
@@ -85,11 +74,6 @@ def editTenant():
 @routes.route("/addTenant")
 def addTenant():
     return render_template("pages/add-tenant.html")
-
-# user page route
-@routes.route("/user")
-def user():
-    return render_template("user.html")
 
 # edit user page route
 @routes.route("/editUser")
