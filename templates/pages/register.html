@@ -1,0 +1,34 @@
+{% extends "layout/baseAuthAdmin.html" %} 
+
+{% block content %}
+<div class="card-body">
+  <a class="text-center d-block py-3 w-60">
+    <img
+      src="{{ url_for('static', filename='static_admin/images/logos/logo.png') }}"
+      alt="Logo"
+      class="img-fluid mx-auto d-block"
+      style="max-height: 50px"
+  /></a>
+  <p class="text-center">Admin Injourney Airport</p>
+  <form>
+    <div class="mb-3">
+      <label for="exampleInputtext1" class="form-label">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputtext1"
+        aria-describedby="textHelp"
+      />
+    </div>
+    <div class="mb-4">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" />
+    </div>
+    <a
+      href="{{ url_for('routes.login_page') }}"
+      class="btn btn-primary w-100 py-8 fs-4 mb-4"
+      >Sign Up</a
+    >
+  </form>
+</div>
+{% endblock%}
