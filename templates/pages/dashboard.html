@@ -4,73 +4,112 @@
 <div class="col-lg-12">
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title mb-3">Top Tenant</h5>
+      <div
+        class="d-flex flex-wrap justify-content-between align-items-center mb-3"
+      >
+        <h5 class="card-title mb-2 mb-sm-0">Top Tenant</h5>
+      </div>
+
       <div class="table-responsive">
         <table class="table text-nowrap align-middle mb-0">
           <thead>
             <tr class="border-2 border-bottom border-primary border-0">
-              <th scope="col" class="ps-0">Nama Tenant</th>
-              <th scope="col">Status</th>
-              <th scope="col" class="text-center">Rate</th>
-              <th scope="col" class="text-center">Total Rating</th>
+              <th scope="col" class="text-center">ID</th>
+              <th scope="col" class="text-center">Nama Brand</th>
+              <th scope="col" class="text-center">Jenis Usaha</th>
+              <th scope="col" class="text-center">Lokasi</th>
+              <th scope="col" class="text-center">Rating</th>
+              <th scope="col" class="text-center">Total Review</th>
+              <th scope="col" class="text-center">Rentang Harga</th>
+              <th scope="col" class="text-center">Gambar</th>
             </tr>
           </thead>
+
           <tbody class="table-group-divider">
             <tr>
-              <th scope="row" class="ps-0 fw-medium">
-                <span class="table-link1 text-truncate d-block"
-                  >Welcome to our website</span
-                >
-              </th>
+              <td>1</td>
+              <td>Soerabaja Coffee</td>
+              <td class="text-center">Event & Promotion</td>
+              <td>Boarding Lounge Terminal 1</td>
+              <td class="text-center">4.8</td>
+              <td class="text-center">120</td>
+              <td>Rp 20.000 - 50.000</td>
               <td>
-                <a href="#" class="link-primary text-dark fw-medium d-block"
-                  >{{ url_for('routes.dashboard') }}</a
-                >
+                <img
+                  src="{{ url_for('static', filename='static_admin/images/bakmi-gocit4.png') }}"
+                  alt="Gambar"
+                  width="40"
+                  class="rounded center"
+                />
               </td>
-              <td class="text-center fw-medium">18,456</td>
-              <td class="text-center fw-medium">$2.40</td>
             </tr>
             <tr>
-              <th scope="row" class="ps-0 fw-medium">
-                <span class="table-link1 text-truncate d-block"
-                  >Modern Admin Dashboard Template</span
-                >
-              </th>
+              <td>2</td>
+              <td>Soerabaja Coffee</td>
+              <td class="text-center">Event & Promotion</td>
+              <td>Boarding Lounge Terminal 1</td>
+              <td class="text-center">4.8</td>
+              <td class="text-center">120</td>
+              <td>Rp 20.000 - 50.000</td>
               <td>
-                <a href="#" class="link-primary text-dark fw-medium d-block"
-                  >/dashboard</a
-                >
+                <img
+                  src="{{ url_for('static', filename='static_admin/images/bakmi-gocit4.png') }}"
+                  alt="Gambar"
+                  width="40"
+                  class="rounded"
+                />
               </td>
-              <td class="text-center fw-medium">17,452</td>
-              <td class="text-center fw-medium">$0.97</td>
             </tr>
             <tr>
-              <th scope="row" class="ps-0 fw-medium">
-                <span class="table-link1 text-truncate d-block"
-                  >Explore our product catalog</span
-                >
-              </th>
+              <td>3</td>
+              <td>Soerabaja Coffee</td>
+              <td class="text-center">Event & Promotion</td>
+              <td>Boarding Lounge Terminal 1</td>
+              <td class="text-center">4.8</td>
+              <td class="text-center">120</td>
+              <td>Rp 20.000 - 50.000</td>
               <td>
-                <a href="#" class="link-primary text-dark fw-medium d-block"
-                  >/product-checkout</a
-                >
+                <img
+                  src="{{ url_for('static', filename='static_admin/images/bakmi-gocit4.png') }}"
+                  alt="Gambar"
+                  width="40"
+                  class="rounded"
+                />
               </td>
-              <td class="text-center fw-medium">12,180</td>
-              <td class="text-center fw-medium">$7.50</td>
             </tr>
             <tr>
-              <th scope="row" class="ps-0 fw-medium border-0">
-                <span class="table-link1 text-truncate d-block"
-                  >Check out our services</span
-                >
-              </th>
-              <td class="border-0">
-                <a href="#" class="link-primary text-dark fw-medium d-block"
-                  >/services</a
-                >
+              <td>4</td>
+              <td>Soerabaja Coffee</td>
+              <td class="text-center">Event & Promotion</td>
+              <td>Boarding Lounge Terminal 1</td>
+              <td class="text-center">4.8</td>
+              <td class="text-center">120</td>
+              <td>Rp 20.000 - 50.000</td>
+              <td>
+                <img
+                  src="{{ url_for('static', filename='static_admin/images/bakmi-gocit4.png') }}"
+                  alt="Gambar"
+                  width="40"
+                  class="rounded"
+                />
               </td>
-              <td class="text-center fw-medium border-0">1,300</td>
-              <td class="text-center fw-medium border-0">$2.15</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Soerabaja Coffee</td>
+              <td class="text-center">Event & Promotion</td>
+              <td>Boarding Lounge Terminal 1</td>
+              <td class="text-center">4.8</td>
+              <td class="text-center">120</td>
+              <td>Rp 20.000 - 50.000</td>
+              <td>
+                <img
+                  src="{{ url_for('static', filename='static_admin/images/bakmi-gocit4.png') }}"
+                  alt="Gambar"
+                  width="40"
+                  class="rounded"
+                />
+              </td>
             </tr>
           </tbody>
         </table>
@@ -78,21 +117,31 @@
 
       <div class="pagination-wrapper mt-4 d-flex justify-content-end">
         <nav aria-label="Page navigation">
-          <ul class="pagination mb-0">
+          <ul class="pagination mb-0 border border-primary rounded-pill px-2">
             <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">Prev</span>
-              </a>
+              <a
+                class="page-link text-primary border-0"
+                href="#"
+                aria-label="Previous"
+                >Prev</a
+              >
             </li>
             <li class="page-item active">
-              <a class="page-link" href="#">1</a>
+              <a class="page-link bg-primary text-white border-0" href="#">1</a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
             <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">Next</span>
-              </a>
+              <a class="page-link text-primary border-0" href="#">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link text-primary border-0" href="#">3</a>
+            </li>
+            <li class="page-item">
+              <a
+                class="page-link text-primary border-0"
+                href="#"
+                aria-label="Next"
+                >Next</a
+              >
             </li>
           </ul>
         </nav>
