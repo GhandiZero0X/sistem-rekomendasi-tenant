@@ -24,7 +24,7 @@
                 <img src="{{ url_for('static', filename='images/logo_bagian_3.png') }}" alt="Logo Bagian 3" class="logo-part part-3" />
                 <img src="{{ url_for('static', filename='images/logo_bagian_4.png') }}" alt="Logo Bagian 4" class="logo-part part-4" />
             </div>
-        </div>
+        </div> 
 
         {% include 'partials/adminSidebar.html' %}
 
@@ -48,6 +48,7 @@
     <script src="{{ url_for('static', filename='static_admin/js/dashboard.js') }}"></script>
     <script src="{{ url_for('static', filename='static_admin/js/tenant_status.js') }}"></script>
     <script src="{{ url_for('static', filename='js/loading.js') }}"></script>
+    {% block scripts %}{% endblock %}
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 </body>
 </html>

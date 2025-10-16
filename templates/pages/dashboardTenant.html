@@ -1,3 +1,4 @@
+<!-- templates/pages/dashboardTenant.html -->
 {% extends "layout/baseAdmin.html" %} 
 
 {% block title %}- Dashboard Tenant{% endblock %}
@@ -44,158 +45,46 @@
           </thead>
 
           <tbody class="table-group-divider">
-            <tr>
-              <td class="text-center">
-                <input type="checkbox" class="select-user" />
-              </td>
-              <td>1</td>
-              <td>Soerabaja Coffee</td>
-              <td class="text-center">Event & Promotion</td>
-              <td>Boarding Lounge Terminal 1</td>
-              <td class="text-center">4.8</td>
-              <td class="text-center">120</td>
-              <td>Rp 20.000 - 50.000</td>
-              <td>
-                <img
-                  src="{{ url_for('static', filename='static_admin/images/bakmi-gocit4.png') }}"
-                  alt="Gambar"
-                  width="40"
-                  class="rounded"
-                />
-              </td>
-              <td class="text-center">
-                <a href="{{ url_for('routes.addTenant') }}">
-                  <button class="btn btn-sm btn-primary me-2">
-                    <i class="bi bi-pencil-square text-white"></i>
-                  </button>
-                </a>
-                <button class="btn btn-sm btn-danger">
-                  <i class="bi bi-trash3 text-white"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td class="text-center">
-                <input type="checkbox" class="select-user" />
-              </td>
-              <td>2</td>
-              <td>Soerabaja Coffee</td>
-              <td class="text-center">Event & Promotion</td>
-              <td>Boarding Lounge Terminal 1</td>
-              <td class="text-center">4.8</td>
-              <td class="text-center">120</td>
-              <td>Rp 20.000 - 50.000</td>
-              <td>
-                <img
-                  src="{{ url_for('static', filename='static_admin/images/bakmi-gocit4.png') }}"
-                  alt="Gambar"
-                  width="40"
-                  class="rounded"
-                />
-              </td>
-              <td class="text-center">
-                <a href="{{ url_for('routes.editTenant') }}">
-                  <button class="btn btn-sm btn-primary me-2">
-                    <i class="bi bi-pencil-square text-white"></i>
-                  </button>
-                </a>
-                <a href="">
-                  <button class="btn btn-sm btn-danger">
-                    <i class="bi bi-trash3 text-white"></i>
-                  </button>
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td class="text-center">
-                <input type="checkbox" class="select-user" />
-              </td>
-              <td>3</td>
-              <td>Soerabaja Coffee</td>
-              <td class="text-center">Event & Promotion</td>
-              <td>Boarding Lounge Terminal 1</td>
-              <td class="text-center">4.8</td>
-              <td class="text-center">120</td>
-              <td>Rp 20.000 - 50.000</td>
-              <td>
-                <img
-                  src="{{ url_for('static', filename='static_admin/images/bakmi-gocit4.png') }}"
-                  alt="Gambar"
-                  width="40"
-                  class="rounded"
-                />
-              </td>
-              <td class="text-center">
-                <a href="{{ url_for('routes.editTenant') }}">
-                  <button class="btn btn-sm btn-primary me-2">
-                    <i class="bi bi-pencil-square text-white"></i>
-                  </button>
-                </a>
-                <button class="btn btn-sm btn-danger">
-                  <i class="bi bi-trash3 text-white"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td class="text-center">
-                <input type="checkbox" class="select-user" />
-              </td>
-              <td>4</td>
-              <td>Soerabaja Coffee</td>
-              <td class="text-center">Event & Promotion</td>
-              <td>Boarding Lounge Terminal 1</td>
-              <td class="text-center">4.8</td>
-              <td class="text-center">120</td>
-              <td>Rp 20.000 - 50.000</td>
-              <td>
-                <img
-                  src="{{ url_for('static', filename='static_admin/images/bakmi-gocit4.png') }}"
-                  alt="Gambar"
-                  width="40"
-                  class="rounded"
-                />
-              </td>
-              <td class="text-center">
-                <a href="{{ url_for('routes.editTenant') }}">
-                  <button class="btn btn-sm btn-primary me-2">
-                    <i class="bi bi-pencil-square text-white"></i>
-                  </button>
-                </a>
-                <button class="btn btn-sm btn-danger">
-                  <i class="bi bi-trash3 text-white"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td class="text-center">
-                <input type="checkbox" class="select-user" />
-              </td>
-              <td>5</td>
-              <td>Soerabaja Coffee</td>
-              <td class="text-center">Event & Promotion</td>
-              <td>Boarding Lounge Terminal 1</td>
-              <td class="text-center">4.8</td>
-              <td class="text-center">120</td>
-              <td>Rp 20.000 - 50.000</td>
-              <td>
-                <img
-                  src="{{ url_for('static', filename='static_admin/images/bakmi-gocit4.png') }}"
-                  alt="Gambar"
-                  width="40"
-                  class="rounded"
-                />
-              </td>
-              <td class="text-center">
-                <a href="{{ url_for('routes.editTenant') }}">
-                  <button class="btn btn-sm btn-primary me-2">
-                    <i class="bi bi-pencil-square text-white"></i>
-                  </button>
-                </a>
-                <button class="btn btn-sm btn-danger">
-                  <i class="bi bi-trash3 text-white"></i>
-                </button>
-              </td>
-            </tr>
+            {% if tenants %}
+              {% for tenant in tenants %}
+                <tr>
+                  <td class="text-center">
+                    <input type="checkbox" class="select-user" />
+                  </td>
+                  <td class="text-center">{{ tenant.id }}</td>
+                  <td>{{ tenant.nama_brand }}</td>
+                  <td class="text-center">{{ tenant.jenis_usaha }}</td>
+                  <td>{{ tenant.lokasi }}</td>
+                  <td class="text-center">{{ tenant.rating }}</td>
+                  <td class="text-center">{{ tenant.total_review }}</td>
+                  <td>{{ tenant.rentang_harga }}</td>
+                  <td class="text-center">
+                    <img
+                      src="{{ url_for('static', filename='images/tenant/' + tenant.gambar) }}"
+                      alt="{{ tenant.nama_brand }}"
+                      width="50"
+                      class="rounded"
+                    />
+                  </td>
+                  <td class="text-center">
+                    <a href="{{ url_for('routes.editTenant') }}?id={{ tenant.id }}">
+                      <button class="btn btn-sm btn-primary me-2">
+                        <i class="bi bi-pencil-square text-white"></i>
+                      </button>
+                    </a>
+                    <button class="btn btn-sm btn-danger" data-id="{{ tenant.id }}">
+                      <i class="bi bi-trash3 text-white"></i>
+                    </button>
+                  </td>
+                </tr>
+              {% endfor %}
+            {% else %}
+              <tr>
+                <td colspan="10" class="text-center text-muted py-4">
+                  Tidak ada data tenant ditemukan.
+                </td>
+              </tr>
+            {% endif %}
           </tbody>
         </table>
       </div>
@@ -234,4 +123,28 @@
     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const deleteButtons = document.querySelectorAll(".btn-danger[data-id]");
+  deleteButtons.forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const id = btn.getAttribute("data-id");
+      if (confirm(`Yakin ingin menghapus tenant dengan ID ${id}?`)) {
+        const response = await fetch(`/tenantDelete/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Authorization": "Bearer {{ session.get('token', '') }}",
+          },
+        });
+        const result = await response.json();
+        alert(result.success || result.error);
+        location.reload();
+      }
+    });
+  });
+});
+</script>
 {% endblock %}
