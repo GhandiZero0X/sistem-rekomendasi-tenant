@@ -116,11 +116,53 @@ def tenant_dashboard():
     return render_template("pages/dashboardTenant.html", tenants=tenants)
 
 # edit tenant page route
-@routes.route("/editTenant")
+@routes.route("/editTenant", methods=["GET", "POST"])
 @token_required
 @role_required(["admin", "superadmin"])
 def editTenant():
-    return render_template("pages/edit-tenant.html")
+    tenant_id = request.args.get("id", type=int)
+
+    if request.method == "GET":
+        if not tenant_id:
+            return redirect(url_for("routes.tenant_dashboard"))
+
+        # Ambil data tenant berdasarkan ID
+        tenant = get_tenant_by_id(tenant_id)
+        if "error" in tenant:
+            return jsonify(tenant), 404
+
+        return render_template("pages/edit-tenant.html", tenant=tenant)
+
+    # Kalau POST (submit form edit)
+    nama_brand = request.form.get("nama_brand")
+    jenis_usaha = request.form.get("jenis_usaha")
+    lokasi = request.form.get("lokasi")
+    rating = request.form.get("rating")
+    total_review = request.form.get("total_review")
+    rentang_harga = request.form.get("rentang_harga")
+    gambar = request.files.get("gambar")
+
+    update_data = {
+        "nama_brand": nama_brand,
+        "jenis_usaha": jenis_usaha,
+        "lokasi": lokasi,
+        "rating": rating,
+        "total_review": total_review,
+        "rentang_harga": rentang_harga
+    }
+
+    if gambar and allowed_file(gambar.filename):
+        filename = secure_filename(gambar.filename)
+        save_path = os.path.join(UPLOAD_FOLDER, filename)
+        gambar.save(save_path)
+        update_data["gambar"] = filename
+
+    result = update_tenant(tenant_id, update_data)
+
+    if "error" in result:
+        return jsonify(result), 400
+
+    return redirect(url_for("routes.tenant_dashboard"))
 
 # add tenant page route
 @routes.route("/addTenant", methods=["GET", "POST"])
