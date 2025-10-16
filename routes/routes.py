@@ -53,17 +53,21 @@ def login_page():
 def register_page():
     return render_template("pages/register.html")
 
+# dashboard page route
 @routes.route("/dashboard")
 def dashboard():
     return render_template("pages/dashboard.html")
 
+# user dashboard page route
 @routes.route("/dashboardUser")
 def user_dashboard():
     return render_template("pages/dashboardUser.html")
 
+# tenant dashboard page route
 @routes.route("/dashboardTenant")
 def tenant_dashboard():
-    return render_template("pages/dashboardTenant.html")
+    tenants = get_all_tenants()
+    return render_template("pages/dashboardTenant.html", tenants=tenants)
 
 # edit tenant page route
 @routes.route("/editTenant")
@@ -105,7 +109,7 @@ def approve_route(user_id):
     return approve_user(user_id)
 
 # ===== Page dashboard =====
-# @routes.route("/dashboardApi", methods=["GET"])
+# @routes.route("/admin", methods=["GET"])
 # @token_required
 # def dashboard():
 #     auth_header = request.headers.get("Authorization")
