@@ -39,151 +39,47 @@
               <th scope="col" class="text-center">Aksi</th>
             </tr>
           </thead>
+
           <tbody class="table-group-divider">
-            <tr>
-              <td class="ps-0 text-center">
-                <input type="checkbox" class="select-user" />
-              </td>
-              <td class="ps-0 fw-medium">1</td>
-              <td class="fw-medium">user001</td>
-              <td>•••••••</td>
-              <td>
-                <span class="badge bg-success-subtle text-success fw-semibold"
-                  >Disetujui</span
-                >
-              </td>
-              <td>superadmin</td>
-              <td class="text-center">
-                <a href="{{ url_for('routes.editUser') }}">
-                  <button class="btn btn-sm btn-primary me-2">
-                    <i class="bi bi-pencil-square text-white"></i>
+            {% if users %}
+              {% for user in users %}
+              <tr>
+                <td class="ps-0 text-center">
+                  <input type="checkbox" class="select-user" />
+                </td>
+                <td class="ps-0 fw-medium">{{ user.id }}</td>
+                <td class="fw-medium">{{ user.username }}</td>
+                <td>{{ user.password }}</td>
+                <td class="ps-0 text-center">
+                    {% if user.status_approval %}
+                      <span class="badge bg-success-subtle text-success fw-semibold">
+                        {{ user.status_approval == 1 and "Approved" }}
+                      </span>
+                    {% else %}
+                      <span class="badge bg-warning-subtle text-warning fw-semibold">Pending</span>
+                    {% endif %}
+                </td>
+                </td>
+                <td>{{ user.role }}</td>
+                <td class="text-center">
+                  <a href="{{ url_for('routes.editUser') }}?id={{ user.id }}">
+                    <button class="btn btn-sm btn-primary me-2">
+                      <i class="bi bi-pencil-square text-white"></i>
+                    </button>
+                  </a>
+                  <button class="btn btn-sm btn-danger" data-id="{{ user.id }}">
+                    <i class="bi bi-trash3 text-white"></i>
                   </button>
-                </a>
-                <button class="btn btn-sm btn-danger">
-                  <i class="bi bi-trash3 text-white"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td class="ps-0 text-center">
-                <input type="checkbox" class="select-user" />
-              </td>
-              <td class="ps-0 fw-medium">2</td>
-              <td class="fw-medium">user002</td>
-              <td>•••••••</td>
-              <td>
-                <span class="badge bg-warning-subtle text-warning fw-semibold"
-                  >Menunggu</span
-                >
-              </td>
-              <td>admin</td>
-              <td class="text-center">
-                <a href="{{ url_for('routes.editUser') }}">
-                  <button class="btn btn-sm btn-primary me-2">
-                    <i class="bi bi-pencil-square text-white"></i>
-                  </button>
-                </a>
-                <button class="btn btn-sm btn-danger">
-                  <i class="bi bi-trash3 text-white"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td class="ps-0 text-center">
-                <input type="checkbox" class="select-user" />
-              </td>
-              <td class="ps-0 fw-medium">3</td>
-              <td class="fw-medium">user001</td>
-              <td>•••••••</td>
-              <td>
-                <span class="badge bg-success-subtle text-success fw-semibold"
-                  >Disetujui</span
-                >
-              </td>
-              <td>superadmin</td>
-              <td class="text-center">
-                <a href="{{ url_for('routes.editUser') }}">
-                  <button class="btn btn-sm btn-primary me-2">
-                    <i class="bi bi-pencil-square text-white"></i>
-                  </button>
-                </a>
-                <button class="btn btn-sm btn-danger">
-                  <i class="bi bi-trash3 text-white"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td class="ps-0 text-center">
-                <input type="checkbox" class="select-user" />
-              </td>
-              <td class="ps-0 fw-medium">4</td>
-              <td class="fw-medium">user002</td>
-              <td>•••••••</td>
-              <td>
-                <span class="badge bg-warning-subtle text-warning fw-semibold"
-                  >Menunggu</span
-                >
-              </td>
-              <td>admin</td>
-              <td class="text-center">
-                <a href="{{ url_for('routes.editUser') }}">
-                  <button class="btn btn-sm btn-primary me-2">
-                    <i class="bi bi-pencil-square text-white"></i>
-                  </button>
-                </a>
-                <button class="btn btn-sm btn-danger">
-                  <i class="bi bi-trash3 text-white"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td class="ps-0 text-center">
-                <input type="checkbox" class="select-user" />
-              </td>
-              <td class="ps-0 fw-medium">5</td>
-              <td class="fw-medium">user001</td>
-              <td>•••••••</td>
-              <td>
-                <span class="badge bg-success-subtle text-success fw-semibold"
-                  >Disetujui</span
-                >
-              </td>
-              <td>superadmin</td>
-              <td class="text-center">
-                <a href="{{ url_for('routes.editUser') }}">
-                  <button class="btn btn-sm btn-primary me-2">
-                    <i class="bi bi-pencil-square text-white"></i>
-                  </button>
-                </a>
-                <button class="btn btn-sm btn-danger">
-                  <i class="bi bi-trash3 text-white"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td class="ps-0 text-center">
-                <input type="checkbox" class="select-user" />
-              </td>
-              <td class="ps-0 fw-medium">6</td>
-              <td class="fw-medium">user002</td>
-              <td>•••••••</td>
-              <td>
-                <span class="badge bg-warning-subtle text-warning fw-semibold"
-                  >Menunggu</span
-                >
-              </td>
-              <td>admin</td>
-              <td class="text-center">
-                <a href="{{ url_for('routes.editUser') }}">
-                  <button class="btn btn-sm btn-primary me-2">
-                    <i class="bi bi-pencil-square text-white"></i>
-                  </button>
-                </a>
-                <button class="btn btn-sm btn-danger">
-                  <i class="bi bi-trash3 text-white"></i>
-                </button>
-              </td>
-            </tr>
+                </td>
+              </tr>
+              {% endfor %}
+            {% else %}
+              <tr>
+                <td colspan="10" class="text-center text-muted py-4">
+                  Tidak ada data user ditemukan.
+                </td>
+              </tr>
+            {% endif %}
           </tbody>
         </table>
       </div>

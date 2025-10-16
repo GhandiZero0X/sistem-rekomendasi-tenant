@@ -61,7 +61,8 @@ def dashboard():
 # user dashboard page route
 @routes.route("/dashboardUser")
 def user_dashboard():
-    return render_template("pages/dashboardUser.html")
+    users = get_all_users()
+    return render_template("pages/dashboardUser.html", users=users)
 
 # tenant dashboard page route
 @routes.route("/dashboardTenant")
