@@ -1,0 +1,55 @@
+<header class="app-header">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a
+      href="{{ url_for('routes.dashboard') }}"
+      class="text-nowrap logo-img d-flex align-items-center text-decoration-none"
+    >
+      <img
+        src="{{ url_for('static', filename='static_admin/images/logos/logo.png') }}"
+        alt="Logo"
+        class="img-fluid logo-icon me-2"
+      />
+      <span class="brand-text fw-semibold text-dark">Admin Injourney</span>
+    </a>
+    <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+      <ul
+        class="navbar-nav flex-row ms-auto align-items-center justify-content-end"
+      >
+        <li class="nav-item">
+          <a
+            class="nav-link nav-icon-hover"
+            href="javascript:void(0)"
+            id="drop2"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              src="{{ url_for('static', filename='static_admin/images/profile/user-1.jpg') }}"
+              alt=""
+              width="35"
+              height="35"
+              class="rounded-circle"
+            />
+          </a>
+          <div
+            class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
+            aria-labelledby="drop2"
+          >
+            <div class="message-body text-center">
+              <a
+                href="{{ url_for('routes.login_page') }}"
+                class="btn btn-logout-modern d-inline-flex align-items-center justify-content-center gap-2"
+              >
+                <iconify-icon
+                  icon="solar:logout-2-line-duotone"
+                  class="fs-5"
+                ></iconify-icon>
+                Logout
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
