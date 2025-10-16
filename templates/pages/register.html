@@ -1,36 +1,93 @@
-{% extends "layout/baseAuthAdmin.html" %} 
+{% extends "layout/baseAuthAdmin.html" %}
 
 {% block title %}- Register{% endblock %}
 
 {% block content %}
 <div class="card-body">
-  <a class="text-center d-block py-3 w-60">
+  <div class="text-center mb-3">
     <img
       src="{{ url_for('static', filename='static_admin/images/logos/logo.png') }}"
       alt="Logo"
       class="img-fluid mx-auto d-block"
       style="max-height: 50px"
-  /></a>
-  <p class="text-center">Admin Injourney Airport</p>
-  <form>
+    />
+    <p class="text-muted mt-2">Admin Injourney Airport</p>
+  </div>
+
+  <form id="registerForm">
     <div class="mb-3">
-      <label for="exampleInputtext1" class="form-label">Username</label>
+      <label for="username" class="form-label">Username</label>
       <input
         type="text"
         class="form-control"
-        id="exampleInputtext1"
-        aria-describedby="textHelp"
+        id="username"
+        name="username"
+        placeholder="Masukkan username"
+        required
       />
     </div>
+
     <div class="mb-4">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" />
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        name="password"
+        placeholder="Masukkan password"
+        required
+      />
     </div>
+
+    <button type="submit" class="btn btn-primary w-100 py-2">Sign Up</button>
+
     <a
       href="{{ url_for('routes.login_page') }}"
-      class="btn btn-primary w-100 py-8 fs-4 mb-4"
-      >Sign Up</a
+      class="btn btn-outline-secondary w-100 py-2 mt-3"
     >
+      Sudah punya akun? Login
+    </a>
   </form>
 </div>
-{% endblock%}
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("registerForm");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const username = e.target.username.value.trim();
+    const password = e.target.password.value.trim();
+
+    if (!username || !password) {
+      alert("Username dan password wajib diisi!");
+      return;
+    }
+
+    try {
+      const res = await fetch("/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        alert(data.success);
+        // arahkan ke halaman login setelah sukses
+        window.location.href = "{{ url_for('routes.login_page') }}";
+      } else {
+        alert(data.error || "Gagal registrasi.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Terjadi kesalahan pada server.");
+    }
+  });
+});
+</script>
+{% endblock %}
