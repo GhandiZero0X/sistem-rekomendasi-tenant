@@ -1,41 +1,54 @@
-{% extends "layout/baseAuthAdmin.html" %} 
-
-{% block title %}- Login{% endblock %}
-
+{% extends "layout/baseAuthAdmin.html" %} {% block title %}- Login{% endblock %}
 {% block content %}
 <div class="card-body">
-  <a class="text-center d-block py-3 w-60">
+  <div class="text-center mb-4">
     <img
       src="{{ url_for('static', filename='static_admin/images/logos/logo.png') }}"
       alt="Logo"
-      class="img-fluid mx-auto d-block"
+      class="img-fluid mx-auto"
       style="max-height: 50px"
-  /></a>
-  <p class="text-center">Admin Injourney Airport</p>
-  <form>
+    />
+    <p class="text-muted mt-2">Admin Injourney Airport</p>
+  </div>
+
+  <form id="loginForm">
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Username</label>
-      <input
-        type="email"
-        class="form-control"
-        id="exampleInputEmail1"
-        aria-describedby="emailHelp"
-      />
+      <label class="form-label">Username</label>
+      <input type="text" name="username" class="form-control" required />
     </div>
     <div class="mb-4">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" />
+      <label class="form-label">Password</label>
+      <input type="password" name="password" class="form-control" required />
     </div>
-    <a
-      href="{{ url_for('routes.dashboard') }}"
-      class="btn btn-primary w-100 py-8 fs-4 mb-4"
-      >Sign In</a
-    >
-    <a
-      href="{{ url_for('routes.register_page') }}"
-      class="btn btn-primary w-100 py-8 fs-4 mb-4"
-      >Create an account</a
-    >
+    <button type="submit" class="btn btn-primary w-100 py-2">Sign In</button>
   </form>
+  <a
+    href="{{ url_for('routes.register_page') }}"
+    class="btn btn-outline-secondary w-100 py-2 mt-3"
+  >
+    Create an account
+  </a>
 </div>
-{% endblock%}
+{% endblock %} {% block scripts %}
+<script>
+  document.getElementById("loginForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const username = e.target.username.value;
+    const password = e.target.password.value;
+
+    const res = await fetch("/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password }),
+    });
+
+    const data = await res.json();
+    if (res.ok && data.redirect) {
+      window.location.href = data.redirect;
+    } else {
+      alert(data.error || "Login gagal");
+    }
+  });
+</script>
+{% endblock %}

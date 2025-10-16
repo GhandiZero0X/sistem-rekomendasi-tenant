@@ -1,11 +1,15 @@
-# app.py
 from flask import Flask
 from routes.routes import routes
 from services.watcher import start_watcher
 import atexit
+import os
 
 def create_app():
     app = Flask(__name__)
+
+    #secret key
+    app.secret_key = os.environ.get("FLASK_SECRET_KEY", "inijugasecretkeyyangunik")
+
     app.register_blueprint(routes)
 
     # Mulai watcher

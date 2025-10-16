@@ -2,4 +2,4 @@ id,username,password,status_approval,role
 1,superadmin@injourney,$2b$12$IX/YIiy1SIgoNqIbJsd/S.v5jgz6plrLTqy9kAD7JxIjJPLFPrZKK,1,superadmin
 2,admin0210@injourney,$2b$12$2CVANZZdfHwnprqChURekefjDtPD80fJNfBzg6YOzOCOAIJtdE17i,1,admin
 3,admin2010@injourney,$2b$12$m96mxPMFksY4wOTm6iCiYOayW/Of8LetC.2aX2pLZVMofR.xPURiG,1,admin
-4,admin2025@injourney,$2b$12$rDfX8fY/lw10agt9TT5KDOukpTjs8o5Pgf0V4Z4CJw0Y1YVw6VvMy,0,admin
+4,admin2025@injourney,$2b$12$rDfX8fY/lw10agt9TT5KDOukpTjs8o5Pgf0V4Z4CJw0Y1YVw6VvMy,1,admin

@@ -1,7 +1,7 @@
 # routes/routes.py
 import pandas as pd
 import os
-from flask import Blueprint, request, jsonify, render_template, redirect, url_for
+from flask import Blueprint, request, jsonify, render_template, redirect, url_for, session
 from controllers.datasetController import (
     get_all_tenants, get_tenant_by_id,
     add_tenant, add_batch_tenants, update_tenant, 
@@ -52,9 +52,40 @@ def test():
     return render_template("test.html")
 
 # login page route
-@routes.route("/login")
+@routes.route("/login", methods=["GET", "POST"])
 def login_page():
+    if request.method == "POST":
+        response = login()  # langsung return Flask response
+
+        # Flask response bisa unpack ke (obj, code)
+        if isinstance(response, tuple):
+            res_obj, status = response
+        else:
+            res_obj, status = response, 200
+
+        # Ambil data json dari objek Flask Response
+        result = res_obj.get_json()
+
+        if "error" in result:
+            return jsonify(result), status
+
+        # Simpan token dan role ke session
+        session["token"] = result["token"]
+        session["role"] = result["role"]
+
+        # Redirect sesuai role
+        if result["role"] == "superadmin":
+            return jsonify({"redirect": url_for("routes.dashboard")})
+        else:
+            return jsonify({"redirect": url_for("routes.dashboard")})
+
     return render_template("pages/login.html")
+
+# logout route
+@routes.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for("routes.login_page"))
 
 # register page route
 @routes.route("/register")
@@ -63,30 +94,38 @@ def register_page():
 
 # dashboard page route
 @routes.route("/dashboard")
+@token_required
+@role_required(["admin","superadmin"])
 def dashboard():
     return render_template("pages/dashboard.html")
 
 # user dashboard page route
 @routes.route("/dashboardUser")
+@token_required
+@role_required(["superadmin"])
 def user_dashboard():
     users = get_all_users()
     return render_template("pages/dashboardUser.html", users=users)
 
 # tenant dashboard page route
 @routes.route("/dashboardTenant")
+@token_required
+@role_required(["admin", "superadmin"])
 def tenant_dashboard():
     tenants = get_all_tenants()
     return render_template("pages/dashboardTenant.html", tenants=tenants)
 
 # edit tenant page route
 @routes.route("/editTenant")
+@token_required
+@role_required(["admin", "superadmin"])
 def editTenant():
     return render_template("pages/edit-tenant.html")
 
 # add tenant page route
 @routes.route("/addTenant", methods=["GET", "POST"])
-# @token_required
-# @role_required(["admin", "superadmin"])
+@token_required
+@role_required(["admin", "superadmin"])
 def addTenant():
     if request.method == "POST":
         nama_brand = request.form.get("nama_brand")
@@ -125,11 +164,15 @@ def addTenant():
 
 # edit user page route
 @routes.route("/editUser")
+@token_required
+@role_required("superadmin")
 def editUser():
     return render_template("pages/edit-user.html")
 
 # add user page route
 @routes.route("/addUser")
+@token_required
+@role_required("superadmin")
 def addUser():
     return render_template("pages/add-user.html")
 
