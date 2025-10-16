@@ -27,10 +27,9 @@ def get_tenant_by_id(tenant_id: int):
 
 # Add tenant
 def add_tenant(tenant_data: dict):
-    """"Tambah satu tenant"""
-    df = pd.read_csv(RAW_PATH) if os.path.exists(RAW_PATH) else pd.DataFrame()
-    
-    # auto-assign ID
+    df = pd.read_csv(RAW_PATH) if os.path.exists(RAW_PATH) else pd.DataFrame(columns=[
+        "id", "nama_brand", "jenis_usaha", "lokasi", "rating", "total_review", "rentang_harga", "gambar"
+    ])
     next_id = 1 if df.empty else df["id"].max() + 1
     tenant_data["id"] = int(next_id)
 

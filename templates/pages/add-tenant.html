@@ -6,7 +6,7 @@
 <div class="card-body">
   <div class="d-flex align-items-center justify-content-between mb-5">
     <h5 class="card-title fw-semibold mb-0 d-flex align-items-center">
-      <a href="{{ url_for('routes.tenant_dashboard') }}" class="me-4">
+      <a href="{{ url_for('routes.tenant_dashboard') }}" class="me-4 text-decoration-none text-primary">
         <i class="bi bi-arrow-left-circle fs-5"></i>
       </a>
       Form Add Tenant
@@ -14,56 +14,128 @@
   </div>
 
   <div class="card-body pt-0">
-    <form>
+    <form
+      action="{{ url_for('routes.addTenant') }}"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <!-- Nama Brand -->
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Nama Brand</label>
+        <label class="form-label fw-semibold">Nama Brand</label>
         <input
           type="text"
+          name="nama_brand"
           class="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
+          placeholder="Masukkan nama brand"
+          required
         />
       </div>
 
+      <!-- Jenis Usaha -->
       <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label"
-          >Jenis Usaha</label
-        >
-        <input type="text" class="form-control" id="exampleInputPassword1" />
+        <label class="form-label fw-semibold">Jenis Usaha</label>
+        <select name="jenis_usaha" class="form-select" required>
+          <option value="" selected disabled>Pilih jenis usaha</option>
+          <option value="Event & Promotion">Event & Promotion</option>
+          <option value="Food & Beverage">Food & Beverage</option>
+          <option value="Lounge">Lounge</option>
+          <option value="Retail">Retail</option>
+          <option value="Services">Services</option>
+        </select>
       </div>
 
+      <!-- Lokasi -->
       <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Lokasi</label>
-        <input type="text" class="form-control" id="exampleInputPassword1" />
+        <label class="form-label fw-semibold">Lokasi</label>
+        <input
+          type="text"
+          name="lokasi"
+          class="form-control"
+          placeholder="Contoh: Galaxy Mall Lt. 2"
+        />
       </div>
 
+      <!-- Rating -->
       <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Rating</label>
-        <input type="number" class="form-control" id="exampleInputPassword1" />
+        <label class="form-label fw-semibold">Rating</label>
+        <input
+          type="number"
+          step="0.1"
+          name="rating"
+          class="form-control"
+          placeholder="Contoh: 4.5"
+        />
       </div>
 
+      <!-- Total Review -->
       <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label"
-          >Total Review</label
-        >
-        <input type="number" class="form-control" id="exampleInputPassword1" />
+        <label class="form-label fw-semibold">Total Review</label>
+        <input
+          type="number"
+          name="total_review"
+          class="form-control"
+          placeholder="Contoh: 250"
+        />
       </div>
 
+      <!-- Rentang Harga -->
       <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label"
-          >Rentang Harga</label
-        >
-        <input type="number" class="form-control" id="exampleInputPassword1" />
+        <label class="form-label fw-semibold">Rentang Harga</label>
+        <select name="rentang_harga" class="form-select" required>
+          <option value="" selected disabled>Pilih rentang harga</option>
+          <option value="murah">Murah</option>
+          <option value="sedang">Sedang</option>
+          <option value="mahal">Mahal</option>
+        </select>
       </div>
 
+      <!-- Upload Gambar -->
       <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Gambar</label>
-        <input type="file" class="form-control" id="exampleInputPassword1" />
+        <label class="form-label fw-semibold">Gambar</label>
+        <input
+          type="file"
+          name="gambar"
+          class="form-control"
+          accept=".png,.jpg,.jpeg,.webp"
+          required
+        />
+        <div class="form-text text-muted">
+          Format diperbolehkan: PNG, JPG, JPEG, atau WEBP
+        </div>
       </div>
-      <a href="{{ url_for('routes.tenant_dashboard') }}" class="btn btn-primary"
-        >Submit</a
-      >
+
+      <!-- Preview Gambar -->
+      <div class="text-center mt-3">
+        <img
+          id="preview"
+          src="#"
+          alt="Preview Gambar"
+          class="rounded shadow-sm"
+          style="display:none; max-width:150px; height:auto;"
+        />
+      </div>
+
+      <!-- Tombol Submit -->
+      <button type="submit" class="btn btn-primary w-100 py-2 mt-4 fw-semibold">
+        <i class="bi bi-upload me-1"></i> Submit
+      </button>
     </form>
   </div>
 </div>
+
+<!-- Script Preview Gambar -->
+<script>
+  document.querySelector('input[name="gambar"]').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const img = document.getElementById('preview');
+        img.src = event.target.result;
+        img.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+</script>
 {% endblock %}

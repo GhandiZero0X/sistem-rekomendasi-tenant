@@ -34,10 +34,18 @@ def role_required(required_role):
             user = getattr(request, "user", None)
             if not user:
                 return jsonify({"error": "Authentication required"}), 401
-            # normalize roles to string and check
+
             user_role = str(user.get("role", "")).lower()
-            if user_role != str(required_role).lower():
-                return jsonify({"error": "Forbidden: role '{}' required".format(required_role)}), 403
+
+            # bisa handle list atau string
+            if isinstance(required_role, list):
+                allowed_roles = [r.lower() for r in required_role]
+                if user_role not in allowed_roles:
+                    return jsonify({"error": f"Forbidden: role {required_role} required"}), 403
+            else:
+                if user_role != str(required_role).lower():
+                    return jsonify({"error": f"Forbidden: role '{required_role}' required"}), 403
+
             return f(*args, **kwargs)
         return decorated
     return wrapper

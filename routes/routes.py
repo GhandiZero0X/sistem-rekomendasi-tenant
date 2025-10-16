@@ -1,6 +1,7 @@
 # routes/routes.py
 import pandas as pd
-from flask import Blueprint, request, jsonify, render_template
+import os
+from flask import Blueprint, request, jsonify, render_template, redirect, url_for
 from controllers.datasetController import (
     get_all_tenants, get_tenant_by_id,
     add_tenant, add_batch_tenants, update_tenant, 
@@ -14,8 +15,15 @@ from controllers.userController import (
 from controllers.dashboardController import get_superadmin_dashboard, get_admin_dashboard
 from utils.jwt_utils import decode_token
 from middlewares.auth_middleware import token_required, role_required
+from werkzeug.utils import secure_filename
 
 routes = Blueprint("routes", __name__)
+
+UPLOAD_FOLDER = "static/images/tenant"
+ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "webp"}
+
+def allowed_file(filename):
+    return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
 # ===== Page Frontend =====
 # Home page route
@@ -76,8 +84,43 @@ def editTenant():
     return render_template("pages/edit-tenant.html")
 
 # add tenant page route
-@routes.route("/addTenant")
+@routes.route("/addTenant", methods=["GET", "POST"])
+# @token_required
+# @role_required(["admin", "superadmin"])
 def addTenant():
+    if request.method == "POST":
+        nama_brand = request.form.get("nama_brand")
+        jenis_usaha = request.form.get("jenis_usaha")
+        lokasi = request.form.get("lokasi")
+        rating = request.form.get("rating")
+        total_review = request.form.get("total_review")
+        rentang_harga = request.form.get("rentang_harga")
+        gambar = request.files.get("gambar")
+
+        if not nama_brand or not jenis_usaha:
+            return jsonify({"error": "Nama brand dan jenis usaha wajib diisi"}), 400
+
+        filename = None
+        if gambar and allowed_file(gambar.filename):
+            filename = secure_filename(gambar.filename)
+            save_path = os.path.join(UPLOAD_FOLDER, filename)
+            gambar.save(save_path)
+        else:
+            return jsonify({"error": "Format gambar tidak valid"}), 400
+
+        tenant_data = {
+            "nama_brand": nama_brand,
+            "jenis_usaha": jenis_usaha,
+            "lokasi": lokasi,
+            "rating": rating,
+            "total_review": total_review,
+            "rentang_harga": rentang_harga,
+            "gambar": filename  # hanya nama file
+        }
+
+        add_tenant(tenant_data)
+        return redirect(url_for("routes.tenant_dashboard"))
+
     return render_template("pages/add-tenant.html")
 
 # edit user page route
