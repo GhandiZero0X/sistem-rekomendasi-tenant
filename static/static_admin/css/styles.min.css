@@ -2514,6 +2514,14 @@ progress {
   -webkit-overflow-scrolling: touch;
 }
 
+.password-mask {
+  letter-spacing: 2px;
+}
+
+.real-password {
+  font-weight: bold;
+}
+
 @media (max-width: 575.98px) {
   .table-responsive-sm {
     overflow-x: auto;
