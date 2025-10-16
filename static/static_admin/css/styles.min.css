@@ -2514,6 +2514,24 @@ progress {
   -webkit-overflow-scrolling: touch;
 }
 
+  @media (max-width: 576px) {
+    .dashboard-card {
+      margin-bottom: 0.2rem; /* beri jarak vertikal antar card */
+    }
+    .dashboard-card .card-body {
+      padding: 2rem !important; /* sedikit kecilkan padding agar tetap proporsional */
+    }
+    .dashboard-card i {
+      font-size: 2rem !important; /* kecilkan icon agar pas di layar kecil */
+    }
+    .dashboard-card h3 {
+      font-size: 1.25rem !important;
+    }
+    .dashboard-card h5 {
+      font-size: 0.9rem !important;
+    }
+  }
+  
 @media (max-width: 575.98px) {
   .table-responsive-sm {
     overflow-x: auto;

@@ -3,47 +3,46 @@
 {% block title %}- Dashboard{% endblock %}
 
 {% block content %}
-<div class="row g-1">
-  <!-- Card 1 -->
-  <div class="col-lg-4 col-md-6">
-    <div class="card text-center text-white border-0 shadow-sm" style="background-color: #3351f5;">
-      <div class="card-body py-4">
-        <div class="mb-2">
-          <i class="bi bi-building fs-2 opacity-75"></i>
+<div class="row g-3">
+  <!-- Tenant Aktif -->
+  <div class="col-lg-4 col-md-6 col-sm-12 dashboard-card">
+    <div class="card text-white border-0 shadow-sm" style="background-color: #3351f5;">
+      <div class="card-body d-flex align-items-center justify-content-center py-4">
+        <i class="bi bi-building display-4 text-white me-4"></i>
+        <div class="text-start">
+          <h3 class="fw-bold mb-0 text-white">169</h3>
+          <h5 class="text-white">Tenant Aktif</h5>
         </div>
-        <h4 class="fw-bold mb-0 text-white">169</h4>
-        <small>Tenant Aktif</small>
       </div>
     </div>
   </div>
 
-  <!-- Card 2 -->
-<div class="col-lg-4 col-md-6">
-  <div class="card text-center fw-bold border-0 shadow-sm" style="background-color: #87CEEB;">
-    <div class="card-body py-4 text-dark">
-      <div class="mb-2">
-        <i class="bi bi-person-fill fs-2 opacity-75 text-dark"></i>
+  <!-- Admin Aktif -->
+  <div class="col-lg-4 col-md-6 col-sm-12 dashboard-card">
+    <div class="card border-0 shadow-sm" style="background-color: #87CEEB;">
+      <div class="card-body d-flex align-items-center justify-content-center py-4">
+        <i class="bi bi-person-fill display-4 text-white me-4"></i>
+        <div class="text-start">
+          <h3 class="fw-bold mb-0 text-dark">50</h3>
+          <h5 class="text-dark">Admin Aktif</h5>
+        </div>
       </div>
-      <h4 class="fw-bold mb-0 text-dark">50</h4>
-      <small class="text-dark">Admin Aktif</small>
+    </div>
+  </div>
+
+  <!-- Total Superadmin -->
+  <div class="col-lg-4 col-md-6 col-sm-12 dashboard-card">
+    <div class="card text-white border-0 shadow-sm" style="background-color: #3351f5;">
+      <div class="card-body d-flex align-items-center justify-content-center py-4">
+        <i class="bi bi-graph-up-arrow display-4 text-white me-4"></i>
+        <div class="text-start">
+          <h3 class="fw-bold mb-0 text-white">6</h3>
+          <h5 class="text-white">Total Superadmin</h5>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
-  <!-- Card 3 -->
-  <div class="col-lg-4 col-md-6">
-    <div class="card text-center text-white border-0 shadow-sm" style="background-color: #3351f5;">
-      <div class="card-body py-4">
-        <div class="mb-2">
-          <i class="bi bi-graph-up-arrow fs-2 opacity-75"></i>
-        </div>
-          <h4 class="fw-bold mb-0 text-white">6</h4>
-        <small>Total Superadmin</small>
-      </div>
-    </div>
-  </div>
-</div>
-
 
 <div class="col-lg-12">
   <div class="card">
