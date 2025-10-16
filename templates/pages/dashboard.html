@@ -3,6 +3,7 @@
 {% block title %}- Dashboard{% endblock %}
 
 {% block content %}
+
 <div class="row g-3">
   <!-- Card 1 -->
   <div class="col-lg-4 col-md-6">
@@ -10,7 +11,7 @@
       <div class="card-body d-flex align-items-center justify-content-center gap-4 py-4">
         <i class="bi bi-building display-4 text-white opacity-100 me-5"></i>
         <div class="text-start">
-          <h3 class="fw-bold mb-0 text-white">169</h3>
+          <h3 class="fw-bold mb-0 text-white">{{ total_tenants }}</h3>
           <h5 class="text-white">Tenant Aktif</h5>
         </div>
       </div>
@@ -23,7 +24,7 @@
       <div class="card-body d-flex align-items-center justify-content-center py-4">
         <i class="bi bi-person-fill display-4 text-white opacity-100 me-5"></i>
         <div class="text-start ms-2">
-          <h3 class="fw-bold mb-0 text-white">50</h3>
+          <h3 class="fw-bold mb-0 text-white">{{ total_admins }}</h3>
           <h5 class="text-white">Admin Aktif</h5>
         </div>
       </div>
@@ -36,7 +37,7 @@
       <div class="card-body d-flex align-items-center justify-content-center gap-4 py-4">
         <i class="bi bi-graph-up-arrow display-4 text-white opacity-100 me-4"></i>
         <div class="text-start">
-          <h3 class="fw-bold mb-0 text-white">6</h3>
+          <h3 class="fw-bold mb-0 text-white">{{ total_superadmins }}</h3>
           <h5 class="text-white">Total Superadmin</h5>
         </div>
       </div>
@@ -69,91 +70,25 @@
           </thead>
 
           <tbody class="table-group-divider">
+            {% for tenant in tenant_recommendasi %}
             <tr>
-              <td>1</td>
-              <td>Soerabaja Coffee</td>
-              <td class="text-center">Event & Promotion</td>
-              <td>Boarding Lounge Terminal 1</td>
-              <td class="text-center">4.8</td>
-              <td class="text-center">120</td>
-              <td>Rp 20.000 - 50.000</td>
+              <td>{{ tenant.id }}</td>
+              <td>{{ tenant.nama_brand }}</td>
+              <td class="text-center">{{ tenant.jenis_usaha }}</td>
+              <td>{{ tenant.lokasi }}</td>
+              <td class="text-center">{{ tenant.rating }}</td>
+              <td class="text-center">{{ tenant.total_review }}</td>
+              <td>{{tenant.rentang_harga}}</td>
               <td>
                 <img
-                  src="{{ url_for('static', filename='static_admin/images/bakmi-gocit4.png') }}"
-                  alt="Gambar"
+                  src="{{ url_for('static', filename='images/tenant/' + tenant.gambar) }}"
+                  alt="{{ tenant.nama_brand }}"
                   width="40"
                   class="rounded center"
                 />
               </td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>Soerabaja Coffee</td>
-              <td class="text-center">Event & Promotion</td>
-              <td>Boarding Lounge Terminal 1</td>
-              <td class="text-center">4.8</td>
-              <td class="text-center">120</td>
-              <td>Rp 20.000 - 50.000</td>
-              <td>
-                <img
-                  src="{{ url_for('static', filename='static_admin/images/bakmi-gocit4.png') }}"
-                  alt="Gambar"
-                  width="40"
-                  class="rounded"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Soerabaja Coffee</td>
-              <td class="text-center">Event & Promotion</td>
-              <td>Boarding Lounge Terminal 1</td>
-              <td class="text-center">4.8</td>
-              <td class="text-center">120</td>
-              <td>Rp 20.000 - 50.000</td>
-              <td>
-                <img
-                  src="{{ url_for('static', filename='static_admin/images/bakmi-gocit4.png') }}"
-                  alt="Gambar"
-                  width="40"
-                  class="rounded"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Soerabaja Coffee</td>
-              <td class="text-center">Event & Promotion</td>
-              <td>Boarding Lounge Terminal 1</td>
-              <td class="text-center">4.8</td>
-              <td class="text-center">120</td>
-              <td>Rp 20.000 - 50.000</td>
-              <td>
-                <img
-                  src="{{ url_for('static', filename='static_admin/images/bakmi-gocit4.png') }}"
-                  alt="Gambar"
-                  width="40"
-                  class="rounded"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Soerabaja Coffee</td>
-              <td class="text-center">Event & Promotion</td>
-              <td>Boarding Lounge Terminal 1</td>
-              <td class="text-center">4.8</td>
-              <td class="text-center">120</td>
-              <td>Rp 20.000 - 50.000</td>
-              <td>
-                <img
-                  src="{{ url_for('static', filename='static_admin/images/bakmi-gocit4.png') }}"
-                  alt="Gambar"
-                  width="40"
-                  class="rounded"
-                />
-              </td>
-            </tr>
+            {% endfor %}
           </tbody>
         </table>
       </div>
@@ -212,36 +147,13 @@
             </tr>
           </thead>
           <tbody class="table-group-divider">
+            {% for user in total_users %}
             <tr>
-              <td class="ps-0 fw-medium">1</td>
-              <td class="fw-medium">user001</td>
-              <td>superadmin</td>
+              <td class="ps-0 fw-medium">{{ user.id }}</td>
+              <td class="fw-medium">{{ user.username }}</td>
+              <td>{{ user.role }}</td>
             </tr>
-            <tr>
-              <td class="ps-0 fw-medium">2</td>
-              <td class="fw-medium">user002</td>
-              <td>admin</td>
-            </tr>
-            <tr>
-              <td class="ps-0 fw-medium">3</td>
-              <td class="fw-medium">user001</td>
-              <td>superadmin</td>
-            </tr>
-            <tr>
-              <td class="ps-0 fw-medium">4</td>
-              <td class="fw-medium">user002</td>
-              <td>admin</td>
-            </tr>
-            <tr>
-              <td class="ps-0 fw-medium">5</td>
-              <td class="fw-medium">user001</td>
-              <td>superadmin</td>
-            </tr>
-            <tr>
-              <td class="ps-0 fw-medium">6</td>
-              <td class="fw-medium">user002</td>
-              <td>admin</td>
-            </tr>
+            {% endfor %}
           </tbody>
         </table>
       </div>

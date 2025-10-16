@@ -97,7 +97,18 @@ def register_page():
 @token_required
 @role_required(["admin","superadmin"])
 def dashboard():
-    return render_template("pages/dashboard.html")
+    total_users = get_all_users()
+    total_tenants = len(get_all_tenants())
+    
+    # hitung berdasarkan role user
+    total_admins = sum(1 for u in total_users if u.get("role") == "admin")
+    total_superadmins = sum(1 for u in total_users if u.get("role") == "superadmin")
+    
+    tenant_recommendasi = get_top_recommendation(top_n=30)
+
+    return render_template("pages/dashboard.html", total_users=total_users, total_tenants=total_tenants,
+                            total_admins=total_admins, total_superadmins=total_superadmins,
+                            tenant_recommendasi=tenant_recommendasi.to_dict(orient="records"))
 
 # user dashboard page route
 @routes.route("/dashboardUser")
