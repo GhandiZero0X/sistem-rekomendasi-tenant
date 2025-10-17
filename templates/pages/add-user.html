@@ -14,14 +14,21 @@
   </div>
 
   <div class="card-body pt-0">
-    <form>
+    <form
+      action="{{ url_for('routes.addUser') }}"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+
       <div class="mb-4">
         <label for="exampleInputEmail1" class="form-label">Username</label>
         <input
           type="email"
+          name="username"
           class="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
+          required
         />
       </div>
 
@@ -29,21 +36,25 @@
         <label for="exampleInputPassword1" class="form-label">Password</label>
         <input
           type="password"
+          name="password"
           class="form-control"
           id="exampleInputPassword1"
+          required
         />
       </div>
 
       <div class="mb-5">
         <label for="roleUser" class="form-label">Role</label>
-        <select class="form-select" id="roleUser" name="roleUser">
+        <select class="form-select" id="roleUser" name="roleUser" required>
           <option value="" selected disabled>Pilih Role</option>
           <option value="superadmin">Superadmin</option>
           <option value="admin">Admin</option>
         </select>
       </div>
 
-      <a href="{{ url_for('routes.user_dashboard') }}" class="btn btn-primary">Submit</a>
+      <button type="submit" class="btn btn-primary w-100 py-2 mt-4 fw-semibold">
+        <i class="bi bi-upload me-1"></i> Submit
+      </button>
     </form>
   </div>
 </div>

@@ -222,11 +222,31 @@ def addTenant():
 def editUser():
     return render_template("pages/edit-user.html")
 
-# add user page route
-@routes.route("/addUser")
+# Add User (hanya superadmin)
+@routes.route("/addUser", methods=["GET", "POST"])
 @token_required
 @role_required("superadmin")
 def addUser():
+    if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
+        role = request.form.get("roleUser")
+        # Validasi field
+        if not username or not password or not role:
+            return jsonify({"error": "Semua field harus diisi"}), 400
+        # Buat dictionary untuk dikirim ke controller
+        user_data = {
+            "username": username,
+            "password": password,
+            "role": role,
+        }
+        # Simpan lewat controller
+        result = add_user(user_data)
+
+        if "error" in result:
+            return jsonify(result), 400
+
+        return redirect(url_for("routes.user_dashboard"))
     return render_template("pages/add-user.html")
 
 # ===== API ADMIN =====

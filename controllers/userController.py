@@ -26,35 +26,28 @@ def get_user_by_id(user_id: int):
         return {"error": f"User dengan id {user_id} tidak ditemukan."}
     return user.to_dict(orient="records")[0]
 
-# add user hanya untuk superadmin
 def add_user(user_data: dict):
     """Tambah satu user (hanya superadmin)"""
     df = pd.read_csv(USERPATH) if os.path.exists(USERPATH) else pd.DataFrame()
-
-    # auto-assign ID
-    next_id = 1 if df.empty else df["id"].max() + 1
-    user_data["id"] = int(next_id)
-
-    # hash password sebelum simpan
-    if "password" in user_data:
+    # Auto-assign ID
+    next_id = 1 if df.empty else int(df["id"].max() + 1)
+    user_data["id"] = next_id
+    # Hash password sebelum disimpan
+    if "password" in user_data and user_data["password"]:
         user_data["password"] = bcrypt.hashpw(
             user_data["password"].encode("utf-8"), bcrypt.gensalt()
         ).decode("utf-8")
-
-    # pastikan status_approval = int
-    if "status_approval" in user_data:
-        user_data["status_approval"] = int(user_data["status_approval"])
     else:
-        user_data["status_approval"] = 1  # default
-
-    if "role" in user_data:
-        user_data["role"] = user_data["role"]
-    else:
-        user_data["role"] = "admin"  # default
-
+        return {"error": "Password tidak boleh kosong."}
+    # Default value status approval
+    user_data["status_approval"] = int(user_data.get("status_approval", 1))
+    # Default role
+    user_data["role"] = user_data.get("role", "admin")
+    # Simpan data baru
     df = pd.concat([df, pd.DataFrame([user_data])], ignore_index=True)
     df.to_csv(USERPATH, index=False)
-    return {"success": f"User baru dengan id {next_id} berhasil ditambahkan."}
+
+    return {"success": f"User baru dengan ID {next_id} berhasil ditambahkan."}
 
 
 # add batch user hanya untuk superadmin

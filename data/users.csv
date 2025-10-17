@@ -4,3 +4,4 @@ id,username,password,status_approval,role
 3,admin2010@injourney,$2b$12$m96mxPMFksY4wOTm6iCiYOayW/Of8LetC.2aX2pLZVMofR.xPURiG,0,admin
 4,admin2025@injourney,$2b$12$rDfX8fY/lw10agt9TT5KDOukpTjs8o5Pgf0V4Z4CJw0Y1YVw6VvMy,1,admin
 5,putriegiha@gmail.com,$2b$12$vBTkl/iid0LqlawGHpzUXeLvjLfxnEZnUHizapNW0pyi6RyNe9TzS,0,admin
+6,testadmin@gmail.com,$2b$12$C2HiOe5D0lNynTRHELYmYezHfSe1b3JGAgFAhyHWQGMX5eJkoT2qe,1,admin
