@@ -10,7 +10,7 @@ from controllers.datasetController import (
 from controllers.algoritmaController import get_recommendations_by_filters, run_clustering, get_top_recommendation
 from controllers.authController import register, login, approve_user
 from controllers.userController import (
-    get_all_users, get_user_by_id, add_user, add_batch_users, update_user, delete_user
+    get_all_users, get_user_by_id, add_user, add_batch_users, update_user, delete_user, delete_batch_users
 )
 from controllers.dashboardController import get_superadmin_dashboard, get_admin_dashboard
 from utils.jwt_utils import decode_token
@@ -309,6 +309,14 @@ def user_update(user_id):
 @role_required("superadmin")
 def user_delete(user_id):
     return jsonify(delete_user(user_id))
+
+# menghapus batch user
+@routes.route("/users/batch", methods=["DELETE"])
+@token_required
+@role_required("superadmin")
+def user_delete_batch():
+    data = request.get_json()
+    return jsonify(delete_batch_users(data))
 
 # ===== Page CRUD TENANT : dataset tenant =====
 # Menampilkan semua tenant

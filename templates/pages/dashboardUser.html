@@ -1,3 +1,4 @@
+<!-- template/pages/dashboardUser.html -->
 {% extends "layout/baseAdmin.html" %} 
 
 {% block title %}- Dashboard User{% endblock %}
@@ -6,9 +7,7 @@
 <div class="col-lg-12">
   <div class="card">
     <div class="card-body">
-      <div
-        class="d-flex flex-wrap justify-content-between align-items-center mb-3"
-      >
+      <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
         <h5 class="card-title mb-2 mb-sm-0">Data User</h5>
         <div class="d-flex align-items-center gap-2">
           <a
@@ -17,24 +16,26 @@
           >
             <i class="bi bi-person-plus me-1"></i> Tambah User
           </a>
-          <a
-            href="#"
+          <button
+            id="deleteBatchBtn"
             class="btn btn-danger btn-sm fw-semibold d-flex align-items-center"
           >
-            <i class="bi bi-trash3 me-1"></i> Hapus User
-          </a>
+            <i class="bi bi-trash3 me-1"></i> Hapus Batch User
+          </button>
         </div>
       </div>
+
       <div class="table-responsive">
         <table class="table text-nowrap align-middle mb-0">
           <thead>
             <tr class="border-2 border-bottom border-primary border-0">
-              <th scope="col" class="ps-2"></th>
-              <th scope="col">ID</th>
-              <th scope="col">Username</th>
-              <th scope="col">Password</th>
-              <th scope="col">Status Approval</th>
-              <th scope="col">Role</th>
+              <th scope="col" class="ps-2 text-center">
+                <input type="checkbox" id="selectAll" />
+              </th>
+              <th scope="col" class="text-center">ID</th>
+              <th scope="col" class="text-center">Username</th>
+              <th scope="col" class="text-center">Status Approval</th>
+              <th scope="col" class="text-center">Role</th>
               <th scope="col" class="text-center">Aksi</th>
             </tr>
           </thead>
@@ -42,30 +43,26 @@
             {% if users %}
               {% for user in users %}
               <tr>
-                <td class="ps-0 text-center">
-                  <input type="checkbox" class="select-user" />
+                <td class="text-center">
+                  <input type="checkbox" class="select-user" value="{{ user.id }}" />
                 </td>
-                <td class="ps-0 fw-medium">{{ user.id }}</td>
-                <td class="fw-medium">{{ user.username }}</td>
-                <td>{{ user.password }}</td>
-                <td class="ps-0 text-center">
-                    {% if user.status_approval %}
-                      <span class="badge bg-success-subtle text-success fw-semibold">
-                        {{ user.status_approval == 1 and "Approved" }}
-                      </span>
-                    {% else %}
-                      <span class="badge bg-warning-subtle text-warning fw-semibold">Pending</span>
-                    {% endif %}
+                <td class="text-center">{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td class="text-center">
+                  {% if user.status_approval == 1 %}
+                    <span class="badge bg-success-subtle text-success fw-semibold">Approved</span>
+                  {% else %}
+                    <span class="badge bg-warning-subtle text-warning fw-semibold">Pending</span>
+                  {% endif %}
                 </td>
-                </td>
-                <td>{{ user.role }}</td>
+                <td class="text-center">{{ user.role }}</td>
                 <td class="text-center">
                   <a href="{{ url_for('routes.editUser') }}?id={{ user.id }}">
                     <button class="btn btn-sm btn-primary me-2">
                       <i class="bi bi-pencil-square text-white"></i>
                     </button>
                   </a>
-                  <button class="btn btn-sm btn-danger" data-id="{{ user.id }}">
+                  <button class="btn btn-sm btn-danger delete-btn" data-id="{{ user.id }}">
                     <i class="bi bi-trash3 text-white"></i>
                   </button>
                 </td>
@@ -81,39 +78,68 @@
           </tbody>
         </table>
       </div>
-
-      <div class="pagination-wrapper mt-4 d-flex justify-content-end">
-        <nav aria-label="Page navigation">
-          <ul class="pagination mb-0 border border-primary rounded-pill px-2">
-            <li class="page-item">
-              <a
-                class="page-link text-primary border-0"
-                href="#"
-                aria-label="Previous"
-                >Prev</a
-              >
-            </li>
-            <li class="page-item active">
-              <a class="page-link bg-primary text-white border-0" href="#">1</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link text-primary border-0" href="#">2</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link text-primary border-0" href="#">3</a>
-            </li>
-            <li class="page-item">
-              <a
-                class="page-link text-primary border-0"
-                href="#"
-                aria-label="Next"
-                >Next</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </div>
     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // ====== Single Delete ======
+  const deleteButtons = document.querySelectorAll(".delete-btn");
+  deleteButtons.forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const id = btn.getAttribute("data-id");
+      if (confirm(`Yakin ingin menghapus user dengan ID ${id}?`)) {
+        const response = await fetch(`/userDelete/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Authorization": "Bearer {{ session.get('token', '') }}",
+          },
+        });
+        const result = await response.json();
+        alert(result.success || result.error);
+        location.reload();
+      }
+    });
+  });
+
+  // ====== Select All Feature ======
+  const selectAll = document.getElementById("selectAll");
+  const checkboxes = document.querySelectorAll(".select-user");
+
+  selectAll.addEventListener("change", function() {
+    checkboxes.forEach(cb => cb.checked = selectAll.checked);
+  });
+
+  // ====== Batch Delete Feature ======
+  const deleteBatchBtn = document.getElementById("deleteBatchBtn");
+  deleteBatchBtn.addEventListener("click", async () => {
+    const selected = Array.from(checkboxes)
+      .filter(cb => cb.checked)
+      .map(cb => parseInt(cb.value));
+
+    if (selected.length === 0) {
+      alert("Pilih minimal satu user terlebih dahulu!");
+      return;
+    }
+
+    if (confirm(`Yakin ingin menghapus ${selected.length} user?`)) {
+      const response = await fetch(`/users/batch`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer {{ session.get('token', '') }}",
+        },
+        body: JSON.stringify(selected),
+      });
+
+      const result = await response.json();
+      alert(result.success || result.error);
+      location.reload();
+    }
+  });
+});
+</script>
 {% endblock %}

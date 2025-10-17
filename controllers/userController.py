@@ -1,3 +1,4 @@
+# controllers/userController.py
 import os
 import pandas as pd
 import bcrypt
@@ -130,3 +131,35 @@ def delete_user(user_id: int):
     df.loc[df["id"].astype(int) == user_id, "status_approval"] = 0
     df.to_csv(USERPATH, index=False)
     return {"success": f"User dengan id {user_id} telah dinonaktifkan."}
+
+# delete batch user dengan menonaktifkan akun pada status_approval menjadi 0
+def delete_batch_users(user_ids: list):
+    """Menonaktifkan banyak user sekaligus berdasarkan list ID"""
+    if not os.path.exists(USERPATH):
+        return {"error": "Dataset tidak ditemukan."}
+
+    if not isinstance(user_ids, list) or len(user_ids) == 0:
+        return {"error": "Input harus berupa list id user yang valid."}
+
+    df = pd.read_csv(USERPATH)
+    id_values = df["id"].astype(int).values
+
+    not_found = []
+    updated_count = 0
+
+    for user_id in user_ids:
+        if user_id in id_values:
+            df.loc[df["id"].astype(int) == user_id, "status_approval"] = 0
+            updated_count += 1
+        else:
+            not_found.append(user_id)
+
+    df.to_csv(USERPATH, index=False)
+
+    if len(not_found) == len(user_ids):
+        return {"error": "Tidak ada user yang ditemukan untuk dihapus."}
+
+    msg = f"{updated_count} user berhasil dinonaktifkan."
+    if not_found:
+        msg += f" (ID tidak ditemukan: {not_found})"
+    return {"success": msg}
