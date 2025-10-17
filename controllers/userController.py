@@ -84,33 +84,37 @@ def add_batch_users(users_data: list):
     return {"success": f"{len(users_data)} user baru berhasil ditambahkan."}
 
 
-# update user
 def update_user(user_id: int, user_data: dict):
     """Merubah data user berdasarkan ID"""
     if not os.path.exists(USERPATH):
         return {"error": "Dataset tidak ditemukan."}
-    
+
     df = pd.read_csv(USERPATH)
-    
+
     if user_id not in df["id"].astype(int).values:
         return {"error": f"User dengan id {user_id} tidak ditemukan."}
-    
+
     for key, value in user_data.items():
-        if key in df.columns:
-            if key == "password":  
-                # hash ulang password
-                hashed_pw = bcrypt.hashpw(
-                    value.encode("utf-8"), bcrypt.gensalt()
-                ).decode("utf-8")
-                df.loc[df["id"].astype(int) == user_id, key] = hashed_pw
-            elif key == "status_approval":
-                # pastikan int
-                df.loc[df["id"].astype(int) == user_id, key] = int(value)
-            else:
-                df.loc[df["id"].astype(int) == user_id, key] = value
+        if key not in df.columns or value in [None, "", " "]:
+            continue  # lewati field kosong
+
+        if key == "password":
+            # Hash ulang password hanya jika diubah
+            hashed_pw = bcrypt.hashpw(
+                value.encode("utf-8"), bcrypt.gensalt()
+            ).decode("utf-8")
+            df.loc[df["id"].astype(int) == user_id, key] = hashed_pw
+
+        elif key == "status_approval":
+            # Pastikan integer
+            df.loc[df["id"].astype(int) == user_id, key] = int(value)
+
+        else:
+            df.loc[df["id"].astype(int) == user_id, key] = value
 
     df.to_csv(USERPATH, index=False)
-    return {"success": f"Data user dengan id {user_id} berhasil diperbarui."}
+    return {"success": f"Data user dengan ID {user_id} berhasil diperbarui."}
+
 
 # delete user dengan menonaktifkan akun pada status_approval menjadi 0
 def delete_user(user_id: int):

@@ -14,14 +14,16 @@
   </div>
 
   <div class="card-body pt-0">
-    <form>
+    <form action="{{ url_for('routes.editUser') }}?id={{ user.id }}" method="POST" enctype="multipart/form-data">
       <div class="mb-4">
         <label for="exampleInputEmail1" class="form-label">Username</label>
         <input
           type="email"
+          name="username"
           class="form-control"
           id="exampleInputEmail1"
-          aria-describedby="emailHelp"
+          value="{{ user.username }}"
+          required
         />
       </div>
 
@@ -29,6 +31,7 @@
         <label for="exampleInputPassword1" class="form-label">Password</label>
         <input
           type="password"
+          name="password"
           class="form-control"
           id="exampleInputPassword1"
         />
@@ -36,10 +39,10 @@
 
       <div class="mb-4">
         <label for="statusApproval" class="form-label">Status Approval</label>
-        <select class="form-select" id="statusApproval" name="statusApproval">
+        <select class="form-select" id="statusApproval" name="statusApproval" >
           <option value="" selected disabled>Pilih Status</option>
-          <option value="disetujui">Disetujui</option>
-          <option value="menunggu">Menunggu</option>
+          <option value="disetujui" {% if user.status_approval == 1 %}selected{% endif %}>Approved</option>
+          <option value="menunggu" {% if user.status_approval == 0 %}selected{% endif %}>Pending</option>
         </select>
       </div>
 
@@ -47,12 +50,15 @@
         <label for="roleUser" class="form-label">Role</label>
         <select class="form-select" id="roleUser" name="roleUser">
           <option value="" selected disabled>Pilih Role</option>
-          <option value="superadmin">Superadmin</option>
-          <option value="admin">Admin</option>
+          <option value="superadmin" {% if user.role == 'superadmin' %}selected{% endif %}>Superadmin</option>
+          <option value="admin" {% if user.role == 'admin' %}selected{% endif %}>Admin</option>
         </select>
       </div>
 
-      <a href="{{ url_for('routes.user_dashboard') }}" class="btn btn-primary">Submit</a>
+      <!-- Tombol Submit -->
+      <button type="submit" class="btn btn-primary w-100 py-2 mt-4 fw-semibold">
+        <i class="bi bi-save me-1"></i> Simpan Perubahan
+      </button>
     </form>
   </div>
 </div>

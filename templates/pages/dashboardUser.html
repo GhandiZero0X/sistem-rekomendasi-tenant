@@ -34,6 +34,7 @@
               </th>
               <th scope="col" class="text-center">ID</th>
               <th scope="col" class="text-center">Username</th>
+              <th scope="col" class="text-center">Password</th>
               <th scope="col" class="text-center">Status Approval</th>
               <th scope="col" class="text-center">Role</th>
               <th scope="col" class="text-center">Aksi</th>
@@ -48,6 +49,7 @@
                 </td>
                 <td class="text-center">{{ user.id }}</td>
                 <td>{{ user.username }}</td>
+                <td>{{ user.password }}</td>
                 <td class="text-center">
                   {% if user.status_approval == 1 %}
                     <span class="badge bg-success-subtle text-success fw-semibold">Approved</span>

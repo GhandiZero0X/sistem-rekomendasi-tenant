@@ -215,12 +215,51 @@ def addTenant():
 
     return render_template("pages/add-tenant.html")
 
-# edit user page route
-@routes.route("/editUser")
+@routes.route("/editUser", methods=["GET", "POST"])
 @token_required
 @role_required("superadmin")
 def editUser():
-    return render_template("pages/edit-user.html")
+    user_id = request.args.get("id", type=int)
+
+    # Validasi ID
+    if not user_id:
+        return redirect(url_for("routes.user_dashboard"))
+
+    if request.method == "GET":
+        # Ambil data user
+        user = get_user_by_id(user_id)
+        if "error" in user:
+            return jsonify(user), 404
+
+        return render_template("pages/edit-user.html", user=user)
+
+    elif request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
+        role = request.form.get("roleUser")
+        status = request.form.get("statusApproval")
+
+        # Mapping status ke angka
+        if status == "disetujui":
+            status_value = 1
+        elif status == "menunggu":
+            status_value = 0
+        else:
+            status_value = None
+
+        update_data = {
+            "username": username,
+            "password": password,
+            "role": role,
+            "status_approval": status_value,
+        }
+
+        result = update_user(user_id, update_data)
+        if "error" in result:
+            return jsonify(result), 400
+
+        # Sukses redirect ke dashboard
+        return redirect(url_for("routes.user_dashboard"))
 
 # Add User (hanya superadmin)
 @routes.route("/addUser", methods=["GET", "POST"])
