@@ -40,76 +40,13 @@
               <th scope="col" class="text-center">Aksi</th>
             </tr>
           </thead>
-          <tbody class="table-group-divider">
-            {% if users %}
-              {% for user in users %}
-              <tr>
-                <td class="text-center">
-                  <input type="checkbox" class="select-user" value="{{ user.id }}" />
-                </td>
-                <td class="text-center">{{ user.id }}</td>
-                <td>{{ user.username }}</td>
-                <td>{{ user.password }}</td>
-                <td class="text-center">
-                  {% if user.status_approval == 1 %}
-                    <span class="badge bg-success-subtle text-success fw-semibold">Approved</span>
-                  {% else %}
-                    <span class="badge bg-warning-subtle text-warning fw-semibold">Pending</span>
-                  {% endif %}
-                </td>
-                <td class="text-center">{{ user.role }}</td>
-                <td class="text-center">
-                  <a href="{{ url_for('routes.editUser') }}?id={{ user.id }}">
-                    <button class="btn btn-sm btn-primary me-2">
-                      <i class="bi bi-pencil-square text-white"></i>
-                    </button>
-                  </a>
-                  <button class="btn btn-sm btn-danger delete-btn" data-id="{{ user.id }}">
-                    <i class="bi bi-trash3 text-white"></i>
-                  </button>
-                </td>
-              </tr>
-              {% endfor %}
-            {% else %}
-              <tr>
-                <td colspan="10" class="text-center text-muted py-4">
-                  Tidak ada data user ditemukan.
-                </td>
-              </tr>
-            {% endif %}
-          </tbody>
+          <tbody id="userTableBody" class="table-group-divider"></tbody>
         </table>
       </div>
 
       <div class="pagination-wrapper mt-4 d-flex justify-content-end">
         <nav aria-label="Page navigation">
-          <ul class="pagination mb-0 border border-primary rounded-pill px-2">
-            <li class="page-item">
-              <a
-                class="page-link text-primary border-0"
-                href="#"
-                aria-label="Previous"
-                >Prev</a
-              >
-            </li>
-            <li class="page-item active">
-              <a class="page-link bg-primary text-white border-0" href="#">1</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link text-primary border-0" href="#">2</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link text-primary border-0" href="#">3</a>
-            </li>
-            <li class="page-item">
-              <a
-                class="page-link text-primary border-0"
-                href="#"
-                aria-label="Next"
-                >Next</a
-              >
-            </li>
-          </ul>
+          <ul class="pagination mb-0 border border-primary rounded-pill px-2" id="pagination"></ul>
         </nav>
       </div>
     </div>
@@ -120,38 +57,174 @@
 {% block scripts %}
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  // ====== Single Delete ======
-  const deleteButtons = document.querySelectorAll(".delete-btn");
-  deleteButtons.forEach(btn => {
-    btn.addEventListener("click", async () => {
-      const id = btn.getAttribute("data-id");
-      if (confirm(`Yakin ingin menghapus user dengan ID ${id}?`)) {
-        const response = await fetch(`/userDelete/${id}`, {
-          method: "DELETE",
-          headers: {
-            "Authorization": "Bearer {{ session.get('token', '') }}",
-          },
-        });
-        const result = await response.json();
-        alert(result.success || result.error);
-        location.reload();
-      }
+  const users = {{ users | tojson }};
+  const token = "{{ session.get('token', '') }}";
+
+  const tableBody = document.getElementById("userTableBody");
+  const pagination = document.getElementById("pagination");
+  const perPage = 10;
+  let currentPage = 1;
+  const totalPages = Math.ceil(users.length / perPage);
+
+  // === Render Tabel ===
+  function renderTable(page) {
+    tableBody.innerHTML = "";
+    const start = (page - 1) * perPage;
+    const end = start + perPage;
+    const batch = users.slice(start, end);
+
+    if (batch.length === 0) {
+      tableBody.innerHTML = `
+        <tr><td colspan="10" class="text-center text-muted py-4">
+          Tidak ada data user ditemukan.
+        </td></tr>`;
+      return;
+    }
+
+    batch.forEach(user => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td class="text-center">
+          <input type="checkbox" class="select-user" value="${user.id}" />
+        </td>
+        <td class="text-center">${user.id}</td>
+        <td>${user.username}</td>
+        <td>
+          <span class="password-mask">********</span>
+          <button class="btn btn-sm btn-outline-secondary toggle-password">Lihat</button>
+          <span class="real-password d-none">${user.password}</span>
+        </td>
+        <td class="text-center">
+          ${
+            user.status_approval === 1
+              ? '<span class="badge bg-success-subtle text-success fw-semibold">Approved</span>'
+              : '<span class="badge bg-warning-subtle text-warning fw-semibold">Pending</span>'
+          }
+        </td>
+        <td class="text-center">${user.role}</td>
+        <td class="text-center">
+          <a href="/editUser?id=${user.id}">
+            <button class="btn btn-sm btn-primary me-2">
+              <i class="bi bi-pencil-square text-white"></i>
+            </button>
+          </a>
+          <button class="btn btn-sm btn-danger delete-btn" data-id="${user.id}">
+            <i class="bi bi-trash3 text-white"></i>
+          </button>
+        </td>`;
+      tableBody.appendChild(row);
     });
-  });
 
-  // ====== Select All Feature ======
-  const selectAll = document.getElementById("selectAll");
-  const checkboxes = document.querySelectorAll(".select-user");
+    addDeleteListeners();
+    setupSelectAll();
+    setupTogglePassword();
+  }
 
-  selectAll.addEventListener("change", function() {
-    checkboxes.forEach(cb => cb.checked = selectAll.checked);
-  });
+  // === Render Pagination ===
+  function renderPagination() {
+    pagination.innerHTML = "";
 
-  // ====== Batch Delete Feature ======
-  const deleteBatchBtn = document.getElementById("deleteBatchBtn");
-  deleteBatchBtn.addEventListener("click", async () => {
-    const selected = Array.from(checkboxes)
-      .filter(cb => cb.checked)
+    // Jika data di bawah 10, tampilkan hanya dummy preview (Prev | Next)
+    if (users.length <= perPage) {
+      pagination.innerHTML = `
+        <li class="page-item disabled">
+          <a class="page-link">Prev</a>
+        </li>
+        <li class="page-item active">
+          <a class="page-link bg-primary text-white border-0">1</a>
+        </li>
+        <li class="page-item disabled">
+          <a class="page-link">Next</a>
+        </li>`;
+      return; // stop di sini
+    }
+
+    // Normal pagination jika data > 10
+    const prevDisabled = currentPage === 1 ? "disabled" : "";
+    const nextDisabled = currentPage === totalPages ? "disabled" : "";
+
+    pagination.innerHTML += `
+      <li class="page-item ${prevDisabled}">
+        <a class="page-link text-primary border-0" href="#" id="prevBtn">Prev</a>
+      </li>`;
+
+    for (let p = 1; p <= totalPages; p++) {
+      pagination.innerHTML += `
+        <li class="page-item ${p === currentPage ? "active" : ""}">
+          <a class="page-link ${p === currentPage ? "bg-primary text-white" : "text-primary"} border-0" href="#">${p}</a>
+        </li>`;
+    }
+
+    pagination.innerHTML += `
+      <li class="page-item ${nextDisabled}">
+        <a class="page-link text-primary border-0" href="#" id="nextBtn">Next</a>
+      </li>`;
+
+    // Event klik pagination
+    pagination.querySelectorAll(".page-item a").forEach(a => {
+      a.addEventListener("click", e => {
+        e.preventDefault();
+        if (a.id === "prevBtn" && currentPage > 1) currentPage--;
+        else if (a.id === "nextBtn" && currentPage < totalPages) currentPage++;
+        else if (!a.id) currentPage = parseInt(a.textContent);
+        renderTable(currentPage);
+        renderPagination();
+      });
+    });
+  }
+
+  // === Toggle Password ===
+  function setupTogglePassword() {
+    document.querySelectorAll(".toggle-password").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const mask = btn.previousElementSibling;
+        const real = btn.nextElementSibling;
+        const showing = !real.classList.contains("d-none");
+
+        if (showing) {
+          real.classList.add("d-none");
+          mask.classList.remove("d-none");
+          btn.textContent = "Lihat";
+        } else {
+          real.classList.remove("d-none");
+          mask.classList.add("d-none");
+          btn.textContent = "Sembunyikan";
+        }
+      });
+    });
+  }
+
+  // === Tombol Hapus Tunggal ===
+  function addDeleteListeners() {
+    document.querySelectorAll(".delete-btn").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const id = btn.dataset.id;
+        if (confirm(`Yakin ingin menghapus user dengan ID ${id}?`)) {
+          const res = await fetch(`/userDelete/${id}`, {
+            method: "DELETE",
+            headers: { "Authorization": `Bearer ${token}` },
+          });
+          const result = await res.json();
+          alert(result.success || result.error);
+          location.reload();
+        }
+      });
+    });
+  }
+
+  // === Checkbox Select All ===
+  function setupSelectAll() {
+    const selectAll = document.getElementById("selectAll");
+    const checkboxes = document.querySelectorAll(".select-user");
+
+    selectAll.addEventListener("change", function() {
+      checkboxes.forEach(cb => cb.checked = selectAll.checked);
+    });
+  }
+
+  // === Tombol Batch Delete ===
+  document.getElementById("deleteBatchBtn").addEventListener("click", async () => {
+    const selected = Array.from(document.querySelectorAll(".select-user:checked"))
       .map(cb => parseInt(cb.value));
 
     if (selected.length === 0) {
@@ -164,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function() {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Bearer {{ session.get('token', '') }}",
+          "Authorization": `Bearer ${token}`,
         },
         body: JSON.stringify(selected),
       });
@@ -174,6 +247,30 @@ document.addEventListener("DOMContentLoaded", function() {
       location.reload();
     }
   });
+
+  // === Toggle Lihat/Sembunyikan Password ===
+  function setupTogglePassword() {
+    document.querySelectorAll(".toggle-password").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const row = btn.closest("td");
+        const mask = row.querySelector(".password-mask");
+        const real = row.querySelector(".real-password");
+        if (real.classList.contains("d-none")) {
+          mask.classList.add("d-none");
+          real.classList.remove("d-none");
+          btn.textContent = "Sembunyikan";
+        } else {
+          mask.classList.remove("d-none");
+          real.classList.add("d-none");
+          btn.textContent = "Lihat";
+        }
+      });
+    });
+  }
+
+  // === Jalankan pertama kali ===
+  renderTable(currentPage);
+  renderPagination();
 });
 </script>
 {% endblock %}
