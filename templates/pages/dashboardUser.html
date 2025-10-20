@@ -128,13 +128,13 @@ document.addEventListener("DOMContentLoaded", function() {
     if (users.length <= perPage) {
       pagination.innerHTML = `
         <li class="page-item disabled">
-          <a class="page-link">Prev</a>
+          <a class="page-link text-primary">Prev</a>
         </li>
         <li class="page-item active">
           <a class="page-link bg-primary text-white border-0">1</a>
         </li>
         <li class="page-item disabled">
-          <a class="page-link">Next</a>
+          <a class="page-link text-primary">Next</a>
         </li>`;
       return; // stop di sini
     }
