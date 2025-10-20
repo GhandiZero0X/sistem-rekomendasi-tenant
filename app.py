@@ -1,14 +1,17 @@
 from flask import Flask
 from routes.routes import routes
 from services.watcher import start_watcher
+from dotenv import load_dotenv
 import atexit
 import os
+
+load_dotenv()
 
 def create_app():
     app = Flask(__name__)
 
     #secret key
-    app.secret_key = os.environ.get("FLASK_SECRET_KEY", "inijugasecretkeyyangunik")
+    app.secret_key = os.getenv("FLASK_SECRET_KEY")
 
     app.register_blueprint(routes)
 

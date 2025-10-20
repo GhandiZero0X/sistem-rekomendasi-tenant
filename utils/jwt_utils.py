@@ -1,9 +1,13 @@
 # utils/jwt_utils.py
 import jwt
 import datetime
+import os
+from dotenv import load_dotenv
 from jwt import ExpiredSignatureError, InvalidTokenError
 
-SECRET_KEY = "supersecretkey123"  # pindahkan ke env var di production
+load_dotenv()
+
+SECRET_KEY = os.getenv("JWT_SECRET_KEY")  # pindahkan ke env var di production
 ALGORITHM = "HS256"
 
 def generate_token(user_id: int, role: str, expires_hours: int = 1) -> str:
