@@ -1,9 +1,9 @@
-{% extends 'layout/baseAdmin.html' %} 
+<!-- template/pages/dashboard.html -->
+{% extends 'layout/baseAdmin.html' %}
 
 {% block title %}- Dashboard{% endblock %}
 
 {% block content %}
-
 <div class="row g-3">
   <!-- Card 1 -->
   <div class="col-lg-4 col-md-6">
@@ -45,12 +45,11 @@
   </div>
 </div>
 
-<div class="col-lg-12">
+<!-- ===================== TOP TENANT ===================== -->
+<div class="col-lg-12 mt-4">
   <div class="card">
     <div class="card-body">
-      <div
-        class="d-flex flex-wrap justify-content-between align-items-center mb-3"
-      >
+      <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
         <h5 class="card-title mb-2 mb-sm-0">Top Tenant</h5>
       </div>
 
@@ -58,82 +57,34 @@
         <table class="table text-nowrap align-middle mb-0">
           <thead>
             <tr class="border-2 border-bottom border-primary border-0">
-              <th scope="col" class="text-center">ID</th>
-              <th scope="col" class="text-center">Nama Brand</th>
-              <th scope="col" class="text-center">Jenis Usaha</th>
-              <th scope="col" class="text-center">Lokasi</th>
-              <th scope="col" class="text-center">Rating</th>
-              <th scope="col" class="text-center">Total Review</th>
-              <th scope="col" class="text-center">Rentang Harga</th>
-              <th scope="col" class="text-center">Gambar</th>
+              <th class="text-center">ID</th>
+              <th class="text-center">Nama Brand</th>
+              <th class="text-center">Jenis Usaha</th>
+              <th class="text-center">Lokasi</th>
+              <th class="text-center">Rating</th>
+              <th class="text-center">Total Review</th>
+              <th class="text-center">Rentang Harga</th>
+              <th class="text-center">Gambar</th>
             </tr>
           </thead>
-
-          <tbody class="table-group-divider">
-            {% for tenant in tenant_recommendasi %}
-            <tr>
-              <td>{{ tenant.id }}</td>
-              <td>{{ tenant.nama_brand }}</td>
-              <td class="text-center">{{ tenant.jenis_usaha }}</td>
-              <td>{{ tenant.lokasi }}</td>
-              <td class="text-center">{{ tenant.rating }}</td>
-              <td class="text-center">{{ tenant.total_review }}</td>
-              <td>{{tenant.rentang_harga}}</td>
-              <td>
-                <img
-                  src="{{ url_for('static', filename='images/tenant/' + tenant.gambar) }}"
-                  alt="{{ tenant.nama_brand }}"
-                  width="40"
-                  class="rounded center"
-                />
-              </td>
-            </tr>
-            {% endfor %}
-          </tbody>
+          <tbody id="tenantTableBody" class="table-group-divider"></tbody>
         </table>
       </div>
 
       <div class="pagination-wrapper mt-4 d-flex justify-content-end">
-        <nav aria-label="Page navigation">
-          <ul class="pagination mb-0 border border-primary rounded-pill px-2">
-            <li class="page-item">
-              <a
-                class="page-link text-primary border-0"
-                href="#"
-                aria-label="Previous"
-                >Prev</a
-              >
-            </li>
-            <li class="page-item active">
-              <a class="page-link bg-primary text-white border-0" href="#">1</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link text-primary border-0" href="#">2</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link text-primary border-0" href="#">3</a>
-            </li>
-            <li class="page-item">
-              <a
-                class="page-link text-primary border-0"
-                href="#"
-                aria-label="Next"
-                >Next</a
-              >
-            </li>
-          </ul>
+        <nav aria-label="Tenant navigation">
+          <ul class="pagination mb-0 border border-primary rounded-pill px-2" id="tenantPagination"></ul>
         </nav>
       </div>
     </div>
   </div>
 </div>
 
-<div class="col-lg-12">
+<!-- ===================== DATA ADMIN ===================== -->
+<div class="col-lg-12 mt-4">
   <div class="card">
     <div class="card-body">
-      <div
-        class="d-flex flex-wrap justify-content-between align-items-center mb-3"
-      >
+      <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
         <h5 class="card-title mb-2 mb-sm-0">Data Admin</h5>
       </div>
 
@@ -141,55 +92,163 @@
         <table class="table text-nowrap align-middle mb-0">
           <thead>
             <tr class="border-2 border-bottom border-primary border-0">
-              <th scope="col">ID</th>
-              <th scope="col">Username</th>
-              <th scope="col">Role</th>
+              <th>ID</th>
+              <th>Username</th>
+              <th>Role</th>
             </tr>
           </thead>
-          <tbody class="table-group-divider">
-            {% for user in total_users %}
-            <tr>
-              <td class="ps-0 fw-medium">{{ user.id }}</td>
-              <td class="fw-medium">{{ user.username }}</td>
-              <td>{{ user.role }}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
+          <tbody id="adminTableBody" class="table-group-divider"></tbody>
         </table>
       </div>
 
       <div class="pagination-wrapper mt-4 d-flex justify-content-end">
-        <nav aria-label="Page navigation">
-          <ul class="pagination mb-0 border border-primary rounded-pill px-2">
-            <li class="page-item">
-              <a
-                class="page-link text-primary border-0"
-                href="#"
-                aria-label="Previous"
-                >Prev</a
-              >
-            </li>
-            <li class="page-item active">
-              <a class="page-link bg-primary text-white border-0" href="#">1</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link text-primary border-0" href="#">2</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link text-primary border-0" href="#">3</a>
-            </li>
-            <li class="page-item">
-              <a
-                class="page-link text-primary border-0"
-                href="#"
-                aria-label="Next"
-                >Next</a
-              >
-            </li>
-          </ul>
+        <nav aria-label="Admin navigation">
+          <ul class="pagination mb-0 border border-primary rounded-pill px-2" id="adminPagination"></ul>
         </nav>
       </div>
     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // ====== DATA FROM SERVER ======
+  const tenants = {{ tenant_recommendasi | tojson }};
+  const users = {{ total_users | tojson }};
+
+  // ====== CONFIG ======
+  const perPage = 10;
+
+  // --- TENANT PAGINATION ---
+  let currentTenantPage = 1;
+  const totalTenantPages = Math.ceil(tenants.length / perPage);
+  const tenantBody = document.getElementById("tenantTableBody");
+  const tenantPagination = document.getElementById("tenantPagination");
+
+  function renderTenantTable(page) {
+    tenantBody.innerHTML = "";
+    const start = (page - 1) * perPage;
+    const end = start + perPage;
+    const batch = tenants.slice(start, end);
+
+    batch.forEach(t => {
+      tenantBody.innerHTML += `
+        <tr>
+          <td class="text-center">${t.id}</td>
+          <td>${t.nama_brand}</td>
+          <td class="text-center">${t.jenis_usaha}</td>
+          <td>${t.lokasi}</td>
+          <td class="text-center">${t.rating ?? '-'}</td>
+          <td class="text-center">${t.total_review ?? '-'}</td>
+          <td>${t.rentang_harga}</td>
+          <td class="text-center">
+            <img src="/static/images/tenant/${t.gambar}" 
+                 alt="${t.nama_brand}" 
+                 width="50" 
+                 class="rounded" 
+                 loading="lazy">
+          </td>
+        </tr>`;
+    });
+  }
+
+  function renderTenantPagination() {
+    tenantPagination.innerHTML = "";
+    const prevDisabled = currentTenantPage === 1 ? "disabled" : "";
+    const nextDisabled = currentTenantPage === totalTenantPages ? "disabled" : "";
+
+    tenantPagination.innerHTML += `
+      <li class="page-item ${prevDisabled}">
+        <a class="page-link text-primary border-0" href="#" id="tenantPrev">Prev</a>
+      </li>`;
+
+    for (let i = 1; i <= totalTenantPages; i++) {
+      tenantPagination.innerHTML += `
+        <li class="page-item ${i === currentTenantPage ? "active" : ""}">
+          <a class="page-link ${i === currentTenantPage ? "bg-primary text-white" : "text-primary"} border-0" href="#">${i}</a>
+        </li>`;
+    }
+
+    tenantPagination.innerHTML += `
+      <li class="page-item ${nextDisabled}">
+        <a class="page-link text-primary border-0" href="#" id="tenantNext">Next</a>
+      </li>`;
+
+    tenantPagination.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", e => {
+        e.preventDefault();
+        if (a.id === "tenantPrev" && currentTenantPage > 1) currentTenantPage--;
+        else if (a.id === "tenantNext" && currentTenantPage < totalTenantPages) currentTenantPage++;
+        else if (!a.id) currentTenantPage = parseInt(a.textContent);
+        renderTenantTable(currentTenantPage);
+        renderTenantPagination();
+      });
+    });
+  }
+
+  // --- ADMIN PAGINATION ---
+  let currentAdminPage = 1;
+  const totalAdminPages = Math.ceil(users.length / perPage);
+  const adminBody = document.getElementById("adminTableBody");
+  const adminPagination = document.getElementById("adminPagination");
+
+  function renderAdminTable(page) {
+    adminBody.innerHTML = "";
+    const start = (page - 1) * perPage;
+    const end = start + perPage;
+    const batch = users.slice(start, end);
+
+    batch.forEach(u => {
+      adminBody.innerHTML += `
+        <tr>
+          <td>${u.id}</td>
+          <td>${u.username}</td>
+          <td>${u.role}</td>
+        </tr>`;
+    });
+  }
+
+  function renderAdminPagination() {
+    adminPagination.innerHTML = "";
+    const prevDisabled = currentAdminPage === 1 ? "disabled" : "";
+    const nextDisabled = currentAdminPage === totalAdminPages ? "disabled" : "";
+
+    adminPagination.innerHTML += `
+      <li class="page-item ${prevDisabled}">
+        <a class="page-link text-primary border-0" href="#" id="adminPrev">Prev</a>
+      </li>`;
+
+    for (let i = 1; i <= totalAdminPages; i++) {
+      adminPagination.innerHTML += `
+        <li class="page-item ${i === currentAdminPage ? "active" : ""}">
+          <a class="page-link ${i === currentAdminPage ? "bg-primary text-white" : "text-primary"} border-0" href="#">${i}</a>
+        </li>`;
+    }
+
+    adminPagination.innerHTML += `
+      <li class="page-item ${nextDisabled}">
+        <a class="page-link text-primary border-0" href="#" id="adminNext">Next</a>
+      </li>`;
+
+    adminPagination.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", e => {
+        e.preventDefault();
+        if (a.id === "adminPrev" && currentAdminPage > 1) currentAdminPage--;
+        else if (a.id === "adminNext" && currentAdminPage < totalAdminPages) currentAdminPage++;
+        else if (!a.id) currentAdminPage = parseInt(a.textContent);
+        renderAdminTable(currentAdminPage);
+        renderAdminPagination();
+      });
+    });
+  }
+
+  // ====== INIT LOAD ======
+  renderTenantTable(currentTenantPage);
+  renderTenantPagination();
+  renderAdminTable(currentAdminPage);
+  renderAdminPagination();
+});
+</script>
 {% endblock %}
