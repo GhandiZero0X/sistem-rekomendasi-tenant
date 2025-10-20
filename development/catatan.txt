@@ -72,3 +72,6 @@ SELESAI
 18. Memulai proses konfigurasi dalam proses integrasi antara backend dan frontend untuk fitur admin, dengan menyesuaikan 
 API backend yang telah dibuat dengan halaman yang telah disiapkan.
 SELESAI
+
+19. Melakukan optimasi tampilan dengan menerapkan mekanisme batch loading agar data dapat ditampilkan secara bertahap, 
+sehingga meningkatkan responsivitas dan mengurangi beban pemuatan halaman.
