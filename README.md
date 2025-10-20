@@ -61,9 +61,14 @@ sistem-rekomendasi-tenant/
 2. Install dependencies
    ```bash
    pip install -r requirements.txt
-3. Jalanakan prepocessing data:
+3. Buat file env
+4. Copy isi .env.example
+5. Jalanakan generate secrect key
+   ```bash
+   python services/keysecrets.py
+6. Jalanakan prepocessing data:
    ```bash
    python services/preprocessing.py
-4. Jalankan aplikasi Flask:
+7. Jalankan aplikasi Flask:
    ```bash
    python app.py
