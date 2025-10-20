@@ -66,9 +66,10 @@ sistem-rekomendasi-tenant/
 5. Jalanakan generate secrect key
    ```bash
    python services/keysecrets.py
-6. Jalanakan prepocessing data:
+6. Masukkan secrect key kedalam env sesuai jenisnya
+7. Jalanakan prepocessing data:
    ```bash
    python services/preprocessing.py
-7. Jalankan aplikasi Flask:
+8. Jalankan aplikasi Flask:
    ```bash
    python app.py
