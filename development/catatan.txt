@@ -75,3 +75,15 @@ SELESAI
 
 19. Melakukan optimasi tampilan dengan menerapkan mekanisme batch loading agar data dapat ditampilkan secara bertahap, 
 sehingga meningkatkan responsivitas dan mengurangi beban pemuatan halaman.
+SELESAI
+
+20. Melakukan pemeriksaan dan perbaikan terhadap mekanisme autentikasi login agar lebih aman, mencakup peningkatan sistem 
+enkripsi password, validasi input untuk mencegah serangan SQL Injection atau brute force attack, serta penerapan token-based 
+authentication dengan masa berlaku tertentu untuk meningkatkan keamanan akses pengguna.
+
+21. Melakukan audit menyeluruh terhadap seluruh endpoint atau route yang ada untuk mengidentifikasi potensi celah keamanan, 
+seperti akses tanpa otorisasi, kebocoran data, atau manipulasi request. Selain itu, melakukan implementasi langkah mitigasi 
+dan penanganan terhadap setiap kerentanan yang ditemukan guna memastikan sistem berjalan dengan aman dan terlindungi dari serangan 
+eksternal.
+
+22. 
