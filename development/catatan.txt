@@ -77,9 +77,9 @@ SELESAI
 sehingga meningkatkan responsivitas dan mengurangi beban pemuatan halaman.
 SELESAI
 
-20. Melakukan pemeriksaan dan perbaikan terhadap mekanisme autentikasi login agar lebih aman, mencakup peningkatan sistem 
-enkripsi password, validasi input untuk mencegah serangan SQL Injection atau brute force attack, serta penerapan token-based 
-authentication dengan masa berlaku tertentu untuk meningkatkan keamanan akses pengguna.
+20. Melakukan pemeriksaan dan perbaikan terhadap mekanisme autentikasi login agar lebih aman, validasi input untuk mencegah 
+serangan SQL Injection atau brute force attack, serta penerapan token-based authentication dengan masa berlaku tertentu untuk 
+meningkatkan keamanan akses pengguna.
 
 21. Melakukan audit menyeluruh terhadap seluruh endpoint atau route yang ada untuk mengidentifikasi potensi celah keamanan, 
 seperti akses tanpa otorisasi, kebocoran data, atau manipulasi request. Selain itu, melakukan implementasi langkah mitigasi 
