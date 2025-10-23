@@ -288,7 +288,7 @@ def addUser():
         return redirect(url_for("routes.user_dashboard"))
     return render_template("pages/add-user.html")
 
-# ===== API ADMIN =====
+# ===== API Test Postman =====
 # ===== Page Auth : admin dan superadmin =====
 # Register admin baru
 @routes.route("/register", methods=["POST"])
@@ -308,20 +308,20 @@ def approve_route(user_id):
     return approve_user(user_id)
 
 # ===== Page dashboard =====
-# @routes.route("/admin", methods=["GET"])
-# @token_required
-# def dashboard():
-#     auth_header = request.headers.get("Authorization")
-#     token = auth_header.replace("Bearer ", "")
-#     decoded = decode_token(token)
-#     user_role = decoded.get("role")
+@routes.route("/admin", methods=["GET"])
+@token_required
+def dashboard_test():
+    auth_header = request.headers.get("Authorization")
+    token = auth_header.replace("Bearer ", "")
+    decoded = decode_token(token)
+    user_role = decoded.get("role")
 
-#     if user_role == "superadmin":
-#         return jsonify(get_superadmin_dashboard())
-#     elif user_role == "admin":
-#         return jsonify(get_admin_dashboard())
-#     else:
-#         return jsonify({"error": "Unauthorized access"}), 403
+    if user_role == "superadmin":
+        return jsonify(get_superadmin_dashboard())
+    elif user_role == "admin":
+        return jsonify(get_admin_dashboard())
+    else:
+        return jsonify({"error": "Unauthorized access"}), 403
 
 # ===== Page CRUD USER : dataset user =====
 # Menampilkan semua user
