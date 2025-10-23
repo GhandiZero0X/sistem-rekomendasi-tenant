@@ -82,9 +82,10 @@ serangan SQL Injection atau brute force attack, serta penerapan token-based auth
 meningkatkan keamanan akses pengguna.
 SELESAI
 
-21. Melakukan audit menyeluruh terhadap seluruh endpoint atau route yang ada untuk mengidentifikasi potensi celah keamanan, 
+21. Melakukan pengecekan menyeluruh terhadap seluruh endpoint atau route yang ada untuk mengidentifikasi potensi celah keamanan, 
 seperti akses tanpa otorisasi, kebocoran data, atau manipulasi request. Selain itu, melakukan implementasi langkah mitigasi 
 dan penanganan terhadap setiap kerentanan yang ditemukan guna memastikan sistem berjalan dengan aman dan terlindungi dari serangan 
 eksternal.
+onprogres
 
 22. 
