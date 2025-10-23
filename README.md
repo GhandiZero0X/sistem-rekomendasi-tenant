@@ -29,27 +29,48 @@ Dataset tenant digunakan sebagai pengganti database, dan sistem ini mampu member
 ```bash
 sistem-rekomendasi-tenant/
 │── controllers/
-│   └── algoritmaControllers.py
+│   ├── algoritmaControllers.py
+│   ├── authController.py
+│   ├── dashboardController.py
+│   ├── dataController.py
+│   ├── datasetController.py
+│   ├── userController.py
 │── data/
 │   ├── processed_tenant_data.csv
+│   ├── processed_tenant_last.csv
 │   ├── tenant_preprocessed.csv
 │   ├── content_features.npy
 │   ├── encoder.pkl
-│   └── scaler.pkl
+│   ├── scaler.pkl
+│   ├── users.csv
+│── middlewares/
+│   └── auth_middleware.py
 │── routes/
 │   └── routes.py
 │── services/
-│   └── preprocessing.py
+│   ├── preprocessing.py
+│   ├── init_admin.py
+│   ├── keysecrets.py
+│   ├── watcher.py
 │── static/
 │   ├── css/
 │   ├── fonts/
 │   ├── images/
 │   └── js/
 │── templates/
+│   ├── layout/
+│   ├── pages/
+│   ├── partials/
 │   └── index.html
+│── utils/
+│   └── jwt_utils.py
 │── __init__.py
+│── .env.example
+│── .gitignore
+│── .hintrc
 │── app.py
-└── README.md
+│── README.md
+└── requirement.txt
 ```
 
 ---
