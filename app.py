@@ -73,7 +73,7 @@ if __name__ == "__main__":
     debug_mode = os.getenv("FLASK_DEBUG", "False") == "True"
     app = create_app()
 
-    # app.run(host="0.0.0.0", port=5000, debug=debug_mode) # jalankan di jaringan lokal dan ip public
+    app.run(host="0.0.0.0", port=5000, debug=debug_mode) # jalankan di jaringan lokal dan ip public
 
     # Jalankan di localhost (aman dari bandit B104)
-    app.run(host="127.0.0.1", port=5000, debug=debug_mode)
+    # app.run(host="127.0.0.1", port=5000, debug=debug_mode)
