@@ -2,11 +2,10 @@
 import pandas as pd
 import os
 from flask import Blueprint, request, jsonify, render_template, redirect, url_for, session
-from controllers import datasetController
 from controllers.datasetController import (
     get_all_tenants, get_tenant_by_id,
     add_tenant, add_batch_tenants, update_tenant, 
-    delete_tenant, delete_batch_tenants
+    delete_tenant, delete_batch_tenants, download_dataset_csv, download_dataset_excel
 )
 from controllers.algoritmaController import get_recommendations_by_filters, run_clustering, get_top_recommendation
 from controllers.authController import register, login, approve_user
@@ -132,14 +131,14 @@ def tenant_dashboard():
 @token_required
 @role_required(["admin", "superadmin"])
 def download_csv():
-    return datasetController.download_dataset_csv()
+    return download_dataset_csv()
 
 # === Download dataset dalam format Excel ===
 @routes.route("/download/excel", methods=["GET"])
 @token_required
 @role_required(["admin", "superadmin"])
 def download_excel():
-    return datasetController.download_dataset_excel()
+    return download_dataset_excel()
 
 # edit tenant page route
 @routes.route("/editTenant", methods=["GET", "POST"])
