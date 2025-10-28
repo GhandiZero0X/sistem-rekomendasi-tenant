@@ -129,11 +129,15 @@ def tenant_dashboard():
 
 # === Download dataset dalam format CSV ===
 @routes.route("/download/csv", methods=["GET"])
+@token_required
+@role_required(["admin", "superadmin"])
 def download_csv():
     return datasetController.download_dataset_csv()
 
 # === Download dataset dalam format Excel ===
 @routes.route("/download/excel", methods=["GET"])
+@token_required
+@role_required(["admin", "superadmin"])
 def download_excel():
     return datasetController.download_dataset_excel()
 
