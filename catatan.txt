@@ -86,6 +86,8 @@ SELESAI
 seperti akses tanpa otorisasi, kebocoran data, atau manipulasi request. Selain itu, melakukan implementasi langkah mitigasi 
 dan penanganan terhadap setiap kerentanan yang ditemukan guna memastikan sistem berjalan dengan aman dan terlindungi dari serangan 
 eksternal.
-onprogres
+SELESAI
 
-22. 
+22. Menambahkan fitur ekspor data tenant ke dalam format CSV dan Excel guna mempermudah proses penyimpanan, analisis, serta distribusi 
+data secara efisien.
+onprogres
