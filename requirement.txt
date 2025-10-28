@@ -1,18 +1,21 @@
-# Core framework
+# === Core Framework ===
 flask==3.0.3
 gunicorn==23.0.0
 
-# Data processing & ML
+# === Data Processing & Machine Learning ===
 pandas==2.2.2
 numpy==1.26.4
 scikit-learn==1.5.2
 joblib==1.4.2
+openpyxl==3.1.5        
+xlrd==2.0.1            
 
-# Auth & Security
+# === Auth & Security ===
 bcrypt==4.2.0
 PyJWT==2.9.0
-python-dotenv==1.0.1
-flask-limiter==3.8.0 
+python-dotenv==1.0.1   
+flask-limiter==3.8.0   
+flask-talisman==1.1.0  
 
-# File & Monitoring
+# === File Watching / Monitoring ===
 watchdog==4.0.1
