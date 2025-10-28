@@ -1,4 +1,6 @@
 # controllers/datasetController.py
+from flask import send_file, Response
+import io
 import os
 import pandas as pd
 
@@ -140,3 +142,45 @@ def delete_batch_tenants(tenant_ids: list):
     df.to_csv(RAW_PATH, index=False)
 
     return {"success": f"{len(tenant_ids)} tenant berhasil dihapus."}
+
+# Download dataset dalam format CSV
+def download_dataset_csv():
+    """Download dataset dalam format CSV"""
+    if not os.path.exists(RAW_PATH):
+        return {"error": "Dataset tidak ditemukan."}, 404
+
+    df = pd.read_csv(RAW_PATH)
+
+    # Buat buffer file CSV di memori
+    csv_buffer = io.StringIO()
+    df.to_csv(csv_buffer, index=False)
+    csv_buffer.seek(0)
+
+    return Response(
+        csv_buffer.getvalue(),
+        mimetype="text/csv",
+        headers={
+            "Content-Disposition": "attachment; filename=tenant_dataset.csv"
+        }
+    )
+
+# Download dataset dalam format Excel
+def download_dataset_excel():
+    """Download dataset dalam format Excel"""
+    if not os.path.exists(RAW_PATH):
+        return {"error": "Dataset tidak ditemukan."}, 404
+
+    df = pd.read_csv(RAW_PATH)
+
+    # Simpan sementara ke memory
+    output = io.BytesIO()
+    with pd.ExcelWriter(output, engine="openpyxl") as writer:
+        df.to_excel(writer, index=False, sheet_name="Tenant Data")
+    output.seek(0)
+
+    return send_file(
+        output,
+        as_attachment=True,
+        download_name="tenant_dataset.xlsx",
+        mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )

@@ -2,6 +2,7 @@
 import pandas as pd
 import os
 from flask import Blueprint, request, jsonify, render_template, redirect, url_for, session
+from controllers import datasetController
 from controllers.datasetController import (
     get_all_tenants, get_tenant_by_id,
     add_tenant, add_batch_tenants, update_tenant, 
@@ -125,6 +126,16 @@ def user_dashboard():
 def tenant_dashboard():
     tenants = get_all_tenants()
     return render_template("pages/dashboardTenant.html", tenants=tenants)
+
+# === Download dataset dalam format CSV ===
+@routes.route("/download/csv", methods=["GET"])
+def download_csv():
+    return datasetController.download_dataset_csv()
+
+# === Download dataset dalam format Excel ===
+@routes.route("/download/excel", methods=["GET"])
+def download_excel():
+    return datasetController.download_dataset_excel()
 
 # edit tenant page route
 @routes.route("/editTenant", methods=["GET", "POST"])

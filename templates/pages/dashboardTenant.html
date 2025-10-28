@@ -1,12 +1,11 @@
-{% extends "layout/baseAdmin.html" %}
-
-{% block title %}- Dashboard Tenant{% endblock %}
-
-{% block content %}
+{% extends "layout/baseAdmin.html" %} {% block title %}- Dashboard Tenant{%
+endblock %} {% block content %}
 <div class="col-lg-12">
   <div class="card">
     <div class="card-body">
-      <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+      <div
+        class="d-flex flex-wrap justify-content-between align-items-center mb-3"
+      >
         <h5 class="card-title mb-2 mb-sm-0">Data Tenant</h5>
         <div class="d-flex align-items-center gap-2">
           <a
@@ -21,6 +20,40 @@
           >
             <i class="bi bi-trash3 me-1"></i> Hapus Batch Tenant
           </button>
+
+          <!-- 🔽 Tombol Ekspor Data -->
+          <div class="dropdown">
+            <button
+              class="btn btn-success btn-sm dropdown-toggle fw-semibold d-flex align-items-center"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="bi bi-download me-1"></i> Ekspor Data
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="{{ url_for('routes.download_csv') }}"
+                >
+                  <i
+                    class="bi bi-file-earmark-spreadsheet me-2 text-success"
+                  ></i>
+                  Ekspor ke CSV
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="{{ url_for('routes.download_excel') }}"
+                >
+                  <i class="bi bi-file-earmark-excel me-2 text-primary"></i>
+                  Ekspor ke Excel
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -28,7 +61,9 @@
         <table class="table text-nowrap align-middle mb-0" id="tenantTable">
           <thead>
             <tr class="border-2 border-bottom border-primary border-0">
-              <th class="text-center"><input type="checkbox" id="selectAll" /></th>
+              <th class="text-center">
+                <input type="checkbox" id="selectAll" />
+              </th>
               <th class="text-center">ID</th>
               <th class="text-center">Nama Brand</th>
               <th class="text-center">Jenis Usaha</th>
@@ -47,180 +82,181 @@
       <!-- Pagination -->
       <div class="pagination-wrapper mt-4 d-flex justify-content-end">
         <nav aria-label="Page navigation">
-          <ul class="pagination mb-0 border border-primary rounded-pill px-2" id="pagination"></ul>
+          <ul
+            class="pagination mb-0 border border-primary rounded-pill px-2"
+            id="pagination"
+          ></ul>
         </nav>
       </div>
     </div>
   </div>
 </div>
-{% endblock %}
-
-{% block scripts %}
+{% endblock %} {% block scripts %}
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  // ====== DATA SOURCE ======
-  const tenants = {{ tenants | tojson }};
-  const token = "{{ session.get('token', '') }}";
+  document.addEventListener("DOMContentLoaded", function() {
+    // ====== DATA SOURCE ======
+    const tenants = {{ tenants | tojson }};
+    const token = "{{ session.get('token', '') }}";
 
-  // ====== DOM ELEMENTS ======
-  const tableBody = document.getElementById("tenantTableBody");
-  const pagination = document.getElementById("pagination");
+    // ====== DOM ELEMENTS ======
+    const tableBody = document.getElementById("tenantTableBody");
+    const pagination = document.getElementById("pagination");
 
-  // ====== PAGINATION CONFIG ======
-  const perPage = 15;
-  let currentPage = 1;
-  const totalPages = Math.ceil(tenants.length / perPage);
+    // ====== PAGINATION CONFIG ======
+    const perPage = 15;
+    let currentPage = 1;
+    const totalPages = Math.ceil(tenants.length / perPage);
 
-  // ====== RENDER TABLE ======
-  function renderTable(page) {
-    tableBody.innerHTML = "";
-    const start = (page - 1) * perPage;
-    const end = start + perPage;
-    const batch = tenants.slice(start, end);
+    // ====== RENDER TABLE ======
+    function renderTable(page) {
+      tableBody.innerHTML = "";
+      const start = (page - 1) * perPage;
+      const end = start + perPage;
+      const batch = tenants.slice(start, end);
 
-    if (batch.length === 0) {
-      tableBody.innerHTML = `
-        <tr>
-          <td colspan="10" class="text-center text-muted py-4">
-            Tidak ada data tenant ditemukan.
+      if (batch.length === 0) {
+        tableBody.innerHTML = `
+          <tr>
+            <td colspan="10" class="text-center text-muted py-4">
+              Tidak ada data tenant ditemukan.
+            </td>
+          </tr>`;
+        return;
+      }
+
+      batch.forEach(tenant => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td class="text-center"><input type="checkbox" class="select-user" value="${tenant.id}"/></td>
+          <td class="text-center">${tenant.id}</td>
+          <td>${tenant.nama_brand}</td>
+          <td class="text-center">${tenant.jenis_usaha}</td>
+          <td>${tenant.lokasi}</td>
+          <td class="text-center">${tenant.rating ?? "-"}</td>
+          <td class="text-center">${tenant.total_review ?? "-"}</td>
+          <td>${tenant.rentang_harga}</td>
+          <td class="text-center">
+            <img
+              src="/static/images/tenant/${tenant.gambar}"
+              alt="${tenant.nama_brand}"
+              width="50"
+              height="50"
+              class="rounded"
+              loading="lazy"
+            />
           </td>
-        </tr>`;
-      return;
-    }
-
-    batch.forEach(tenant => {
-      const row = document.createElement("tr");
-      row.innerHTML = `
-        <td class="text-center"><input type="checkbox" class="select-user" value="${tenant.id}"/></td>
-        <td class="text-center">${tenant.id}</td>
-        <td>${tenant.nama_brand}</td>
-        <td class="text-center">${tenant.jenis_usaha}</td>
-        <td>${tenant.lokasi}</td>
-        <td class="text-center">${tenant.rating ?? "-"}</td>
-        <td class="text-center">${tenant.total_review ?? "-"}</td>
-        <td>${tenant.rentang_harga}</td>
-        <td class="text-center">
-          <img 
-            src="/static/images/tenant/${tenant.gambar}" 
-            alt="${tenant.nama_brand}" 
-            width="50" 
-            height="50"
-            class="rounded"
-            loading="lazy"
-          />
-        </td>
-        <td class="text-center">
-          <a href="/editTenant?id=${tenant.id}">
-            <button class="btn btn-sm btn-primary me-2">
-              <i class="bi bi-pencil-square text-white"></i>
+          <td class="text-center">
+            <a href="/editTenant?id=${tenant.id}">
+              <button class="btn btn-sm btn-primary me-2">
+                <i class="bi bi-pencil-square text-white"></i>
+              </button>
+            </a>
+            <button class="btn btn-sm btn-danger delete-btn" data-id="${tenant.id}">
+              <i class="bi bi-trash3 text-white"></i>
             </button>
-          </a>
-          <button class="btn btn-sm btn-danger delete-btn" data-id="${tenant.id}">
-            <i class="bi bi-trash3 text-white"></i>
-          </button>
-        </td>`;
-      tableBody.appendChild(row);
-    });
+          </td>`;
+        tableBody.appendChild(row);
+      });
 
-    addDeleteListeners();
-  }
+      addDeleteListeners();
+    }
 
-  // ====== RENDER PAGINATION ======
-  function renderPagination() {
-    pagination.innerHTML = "";
+    // ====== RENDER PAGINATION ======
+    function renderPagination() {
+      pagination.innerHTML = "";
 
-    const prevDisabled = currentPage === 1 ? "disabled" : "";
-    const nextDisabled = currentPage === totalPages ? "disabled" : "";
+      const prevDisabled = currentPage === 1 ? "disabled" : "";
+      const nextDisabled = currentPage === totalPages ? "disabled" : "";
 
-    pagination.innerHTML += `
-      <li class="page-item ${prevDisabled}">
-        <a class="page-link text-primary border-0" href="#" id="prevBtn">Prev</a>
-      </li>`;
-
-    // auto-generate dynamic page numbers
-    for (let p = 1; p <= totalPages; p++) {
       pagination.innerHTML += `
-        <li class="page-item ${p === currentPage ? "active" : ""}">
-          <a class="page-link ${p === currentPage ? "bg-primary text-white" : "text-primary"} border-0" href="#">${p}</a>
+        <li class="page-item ${prevDisabled}">
+          <a class="page-link text-primary border-0" href="#" id="prevBtn">Prev</a>
         </li>`;
+
+      // auto-generate dynamic page numbers
+      for (let p = 1; p <= totalPages; p++) {
+        pagination.innerHTML += `
+          <li class="page-item ${p === currentPage ? "active" : ""}">
+            <a class="page-link ${p === currentPage ? "bg-primary text-white" : "text-primary"} border-0" href="#">${p}</a>
+          </li>`;
+      }
+
+      pagination.innerHTML += `
+        <li class="page-item ${nextDisabled}">
+          <a class="page-link text-primary border-0" href="#" id="nextBtn">Next</a>
+        </li>`;
+
+      // event handling
+      pagination.querySelectorAll(".page-item a").forEach((a) => {
+        a.addEventListener("click", e => {
+          e.preventDefault();
+          if (a.id === "prevBtn" && currentPage > 1) currentPage--;
+          else if (a.id === "nextBtn" && currentPage < totalPages) currentPage++;
+          else if (!a.id) currentPage = parseInt(a.textContent);
+
+          renderTable(currentPage);
+          renderPagination();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      });
     }
 
-    pagination.innerHTML += `
-      <li class="page-item ${nextDisabled}">
-        <a class="page-link text-primary border-0" href="#" id="nextBtn">Next</a>
-      </li>`;
-
-    // event handling
-    pagination.querySelectorAll(".page-item a").forEach((a) => {
-      a.addEventListener("click", e => {
-        e.preventDefault();
-        if (a.id === "prevBtn" && currentPage > 1) currentPage--;
-        else if (a.id === "nextBtn" && currentPage < totalPages) currentPage++;
-        else if (!a.id) currentPage = parseInt(a.textContent);
-
-        renderTable(currentPage);
-        renderPagination();
-        window.scrollTo({ top: 0, behavior: "smooth" });
+    // ====== DELETE HANDLERS ======
+    function addDeleteListeners() {
+      const deleteButtons = document.querySelectorAll(".delete-btn");
+      deleteButtons.forEach(btn => {
+        btn.addEventListener("click", async () => {
+          const id = btn.getAttribute("data-id");
+          if (confirm(`Yakin ingin menghapus tenant dengan ID ${id}?`)) {
+            const response = await fetch(`/tenantDelete/${id}`, {
+              method: "DELETE",
+              headers: { "Authorization": `Bearer ${token}` },
+            });
+            const result = await response.json();
+            alert(result.success || result.error);
+            location.reload();
+          }
+        });
       });
+    }
+
+    // ====== SELECT ALL ======
+    const selectAll = document.getElementById("selectAll");
+    selectAll.addEventListener("change", function() {
+      document.querySelectorAll(".select-user").forEach(cb => cb.checked = selectAll.checked);
     });
-  }
 
-  // ====== DELETE HANDLERS ======
-  function addDeleteListeners() {
-    const deleteButtons = document.querySelectorAll(".delete-btn");
-    deleteButtons.forEach(btn => {
-      btn.addEventListener("click", async () => {
-        const id = btn.getAttribute("data-id");
-        if (confirm(`Yakin ingin menghapus tenant dengan ID ${id}?`)) {
-          const response = await fetch(`/tenantDelete/${id}`, {
-            method: "DELETE",
-            headers: { "Authorization": `Bearer ${token}` },
-          });
-          const result = await response.json();
-          alert(result.success || result.error);
-          location.reload();
-        }
-      });
+    // ====== BATCH DELETE ======
+    const deleteBatchBtn = document.getElementById("deleteBatchBtn");
+    deleteBatchBtn.addEventListener("click", async () => {
+      const selected = Array.from(document.querySelectorAll(".select-user"))
+        .filter(cb => cb.checked)
+        .map(cb => parseInt(cb.value));
+
+      if (selected.length === 0) {
+        alert("Pilih minimal satu tenant terlebih dahulu!");
+        return;
+      }
+
+      if (confirm(`Yakin ingin menghapus ${selected.length} tenant?`)) {
+        const response = await fetch(`/tenants/batch`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`,
+          },
+          body: JSON.stringify(selected),
+        });
+
+        const result = await response.json();
+        alert(result.success || result.error);
+        location.reload();
+      }
     });
-  }
 
-  // ====== SELECT ALL ======
-  const selectAll = document.getElementById("selectAll");
-  selectAll.addEventListener("change", function() {
-    document.querySelectorAll(".select-user").forEach(cb => cb.checked = selectAll.checked);
+    // ====== INIT ======
+    renderTable(currentPage);
+    renderPagination();
   });
-
-  // ====== BATCH DELETE ======
-  const deleteBatchBtn = document.getElementById("deleteBatchBtn");
-  deleteBatchBtn.addEventListener("click", async () => {
-    const selected = Array.from(document.querySelectorAll(".select-user"))
-      .filter(cb => cb.checked)
-      .map(cb => parseInt(cb.value));
-
-    if (selected.length === 0) {
-      alert("Pilih minimal satu tenant terlebih dahulu!");
-      return;
-    }
-
-    if (confirm(`Yakin ingin menghapus ${selected.length} tenant?`)) {
-      const response = await fetch(`/tenants/batch`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`,
-        },
-        body: JSON.stringify(selected),
-      });
-
-      const result = await response.json();
-      alert(result.success || result.error);
-      location.reload();
-    }
-  });
-
-  // ====== INIT ======
-  renderTable(currentPage);
-  renderPagination();
-});
 </script>
 {% endblock %}
