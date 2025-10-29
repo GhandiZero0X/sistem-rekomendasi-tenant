@@ -90,4 +90,8 @@ SELESAI
 
 22. Menambahkan fitur ekspor data tenant ke dalam format CSV dan Excel guna mempermudah proses penyimpanan, analisis, serta distribusi 
 data secara efisien.
+SELESAI
+
+23. Menambahkan fitur ekspor data akun user ke dalam format CSV dan Excel guna mempermudah proses penyimpanan, analisis, serta distribusi 
+data secara efisien.
 onprogres
