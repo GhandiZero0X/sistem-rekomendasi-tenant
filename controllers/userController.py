@@ -3,6 +3,7 @@ from flask import send_file, Response
 import os
 import pandas as pd
 import bcrypt
+from scipy import io
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "../data")
