@@ -2,7 +2,7 @@ id,username,password,status_approval,role
 1,superadmin@injourney,$2b$12$IX/YIiy1SIgoNqIbJsd/S.v5jgz6plrLTqy9kAD7JxIjJPLFPrZKK,1,superadmin
 2,admin0210@injourney,$2b$12$2CVANZZdfHwnprqChURekefjDtPD80fJNfBzg6YOzOCOAIJtdE17i,0,admin
 3,admin2010@injourney,$2b$12$m96mxPMFksY4wOTm6iCiYOayW/Of8LetC.2aX2pLZVMofR.xPURiG,0,admin
-4,admin2025@injourney,$2b$12$rDfX8fY/lw10agt9TT5KDOukpTjs8o5Pgf0V4Z4CJw0Y1YVw6VvMy,1,admin
+4,admin2025@injourney,$2b$12$rDfX8fY/lw10agt9TT5KDOukpTjs8o5Pgf0V4Z4CJw0Y1YVw6VvMy,0,admin
 5,putriegiha@gmail.com,$2b$12$HS5kgTHplIxVYoE48FNaXeK6SEXhknFLwkoXg89.t5jGBsk5cOHp6,0,admin
 6,testadmin@gmail.com,$2b$12$.wiUXjUmfr1NpRnrxZGo6Otslbf1Z1SZKmng9Ijie0R9C4bDD7ilm,0,admin
-7,muhamadghandinursetiawan@gmail.com,$2b$12$QcntBE4t4wckSAhtshR4beCo.AbOWyr0bD/yAMOw5MeHPTmZzA7AG,0,admin
+7,muhamadghandinursetiawan@gmail.com,$2b$12$QcntBE4t4wckSAhtshR4beCo.AbOWyr0bD/yAMOw5MeHPTmZzA7AG,1,admin

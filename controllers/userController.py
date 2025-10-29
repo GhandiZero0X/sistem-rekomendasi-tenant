@@ -1,4 +1,5 @@
 # controllers/userController.py
+from flask import send_file, Response
 import os
 import pandas as pd
 import bcrypt
@@ -160,3 +161,39 @@ def delete_batch_users(user_ids: list):
     if not_found:
         msg += f" (ID tidak ditemukan: {not_found})"
     return {"success": msg}
+
+# download users dataset bentuk CSV
+def download_users_csv():
+    """Download dataset users dalam format CSV"""
+    if not os.path.exists(USERPATH):
+        return {"error": "Dataset tidak ditemukan."}
+    
+    return send_file(
+        USERPATH,
+        mimetype="text/csv",
+        as_attachment=True,
+        download_name="users_dataset.csv"
+    )
+
+# download users dataset bentuk excel
+def download_users_excel():
+    """Download dataset users dalam format Excel"""
+    if not os.path.exists(USERPATH):
+        return {"error": "Dataset tidak ditemukan."}
+
+    df = pd.read_csv(USERPATH)
+
+    # Buat buffer file Excel di memori
+    excel_buffer = io.BytesIO()
+    with pd.ExcelWriter(excel_buffer, engine="xlsxwriter") as writer:
+        df.to_excel(writer, index=False, sheet_name="Users")
+        writer.save()
+    excel_buffer.seek(0)
+
+    return Response(
+        excel_buffer.getvalue(),
+        mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        headers={
+            "Content-Disposition": "attachment; filename=users_dataset.xlsx"
+        }
+    )

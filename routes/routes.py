@@ -10,7 +10,7 @@ from controllers.datasetController import (
 from controllers.algoritmaController import get_recommendations_by_filters, run_clustering, get_top_recommendation
 from controllers.authController import register, login, approve_user
 from controllers.userController import (
-    get_all_users, get_user_by_id, add_user, add_batch_users, update_user, delete_user, delete_batch_users
+    get_all_users, get_user_by_id, add_user, add_batch_users, update_user, delete_user, delete_batch_users, download_users_csv, download_users_excel
 )
 from controllers.dashboardController import get_superadmin_dashboard, get_admin_dashboard
 from utils.jwt_utils import decode_token
@@ -117,6 +117,20 @@ def dashboard():
 def user_dashboard():
     users = get_all_users()
     return render_template("pages/dashboardUser.html", users=users)
+
+# download users dataset dalam format CSV
+@routes.route("/download/users/csv", methods=["GET"])
+@token_required
+@role_required(["superadmin"])
+def download_userscsv():
+    return download_users_csv()
+
+# download users dataset dalam format Excel
+@routes.route("/download/users/excel", methods=["GET"])
+@token_required
+@role_required(["superadmin"])
+def download_usersexcel():
+    return download_users_excel()
 
 # tenant dashboard page route
 @routes.route("/dashboardTenant")
