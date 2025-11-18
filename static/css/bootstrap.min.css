@@ -6328,6 +6328,12 @@ fieldset:disabled .btn {
         margin: 0
     }
 
+@media (max-width: 576px) {
+    img[src*="logo_footer"] {
+        display: none !important;
+    }
+}
+
     .modal-fullscreen-xxl-down .modal-content {
         height: 100%;
         border: 0;
