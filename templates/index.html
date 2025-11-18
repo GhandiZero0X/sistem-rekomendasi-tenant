@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Injourney Airport</title>
+    <meta name="description" content="Solusi digital untuk bandara dalam mengelola tenant dan memberikan rekomendasi otomatis berbasis Machine Learning agar pengambilan keputusan lebih cepat dan akurat.">
+    <meta name="author" content="Airport Technology - Juanda International Airport">
+    <title>JTR - Juanda Tenant Rekomendasi</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
@@ -52,14 +52,16 @@
                 <div class="row">
                     <div class="col-lg-12 col-12">
                         <div class="text-center mb-5 pb-1">
-                            <h1 class="text-white">Juanda International Airport</h1>
+                            <h2 class="text-white">(JTR)</h2>
+                            <h1 class="text-white">Juanda Tenant Rekomendasi</h1>
+                            <h3 class="text-white">Injourney Airport</h3>
                         </div>
                         <div class="owl-carousel owl-theme">
                             <!-- top 10 Rekomendasi berdasarkan rating dan jumlah rating -->
                             {% for tenant in top_tenant %}
                             <div class="owl-carousel-info-wrap item">
                                 <img src="{{ url_for('static', filename='images/tenant/' + tenant.gambar) }}" class="owl-carousel-image"
-                                    alt="{{ tenant.nama_brand }}" loading="lazy">
+                                    alt="{{ tenant.nama_brand }}">
                                 <div class="owl-carousel-info">
                                     <h6 class="mb-2 text-primary">{{ tenant.nama_brand }}</h6>
                                     <span class="badge">{{ tenant.jenis_usaha }}</span>
@@ -161,7 +163,7 @@
                         data-gambar="{{ url_for('static', filename='images/tenant/' + tenant.gambar) }}">
                         <div class="custom-block-image-wrap">
                         <img src="{{ url_for('static', filename='images/tenant/' + tenant.gambar) }}"
-                            class="custom-block-image img-fluid" alt="{{ tenant.nama_brand }}" loading="lazy">
+                            class="custom-block-image img-fluid" alt="{{ tenant.nama_brand }}">
                         </div>
                         <div class="custom-block-info">
                         <h6 class="mb-2"><a href="#" data-bs-toggle="modal" data-bs-target="#detailModal">{{ tenant.nama_brand }}</a></h6>
@@ -201,7 +203,7 @@
                             data-gambar="{{ url_for('static', filename='images/tenant/' + tenant.gambar) }}">
                             <div class="custom-block-image-wrap">
                                 <img src="{{ url_for('static', filename='images/tenant/' + tenant.gambar) }}"
-                                    class="custom-block-image img-fluid" alt="{{ tenant.nama_brand }}" loading="lazy">
+                                    class="custom-block-image img-fluid" alt="{{ tenant.nama_brand }}">
                             </div>
                             <div class="custom-block-info">
                                 <h6 class="mb-2">
