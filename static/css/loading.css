@@ -1,25 +1,15 @@
 /* static/css/loading.css */
 
+/* =========================================
+   1. BAGIAN LOADER BAR (Tidak Diubah)
+   ========================================= */
 .loading-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 200px;
-    /* Bisa disesuaikan */
 }
-
-/* .loader {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0 auto;
-    width: 90px;
-    height: 50px;
-    text-align: center;
-    font-size: 10px;
-    z-index: 9999;
-} */
 
 .loader {
     margin: 0 auto;
@@ -39,69 +29,50 @@
     animation: delay 0.8s infinite ease-in-out;
 }
 
-.loader .bar1 {
-    background-color: #0d6efd;
-}
-
-.loader .bar2 {
-    background-color: #09b7bf;
-    animation-delay: -0.7s;
-}
-
-.loader .bar3 {
-    background-color: #bfddf8;
-    animation-delay: -0.6s;
-}
-
-.loader .bar4 {
-    background-color: #0d6efd;
-    animation-delay: -0.5s;
-}
-
-.loader .bar5 {
-    background-color: #09b7bf;
-    animation-delay: -0.4s;
-}
-
-.loader .bar6 {
-    background-color: #bfddf8;
-    animation-delay: -0.3s;
-}
+.loader .bar1 { background-color: #0d6efd; }
+.loader .bar2 { background-color: #09b7bf; animation-delay: -0.7s; }
+.loader .bar3 { background-color: #bfddf8; animation-delay: -0.6s; }
+.loader .bar4 { background-color: #0d6efd; animation-delay: -0.5s; }
+.loader .bar5 { background-color: #09b7bf; animation-delay: -0.4s; }
+.loader .bar6 { background-color: #bfddf8; animation-delay: -0.3s; }
 
 @keyframes delay {
-
-    0%,
-    40%,
-    100% {
-        transform: scaleY(0.05);
-    }
-
-    20% {
-        transform: scaleY(1.0);
-    }
+    0%, 40%, 100% { transform: scaleY(0.05); }
+    20% { transform: scaleY(1.0); }
 }
 
-/* loading page */
+/* =========================================
+   2. BAGIAN LOADING PAGE (Diperbarui)
+   ========================================= */
+
 /* Fullscreen loading overlay */
 #loading-page {
     position: fixed;
     inset: 0;
     background: #ffffff;
     display: flex;
+    
+    /* PERUBAHAN: Column agar Logo di atas, Teks di bawah */
+    flex-direction: column; 
+    
     justify-content: center;
     align-items: center;
     z-index: 9999;
     animation: fadeOut 1s ease forwards;
-    animation-delay: 2s;
-    /* waktu sebelum menghilang */
+    /* Sedikit diperlama agar teks sempat terbaca */
+    animation-delay: 3s; 
 }
 
 .logo-container {
     position: relative;
     width: 120px;
     height: 120px;
+    
+    /* PERUBAHAN: Memberi jarak antara logo dan tulisan di bawahnya */
+    margin-bottom: 30px;
 }
 
+/* Style untuk Logo Part */
 .logo-part {
     position: absolute;
     width: 100%;
@@ -131,28 +102,77 @@
     transform: translate(-60px, 60px) scale(0.5);
 }
 
-/* Animasi penyatuan */
+/* =========================================
+   3. BAGIAN TEKS (Baru Ditambahkan)
+   ========================================= */
+.loading-text {
+    text-align: center;
+    opacity: 0; /* Mulai hilang */
+    animation: fadeInText 1s ease forwards;
+    animation-delay: 0.5s; /* Muncul setelah logo mulai bergerak */
+}
+
+/* Memastikan warna teks gelap (karena background putih) & Ukuran Font */
+.loading-text h1, 
+.loading-text h2, 
+.loading-text h3 {
+    margin: 5px 0;
+    color: #212529; /* Warna gelap (pengganti text-white) */
+}
+
+.loading-text h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.loading-text h1 {
+    font-size: 1.5rem;
+    font-weight: 800; /* Lebih tebal */
+    color: #000000;
+}
+
+.loading-text h3 {
+    font-size: 1rem;
+    font-weight: normal;
+    color: #6c757d; /* Abu-abu */
+}
+
+/* =========================================
+   4. KEYFRAMES ANIMASI
+   ========================================= */
+
+/* Animasi penyatuan (TIDAK DIUBAH) */
 @keyframes combine {
     0% {
         opacity: 0;
         transform: translate(var(--tx, 0), var(--ty, 0)) scale(0.5);
     }
-
     50% {
         opacity: 1;
         transform: translate(0, 0) scale(1);
     }
-
     100% {
         opacity: 1;
         transform: translate(0, 0) scale(1);
     }
 }
 
-/* Animasi hilang */
+/* Animasi hilang halaman loading */
 @keyframes fadeOut {
     to {
         opacity: 0;
         visibility: hidden;
+    }
+}
+
+/* Animasi muncul teks dari bawah ke atas */
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
