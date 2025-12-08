@@ -1,1 +1,46 @@
+# --- Virtual Environment ---
+venv/
+env/
+.venv/
+
+# --- Python Cache ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Env Files ---
 .env
+*.env
+
+# --- OS Generated ---
+.DS_Store
+Thumbs.db
+
+# --- IDE / Editor ---
+.vscode/
+.idea/
+
+# --- Logs ---
+*.log
+
+# --- Flask Cache / Instance ---
+instance/
+*.sqlite
+*.db
+
+# --- Build / Packaging ---
+build/
+dist/
+*.egg-info/
+
+# --- Uploaded files / Temporary data ---
+/data/*
+!data/.gitkeep
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+
+# --- Compiled models ---
+models/*.pkl
+models/*.joblib
