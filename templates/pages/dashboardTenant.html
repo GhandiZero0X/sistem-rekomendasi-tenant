@@ -33,21 +33,20 @@ endblock %} {% block content %}
             </button>
             <ul class="dropdown-menu dropdown-menu-end shadow-sm">
               <li>
-                <a
-                  class="dropdown-item"
-                  href="{{ url_for('routes.download_csv') }}"
-                >
-                  <i
-                    class="bi bi-file-earmark-spreadsheet me-2 text-success"
-                  ></i>
+                <a class="dropdown-item" href="{{ url_for('routes.download_csv') }}">
+                  <i class="bi bi-file-earmark-spreadsheet me-2 text-success"></i>
                   Ekspor ke CSV
                 </a>
               </li>
+              <!--- <li>
+                <a class="dropdown-item" href="{{ url_for('routes.download_excel') }}">
+                  <i class="bi bi-file-earmark-excel me-2 text-primary"></i>
+                  Ekspor ke Excel
+                </a>
+              </li> -->
+              <!-- NEW: convert CSV -> Excel on-the-fly -->
               <li>
-                <a
-                  class="dropdown-item"
-                  href="{{ url_for('routes.download_excel') }}"
-                >
+                <a class="dropdown-item" href="#" id="convertCsvClient">
                   <i class="bi bi-file-earmark-excel me-2 text-primary"></i>
                   Ekspor ke Excel
                 </a>
@@ -257,6 +256,53 @@ endblock %} {% block content %}
     // ====== INIT ======
     renderTable(currentPage);
     renderPagination();
+  });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const token = "{{ session.get('token', '') }}";
+    const convertBtn = document.getElementById("convertCsvClient");
+    if (!convertBtn) return;
+
+    convertBtn.addEventListener("click", async (e) => {
+      e.preventDefault();
+
+      try {
+        const res = await fetch("{{ url_for('routes.download_csv') }}", {
+          method: "GET",
+          headers: {
+            "Authorization": `Bearer ${token}`
+          }
+        });
+
+        if (!res.ok) return; // silently fail
+
+        // Ambil CSV sebagai teks
+        const csvText = await res.text();
+
+        // Parse CSV → Array-of-Arrays
+        const papaRes = Papa.parse(csvText, {
+          delimiter: "",
+          newline: "",
+          quoteChar: '"',
+          escapeChar: '"',
+          header: false,
+          skipEmptyLines: true,
+        });
+
+        const aoa = papaRes.data;
+
+        // Convert AOA → Worksheet & Workbook
+        const worksheet = XLSX.utils.aoa_to_sheet(aoa);
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, "Tenant Data");
+
+        // Auto-download Excel (.xlsx)
+        XLSX.writeFile(workbook, "tenant_dataset.xlsx");
+
+      } catch (err) {
+        console.error(err); // silent fail, no alert
+      }
+    });
   });
 </script>
 {% endblock %}

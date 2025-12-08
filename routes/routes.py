@@ -5,7 +5,7 @@ from flask import Blueprint, request, jsonify, render_template, redirect, url_fo
 from controllers.datasetController import (
     get_all_tenants, get_tenant_by_id,
     add_tenant, add_batch_tenants, update_tenant, 
-    delete_tenant, delete_batch_tenants, download_dataset_csv, download_dataset_excel
+    delete_tenant, delete_batch_tenants, download_dataset_csv, download_dataset_excel, download_csv_converted_to_excel
 )
 from controllers.algoritmaController import get_recommendations_by_filters, run_clustering, get_top_recommendation
 from controllers.authController import register, login, approve_user
@@ -153,6 +153,13 @@ def download_csv():
 @role_required(["admin", "superadmin"])
 def download_excel():
     return download_dataset_excel()
+
+# === Download dataset tenant dalam format CSV di rubah ke Excel ===
+@routes.route("/download/csv-to-excel", methods=["GET"])
+@token_required
+@role_required(["admin", "superadmin"])
+def download_csv_to_excel():
+    return download_csv_converted_to_excel()
 
 # edit tenant page route
 @routes.route("/editTenant", methods=["GET", "POST"])

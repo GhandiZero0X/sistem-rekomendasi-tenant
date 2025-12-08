@@ -3,6 +3,10 @@ from flask import send_file, Response
 import io
 import os
 import pandas as pd
+import tempfile
+from io import BytesIO
+from flask import Response
+from pyexcelerate import Workbook
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "../data")
@@ -184,3 +188,49 @@ def download_dataset_excel():
         download_name="tenant_dataset.xlsx",
         mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
+
+# Download dataset CSV yang dikonversi ke Excel
+def download_csv_converted_to_excel():
+    """Baca CSV, konversi ke Excel (.xlsx) menggunakan pyexcelerate (via temp file),
+    lalu kembalikan sebagai attachment bytes (sama gaya dengan download_users_excel)."""
+    if not os.path.exists(RAW_PATH):
+        return {"error": "Dataset tidak ditemukan."}, 404
+
+    # Load CSV
+    df = pd.read_csv(RAW_PATH)
+
+    # Replace NaN -> empty string supaya pyexcelerate ga error dan tampilan lebih bersih
+    df = df.fillna("")
+
+    # Siapkan data sebagai list of lists: header + rows
+    data = [df.columns.tolist()] + df.values.tolist()
+
+    # Tulis ke temporary .xlsx file karena pyexcelerate save() butuh path
+    tmp_path = None
+    try:
+        with tempfile.NamedTemporaryFile(suffix=".xlsx", delete=False) as tmp:
+            tmp_path = tmp.name
+
+        wb = Workbook()
+        # pyexcelerate expects a 1-based row/col indexing, but new_sheet with data works
+        wb.new_sheet("Tenant Data", data=data)
+        wb.save(tmp_path)
+
+        # Baca file sementara ke memory
+        with open(tmp_path, "rb") as f:
+            file_bytes = f.read()
+
+        return Response(
+            file_bytes,
+            mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            headers={
+                "Content-Disposition": "attachment; filename=tenant_dataset_from_csv.xlsx"
+            }
+        )
+    finally:
+        # cleanup file sementara jika ada
+        if tmp_path and os.path.exists(tmp_path):
+            try:
+                os.remove(tmp_path)
+            except Exception:
+                pass
