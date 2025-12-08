@@ -4,6 +4,7 @@ import os
 import pandas as pd
 import bcrypt
 from scipy import io
+from io import BytesIO
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "../data")
@@ -184,11 +185,9 @@ def download_users_excel():
 
     df = pd.read_csv(USERPATH)
 
-    # Buat buffer file Excel di memori
-    excel_buffer = io.BytesIO()
+    excel_buffer = BytesIO()
     with pd.ExcelWriter(excel_buffer, engine="xlsxwriter") as writer:
         df.to_excel(writer, index=False, sheet_name="Users")
-        writer.save()
     excel_buffer.seek(0)
 
     return Response(
@@ -198,3 +197,4 @@ def download_users_excel():
             "Content-Disposition": "attachment; filename=users_dataset.xlsx"
         }
     )
+
