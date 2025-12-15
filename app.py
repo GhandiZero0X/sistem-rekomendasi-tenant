@@ -2,7 +2,6 @@
 from flask import Flask
 from routes.routes import routes
 from services.watcher import start_watcher
-from flask_talisman import Talisman
 from dotenv import load_dotenv
 import atexit
 import sys
@@ -17,47 +16,6 @@ def create_app():
 
     # === Secret key dari .env ===
     app.secret_key = os.getenv("FLASK_SECRET_KEY")
-
-    # === Flask-Talisman untuk keamanan HTTP headers ===
-    # Kamu bisa custom Content Security Policy (CSP) sesuai kebutuhan
-    # csp = {
-    #     'default-src': [
-    #         "'self'",
-    #         "https://cdn.jsdelivr.net",   # kalau kamu pakai js/css CDN
-    #         "https://cdnjs.cloudflare.com",
-    #     ],
-    #     'img-src': [
-    #         "'self'",
-    #         "data:",                       # izinkan inline image base64
-    #         "https://*",
-    #     ],
-    #     'script-src': [
-    #         "'self'",
-    #         "'unsafe-inline'",              # opsional, untuk inline JS sementara
-    #         "https://cdn.jsdelivr.net",
-    #         "https://cdnjs.cloudflare.com",
-    #     ],
-    #     'style-src': [
-    #         "'self'",
-    #         "'unsafe-inline'",              # supaya inline CSS gak ke-block
-    #         "https://cdn.jsdelivr.net",
-    #         "https://fonts.googleapis.com",
-    #     ],
-    #     'font-src': [
-    #         "'self'",
-    #         "https://fonts.gstatic.com",
-    #     ],
-    # }
-
-    # # Terapkan Talisman
-    # Talisman(
-    #     app,
-    #     content_security_policy=csp,
-    #     force_https=False,  # ubah ke True kalau nanti udah pakai HTTPS
-    #     session_cookie_secure=True,
-    #     session_cookie_http_only=True,
-    #     session_cookie_samesite="Lax"
-    # )
 
     # === Daftarkan blueprint routes ===
     app.register_blueprint(routes)
