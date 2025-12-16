@@ -129,7 +129,7 @@ cluster_cache = run_clustering()
 # rekomendasi top 10 tenant berdasarkan rating dan jumlah rating tenant
 def get_top_recommendation(top_n=10):
     """
-    Ambil top tenant dinamis dari cluster populer (cluster 1),
+    Ambil top tenant dinamis dari cluster yang telah di buat sebelumnya,
     dengan variasi acak pada skor agar hasil berganti-ganti tiap kali dipanggil.
     """
     global cluster_cache
@@ -138,7 +138,7 @@ def get_top_recommendation(top_n=10):
     if "all_kmeans" not in cluster_cache:
         cluster_cache = run_clustering()
 
-    # Ambil tenant dari cluster populer (cluster 1)
+    # Ambil tenant dari cluster
     df_popular = cluster_cache["all_kmeans"].get(1, pd.DataFrame())
 
     # Kalau cluster kosong, return kosong
