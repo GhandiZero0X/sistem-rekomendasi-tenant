@@ -202,30 +202,30 @@ def get_top_recommendation(top_n=10):
 #     print(hasil)
 
 # if __name__ == "__main__":
-    # print("=== Testing Terminal algoritmaController.py ===\n")
-    # print("=== Testing Evaluasi Rekomendasi ===\n")
+#     print("=== Testing Terminal algoritmaController.py ===\n")
+#     print("=== Testing Evaluasi Rekomendasi ===\n")
 
-    # # Coba evaluasi dengan filter tertentu
-    # evaluate_recommendation(lokasi="T1", aktivitas="Makanan", rentang_harga="murah", top_n=10)
+#     # Coba evaluasi dengan filter tertentu
+#     evaluate_recommendation(lokasi="T1", aktivitas="Makanan", rentang_harga="murah", top_n=10)
 
-    # # Coba clustering
-    # print("\n=== Testing Clustering ===")
-    # clusters = run_clustering()
-    # for cluster_id, tenants in clusters["all_kmeans"].items():
-    #     print(f"\nCluster KMeans {cluster_id} (Top 3):")
-    #     print(tenants.head(3)[["nama_brand", "rating", "total_review"]])
+#     # Coba clustering
+#     print("\n=== Testing Clustering ===")
+#     clusters = run_clustering()
+#     for cluster_id, tenants in clusters["all_kmeans"].items():
+#         print(f"\nCluster KMeans {cluster_id} (Top 3):")
+#         print(tenants.head(3)[["nama_brand", "rating", "total_review"]])
 
     # print("=== Testing algoritmaController.py ===\n")
 
-#     print("\n=== Cek Rekomendasi Manual ===")
-#     lokasi_input = input("Masukkan Lokasi (T1/T2) [Opsional]: ").strip() or None
-#     aktivitas_input = input("Masukkan Aktivitas (Belanja/Makanan/Service) [Opsional]: ").strip() or None
-#     harga_input = input("Masukkan Rentang Harga (murah/sedang/mahal) [Opsional]: ").strip() or None
+    # print("\n=== Cek Rekomendasi Manual ===")
+    # lokasi_input = input("Masukkan Lokasi (T1/T2) [Opsional]: ").strip() or None
+    # aktivitas_input = input("Masukkan Aktivitas (Belanja/Makanan/Service) [Opsional]: ").strip() or None
+    # harga_input = input("Masukkan Rentang Harga (murah/sedang/mahal) [Opsional]: ").strip() or None
 
-#     hasil = get_recommendations_by_filters(lokasi_input, aktivitas_input, harga_input, top_n=10)
+    # hasil = get_recommendations_by_filters(lokasi_input, aktivitas_input, harga_input, top_n=10)
 
-#     print("\n=== Hasil Rekomendasi ===")
-#     print(hasil if isinstance(hasil, str) else hasil.head(10))
+    # print("\n=== Hasil Rekomendasi ===")
+    # print(hasil if isinstance(hasil, str) else hasil.head(10))
 
     # Test clustering
     # print("--- Hasil Evaluasi Clustering ---")
@@ -236,7 +236,7 @@ def get_top_recommendation(top_n=10):
     #     print(f"\nTop 5 KMeans Cluster {cluster_id}:")
     #     print(tenants.head(5))
 
-#     # Test rekomendasi sederhana
-#     print("\n--- Hasil Rekomendasi ---")
-#     rekom = get_recommendations_by_filters(lokasi="T1", aktivitas="Makanan", rentang_harga="sedang", top_n=5)
-#     print(rekom)
+    # # Test rekomendasi sederhana
+    # print("\n--- Hasil Rekomendasi ---")
+    # rekom = get_recommendations_by_filters(lokasi="T1", aktivitas="Makanan", rentang_harga="sedang", top_n=5)
+    # print(rekom)

@@ -335,6 +335,11 @@ def register_route():
 def login_route():
     return login()
 
+# Cek login admin dan superadmin postman DENGAN MENGELUARKAN TOKEN DAN ROLENYA
+@routes.route("/checklogin", methods=["POST"])
+def check_login_route():
+    return login()
+
 # Approve akun admin oleh superadmin
 @routes.route("/approve/<int:user_id>", methods=["PUT"])
 @token_required
