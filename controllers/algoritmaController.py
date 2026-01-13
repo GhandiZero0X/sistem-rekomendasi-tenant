@@ -66,6 +66,7 @@ aktivitas_mapping = {
     "Service": ["Services", "Bank", "ATM", "Financial"]
 }
 
+# fungsi rekomendasi dengan filter lokasi, aktivitas, dan rentang harga
 def get_recommendations_by_filters(lokasi=None, aktivitas=None, rentang_harga=None, top_n=10):
     if not lokasi and not aktivitas and not rentang_harga:
         return None
